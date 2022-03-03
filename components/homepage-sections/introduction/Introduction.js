@@ -1,7 +1,7 @@
 import SectionContainer from '../SectionContainer';
 
 const Introduction = () => {
-  return <SectionContainer>INTRODUCTION PAGE SECTION</SectionContainer>;
+  return <SectionContainer className='bg-red-200'>INTRODUCTION PAGE SECTION</SectionContainer>;
 };
 
 export default Introduction;

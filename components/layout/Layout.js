@@ -2,9 +2,9 @@ import Navbar from './navbar/Navbar';
 
 const Layout = props => {
   return (
-    <div className='bg-slate-500 mt-navbar-height text-white'>
+    <div className='bg-black text-blue-500'>
       <Navbar />
-      <main className='min-h-screen-minus-nav'>{props.children}</main>
+      <main className=''>{props.children}</main>
     </div>
   );
 };
