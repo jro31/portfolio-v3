@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body,
+html {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 3.5rem;
+}
