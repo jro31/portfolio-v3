@@ -1,4 +1,5 @@
 // TODO - Update favicon
+// TODO - Update readme
 
 import '../styles/globals.css';
 
