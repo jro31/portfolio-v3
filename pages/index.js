@@ -1,7 +1,17 @@
 import { Fragment } from 'react';
 import Head from 'next/head';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { testReducerActions } from '../store/test-reducer';
 
 const HomePage = () => {
+  const dispatch = useDispatch();
+  const testReducerState = useSelector(state => state.testReducer.testReducerState);
+
+  const testClickHandler = () => {
+    dispatch(testReducerActions.toggleState());
+  };
+
   return (
     <Fragment>
       <Head>
@@ -11,6 +21,7 @@ const HomePage = () => {
       </Head>
 
       <div className='text-3xl font-bold'>I&#39;m the homepage</div>
+      <div onClick={testClickHandler}>The test reducer state is {testReducerState.toString()}</div>
     </Fragment>
   );
 };
