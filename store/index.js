@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import testReducerReducer from './test-reducer';
+import windowDimensionsReducer from './window-dimensions';
 
 const store = configureStore({
   reducer: {
-    testReducer: testReducerReducer,
+    windowDimensions: windowDimensionsReducer,
   },
 });
 
