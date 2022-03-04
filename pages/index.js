@@ -17,7 +17,7 @@ const HomePage = () => {
   const component = componentName => {
     switch (componentName) {
       case AboutSection:
-        return <About />;
+        return <About key={componentName} />;
       case IntroductionSecion:
         return <Introduction key={componentName} />;
       case ProjectsSection:
