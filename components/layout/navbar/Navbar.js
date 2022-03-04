@@ -9,9 +9,13 @@ const Navbar = () => {
   };
 
   return (
-    <div className='fixed top-0 h-navbar-height w-full box-border bg-transparent'>
+    <div className='fixed top-0 h-navbar-height w-full box-border bg-transparent flex justify-around items-center'>
       {sectionOrder.map(section => (
-        <div onClick={() => handleSectionClick(section)} key={section}>
+        <div
+          className='uppercase cursor-pointer'
+          onClick={() => handleSectionClick(section)}
+          key={section}
+        >
           {section}
         </div>
       ))}

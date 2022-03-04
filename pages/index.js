@@ -1,25 +1,29 @@
 import { Fragment } from 'react';
 import Head from 'next/head';
 
+import About from '../components/homepage-sections/about/About';
 import Introduction from '../components/homepage-sections/introduction/Introduction';
-import Tools from '../components/homepage-sections/tools/Tools';
 import Projects from '../components/homepage-sections/projects/Projects';
+import Tools from '../components/homepage-sections/tools/Tools';
 
+const AboutSection = 'about';
 const IntroductionSecion = 'introduction';
-const ToolsSection = 'tools';
 const ProjectsSection = 'projects';
+const ToolsSection = 'tools';
 
-export const sectionOrder = [IntroductionSecion, ToolsSection, ProjectsSection];
+export const sectionOrder = [IntroductionSecion, AboutSection, ToolsSection, ProjectsSection];
 
 const HomePage = () => {
   const component = componentName => {
     switch (componentName) {
+      case AboutSection:
+        return <About />;
       case IntroductionSecion:
         return <Introduction key={componentName} />;
-      case ToolsSection:
-        return <Tools key={componentName} />;
       case ProjectsSection:
         return <Projects key={componentName} />;
+      case ToolsSection:
+        return <Tools key={componentName} />;
       default:
         throw new Error('Unknown componentName in component() function of HomePage');
     }
