@@ -1,3 +1,4 @@
+const mobileNavbarHeight = '3.5rem';
 const navbarHeight = '3.5rem';
 
 module.exports = {
@@ -12,9 +13,6 @@ module.exports = {
         'slow-focus': 'slowFocus 1s',
         'zoom-down-in': 'zoomDownIn 1s',
         'zoom-up-in-delayed': 'zoomUpInDelayed 2s',
-      },
-      borderRadius: {
-        circle: '50%',
       },
       keyframes: {
         // TODO - Delete any of these you don't use
@@ -57,13 +55,10 @@ module.exports = {
           },
         },
       },
-      minHeight: {
-        'screen-minus-nav': 'calc(100vh - theme(space.navbar-height))',
-      },
       spacing: {
         inherit: 'inherit',
+        'mobile-navbar-height': mobileNavbarHeight,
         'navbar-height': navbarHeight,
-        'screen-minus-nav': 'calc(100vh - theme(space.navbar-height))',
       },
     },
   },
