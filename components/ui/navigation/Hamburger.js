@@ -30,7 +30,7 @@ const Hamburger = props => {
     <div
       className={`flex flex-col justify-center w-screen pl-3 transition-all duration-700 ${
         props.isOpen ? 'gap-0' : 'gap-2'
-      }`}
+      } ${props.className || ''}`}
       onClick={props.onClick || null}
     >
       {[...Array(3)].map((_, i) => (

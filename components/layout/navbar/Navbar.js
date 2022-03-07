@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CSSTransition from 'react-transition-group/CSSTransition';
 
@@ -40,18 +40,18 @@ const Navbar = () => {
     <CSSTransition
       mountOnEnter
       in={navbarIsVisible}
-      timeout={400}
-      classNames={{ enterActive: 'animate-slide-in-right' }}
+      timeout={1000}
+      classNames={{ enterActive: 'animate-fade-in lg:animate-slide-in-right' }}
     >
-      <Fragment>
-        <div className='flex lg:hidden fixed top-0 h-mobile-navbar-height'>
+      <div className='fixed top-0 bg-transparent'>
+        <div className='flex items-center lg:hidden h-mobile-navbar-height'>
           <Hamburger
             onClick={toggleMobileNav}
             isOpen={mobileNavIsOpen}
             background={isDarkBackground() ? 'dark' : 'light'}
           />
         </div>
-        <div className='hidden lg:flex fixed top-0 h-navbar-height w-full box-border bg-transparent justify-around items-center'>
+        <div className='hidden lg:flex h-navbar-height w-screen justify-around items-center'>
           {sectionOrder.map(section => (
             <SubtleLink
               key={section}
@@ -63,7 +63,7 @@ const Navbar = () => {
             </SubtleLink>
           ))}
         </div>
-      </Fragment>
+      </div>
     </CSSTransition>
   );
 };
