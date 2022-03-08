@@ -2,8 +2,8 @@ import { Fragment } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { navbarActions } from '../../../store/navbar';
-import Overlay from '../../ui/Overlay';
+import { navbarActions } from '../../../../store/navbar';
+import Overlay from '../../../ui/Overlay';
 
 const NavbarMobileMenu = () => {
   const dispatch = useDispatch();
