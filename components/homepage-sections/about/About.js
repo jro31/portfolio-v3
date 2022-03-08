@@ -3,7 +3,7 @@ import SectionContainer from '../SectionContainer';
 
 const About = () => {
   return (
-    <SectionContainer id={aboutSection} className='bg-red-700'>
+    <SectionContainer section={aboutSection} className='bg-red-700'>
       <div>ABOUT SECTION</div>
     </SectionContainer>
   );

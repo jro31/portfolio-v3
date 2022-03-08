@@ -3,7 +3,7 @@ import SectionContainer from '../SectionContainer';
 
 const Tools = () => {
   return (
-    <SectionContainer id={toolsSection} className='bg-orange-400'>
+    <SectionContainer section={toolsSection} className='bg-orange-400'>
       TOOLS SECTION
     </SectionContainer>
   );

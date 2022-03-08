@@ -1,21 +1,14 @@
-// TODO - Need this still?
-
-import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 
 import { sectionOrder } from '../pages';
 
 const useScrollTo = () => {
-  const windowHeight = useSelector(state => state.windowDimensions.height);
+  const router = useRouter();
 
   const scrollTo = section => {
-    const sectionIndex = () => {
-      if (sectionOrder.indexOf(section) === -1)
-        throw new Error('Unknown section in useScrollTo hook');
+    if (!sectionOrder.includes(section)) throw new Error('Unknown section passed to useScrollTo');
 
-      return sectionOrder.indexOf(section);
-    };
-
-    window.scrollTo(0, windowHeight * sectionIndex());
+    router.replace(`/#${section}`);
   };
 
   return scrollTo;

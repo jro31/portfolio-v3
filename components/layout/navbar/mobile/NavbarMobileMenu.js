@@ -21,7 +21,8 @@ const NavbarMobileMenu = () => {
   };
 
   const handleSectionClick = section => {
-    // TODO
+    dispatch(navbarActions.closeMobileNav());
+    scrollTo(section);
   };
 
   return (
@@ -35,7 +36,6 @@ const NavbarMobileMenu = () => {
       >
         <div className='fixed top-0 lg:hidden pt-mobile-navbar-height h-screen min-w-2/3 xs:min-w-1/2 md:min-w-1/3 bg-slate-200 z-20'>
           {sectionOrder.map(section => (
-            // TODO - Update this
             <SubtleLink
               key={`mobile-nav-${section}-link`}
               background='light'

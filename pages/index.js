@@ -7,18 +7,18 @@ import Projects from '../components/homepage-sections/projects/Projects';
 import Tools from '../components/homepage-sections/tools/Tools';
 
 export const aboutSection = 'about';
-export const introductionSecion = 'introduction';
+export const introductionSection = 'introduction';
 export const projectsSection = 'projects';
 export const toolsSection = 'tools';
 
-export const sectionOrder = [introductionSecion, aboutSection, toolsSection, projectsSection];
+export const sectionOrder = [introductionSection, aboutSection, toolsSection, projectsSection];
 
 const HomePage = () => {
   const component = componentName => {
     switch (componentName) {
       case aboutSection:
         return <About key={`${componentName}-component`} />;
-      case introductionSecion:
+      case introductionSection:
         return <Introduction key={`${componentName}-component`} />;
       case projectsSection:
         return <Projects key={`${componentName}-component`} />;

@@ -3,7 +3,7 @@ import { projectsSection } from '../../../pages';
 
 const Projects = () => {
   return (
-    <SectionContainer id={projectsSection} className='bg-green-600'>
+    <SectionContainer section={projectsSection} className='bg-green-600'>
       PROJECTS SECTION
     </SectionContainer>
   );
