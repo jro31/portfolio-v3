@@ -25,11 +25,15 @@ const NavbarMobileMenu = () => {
         timeout={1000}
         classNames={transitionClassNames}
       >
-        <div className='fixed top-0 pt-mobile-navbar-height h-screen bg-slate-200 z-20'>
+        <div className='fixed top-0 lg:hidden pt-mobile-navbar-height h-screen min-w-2/3 xs:min-w-1/2 md:min-w-1/3 bg-slate-200 z-20'>
           I&#34;m the mobile nav menu
         </div>
       </CSSTransition>
-      <Overlay in={mobileNavIsOpen} onClick={() => dispatch(navbarActions.closeMobileNav())} />
+      <Overlay
+        in={mobileNavIsOpen}
+        onClick={() => dispatch(navbarActions.closeMobileNav())}
+        className='lg:hidden'
+      />
     </Fragment>
   );
 };

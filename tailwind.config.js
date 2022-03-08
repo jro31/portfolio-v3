@@ -1,9 +1,15 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
 const mobileNavbarHeight = '3.5rem';
 const navbarHeight = '3.5rem';
 
 module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    screens: {
+      xxs: '384px',
+      xs: '512px',
+      ...defaultTheme.screens,
+    },
     extend: {
       animation: {
         // TODO - Delete any of these you don't use
@@ -65,6 +71,12 @@ module.exports = {
             opacity: 1,
           },
         },
+      },
+      minWidth: {
+        '1/2': '50%',
+        '1/3': '33.333333%',
+        '2/3': '66.666667%',
+        '1/4': '25%',
       },
       spacing: {
         inherit: 'inherit',
