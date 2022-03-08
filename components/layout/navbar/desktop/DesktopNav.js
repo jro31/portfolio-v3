@@ -8,6 +8,7 @@ import SubtleLink from '../../../ui/navigation/SubtleLink';
 import useLiveSection from '../../../../hooks/useLiveSection';
 import useIsDarkBackground from '../../../../hooks/useIsDarkBackground';
 import { navbarActions } from '../../../../store/navbar';
+import Link from 'next/link';
 
 const DesktopNav = () => {
   const dispatch = useDispatch();
@@ -40,14 +41,17 @@ const DesktopNav = () => {
       <div className='fixed top-0 left-3 bg-transparent z-50'>
         <div className='hidden lg:flex h-navbar-height w-screen justify-around items-center'>
           {sectionOrder.map(section => (
-            <SubtleLink
-              key={section}
-              underline={liveSection() === section}
-              background={isDarkBackground() ? 'dark' : 'light'}
-              onClick={() => handleSectionClick(section)}
-            >
-              {section}
-            </SubtleLink>
+            <Link href={`#${section}`} key={`desktop-nav-${section}-link`} shallow>
+              <a>
+                <SubtleLink
+                  underline={liveSection() === section}
+                  background={isDarkBackground() ? 'dark' : 'light'}
+                  // onClick={() => handleSectionClick(section)}
+                >
+                  {section}
+                </SubtleLink>
+              </a>
+            </Link>
           ))}
         </div>
       </div>

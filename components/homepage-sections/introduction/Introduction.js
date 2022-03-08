@@ -2,13 +2,14 @@ import useScrollTo from '../../../hooks/useScrollTo';
 import SubtleLink from '../../ui/navigation/SubtleLink';
 import Title from '../../ui/text/Title';
 import SectionContainer from '../SectionContainer';
-import { sectionOrder } from '../../../pages';
+import { introductionSecion, sectionOrder } from '../../../pages';
+import Link from 'next/link';
 
 const Introduction = () => {
   const scrollTo = useScrollTo();
 
   return (
-    <SectionContainer className='bg-black'>
+    <SectionContainer id={introductionSecion} className='bg-black'>
       <div className='flex flex-col lg:flex-row w-full h-full'>
         <div className='flex justify-center lg:justify-end lg:basis-1/2'>
           <div className='flex flex-col justify-around lg:basis-3/4'>
@@ -26,14 +27,18 @@ const Introduction = () => {
               </div>
             </div>
             <div>
-              <SubtleLink
-                arrow
-                underline
-                background='dark'
-                onClick={() => scrollTo(sectionOrder[1])}
-              >
-                Find out more
-              </SubtleLink>
+              <Link href={`#${sectionOrder[1]}`}>
+                <a>
+                  <SubtleLink
+                    arrow
+                    underline
+                    background='dark'
+                    // onClick={() => scrollTo(sectionOrder[1])}
+                  >
+                    Find out more
+                  </SubtleLink>
+                </a>
+              </Link>
             </div>
           </div>
         </div>

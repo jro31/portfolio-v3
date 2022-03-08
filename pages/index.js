@@ -17,15 +17,15 @@ const HomePage = () => {
   const component = componentName => {
     switch (componentName) {
       case aboutSection:
-        return <About key={componentName} />;
+        return <About key={`${componentName}-component`} />;
       case introductionSecion:
-        return <Introduction key={componentName} />;
+        return <Introduction key={`${componentName}-component`} />;
       case projectsSection:
-        return <Projects key={componentName} />;
+        return <Projects key={`${componentName}-component`} />;
       case toolsSection:
-        return <Tools key={componentName} />;
+        return <Tools key={`${componentName}-component`} />;
       default:
-        throw new Error('Unknown componentName in component() function of HomePage');
+        throw new Error('Unknown componentName in component function of HomePage');
     }
   };
 
