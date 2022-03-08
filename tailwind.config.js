@@ -7,9 +7,12 @@ module.exports = {
     extend: {
       animation: {
         // TODO - Delete any of these you don't use
-        'fade-in': 'fadeIn 2s',
+        'fade-in': 'fadeIn 1s linear forwards',
+        'fade-out': 'fadeOut 1s linear forwards',
         'slide-fade-up-delayed': 'slideFadeUpDelayed 2s',
         'slide-in-right': 'slideInRight 1s ease-out forwards',
+        'slide-out-left': 'slideOutLeft 1s ease-in forwards',
+        'slow-fade-in': 'fadeIn 2s linear forwards',
         'slow-focus': 'slowFocus 1s',
         'zoom-down-in': 'zoomDownIn 1s',
         'zoom-up-in-delayed': 'zoomUpInDelayed 2s',
@@ -20,6 +23,10 @@ module.exports = {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
+        fadeOut: {
+          '0%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
         slideFadeUpDelayed: {
           '0%': { transform: 'translateY(25vh)', opacity: 0 },
           '20%': { transform: 'translateY(25vh)', opacity: 0 },
@@ -28,6 +35,10 @@ module.exports = {
         slideInRight: {
           '0%': { transform: 'translateX(-100vw)' },
           '100%': { transform: 'translateX(0)' },
+        },
+        slideOutLeft: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100vw)' },
         },
         slowFocus: {
           '0%': { filter: 'blur(8px)' },

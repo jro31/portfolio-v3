@@ -41,7 +41,7 @@ const Introduction = () => {
           <img
             src='/images/self-portrait.jpeg'
             alt='Self-portrait'
-            className='h-inherit w-full object-contain animate-fade-in'
+            className='h-inherit w-full object-contain animate-slow-fade-in'
           />
         </div>
       </div>

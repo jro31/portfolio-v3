@@ -28,7 +28,7 @@ const Hamburger = props => {
 
   return (
     <div
-      className={`flex flex-col justify-center w-screen pl-3 transition-all duration-700 ${
+      className={`flex flex-col justify-center transition-all duration-700 ${
         props.isOpen ? 'gap-0' : 'gap-2'
       } ${props.className || ''}`}
       onClick={props.onClick || null}

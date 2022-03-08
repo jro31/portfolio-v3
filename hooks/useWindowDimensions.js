@@ -13,6 +13,7 @@ const useWindowDimensions = () => {
     };
 
     setWindowDimensions();
+    // TODO - Close the mobile nav if it is open and resized from mobile to desktop
     window.addEventListener('resize', setWindowDimensions);
     return () => window.removeEventListener('resize', setWindowDimensions);
   }, [dispatch]);
