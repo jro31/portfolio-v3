@@ -11,8 +11,6 @@ import { navbarActions } from '../../../../store/navbar';
 const DesktopNav = () => {
   const dispatch = useDispatch();
   const navbarIsVisible = useSelector(state => state.navbar.isVisible);
-  const windowHeight = useSelector(state => state.windowDimensions.height);
-  const windowScrollYPosition = useSelector(state => state.windowScrollPosition.yPosition);
   const liveSection = useSelector(state => state.liveSection.liveSection);
   const scrollTo = useScrollTo();
   const isDarkBackground = useIsDarkBackground();
@@ -23,11 +21,11 @@ const DesktopNav = () => {
 
   useEffect(() => {
     if (!navbarIsVisible) {
-      if (windowScrollYPosition && windowHeight && windowScrollYPosition >= windowHeight) {
+      if (liveSection !== sectionOrder[0]) {
         dispatch(navbarActions.showNavbar());
       }
     }
-  }, [dispatch, navbarIsVisible, windowHeight, windowScrollYPosition]); // TODO - Update this to use liveSection instead of windowScrollYPosition
+  }, [dispatch, navbarIsVisible, liveSection]);
 
   return (
     <CSSTransition

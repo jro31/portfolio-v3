@@ -7,7 +7,7 @@ const useScrollTo = () => {
   const scrollTo = section => {
     if (!sectionOrder.includes(section)) throw new Error('Unknown section passed to useScrollTo');
 
-    sectionRef(section).current.scrollIntoView();
+    sectionRef(section).current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return scrollTo;

@@ -1,8 +1,6 @@
-// import { useSelector } from 'react-redux';
 import useSectionRef from './useSectionRef';
 
 const useSectionDistanceFromTopOfPage = () => {
-  // const windowScrollYPosition = useSelector(state => state.windowScrollPosition.yPosition);
   const sectionRef = useSectionRef();
 
   const sectionDistanceFromTopOfPage = section => {

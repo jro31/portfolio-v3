@@ -19,6 +19,7 @@ export const toolsSection = 'tools';
 export let toolsRef;
 
 export const sectionOrder = [introductionSection, aboutSection, toolsSection, projectsSection];
+export const darkSections = [introductionSection];
 
 const HomePage = () => {
   aboutRef = useRef();
