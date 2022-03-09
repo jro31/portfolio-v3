@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useRef } from 'react';
 import Head from 'next/head';
 
 import About from '../components/homepage-sections/about/About';
@@ -7,13 +7,25 @@ import Projects from '../components/homepage-sections/projects/Projects';
 import Tools from '../components/homepage-sections/tools/Tools';
 
 export const aboutSection = 'about';
+export let aboutRef;
+
 export const introductionSection = 'introduction';
+export let introductionRef;
+
 export const projectsSection = 'projects';
+export let projectsRef;
+
 export const toolsSection = 'tools';
+export let toolsRef;
 
 export const sectionOrder = [introductionSection, aboutSection, toolsSection, projectsSection];
 
 const HomePage = () => {
+  aboutRef = useRef();
+  introductionRef = useRef();
+  projectsRef = useRef();
+  toolsRef = useRef();
+
   const component = componentName => {
     switch (componentName) {
       case aboutSection:

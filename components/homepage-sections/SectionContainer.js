@@ -1,17 +1,12 @@
-import { sectionOrder } from '../../pages';
+import useSectionRef from '../../hooks/useSectionRef';
 
 const SectionContainer = props => {
-  const sectionId = () => {
-    if (!sectionOrder.includes(props.section))
-      throw new Error('Unknown section passed to SectionContainer');
-
-    return props.section;
-  };
+  const sectionRef = useSectionRef();
 
   return (
     <div
-      id={sectionId()}
       className={`lg:h-screen box-border lg:snap-start ${props.className || ''}`}
+      ref={sectionRef(props.section)}
     >
       <div className='pt-mobile-navbar-height lg:pt-navbar-height h-full w-full'>
         {props.children}
