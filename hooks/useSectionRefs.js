@@ -25,7 +25,7 @@ const useSectionRefs = () => {
         case toolsSection:
           return toolsRef;
         default:
-          throw new Error('No section ref found in useSectionRefs');
+          throw new Error(`Section '${section}' not found in useSectionRefs`);
       }
     };
 

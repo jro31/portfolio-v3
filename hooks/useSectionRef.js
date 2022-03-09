@@ -6,7 +6,9 @@ const useSectionRef = () => {
   const sectionRef = section => {
     const refsObj = sectionRefs();
 
-    if (!refsObj[section]) throw new Error('Unrecognised section passed to useSectionRef');
+    if (!refsObj[section]) {
+      throw new Error(`Unrecognised section '${section}' passed to useSectionRef`);
+    }
 
     return refsObj[section];
   };
