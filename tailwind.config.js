@@ -23,6 +23,9 @@ module.exports = {
         'zoom-down-in': 'zoomDownIn 1s',
         'zoom-up-in-delayed': 'zoomUpInDelayed 2s',
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
       keyframes: {
         // TODO - Delete any of these you don't use
         fadeIn: {
