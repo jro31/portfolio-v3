@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useRef } from 'react';
 import Head from 'next/head';
 
 import About from '../components/homepage-sections/about/About';
@@ -7,25 +7,38 @@ import Projects from '../components/homepage-sections/projects/Projects';
 import Tools from '../components/homepage-sections/tools/Tools';
 
 export const aboutSection = 'about';
-export const introductionSecion = 'introduction';
-export const projectsSection = 'projects';
-export const toolsSection = 'tools';
+export let aboutRef;
 
-export const sectionOrder = [introductionSecion, aboutSection, toolsSection, projectsSection];
+export const introductionSection = 'introduction';
+export let introductionRef;
+
+export const projectsSection = 'projects';
+export let projectsRef;
+
+export const toolsSection = 'tools';
+export let toolsRef;
+
+export const sectionOrder = [introductionSection, aboutSection, toolsSection, projectsSection];
+export const darkSections = [introductionSection];
 
 const HomePage = () => {
+  aboutRef = useRef();
+  introductionRef = useRef();
+  projectsRef = useRef();
+  toolsRef = useRef();
+
   const component = componentName => {
     switch (componentName) {
       case aboutSection:
-        return <About key={componentName} />;
-      case introductionSecion:
-        return <Introduction key={componentName} />;
+        return <About key={`${componentName}-component`} />;
+      case introductionSection:
+        return <Introduction key={`${componentName}-component`} />;
       case projectsSection:
-        return <Projects key={componentName} />;
+        return <Projects key={`${componentName}-component`} />;
       case toolsSection:
-        return <Tools key={componentName} />;
+        return <Tools key={`${componentName}-component`} />;
       default:
-        throw new Error('Unknown componentName in component() function of HomePage');
+        throw new Error('Unknown componentName in component function of HomePage');
     }
   };
 

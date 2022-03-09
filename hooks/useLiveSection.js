@@ -1,12 +1,20 @@
-import { useSelector } from 'react-redux';
-
+import useSectionDistanceFromTopOfPage from './useSectionDistanceFromTopOfPage';
 import { sectionOrder } from '../pages';
 
 const useLiveSection = () => {
-  const windowHeight = useSelector(state => state.windowDimensions.height);
-  const windowScrollYPosition = useSelector(state => state.windowScrollPosition.yPosition);
+  const sectionDistanceFromTopOfPage = useSectionDistanceFromTopOfPage();
 
-  const liveSection = () => sectionOrder[Math.floor(windowScrollYPosition / windowHeight)];
+  const liveSection = () => {
+    let returnSection = sectionOrder[0];
+
+    sectionOrder.slice(1).map(section => {
+      if (window.scrollY >= sectionDistanceFromTopOfPage(section)) {
+        returnSection = section;
+      }
+    });
+
+    return returnSection;
+  };
 
   return liveSection;
 };

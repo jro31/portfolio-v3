@@ -13,12 +13,12 @@ const SubtleLink = props => {
   return (
     <div className='flex'>
       <div
-        className={`flex gap-3 cursor-pointer text-slate-600 hover:text-white border-b ${
+        className={`flex gap-3 cursor-pointer transition-colors text-slate-600 hover:text-white border-b ${
           props.underline ? 'border-slate-600' : 'border-transparent'
-        } hover:border-white pb-3 transition-colors ${props.className || ''}`}
+        } hover:border-white pb-3 ${props.className || ''}`}
         onClick={props.onClick}
       >
-        <div className={`uppercase ${textColorClass()}`}>{props.children}</div>
+        <div className={`uppercase transition-colors ${textColorClass()}`}>{props.children}</div>
         {props.arrow && <div>&#10140;&#65038;</div>}
       </div>
     </div>

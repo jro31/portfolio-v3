@@ -1,19 +1,13 @@
-import { useSelector } from 'react-redux';
-
 import { sectionOrder } from '../pages';
+import useSectionRef from './useSectionRef';
 
 const useScrollTo = () => {
-  const windowHeight = useSelector(state => state.windowDimensions.height);
+  const sectionRef = useSectionRef();
 
   const scrollTo = section => {
-    const sectionIndex = () => {
-      if (sectionOrder.indexOf(section) === -1)
-        throw new Error('Unknown section in useScrollTo hook');
+    if (!sectionOrder.includes(section)) throw new Error('Unknown section passed to useScrollTo');
 
-      return sectionOrder.indexOf(section);
-    };
-
-    window.scrollTo(0, windowHeight * sectionIndex());
+    sectionRef(section).current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return scrollTo;
