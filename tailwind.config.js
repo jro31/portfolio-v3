@@ -12,24 +12,26 @@ module.exports = {
     },
     extend: {
       animation: {
-        // TODO - Delete any of these you don't use
-        'fade-in': 'fadeIn 1s linear forwards',
-        'fade-out': 'fadeOut 1s linear forwards',
+        'fade-in': 'fadeIn 1s linear',
+        'fade-out': 'fadeOut 1s linear',
         'slide-fade-up-delayed': 'slideFadeUpDelayed 2s',
-        'slide-in-right': 'slideInRight 1s ease-out forwards',
-        'slide-out-left': 'slideOutLeft 1s ease-in forwards',
-        'slow-fade-in': 'fadeIn 2s linear forwards',
-        'slow-focus': 'slowFocus 1s',
+        'slide-in-right': 'slideInRight 1s ease-out',
+        'slide-out-left': 'slideOutLeft 1s ease-in',
+        'slow-fade-in': 'fadeIn 2s linear',
+        'slow-fade-in-delayed': 'fadeIn 4s linear',
         'zoom-down-in': 'zoomDownIn 1s',
-        'zoom-up-in-delayed': 'zoomUpInDelayed 2s',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       keyframes: {
-        // TODO - Delete any of these you don't use
         fadeIn: {
           '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+        fadeInDelayed: {
+          '0%': { opacity: 0 },
+          '50%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
         fadeOut: {
@@ -49,30 +51,12 @@ module.exports = {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-100vw)' },
         },
-        slowFocus: {
-          '0%': { filter: 'blur(8px)' },
-          '100%': { filter: 'blur(0)' },
-        },
         zoomDownIn: {
           '0%': {
             transform: 'perspective(500px) translateZ(-500px) translateY(-50px)',
             opacity: 0,
           },
           '100%': { transform: 'perspective(500px) translateZ(0) translateY(0)', opacity: 1 },
-        },
-        zoomUpInDelayed: {
-          '0%': {
-            transform: 'perspective(500px) translateZ(-500px) translateY(50px)',
-            opacity: 0,
-          },
-          '20%': {
-            transform: 'perspective(500px) translateZ(-500px) translateY(50px)',
-            opacity: 0,
-          },
-          '100%': {
-            transform: 'perspective(500px) translateZ(0) translateY(0)',
-            opacity: 1,
-          },
         },
       },
       minWidth: {

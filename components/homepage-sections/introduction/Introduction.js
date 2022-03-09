@@ -3,6 +3,7 @@ import SubtleLink from '../../ui/navigation/SubtleLink';
 import Title from '../../ui/text/Title';
 import SectionContainer from '../SectionContainer';
 import { introductionSection, sectionOrder } from '../../../pages';
+import Portrait from './Portrait';
 
 const Introduction = () => {
   const scrollTo = useScrollTo();
@@ -37,30 +38,7 @@ const Introduction = () => {
             </div>
           </div>
         </div>
-        <div className='relative basis-1/2 h-inherit bg-gradient-radial from-blue-500 via-blue-900 to-black'>
-          <div className='absolute h-full w-full flex flex-col'>
-            <div className='basis-1/3 grow-0 shrink-0 flex'>
-              <div className='basis-1/3 grow-0 shrink-0 z-10 bg-gradient-to-tl from-transparent via-black to-black' />
-              <div className='basis-1/3 grow-0 shrink-0 z-10 bg-gradient-to-t from-transparent to-black' />
-              <div className='basis-1/3 grow-0 shrink-0 z-10 bg-gradient-to-tr from-transparent via-black to-black' />
-            </div>
-            <div className='basis-1/3 grow-0 shrink-0 flex'>
-              <div className='basis-1/3 grow-0 shrink-0 z-10 bg-gradient-to-l from-transparent to-black' />
-              <div className='basis-1/3 grow-0 shrink-0 bg-transparent' />
-              <div className='basis-1/3 grow-0 shrink-0 z-10 bg-gradient-to-r from-transparent to-black' />
-            </div>
-            <div className='basis-1/3 grow-0 shrink-0 flex'>
-              <div className='basis-1/3 grow-0 shrink-0 z-10 bg-gradient-to-bl from-transparent via-black to-black' />
-              <div className='basis-1/3 grow-0 shrink-0 z-10 bg-gradient-to-b from-transparent to-black' />
-              <div className='basis-1/3 grow-0 shrink-0 z-10 bg-gradient-to-br from-transparent via-black to-black' />
-            </div>
-          </div>
-          <img
-            src='/images/self-portrait.png'
-            alt='Self-portrait'
-            className='h-inherit w-full object-contain animate-slow-fade-in'
-          />
-        </div>
+        <Portrait />
       </div>
     </SectionContainer>
   );
