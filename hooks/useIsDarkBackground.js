@@ -1,11 +1,11 @@
-import useLiveSection from './useLiveSection';
-import { introductionSecion } from '../pages';
+import { useSelector } from 'react-redux';
+
+import { darkSections } from '../pages';
 
 const useIsDarkBackground = () => {
-  const liveSection = useLiveSection();
-  const darkSections = [introductionSecion];
+  const liveSection = useSelector(state => state.liveSection.liveSection);
 
-  const isDarkBackground = () => darkSections.includes(liveSection());
+  const isDarkBackground = () => darkSections.includes(liveSection);
 
   return isDarkBackground;
 };
