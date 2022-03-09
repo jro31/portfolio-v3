@@ -10,9 +10,6 @@ const navbarSlice = createSlice({
     showNavbar(state) {
       state.isVisible = true;
     },
-    // openMobileNav(state) {
-    //   state.mobileNavIsOpen = true;
-    // },
     closeMobileNav(state) {
       state.mobileNavIsOpen = false;
     },
