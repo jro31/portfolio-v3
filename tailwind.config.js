@@ -19,7 +19,7 @@ module.exports = {
         'slide-out-left': 'slideOutLeft 1s ease-in',
         'slow-fade-in': 'fadeIn 2s linear',
         'slow-fade-in-delayed': 'fadeIn 4s linear',
-        'zoom-down-in': 'zoomDownIn 1s',
+        'zoom-down-in': 'zoomDownIn 2s',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -39,8 +39,8 @@ module.exports = {
           '100%': { opacity: 0 },
         },
         slideFadeUpDelayed: {
-          '0%': { transform: 'translateY(25vh)', opacity: 0 },
-          '20%': { transform: 'translateY(25vh)', opacity: 0 },
+          '0%': { transform: 'translateY(5vh)', opacity: 0 },
+          '20%': { transform: 'translateY(5vh)', opacity: 0 },
           '100%': { transform: 'translateY(0)', opacity: 1 },
         },
         slideInRight: {
@@ -53,10 +53,10 @@ module.exports = {
         },
         zoomDownIn: {
           '0%': {
-            transform: 'perspective(500px) translateZ(-500px) translateY(-50px)',
+            transform: 'perspective(1000px) translateZ(-100px) translateY(-5vh)',
             opacity: 0,
           },
-          '100%': { transform: 'perspective(500px) translateZ(0) translateY(0)', opacity: 1 },
+          '100%': { transform: 'perspective(1000px) translateZ(0) translateY(0)', opacity: 1 },
         },
       },
       minWidth: {

@@ -18,7 +18,7 @@ const Overlay = props => {
     >
       <div
         onClick={props.onClick || null}
-        className={`fixed top-0 w-screen h-screen bg-gray-600 bg-opacity-70 z-10 ${
+        className={`fixed top-0 w-screen h-screen bg-gray-600 bg-opacity-70 z-30 ${
           props.className || ''
         }`}
       />

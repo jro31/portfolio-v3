@@ -34,7 +34,7 @@ const NavbarMobileMenu = () => {
         timeout={1000}
         classNames={transitionClassNames}
       >
-        <div className='fixed top-0 lg:hidden pt-mobile-navbar-height h-screen min-w-2/3 xs:min-w-1/2 md:min-w-1/3 bg-slate-200 z-20'>
+        <div className='fixed top-0 lg:hidden pt-mobile-navbar-height h-screen min-w-2/3 xs:min-w-1/2 md:min-w-1/3 bg-slate-200 z-40'>
           {sectionOrder.map(section => (
             <SubtleLink
               key={`mobile-nav-${section}-link`}
