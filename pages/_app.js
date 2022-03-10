@@ -2,6 +2,7 @@
 // TODO - Update readme
 
 import { Provider } from 'react-redux';
+import Layout from '../components/layout/Layout';
 
 import store from '../store';
 import '../styles/globals.css';
@@ -9,7 +10,9 @@ import '../styles/globals.css';
 const MyApp = ({ Component, pageProps }) => {
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </Provider>
   );
 };
