@@ -1,5 +1,4 @@
 import { aboutSection } from '../../../pages';
-import Heading from '../../ui/text/Heading';
 import SectionContainer from '../SectionContainer';
 import SkillBrief from './SkillBrief';
 
