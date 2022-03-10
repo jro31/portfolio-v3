@@ -1,3 +1,5 @@
+// TODO - Update the animations in this section to use CSS transitions?
+
 import Title from '../../ui/text/Title';
 import SectionContainer from '../SectionContainer';
 import { introductionSection } from '../../../pages';

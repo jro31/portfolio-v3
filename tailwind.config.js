@@ -18,21 +18,24 @@ module.exports = {
         'slide-in-right': 'slideInRight 1s ease-out',
         'slide-out-left': 'slideOutLeft 1s ease-in',
         'slow-fade-in': 'fadeIn 2s linear',
-        'slow-fade-in-delayed': 'fadeIn 4s linear',
+        'very-slow-fade-in': 'fadeIn 4s linear',
+        'slow-fade-in-right': 'fadeInRight 2s linear',
         'zoom-down-in': 'zoomDownIn 2s',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
+      borderRadius: {
+        '1/2': '50%',
       },
       keyframes: {
         fadeIn: {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
-        fadeInDelayed: {
-          '0%': { opacity: 0 },
-          '50%': { opacity: 0 },
-          '100%': { opacity: 1 },
+        fadeInRight: {
+          '0%': { transform: 'translateX(-5vw)', opacity: 0 },
+          '100%': { transform: 'translateX(0)', opacity: 1 },
         },
         fadeOut: {
           '0%': { opacity: 1 },
