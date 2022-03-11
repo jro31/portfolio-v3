@@ -34,6 +34,10 @@ module.exports = {
       borderRadius: {
         '1/2': '50%',
       },
+      flexBasis: {
+        '1/8': '12.5%',
+        '7/8': '87.5%',
+      },
       keyframes: {
         fadeIn: {
           '0%': { opacity: 0 },

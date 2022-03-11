@@ -53,15 +53,17 @@ const SkillBrief = props => {
       timeout={1000 + (props.position * 500)} // prettier-ignore
       classNames={{ enterActive: enterActiveClassName() }}
     >
-      <div className='flex'>
-        <div className='basis-1/6'>
+      <div className='flex gap-4 lg:gap-0'>
+        <div className='basis-1/6 xs:basis-1/8 lg:basis-1/6'>
           <div
-            className={`w-1/2 box-border p-3 rounded-1/2 ${skillDetails().backgroundColorClass}`}
+            className={`w-full lg:w-1/2 box-border p-3 rounded-1/2 ${
+              skillDetails().backgroundColorClass
+            }`}
           >
             {skillDetails().icon}
           </div>
         </div>
-        <div className='flex flex-col justify-center basis-5/6 gap-4'>
+        <div className='flex flex-col justify-center basis-5/6 xs:basis-7/8 lg:basis-5/6 gap-4'>
           <Heading>{skillDetails().headingText}</Heading>
           <div className='text-slate-500'>{skillDetails().description}</div>
         </div>

@@ -13,22 +13,15 @@ const About = () => {
 
   return (
     <SectionContainer section={aboutSection} className='bg-white'>
-      <div className='flex h-full'>
-        <div className='flex justify-end basis-5/12'>
-          <div className='flex flex-col justify-center basis-3/4 gap-20'>
-            {['coding', 'templateSkill', 'templateSkill'].map((skill, i) => (
-              <SkillBrief key={`${skill}${i}`} skill={skill} position={i + 1} />
-            ))}
-          </div>
-        </div>
+      <div className='flex flex-col lg:flex-row gap-6 xs:gap-16 lg:gap-0 lg:h-full'>
         <CSSTransition
           mountOnEnter
           in={aboutSectionHasBeenDisplayed}
           timeout={1000}
           classNames={{ enterActive: 'animate-fade-in' }}
         >
-          <div className='basis-7/12 flex justify-center items-center'>
-            <div className='basis-2/3'>
+          <div className='lg:order-last lg:basis-7/12 flex justify-center lg:items-center'>
+            <div className='basis-3/4 lg:basis-2/3 text-center lg:text-left'>
               <Title className='2xl:leading-tight'>
                 Turning
                 <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500'>
@@ -39,6 +32,13 @@ const About = () => {
             </div>
           </div>
         </CSSTransition>
+        <div className='flex justify-center lg:justify-end lg:basis-5/12'>
+          <div className='flex flex-col justify-center lg:justify-around basis-5/6 xs:basis-3/4 gap-20 lg:gap-0'>
+            {['coding', 'templateSkill', 'templateSkill'].map((skill, i) => (
+              <SkillBrief key={`${skill}${i}`} skill={skill} position={i + 1} />
+            ))}
+          </div>
+        </div>
       </div>
     </SectionContainer>
   );
