@@ -5,6 +5,7 @@ import SectionContainer from '../SectionContainer';
 import { introductionSection } from '../../../pages';
 import Portrait from './Portrait';
 import FindOutMoreLink from './FindOutMoreLink';
+import Description from '../../ui/text/Description';
 
 const Introduction = () => {
   return (
@@ -20,9 +21,10 @@ const Introduction = () => {
                 </Title>
               </div>
               <div className='hidden lg:flex'>
-                <div className='text-slate-600 text-xl uppercase animate-slide-fade-up-delayed basis-2/3 leading-10'>
+                <Description uppercase className='animate-slide-fade-up-delayed basis-2/3'>
+                  {/* TODO - Update this text */}
                   This is some really inspirational text about some thing or whatever.
-                </div>
+                </Description>
               </div>
             </div>
             <FindOutMoreLink className='hidden lg:block' />

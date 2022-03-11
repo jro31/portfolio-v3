@@ -19,7 +19,7 @@ export const toolsSection = 'tools';
 export let toolsRef;
 
 export const sectionOrder = [introductionSection, aboutSection, toolsSection, projectsSection];
-export const darkSections = [introductionSection];
+export const darkSections = [introductionSection, toolsSection];
 
 const HomePage = () => {
   aboutRef = useRef();
