@@ -12,6 +12,10 @@ module.exports = {
     },
     extend: {
       animation: {
+        'delayed-fade-in-1': 'delayedFadeIn1 1.5s linear',
+        'delayed-fade-in-2': 'delayedFadeIn2 2s linear',
+        'delayed-fade-in-3': 'delayedFadeIn3 2.5s linear',
+        'delayed-fade-in-4': 'delayedFadeIn4 3s linear',
         'fade-in': 'fadeIn 1s linear',
         'fade-out': 'fadeOut 1s linear',
         'slide-fade-up-delayed': 'slideFadeUpDelayed 2s',
@@ -19,7 +23,9 @@ module.exports = {
         'slide-out-left': 'slideOutLeft 1s ease-in',
         'slow-fade-in': 'fadeIn 2s linear',
         'very-slow-fade-in': 'fadeIn 4s linear',
-        'slow-fade-in-right': 'fadeInRight 2s linear',
+        'fade-in-right': 'fadeInRight 0.5s linear',
+        'fade-in-right-delayed': 'fadeInRightDelayed 1s linear',
+        'fade-in-right-long-delayed': 'fadeInRightLongDelayed 1.5s linear',
         'zoom-down-in': 'zoomDownIn 2s',
       },
       backgroundImage: {
@@ -33,8 +39,38 @@ module.exports = {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
+        delayedFadeIn1: {
+          '0%': { opacity: 0 },
+          '33%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+        delayedFadeIn2: {
+          '0%': { opacity: 0 },
+          '50%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+        delayedFadeIn3: {
+          '0%': { opacity: 0 },
+          '60%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+        delayedFadeIn4: {
+          '0%': { opacity: 0 },
+          '66%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
         fadeInRight: {
           '0%': { transform: 'translateX(-5vw)', opacity: 0 },
+          '100%': { transform: 'translateX(0)', opacity: 1 },
+        },
+        fadeInRightDelayed: {
+          '0%': { transform: 'translateX(-5vw)', opacity: 0 },
+          '50%': { transform: 'translateX(-5vw)', opacity: 0 },
+          '100%': { transform: 'translateX(0)', opacity: 1 },
+        },
+        fadeInRightLongDelayed: {
+          '0%': { transform: 'translateX(-5vw)', opacity: 0 },
+          '66%': { transform: 'translateX(-5vw)', opacity: 0 },
           '100%': { transform: 'translateX(0)', opacity: 1 },
         },
         fadeOut: {

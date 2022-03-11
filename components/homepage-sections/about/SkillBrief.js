@@ -11,6 +11,19 @@ const SkillBrief = props => {
     state => state.sections.sectionHasBeenDisplayed[aboutSection]
   );
 
+  const enterActiveClassName = () => {
+    switch (props.position) {
+      case 1:
+        return 'animate-delayed-fade-in-1';
+      case 2:
+        return 'animate-delayed-fade-in-2';
+      case 3:
+        return 'animate-delayed-fade-in-3';
+      default:
+        throw new Error(`Invalid position '${props.position}' passed to SkillBrief`);
+    }
+  };
+
   const skillDetails = () => {
     switch (props.skill) {
       case 'coding':
@@ -34,12 +47,11 @@ const SkillBrief = props => {
   };
 
   return (
-    // START HERE TOMORROW
     <CSSTransition
       mountOnEnter
       in={aboutSectionHasBeenDisplayed}
-      timeout={1000}
-      classNames={{ enterActive: 'animate-slow-fade-in-right' }}
+      timeout={1000 + (props.position * 500)} // prettier-ignore
+      classNames={{ enterActive: enterActiveClassName() }}
     >
       <div className='flex'>
         <div className='basis-1/6'>

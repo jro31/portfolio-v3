@@ -31,8 +31,8 @@ const DesktopNav = () => {
     <CSSTransition
       mountOnEnter
       in={navbarIsVisible}
-      timeout={1000}
-      classNames={{ enterActive: 'animate-slide-in-right' }}
+      timeout={3000}
+      classNames={{ enterActive: 'animate-delayed-fade-in-4' }}
     >
       <div className='fixed top-0 left-3 bg-transparent z-50'>
         <div className='hidden lg:flex h-navbar-height w-screen justify-around items-center'>
