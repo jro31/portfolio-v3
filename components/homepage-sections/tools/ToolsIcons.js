@@ -1,9 +1,13 @@
 import BitbucketIcon from '../../ui/svg/BitBucketIcon';
 import CssIcon from '../../ui/svg/CssIcon';
 import GithubIcon from '../../ui/svg/GithubIcon';
+import GitIcon from '../../ui/svg/GitIcon';
 import HtmlIcon from '../../ui/svg/HtmlIcon';
+import JavascriptIcon from '../../ui/svg/JavascriptIcon';
 import JQueryIcon from '../../ui/svg/JQueryIcon';
+import NextJsIcon from '../../ui/svg/NextJsIcon';
 import RailsIcon from '../../ui/svg/RailsIcon';
+import ReactIcon from '../../ui/svg/ReactIcon';
 import RubyIcon from '../../ui/svg/RubyIcon';
 import TailwindIcon from '../../ui/svg/TailwindIcon';
 import ToolsIconContainer from './ToolsIconContainer';
@@ -38,7 +42,19 @@ const ToolsIcons = () => {
       <ToolsIconContainer>
         <CssIcon color={iconColor} />
       </ToolsIconContainer>
-      {/* TODO - CSS, Javascript, Git, React, Next JS, Postgres, Rspec, Redux Toolkit */}
+      <ToolsIconContainer>
+        <JavascriptIcon color={iconColor} />
+      </ToolsIconContainer>
+      <ToolsIconContainer>
+        <ReactIcon color={iconColor} />
+      </ToolsIconContainer>
+      <ToolsIconContainer>
+        <GitIcon color={iconColor} />
+      </ToolsIconContainer>
+      <ToolsIconContainer>
+        <NextJsIcon color={iconColor} />
+      </ToolsIconContainer>
+      {/* TODO - Postgres, Rspec, Redux Toolkit */}
       {/* Optionally - Bootstrap, VS Code, Sublime */}
     </div>
   );
