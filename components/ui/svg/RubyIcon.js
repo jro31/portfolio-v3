@@ -1,6 +1,6 @@
 const RubyIcon = props => {
   return (
-    <svg fill='none' viewBox='0 0 15 15' xmlns='http://www.w3.org/2000/svg'>
+    <svg fill='none' viewBox='-1 -1 17 17' xmlns='http://www.w3.org/2000/svg'>
       <title>Ruby</title>
       <path d='M4.29301 4L8.05751 0.235504L9.73062 4H4.29301Z' fill={props.color || 'black'} />
       <path d='M14.293 0L10.6613 3.63175L9.04716 0H14.293Z' fill={props.color || 'black'} />

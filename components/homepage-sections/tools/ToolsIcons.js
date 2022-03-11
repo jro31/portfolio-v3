@@ -6,8 +6,11 @@ import HtmlIcon from '../../ui/svg/HtmlIcon';
 import JavascriptIcon from '../../ui/svg/JavascriptIcon';
 import JQueryIcon from '../../ui/svg/JQueryIcon';
 import NextJsIcon from '../../ui/svg/NextJsIcon';
+import PostgreSqlIcon from '../../ui/svg/PostgreSqlIcon';
 import RailsIcon from '../../ui/svg/RailsIcon';
 import ReactIcon from '../../ui/svg/ReactIcon';
+import ReduxToolkitIcon from '../../ui/svg/ReduxToolkitIcon';
+import RspecIcon from '../../ui/svg/RspecIcon';
 import RubyIcon from '../../ui/svg/RubyIcon';
 import TailwindIcon from '../../ui/svg/TailwindIcon';
 import ToolsIconContainer from './ToolsIconContainer';
@@ -54,8 +57,16 @@ const ToolsIcons = () => {
       <ToolsIconContainer>
         <NextJsIcon color={iconColor} />
       </ToolsIconContainer>
-      {/* TODO - Postgres, Rspec, Redux Toolkit */}
-      {/* Optionally - Bootstrap, VS Code, Sublime */}
+      <ToolsIconContainer>
+        <PostgreSqlIcon color={iconColor} />
+      </ToolsIconContainer>
+      <ToolsIconContainer>
+        <RspecIcon color={iconColor} />
+      </ToolsIconContainer>
+      <ToolsIconContainer>
+        <ReduxToolkitIcon color={iconColor} />
+      </ToolsIconContainer>
+      {/* TODO - Optionally add - Bootstrap, VS Code, Sublime */}
     </div>
   );
 };
