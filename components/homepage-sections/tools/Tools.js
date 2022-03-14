@@ -11,8 +11,8 @@ const Tools = () => {
       section={toolsSection}
       className='bg-gradient-to-br from-slate-800 via-black to-slate-800 text-white'
     >
-      <div className='flex justify-center h-inherit'>
-        <div className='flex flex-col basis-4/5 justify-around'>
+      <div className='flex justify-end h-inherit w-full'>
+        <div className='flex flex-col grow-0 justify-around w-11/12'>
           <div className='flex flex-col'>
             <Title>Tools</Title>
             <Description className='text-slate-600'>

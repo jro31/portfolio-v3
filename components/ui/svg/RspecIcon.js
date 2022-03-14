@@ -1,4 +1,4 @@
-const RspecIcon = props => {
+const RSpecIcon = props => {
   return (
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 384' version='1.1'>
       <title>Rspec</title>
@@ -64,4 +64,4 @@ const RspecIcon = props => {
   );
 };
 
-export default RspecIcon;
+export default RSpecIcon;

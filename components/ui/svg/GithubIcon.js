@@ -1,4 +1,4 @@
-const GithubIcon = props => {
+const GitHubIcon = props => {
   return (
     <svg version='1.0' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'>
       <title>Github</title>
@@ -12,4 +12,4 @@ const GithubIcon = props => {
   );
 };
 
-export default GithubIcon;
+export default GitHubIcon;
