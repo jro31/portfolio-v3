@@ -53,9 +53,14 @@ import {
   vSCode,
 } from './ToolsIconsSection';
 
+export const defaultTextColorClass = 'text-slate-600';
+
 const ToolsIconContainer = props => {
   const defaultIconColor = 'rgb(71 85 105)';
+  const hoverIconColor = 'white';
+  const hoverTextColorClass = 'text-white';
   const [iconColor, setIconColor] = useState(defaultIconColor);
+  const [textColorClass, setTextColorClass] = useState(defaultTextColorClass);
 
   const iconComponent = () => {
     switch (props.iconName) {
@@ -114,22 +119,43 @@ const ToolsIconContainer = props => {
     }
   };
 
+  const touchStartHandler = () => {
+    mouseOverHandler();
+  };
+
   const mouseOverHandler = () => {
-    setIconColor('white');
+    if (iconColor !== hoverIconColor) setIconColor(hoverIconColor);
+    if (textColorClass !== hoverTextColorClass) setTextColorClass(hoverTextColorClass);
+    if (props.sectionNameColorClass !== hoverTextColorClass)
+      props.setSectionNameColorClass(hoverTextColorClass);
+  };
+
+  const touchCancelHandler = () => {
+    touchEndHandler();
+  };
+
+  const touchEndHandler = () => {
+    mouseOutHandler();
   };
 
   const mouseOutHandler = () => {
-    setIconColor(defaultIconColor);
+    if (iconColor !== defaultIconColor) setIconColor(defaultIconColor);
+    if (textColorClass !== defaultTextColorClass) setTextColorClass(defaultTextColorClass);
+    if (props.sectionNameColorClass !== defaultTextColorClass)
+      props.setSectionNameColorClass(defaultTextColorClass);
   };
 
   return (
     <div
+      onTouchStart={touchStartHandler}
+      onTouchCancel={touchCancelHandler}
+      onTouchEnd={touchEndHandler}
       onMouseOver={mouseOverHandler}
       onMouseOut={mouseOutHandler}
-      className='flex flex-col gap-3 text-slate-600 hover:text-white h-40'
+      className='flex flex-col gap-3 h-40 px-2 lg:px-5 first:pl-0 last:pr-0'
     >
-      <div className='h-20 w-20'>{iconComponent()}</div>
-      <div className='text-center'>{props.iconName}</div>
+      <div className='h-16 lg:h-20 w-16 lg:w-20'>{iconComponent()}</div>
+      <div className={`text-center ${textColorClass}`}>{props.iconName}</div>
     </div>
   );
 };

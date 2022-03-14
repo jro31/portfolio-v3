@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import ToolsIconContainer from './ToolsIconContainer';
 import {
   coding,
@@ -11,6 +13,8 @@ import {
   testing,
   versionControl,
 } from './ToolsIcons';
+
+import { defaultTextColorClass } from './ToolsIconContainer';
 
 export const ruby = 'Ruby';
 export const javaScript = 'JavaScript';
@@ -48,6 +52,8 @@ export const rSpec = 'RSpec';
 export const reduxToolkit = 'Redux Toolkit';
 
 const ToolsIconsSection = props => {
+  const [sectionNameColorClass, setSectionNameColorClass] = useState(defaultTextColorClass);
+
   const iconNames = () => {
     switch (props.name) {
       case languages:
@@ -76,11 +82,16 @@ const ToolsIconsSection = props => {
   };
 
   return (
-    <div className='flex flex-col justify-between text-slate-600 hover:text-white'>
-      <div className=''>{props.name}</div>
-      <div className='flex gap-5'>
+    <div className='flex flex-col justify-between px-2 lg:px-5 first:pl-0 last:pr-0'>
+      <div className={sectionNameColorClass}>{props.name}</div>
+      <div className='flex'>
         {iconNames().map(iconName => (
-          <ToolsIconContainer key={`${iconName}-icon-container`} iconName={iconName} />
+          <ToolsIconContainer
+            key={`${iconName}-icon-container`}
+            iconName={iconName}
+            sectionNameColorClass={sectionNameColorClass}
+            setSectionNameColorClass={setSectionNameColorClass}
+          />
         ))}
       </div>
     </div>

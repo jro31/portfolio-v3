@@ -11,11 +11,11 @@ const Tools = () => {
       section={toolsSection}
       className='bg-gradient-to-br from-slate-800 via-black to-slate-800 text-white'
     >
-      <div className='flex justify-end h-inherit w-full'>
+      <div className='flex justify-end min-h-screen h-full w-full'>
         <div className='flex flex-col grow-0 justify-around w-11/12'>
           <div className='flex flex-col'>
             <Title>Tools</Title>
-            <Description className='text-slate-600'>
+            <Description>
               {/* TODO - Update this text */}I work primarily with Ruby on Rails and React/Next JS,
               blah, blah, blah
             </Description>
