@@ -1,4 +1,5 @@
 import BitbucketIcon from '../../ui/svg/BitBucketIcon';
+import CloudinaryIcon from '../../ui/svg/CloudinaryIcon';
 import CssIcon from '../../ui/svg/CssIcon';
 import GithubIcon from '../../ui/svg/GithubIcon';
 import GitIcon from '../../ui/svg/GitIcon';
@@ -6,6 +7,7 @@ import HamlIcon from '../../ui/svg/HamlIcon';
 import HtmlIcon from '../../ui/svg/HtmlIcon';
 import JavascriptIcon from '../../ui/svg/JavascriptIcon';
 import JQueryIcon from '../../ui/svg/JQueryIcon';
+import NetlifyIcon from '../../ui/svg/NetlifyIcon';
 import NextJsIcon from '../../ui/svg/NextJsIcon';
 import PostgreSqlIcon from '../../ui/svg/PostgreSqlIcon';
 import RailsIcon from '../../ui/svg/RailsIcon';
@@ -16,6 +18,7 @@ import RubyIcon from '../../ui/svg/RubyIcon';
 import S3Icon from '../../ui/svg/S3Icon';
 import SublimeIcon from '../../ui/svg/SublimeIcon';
 import TailwindIcon from '../../ui/svg/TailwindIcon';
+import VercelIcon from '../../ui/svg/VercelIcon';
 import ToolsIconContainer from './ToolsIconContainer';
 
 const ToolsIcons = () => {
@@ -80,7 +83,16 @@ const ToolsIcons = () => {
       <ToolsIconContainer>
         <S3Icon color={iconColor} />
       </ToolsIconContainer>
-      {/* TODO - Add - Bootstrap, VS Code, erb, Heroku, Vercel, Netlify, Cloudinary, Sass, Scss, React Transition Group */}
+      <ToolsIconContainer>
+        <NetlifyIcon color={iconColor} />
+      </ToolsIconContainer>
+      <ToolsIconContainer>
+        <VercelIcon color={iconColor} />
+      </ToolsIconContainer>
+      <ToolsIconContainer>
+        <CloudinaryIcon color={iconColor} />
+      </ToolsIconContainer>
+      {/* TODO - Add - Bootstrap, VS Code, erb, Heroku, Sass, Scss, React Transition Group */}
     </div>
   );
 };
