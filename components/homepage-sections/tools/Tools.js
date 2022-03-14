@@ -6,6 +6,7 @@ import ToolsIcons from './ToolsIcons';
 
 const Tools = () => {
   return (
+    // TODO - Can you make this background gradually change (something subtle; not too attention seeking)
     <SectionContainer
       section={toolsSection}
       className='bg-gradient-to-br from-slate-800 via-black to-slate-800 text-white'
