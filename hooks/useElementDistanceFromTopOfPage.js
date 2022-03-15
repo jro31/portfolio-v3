@@ -3,8 +3,8 @@ import useElementRef from './useElementRef';
 const useElementDistanceFromTopOfPage = () => {
   const elementRef = useElementRef();
 
-  const elementDistanceFromTopOfPage = element => {
-    return window.scrollY + elementRef(element).current.getBoundingClientRect().top;
+  const elementDistanceFromTopOfPage = elementName => {
+    return window.scrollY + elementRef(elementName).current.getBoundingClientRect().top;
   };
 
   return elementDistanceFromTopOfPage;

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import useElementDistanceFromTopOfPage from './useElementDistanceFromTopOfPage';
-// import useElementHeight from './useElementHeight'; TODO - Add this
+import useElementHeight from './useElementHeight';
 import { refElementNames } from '../pages';
 import { elementIsInViewActions } from '../store/element-is-in-view';
 
@@ -12,6 +12,7 @@ const useElementIsInView = () => {
   const scrollYPosition = useSelector(state => state.windowScrollPosition.yPosition);
   const elementsObject = useSelector(state => state.elementIsInView.elementsObj);
   const elementDistanceFromTopOfPage = useElementDistanceFromTopOfPage();
+  const elementHeight = useElementHeight();
 
   let windowHeightRef = useRef(windowHeight);
   windowHeightRef.current = windowHeight;
@@ -28,10 +29,12 @@ const useElementIsInView = () => {
         throw new Error(`Unrecognised element name '${elementName}' used in useElementIsInView`);
 
       const currentStatus = elementsObjectRef.current[elementName];
-      const elementPosition = elementDistanceFromTopOfPage(elementName);
+      const elementTop = elementDistanceFromTopOfPage(elementName);
+      const height = elementHeight(elementName);
+      const elementBottom = elementTop + height;
       const bottomOfPage = scrollYPositionRef.current + windowHeightRef.current;
 
-      if (elementPosition >= scrollYPositionRef.current && elementPosition < bottomOfPage) {
+      if (elementBottom > scrollYPositionRef.current && elementTop < bottomOfPage) {
         if (currentStatus === false)
           dispatch(elementIsInViewActions.setElementIsInView(elementName));
       } else if (currentStatus === true) {

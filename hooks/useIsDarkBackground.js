@@ -1,3 +1,5 @@
+// TODO - Should this now be done another way?
+
 import { useSelector } from 'react-redux';
 
 import { darkSections } from '../pages';

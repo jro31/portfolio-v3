@@ -3,14 +3,14 @@ import useElementRefs from './useElementRefs';
 const useElementRef = () => {
   const elementRefs = useElementRefs();
 
-  const elementRef = element => {
+  const elementRef = elementName => {
     const refsObj = elementRefs();
 
-    if (!refsObj[element]) {
-      throw new Error(`Unrecognised element '${element}' passed to useElementRef`);
+    if (!refsObj[elementName]) {
+      throw new Error(`Unrecognised element name '${elementName}' passed to useElementRef`);
     }
 
-    return refsObj[element];
+    return refsObj[elementName];
   };
 
   return elementRef;

@@ -1,3 +1,5 @@
+// TODO - Still need this? Can it be replaced by new hooks?
+
 import useElementDistanceFromTopOfPage from './useElementDistanceFromTopOfPage';
 import { sectionOrder } from '../pages';
 

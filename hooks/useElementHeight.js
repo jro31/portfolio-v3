@@ -1,7 +1,9 @@
+import useElementRef from './useElementRef';
+
 const useElementHeight = () => {
-  const elementHeight = element => {
-    // TODO
-  };
+  const elementRef = useElementRef();
+
+  const elementHeight = elementName => elementRef(elementName).current.clientHeight;
 
   return elementHeight;
 };

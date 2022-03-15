@@ -14,8 +14,8 @@ const useElementRefs = () => {
   const elementRefs = () => {
     let returnObj = {};
 
-    const elementRef = element => {
-      switch (element) {
+    const elementRef = elementName => {
+      switch (elementName) {
         case aboutSection:
           return aboutSectionRef;
         case introductionSection:
@@ -25,7 +25,7 @@ const useElementRefs = () => {
         case toolsSection:
           return toolsSectionRef;
         default:
-          throw new Error(`Element '${element}' not found in useElementRefs`);
+          throw new Error(`Element name '${elementName}' not found in useElementRefs`);
       }
     };
 
