@@ -17,6 +17,10 @@ import {
   introductionFindOutMoreDesktopLinkRef,
   introductionPortrait,
   introductionPortraitRef,
+  aboutTitle,
+  aboutTitleRef,
+  aboutSkills,
+  aboutSkillsRef,
   refElementNames,
 } from '../pages';
 
@@ -44,6 +48,10 @@ const useElementRefs = () => {
           return introductionFindOutMoreDesktopLinkRef;
         case introductionPortrait:
           return introductionPortraitRef;
+        case aboutTitle:
+          return aboutTitleRef;
+        case aboutSkills:
+          return aboutSkillsRef;
         default:
           throw new Error(`Element name '${elementName}' not found in useElementRefs`);
       }

@@ -4,11 +4,11 @@ import { CSSTransition } from 'react-transition-group';
 import CodingIcon from '../../ui/svg/CodingIcon';
 import PlaceholderIcon from '../../ui/svg/PlaceholderIcon';
 import Heading from '../../ui/text/Heading';
-import { aboutSection } from '../../../pages';
+import { aboutSection, aboutSkills } from '../../../pages';
 
 const SkillBrief = props => {
-  const aboutSectionHasBeenDisplayed = useSelector(
-    state => state.sections.sectionHasBeenDisplayed[aboutSection]
+  const skillsHasBeenInView = useSelector(
+    state => state.elementIsInView.hasBeenInView[aboutSkills]
   );
 
   const enterActiveClassName = () => {
@@ -51,7 +51,7 @@ const SkillBrief = props => {
   return (
     <CSSTransition
       mountOnEnter
-      in={aboutSectionHasBeenDisplayed}
+      in={skillsHasBeenInView}
       timeout={1000 + (props.position * 500)} // prettier-ignore
       classNames={{ enterActive: enterActiveClassName() }}
     >

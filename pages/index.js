@@ -36,7 +36,13 @@ const introductionElements = [
   introductionPortrait,
 ];
 
-export const refElementNames = [...sectionOrder, ...introductionElements];
+export const aboutTitle = 'about-title';
+export let aboutTitleRef;
+export const aboutSkills = 'about-skills';
+export let aboutSkillsRef;
+const aboutElements = [aboutTitle, aboutSkills];
+
+export const refElementNames = [...sectionOrder, ...introductionElements, ...aboutElements];
 
 const HomePage = () => {
   aboutSectionRef = useRef();
@@ -49,6 +55,9 @@ const HomePage = () => {
   introductionFindOutMoreMobileLinkRef = useRef();
   introductionFindOutMoreDesktopLinkRef = useRef();
   introductionPortraitRef = useRef();
+
+  aboutTitleRef = useRef();
+  aboutSkillsRef = useRef();
 
   const component = componentName => {
     switch (componentName) {
