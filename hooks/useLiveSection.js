@@ -1,14 +1,14 @@
-import useSectionDistanceFromTopOfPage from './useSectionDistanceFromTopOfPage';
+import useElementDistanceFromTopOfPage from './useElementDistanceFromTopOfPage';
 import { sectionOrder } from '../pages';
 
 const useLiveSection = () => {
-  const sectionDistanceFromTopOfPage = useSectionDistanceFromTopOfPage();
+  const elementDistanceFromTopOfPage = useElementDistanceFromTopOfPage();
 
   const liveSection = () => {
     let returnSection = sectionOrder[0];
 
     sectionOrder.slice(1).map(section => {
-      if (window.scrollY >= sectionDistanceFromTopOfPage(section)) {
+      if (window.scrollY >= elementDistanceFromTopOfPage(section)) {
         returnSection = section;
       }
     });

@@ -7,25 +7,27 @@ import Projects from '../components/homepage-sections/projects/Projects';
 import Tools from '../components/homepage-sections/tools/Tools';
 
 export const aboutSection = 'about';
-export let aboutRef;
+export let aboutSectionRef;
 
 export const introductionSection = 'introduction';
-export let introductionRef;
+export let introductionSectionRef;
 
 export const projectsSection = 'projects';
-export let projectsRef;
+export let projectsSectionsRef;
 
 export const toolsSection = 'tools';
-export let toolsRef;
+export let toolsSectionRef;
+
+export const refElementNames = [aboutSection, introductionSection, projectsSection, toolsSection];
 
 export const sectionOrder = [introductionSection, aboutSection, toolsSection, projectsSection];
 export const darkSections = [introductionSection, toolsSection];
 
 const HomePage = () => {
-  aboutRef = useRef();
-  introductionRef = useRef();
-  projectsRef = useRef();
-  toolsRef = useRef();
+  aboutSectionRef = useRef();
+  introductionSectionRef = useRef();
+  projectsSectionsRef = useRef();
+  toolsSectionRef = useRef();
 
   const component = componentName => {
     switch (componentName) {
