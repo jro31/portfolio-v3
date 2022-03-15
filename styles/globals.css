@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+TODO - Add a min-height to this?
+In order to stop the scroll snap when the screen is too narrow to fit all the content (niche cases)
+Would also need to remove the 'h-screen' on the section container to allow the sections to grow with the content
+*/
 @media (min-width: 1024px) {
   body,
   html {

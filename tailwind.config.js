@@ -108,6 +108,9 @@ module.exports = {
         '2/3': '66.666667%',
         '1/4': '25%',
       },
+      padding: {
+        '1/12': '8.333333%',
+      },
       spacing: {
         inherit: 'inherit',
         'mobile-navbar-height': mobileNavbarHeight,

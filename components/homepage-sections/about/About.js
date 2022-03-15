@@ -34,6 +34,7 @@ const About = () => {
         </CSSTransition>
         <div className='flex justify-center lg:justify-end lg:basis-5/12'>
           <div className='flex flex-col justify-center lg:justify-around basis-5/6 xs:basis-3/4 gap-20 lg:gap-0'>
+            {/* TODO - Update this to actual skills */}
             {['coding', 'templateSkill', 'templateSkill'].map((skill, i) => (
               <SkillBrief key={`${skill}${i}`} skill={skill} position={i + 1} />
             ))}
