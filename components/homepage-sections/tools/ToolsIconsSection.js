@@ -82,7 +82,7 @@ const ToolsIconsSection = props => {
   };
 
   return (
-    <div className='flex flex-col justify-between px-2 lg:px-5 first:pl-0 last:pr-0'>
+    <div className='flex flex-col justify-between px-2 lg:px-5 first:pl-0 last:pr-10'>
       <div className={sectionNameColorClass}>{props.name}</div>
       <div className='flex'>
         {iconNames().map(iconName => (

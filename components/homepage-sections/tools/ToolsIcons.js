@@ -13,7 +13,7 @@ export const stateManagement = 'State management';
 
 const ToolsIcons = () => {
   return (
-    <div className='overflow-x-scroll w-full'>
+    <div className='overflow-x-scroll w-full pl-1/12'>
       <div className='flex gap-5 w-full'>
         {/* TODO - Can you make each SVG a different color, and transition them periodically to other colors? */}
         {/* Probably give the container a class and add a wildcard transition to all child elements in the global css */}
