@@ -7,6 +7,16 @@ import {
   projectsSection,
   toolsSectionRef,
   toolsSection,
+  introductionTitle,
+  introductionTitleRef,
+  introductionDescription,
+  introductionDescriptionRef,
+  introductionFindOutMoreMobileLink,
+  introductionFindOutMoreMobileLinkRef,
+  introductionFindOutMoreDesktopLink,
+  introductionFindOutMoreDesktopLinkRef,
+  introductionPortrait,
+  introductionPortraitRef,
   refElementNames,
 } from '../pages';
 
@@ -24,6 +34,16 @@ const useElementRefs = () => {
           return projectsSectionsRef;
         case toolsSection:
           return toolsSectionRef;
+        case introductionTitle:
+          return introductionTitleRef;
+        case introductionDescription:
+          return introductionDescriptionRef;
+        case introductionFindOutMoreMobileLink:
+          return introductionFindOutMoreMobileLinkRef;
+        case introductionFindOutMoreDesktopLink:
+          return introductionFindOutMoreDesktopLinkRef;
+        case introductionPortrait:
+          return introductionPortraitRef;
         default:
           throw new Error(`Element name '${elementName}' not found in useElementRefs`);
       }

@@ -12,6 +12,8 @@ const SkillBrief = props => {
   );
 
   const enterActiveClassName = () => {
+    // TODO - Instead of delaying the transition with a class, delay setting the 'in' prop on the transition
+    // Will make it easier to work with and more scalable
     switch (props.position) {
       case 1:
         return 'animate-delayed-fade-in-1';

@@ -8,31 +8,27 @@ import { elementIsInViewActions } from '../store/element-is-in-view';
 
 const useElementIsInView = () => {
   const dispatch = useDispatch();
-  const windowHeight = useSelector(state => state.windowDimensions.height);
   const scrollYPosition = useSelector(state => state.windowScrollPosition.yPosition);
-  const elementsObject = useSelector(state => state.elementIsInView.elementsObj);
+  const isInViewObject = useSelector(state => state.elementIsInView.isInView);
   const elementDistanceFromTopOfPage = useElementDistanceFromTopOfPage();
   const elementHeight = useElementHeight();
-
-  let windowHeightRef = useRef(windowHeight);
-  windowHeightRef.current = windowHeight;
 
   let scrollYPositionRef = useRef(scrollYPosition);
   scrollYPositionRef.current = scrollYPosition;
 
-  let elementsObjectRef = useRef(elementsObject);
-  elementsObjectRef.current = elementsObject;
+  let isInViewObjectRef = useRef(isInViewObject);
+  isInViewObjectRef.current = isInViewObject;
 
   const elementsAreInView = () => {
     refElementNames.map(elementName => {
-      if (elementsObjectRef.current[elementName] === undefined)
+      if (isInViewObjectRef.current[elementName] === undefined)
         throw new Error(`Unrecognised element name '${elementName}' used in useElementIsInView`);
 
-      const currentStatus = elementsObjectRef.current[elementName];
+      const currentStatus = isInViewObjectRef.current[elementName];
       const elementTop = elementDistanceFromTopOfPage(elementName);
       const height = elementHeight(elementName);
       const elementBottom = elementTop + height;
-      const bottomOfPage = scrollYPositionRef.current + windowHeightRef.current;
+      const bottomOfPage = scrollYPositionRef.current + window.innerHeight;
 
       if (elementBottom > scrollYPositionRef.current && elementTop < bottomOfPage) {
         if (currentStatus === false)

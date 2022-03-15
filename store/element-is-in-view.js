@@ -18,16 +18,19 @@ const verifyPayload = (payload, elementsObject) => {
 const elementIsInViewSlice = createSlice({
   name: 'element-is-in-view',
   initialState: {
-    elementsObj: initialElementsObj(),
+    isInView: initialElementsObj(),
+    hasBeenInView: initialElementsObj(),
   },
   reducers: {
     setElementIsInView(state, action) {
-      verifyPayload(action.payload, current(state.elementsObj));
-      state.elementsObj = { ...state.elementsObj, [action.payload]: true };
+      verifyPayload(action.payload, current(state.isInView));
+      state.isInView = { ...state.isInView, [action.payload]: true };
+      if (state.hasBeenInView[action.payload] === false)
+        state.hasBeenInView = { ...state.hasBeenInView, [action.payload]: true };
     },
     setElementIsOutOfView(state, action) {
-      verifyPayload(action.payload, current(state.elementsObj));
-      state.elementsObj = { ...state.elementsObj, [action.payload]: false };
+      verifyPayload(action.payload, current(state.isInView));
+      state.isInView = { ...state.isInView, [action.payload]: false };
     },
   },
 });
