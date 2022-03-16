@@ -4,11 +4,12 @@ import { CSSTransition } from 'react-transition-group';
 import CodingIcon from '../../ui/svg/CodingIcon';
 import PlaceholderIcon from '../../ui/svg/PlaceholderIcon';
 import Heading from '../../ui/text/Heading';
-import { aboutSection } from '../../../pages';
+import { aboutSkills } from '../../../pages';
+import { coding, templateSkill } from './About';
 
 const SkillBrief = props => {
-  const aboutSectionHasBeenDisplayed = useSelector(
-    state => state.sections.sectionHasBeenDisplayed[aboutSection]
+  const skillsHasBeenInView = useSelector(
+    state => state.elementIsInView.hasBeenInView[aboutSkills]
   );
 
   const enterActiveClassName = () => {
@@ -26,14 +27,14 @@ const SkillBrief = props => {
 
   const skillDetails = () => {
     switch (props.skill) {
-      case 'coding':
+      case coding:
         return {
           backgroundColorClass: 'bg-teal-300/20',
           icon: <CodingIcon color='rgb(20 184 166)' />,
           headingText: 'Website development and maintenance',
           description: 'Specialising in Ruby on Rails, React and Next JS',
         };
-      case 'templateSkill': // TODO - Delete this
+      case templateSkill: // TODO - Delete this
         return {
           backgroundColorClass: 'bg-rose-300/20',
           icon: <PlaceholderIcon color='rgb(244 63 94)' />,
@@ -49,7 +50,7 @@ const SkillBrief = props => {
   return (
     <CSSTransition
       mountOnEnter
-      in={aboutSectionHasBeenDisplayed}
+      in={skillsHasBeenInView}
       timeout={1000 + (props.position * 500)} // prettier-ignore
       classNames={{ enterActive: enterActiveClassName() }}
     >

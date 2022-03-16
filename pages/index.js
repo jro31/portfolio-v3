@@ -7,25 +7,74 @@ import Projects from '../components/homepage-sections/projects/Projects';
 import Tools from '../components/homepage-sections/tools/Tools';
 
 export const aboutSection = 'about';
-export let aboutRef;
-
+export let aboutSectionRef;
 export const introductionSection = 'introduction';
-export let introductionRef;
-
+export let introductionSectionRef;
 export const projectsSection = 'projects';
-export let projectsRef;
-
+export let projectsSectionsRef;
 export const toolsSection = 'tools';
-export let toolsRef;
+export let toolsSectionRef;
 
 export const sectionOrder = [introductionSection, aboutSection, toolsSection, projectsSection];
 export const darkSections = [introductionSection, toolsSection];
 
+export const introductionTitle = 'introduction-title';
+export let introductionTitleRef;
+export const introductionDescription = 'introduction-description';
+export let introductionDescriptionRef;
+export const introductionFindOutMoreMobileLink = 'introduction-find-out-more-mobile-link';
+export let introductionFindOutMoreMobileLinkRef;
+export const introductionFindOutMoreDesktopLink = 'introduction-find-out-more-desktop-link';
+export let introductionFindOutMoreDesktopLinkRef;
+export const introductionPortrait = 'introduction-portrait';
+export let introductionPortraitRef;
+const introductionElements = [
+  introductionTitle,
+  introductionDescription,
+  introductionFindOutMoreMobileLink,
+  introductionFindOutMoreDesktopLink,
+  introductionPortrait,
+];
+
+export const aboutTitle = 'about-title';
+export let aboutTitleRef;
+export const aboutSkills = 'about-skills';
+export let aboutSkillsRef;
+const aboutElements = [aboutTitle, aboutSkills];
+
+export const toolsTitle = 'tools-title';
+export let toolsTitleRef;
+export const toolsDescription = 'tools-description';
+export let toolsDescriptionRef;
+export const toolsIcons = 'tools-icons';
+export let toolsIconsRef;
+const toolsElements = [toolsTitle, toolsDescription, toolsIcons];
+
+export const refElementNames = [
+  ...sectionOrder,
+  ...introductionElements,
+  ...aboutElements,
+  ...toolsElements,
+];
+
 const HomePage = () => {
-  aboutRef = useRef();
-  introductionRef = useRef();
-  projectsRef = useRef();
-  toolsRef = useRef();
+  aboutSectionRef = useRef();
+  introductionSectionRef = useRef();
+  projectsSectionsRef = useRef();
+  toolsSectionRef = useRef();
+
+  introductionTitleRef = useRef();
+  introductionDescriptionRef = useRef();
+  introductionFindOutMoreMobileLinkRef = useRef();
+  introductionFindOutMoreDesktopLinkRef = useRef();
+  introductionPortraitRef = useRef();
+
+  aboutTitleRef = useRef();
+  aboutSkillsRef = useRef();
+
+  toolsTitleRef = useRef();
+  toolsDescriptionRef = useRef();
+  toolsIconsRef = useRef();
 
   const component = componentName => {
     switch (componentName) {

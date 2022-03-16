@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
+
 import BitbucketIcon from '../../ui/svg/BitBucketIcon';
 import BootstrapIcon from '../../ui/svg/BootstrapIcon';
 import CloudinaryIcon from '../../ui/svg/CloudinaryIcon';
@@ -146,17 +148,24 @@ const ToolsIconContainer = props => {
   };
 
   return (
-    <div
-      onTouchStart={touchStartHandler}
-      onTouchCancel={touchCancelHandler}
-      onTouchEnd={touchEndHandler}
-      onMouseOver={mouseOverHandler}
-      onMouseOut={mouseOutHandler}
-      className='flex flex-col gap-3 h-40 px-2 lg:px-5 first:pl-0 last:pr-0'
+    <CSSTransition
+      mountOnEnter
+      in={props.in}
+      timeout={1000}
+      classNames={{ enterActive: 'animate-fade-in' }}
     >
-      <div className='h-16 lg:h-20 w-16 lg:w-20'>{iconComponent()}</div>
-      <div className={`text-center ${textColorClass}`}>{props.iconName}</div>
-    </div>
+      <div
+        onTouchStart={touchStartHandler}
+        onTouchCancel={touchCancelHandler}
+        onTouchEnd={touchEndHandler}
+        onMouseOver={mouseOverHandler}
+        onMouseOut={mouseOutHandler}
+        className='flex flex-col gap-3 h-40 px-2 lg:px-5 first:pl-0 last:pr-0'
+      >
+        <div className='h-16 lg:h-20 w-16 lg:w-20'>{iconComponent()}</div>
+        <div className={`text-center ${textColorClass}`}>{props.iconName}</div>
+      </div>
+    </CSSTransition>
   );
 };
 

@@ -11,7 +11,7 @@ const FindOutMoreLink = props => {
       underline
       background='dark'
       onClick={() => scrollTo(sectionOrder[1])}
-      className={`animate-slow-fade-in ${props.className || ''}`}
+      className={props.className || ''}
     >
       Find out more
     </SubtleLink>

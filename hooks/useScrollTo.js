@@ -1,13 +1,14 @@
-import { sectionOrder } from '../pages';
-import useSectionRef from './useSectionRef';
+import { refElementNames } from '../pages';
+import useElementRef from './useElementRef';
 
 const useScrollTo = () => {
-  const sectionRef = useSectionRef();
+  const elementRef = useElementRef();
 
-  const scrollTo = section => {
-    if (!sectionOrder.includes(section)) throw new Error('Unknown section passed to useScrollTo');
+  const scrollTo = element => {
+    if (!refElementNames.includes(element))
+      throw new Error(`Unknown section '${section}' passed to useScrollTo`);
 
-    sectionRef(section).current.scrollIntoView({ behavior: 'smooth' });
+    elementRef(element).current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return scrollTo;

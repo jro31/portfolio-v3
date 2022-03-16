@@ -12,6 +12,7 @@ module.exports = {
     },
     extend: {
       animation: {
+        // TODO - Delete any of these you don't need
         'delayed-fade-in-1': 'delayedFadeIn1 1.5s linear',
         'delayed-fade-in-2': 'delayedFadeIn2 2s linear',
         'delayed-fade-in-3': 'delayedFadeIn3 2.5s linear',
@@ -39,6 +40,7 @@ module.exports = {
         '7/8': '87.5%',
       },
       keyframes: {
+        // TODO - Delete any of these you don't need
         fadeIn: {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },

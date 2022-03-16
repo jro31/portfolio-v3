@@ -2,14 +2,14 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { navbarActions } from '../../../../store/navbar';
 import Hamburger from '../../../ui/navigation/Hamburger';
-import useIsDarkBackground from '../../../../hooks/useIsDarkBackground';
+import useNavBackgroundIsDark from '../../../../hooks/useNavBackgroundIsDark';
 import { Fragment } from 'react';
 import NavbarMobileMenu from './NavbarMobileMenu';
 
 const MobileNav = () => {
   const dispatch = useDispatch();
   const mobileNavIsOpen = useSelector(state => state.navbar.mobileNavIsOpen);
-  const isDarkBackground = useIsDarkBackground();
+  const navBackgroundIsDark = useNavBackgroundIsDark();
 
   const toggleMobileNav = () => {
     dispatch(navbarActions.toggleMobileNav());
@@ -22,7 +22,7 @@ const MobileNav = () => {
           <Hamburger
             onClick={toggleMobileNav}
             isOpen={mobileNavIsOpen}
-            background={isDarkBackground() ? 'dark' : 'light'}
+            background={navBackgroundIsDark() ? 'dark' : 'light'}
           />
         </div>
       </div>
