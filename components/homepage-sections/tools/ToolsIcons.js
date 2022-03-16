@@ -30,6 +30,7 @@ const ToolsIcons = () => {
   const elementRef = useElementRef();
 
   return (
+    // TODO - Probably update this on mobile. Looks a bit shit.
     <div className='overflow-x-scroll w-full pl-1/12'>
       <div ref={elementRef(toolsIcons)} className='flex gap-5 w-full min-h-[208px]'>
         {/* TODO - Can you make each SVG a different color, and transition them periodically to other colors? */}
