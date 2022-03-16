@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import ToolsIconContainer from './ToolsIconContainer';
 import {
@@ -12,9 +12,13 @@ import {
   styling,
   testing,
   versionControl,
+  toolsSectionsOrder,
 } from './ToolsIcons';
 
 import { defaultTextColorClass } from './ToolsIconContainer';
+import { useSelector } from 'react-redux';
+import { toolsIcons } from '../../../pages';
+import { CSSTransition } from 'react-transition-group';
 
 export const ruby = 'Ruby';
 export const javaScript = 'JavaScript';
@@ -53,9 +57,13 @@ export const reduxToolkit = 'Redux Toolkit';
 
 const ToolsIconsSection = props => {
   const [sectionNameColorClass, setSectionNameColorClass] = useState(defaultTextColorClass);
+  const [displayedIconsArray, setDisplayedIconsArray] = useState([]);
+  const iconstHaveBeenInView = useSelector(
+    state => state.elementIsInView.hasBeenInView[toolsIcons]
+  );
 
-  const iconNames = () => {
-    switch (props.name) {
+  const iconNames = sectionName => {
+    switch (sectionName) {
       case languages:
         return [ruby, javaScript, html, css, haml, jQuery];
       case librariesAndFrameworks:
@@ -81,13 +89,39 @@ const ToolsIconsSection = props => {
     }
   };
 
+  const iconOrder = () => {
+    let returnArray = [];
+
+    toolsSectionsOrder.map(section => returnArray.push(iconNames(section)));
+
+    return returnArray.flat();
+  };
+
+  useEffect(() => {
+    if (iconstHaveBeenInView) {
+      iconOrder().map((icon, i) => {
+        setTimeout(() => {
+          setDisplayedIconsArray(prevState => [...prevState, icon]);
+        }, 100 * i);
+      });
+    }
+  }, [iconstHaveBeenInView]);
+
   return (
     <div className='flex flex-col justify-between px-2 lg:px-5 first:pl-0 last:pr-10'>
-      <div className={sectionNameColorClass}>{props.name}</div>
+      <CSSTransition
+        mountOnEnter
+        in={displayedIconsArray.includes(iconNames(props.name)[0])}
+        timeout={1000}
+        classNames={{ enterActive: 'animate-fade-in' }}
+      >
+        <div className={sectionNameColorClass}>{props.name}</div>
+      </CSSTransition>
       <div className='flex'>
-        {iconNames().map(iconName => (
+        {iconNames(props.name).map(iconName => (
           <ToolsIconContainer
             key={`${iconName}-icon-container`}
+            in={displayedIconsArray.includes(iconName)}
             iconName={iconName}
             sectionNameColorClass={sectionNameColorClass}
             setSectionNameColorClass={setSectionNameColorClass}
