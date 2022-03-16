@@ -5,9 +5,12 @@ import About from '../components/homepage-sections/about/About';
 import Introduction from '../components/homepage-sections/introduction/Introduction';
 import Projects from '../components/homepage-sections/projects/Projects';
 import Tools from '../components/homepage-sections/tools/Tools';
+import Contact from '../components/homepage-sections/contact/Contact';
 
 export const aboutSection = 'about';
 export let aboutSectionRef;
+export const contactSection = 'contact';
+export let contactSectionRef;
 export const introductionSection = 'introduction';
 export let introductionSectionRef;
 export const projectsSection = 'projects';
@@ -15,7 +18,13 @@ export let projectsSectionsRef;
 export const toolsSection = 'tools';
 export let toolsSectionRef;
 
-export const sectionOrder = [introductionSection, aboutSection, toolsSection, projectsSection];
+export const sectionOrder = [
+  introductionSection,
+  aboutSection,
+  toolsSection,
+  projectsSection,
+  contactSection,
+];
 export const darkSections = [introductionSection, toolsSection];
 
 export const introductionTitle = 'introduction-title';
@@ -59,6 +68,7 @@ export const refElementNames = [
 
 const HomePage = () => {
   aboutSectionRef = useRef();
+  contactSectionRef = useRef();
   introductionSectionRef = useRef();
   projectsSectionsRef = useRef();
   toolsSectionRef = useRef();
@@ -77,15 +87,19 @@ const HomePage = () => {
   toolsIconsRef = useRef();
 
   const component = componentName => {
+    const key = `${componentName}-component`;
+
     switch (componentName) {
       case aboutSection:
-        return <About key={`${componentName}-component`} />;
+        return <About key={key} />;
+      case contactSection:
+        return <Contact key={key} />;
       case introductionSection:
-        return <Introduction key={`${componentName}-component`} />;
+        return <Introduction key={key} />;
       case projectsSection:
-        return <Projects key={`${componentName}-component`} />;
+        return <Projects key={key} />;
       case toolsSection:
-        return <Tools key={`${componentName}-component`} />;
+        return <Tools key={key} />;
       default:
         throw new Error('Unknown componentName in component function of HomePage');
     }

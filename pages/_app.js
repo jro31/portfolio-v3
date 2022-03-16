@@ -1,5 +1,6 @@
 // TODO - Update favicon
 // TODO - Update readme
+// TODO - Fix the 'Warning: findDOMNode is deprecated in StrictMode.' error from CSSTransitions
 
 import { Provider } from 'react-redux';
 import Layout from '../components/layout/Layout';
