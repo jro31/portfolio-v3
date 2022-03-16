@@ -42,7 +42,20 @@ export const aboutSkills = 'about-skills';
 export let aboutSkillsRef;
 const aboutElements = [aboutTitle, aboutSkills];
 
-export const refElementNames = [...sectionOrder, ...introductionElements, ...aboutElements];
+export const toolsTitle = 'tools-title';
+export let toolsTitleRef;
+export const toolsDescription = 'tools-description';
+export let toolsDescriptionRef;
+export const toolsIcons = 'tools-icons';
+export let toolsIconsRef;
+const toolsElements = [toolsTitle, toolsDescription, toolsIcons];
+
+export const refElementNames = [
+  ...sectionOrder,
+  ...introductionElements,
+  ...aboutElements,
+  ...toolsElements,
+];
 
 const HomePage = () => {
   aboutSectionRef = useRef();
@@ -58,6 +71,10 @@ const HomePage = () => {
 
   aboutTitleRef = useRef();
   aboutSkillsRef = useRef();
+
+  toolsTitleRef = useRef();
+  toolsDescriptionRef = useRef();
+  toolsIconsRef = useRef();
 
   const component = componentName => {
     switch (componentName) {

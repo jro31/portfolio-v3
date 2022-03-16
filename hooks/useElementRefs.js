@@ -22,6 +22,12 @@ import {
   aboutSkills,
   aboutSkillsRef,
   refElementNames,
+  toolsTitle,
+  toolsTitleRef,
+  toolsDescription,
+  toolsDescriptionRef,
+  toolsIcons,
+  toolsIconsRef,
 } from '../pages';
 
 const useElementRefs = () => {
@@ -52,6 +58,12 @@ const useElementRefs = () => {
           return aboutTitleRef;
         case aboutSkills:
           return aboutSkillsRef;
+        case toolsTitle:
+          return toolsTitleRef;
+        case toolsDescription:
+          return toolsDescriptionRef;
+        case toolsIcons:
+          return toolsIconsRef;
         default:
           throw new Error(`Element name '${elementName}' not found in useElementRefs`);
       }
