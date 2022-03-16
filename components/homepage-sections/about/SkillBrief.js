@@ -4,7 +4,8 @@ import { CSSTransition } from 'react-transition-group';
 import CodingIcon from '../../ui/svg/CodingIcon';
 import PlaceholderIcon from '../../ui/svg/PlaceholderIcon';
 import Heading from '../../ui/text/Heading';
-import { aboutSection, aboutSkills } from '../../../pages';
+import { aboutSkills } from '../../../pages';
+import { coding, templateSkill } from './About';
 
 const SkillBrief = props => {
   const skillsHasBeenInView = useSelector(
@@ -12,8 +13,6 @@ const SkillBrief = props => {
   );
 
   const enterActiveClassName = () => {
-    // TODO - Instead of delaying the transition with a class, delay setting the 'in' prop on the transition
-    // Will make it easier to work with and more scalable
     switch (props.position) {
       case 1:
         return 'animate-delayed-fade-in-1';
@@ -28,14 +27,14 @@ const SkillBrief = props => {
 
   const skillDetails = () => {
     switch (props.skill) {
-      case 'coding':
+      case coding:
         return {
           backgroundColorClass: 'bg-teal-300/20',
           icon: <CodingIcon color='rgb(20 184 166)' />,
           headingText: 'Website development and maintenance',
           description: 'Specialising in Ruby on Rails, React and Next JS',
         };
-      case 'templateSkill': // TODO - Delete this
+      case templateSkill: // TODO - Delete this
         return {
           backgroundColorClass: 'bg-rose-300/20',
           icon: <PlaceholderIcon color='rgb(244 63 94)' />,

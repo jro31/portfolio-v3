@@ -7,6 +7,10 @@ import SectionContainer from '../SectionContainer';
 import SkillBrief from './SkillBrief';
 import useElementRef from '../../../hooks/useElementRef';
 
+export const coding = 'coding';
+export const templateSkill = 'template-skill'; // TODO - Update this to actual skills
+const skills = [coding, templateSkill, templateSkill];
+
 const About = () => {
   const titleHasBeenInView = useSelector(state => state.elementIsInView.hasBeenInView[aboutTitle]);
   const elementRef = useElementRef();
@@ -40,8 +44,7 @@ const About = () => {
             ref={elementRef(aboutSkills)}
             className='flex flex-col justify-center lg:justify-around basis-5/6 xs:basis-3/4 gap-20 lg:gap-0'
           >
-            {/* TODO - Update this to actual skills */}
-            {['coding', 'templateSkill', 'templateSkill'].map((skill, i) => (
+            {skills.map((skill, i) => (
               <SkillBrief key={`${skill}${i}`} skill={skill} position={i + 1} />
             ))}
           </div>

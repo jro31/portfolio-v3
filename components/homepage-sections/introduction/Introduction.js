@@ -32,7 +32,6 @@ const Introduction = () => {
   const elementRef = useElementRef();
 
   return (
-    // TODO - Update all animations on this page (including 'FindOutMoreLink') to use CSSTransition when in view
     <SectionContainer section={introductionSection} className='bg-black'>
       <div className='flex flex-col lg:flex-row w-full lg:h-full'>
         <div className='flex justify-center lg:justify-end lg:basis-1/2'>
