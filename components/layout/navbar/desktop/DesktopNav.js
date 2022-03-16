@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 import useScrollTo from '../../../../hooks/useScrollTo';
 import { sectionOrder } from '../../../../pages';
 import SubtleLink from '../../../ui/navigation/SubtleLink';
-import useIsDarkBackground from '../../../../hooks/useIsDarkBackground';
+import useNavBackgroundIsDark from '../../../../hooks/useNavBackgroundIsDark';
 import { navbarActions } from '../../../../store/navbar';
 
 const DesktopNav = () => {
@@ -13,7 +13,7 @@ const DesktopNav = () => {
   const navbarIsVisible = useSelector(state => state.navbar.isVisible);
   const elementIsInView = useSelector(state => state.elementIsInView.isInView);
   const scrollTo = useScrollTo();
-  const isDarkBackground = useIsDarkBackground();
+  const navBackgroundIsDark = useNavBackgroundIsDark();
 
   const handleSectionClick = section => {
     scrollTo(section);
@@ -40,7 +40,7 @@ const DesktopNav = () => {
             <SubtleLink
               key={`desktop-nav-${section}-link`}
               underline={elementIsInView[section] && !elementIsInView[sectionOrder[i - 1]]}
-              background={isDarkBackground() ? 'dark' : 'light'}
+              background={navBackgroundIsDark() ? 'dark' : 'light'}
               onClick={() => handleSectionClick(section)}
             >
               {section}
