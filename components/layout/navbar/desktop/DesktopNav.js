@@ -5,15 +5,15 @@ import { CSSTransition } from 'react-transition-group';
 import useScrollTo from '../../../../hooks/useScrollTo';
 import { sectionOrder } from '../../../../pages';
 import SubtleLink from '../../../ui/navigation/SubtleLink';
-import useIsDarkBackground from '../../../../hooks/useIsDarkBackground';
+import useNavBackgroundIsDark from '../../../../hooks/useNavBackgroundIsDark';
 import { navbarActions } from '../../../../store/navbar';
 
 const DesktopNav = () => {
   const dispatch = useDispatch();
   const navbarIsVisible = useSelector(state => state.navbar.isVisible);
-  const liveSection = useSelector(state => state.liveSection.liveSection);
+  const elementIsInView = useSelector(state => state.elementIsInView.isInView);
   const scrollTo = useScrollTo();
-  const isDarkBackground = useIsDarkBackground();
+  const navBackgroundIsDark = useNavBackgroundIsDark();
 
   const handleSectionClick = section => {
     scrollTo(section);
@@ -21,11 +21,11 @@ const DesktopNav = () => {
 
   useEffect(() => {
     if (!navbarIsVisible) {
-      if (liveSection !== sectionOrder[0]) {
+      if (sectionOrder.slice(1).some(section => elementIsInView[section])) {
         dispatch(navbarActions.showNavbar());
       }
     }
-  }, [dispatch, navbarIsVisible, liveSection]);
+  }, [dispatch, navbarIsVisible, elementIsInView]);
 
   return (
     <CSSTransition
@@ -36,11 +36,11 @@ const DesktopNav = () => {
     >
       <div className='fixed top-0 left-3 bg-transparent z-50'>
         <div className='hidden lg:flex h-navbar-height w-screen justify-around items-center'>
-          {sectionOrder.map(section => (
+          {sectionOrder.map((section, i) => (
             <SubtleLink
               key={`desktop-nav-${section}-link`}
-              underline={liveSection === section}
-              background={isDarkBackground() ? 'dark' : 'light'}
+              underline={elementIsInView[section] && !elementIsInView[sectionOrder[i - 1]]}
+              background={navBackgroundIsDark() ? 'dark' : 'light'}
               onClick={() => handleSectionClick(section)}
             >
               {section}
