@@ -5,6 +5,7 @@ import BitbucketIcon from '../../ui/svg/BitBucketIcon';
 import BootstrapIcon from '../../ui/svg/BootstrapIcon';
 import CloudinaryIcon from '../../ui/svg/CloudinaryIcon';
 import CssIcon from '../../ui/svg/CssIcon';
+import FirebaseIcon from '../../ui/svg/FirebaseIcon';
 import GitHubIcon from '../../ui/svg/GitHubIcon';
 import GitIcon from '../../ui/svg/GitIcon';
 import HamlIcon from '../../ui/svg/HamlIcon';
@@ -32,6 +33,7 @@ import {
   bootstrap,
   cloudinary,
   css,
+  firebase,
   git,
   gitHub,
   haml,
@@ -66,56 +68,58 @@ const ToolsIconContainer = props => {
 
   const iconComponent = () => {
     switch (props.iconName) {
-      case ruby:
-        return <RubyIcon color={iconColor} />;
-      case javaScript:
-        return <JavascriptIcon color={iconColor} />;
-      case html:
-        return <HtmlIcon color={iconColor} />;
+      case bitbucket:
+        return <BitbucketIcon color={iconColor} />;
+      case bootstrap:
+        return <BootstrapIcon color={iconColor} />;
+      case cloudinary:
+        return <CloudinaryIcon color={iconColor} />;
       case css:
         return <CssIcon color={iconColor} />;
-      case haml:
-        return <HamlIcon color={iconColor} />;
-      case jQuery:
-        return <JQueryIcon color={iconColor} />;
-      case rubyOnRails:
-        return <RailsIcon color={iconColor} />;
-      case reactString:
-        return <ReactIcon color={iconColor} />;
-      case nextJS:
-        return <NextJsIcon color={iconColor} />;
+      case firebase:
+        return <FirebaseIcon color={iconColor} />;
       case git:
         return <GitIcon color={iconColor} />;
       case gitHub:
         return <GitHubIcon color={iconColor} />;
-      case bitbucket:
-        return <BitbucketIcon color={iconColor} />;
-      case tailwindCSSString:
-        return <TailwindIcon color={iconColor} />;
-      case bootstrap:
-        return <BootstrapIcon color={iconColor} />;
-      case sass:
-        return <SassIcon color={iconColor} />;
+      case haml:
+        return <HamlIcon color={iconColor} />;
       case heroku:
         return <HerokuIcon color={iconColor} />;
-      case vercel:
-        return <VercelIcon color={iconColor} />;
+      case html:
+        return <HtmlIcon color={iconColor} />;
+      case javaScript:
+        return <JavascriptIcon color={iconColor} />;
+      case jQuery:
+        return <JQueryIcon color={iconColor} />;
       case netlify:
         return <NetlifyIcon color={iconColor} />;
-      case s3:
-        return <S3Icon color={iconColor} />;
-      case cloudinary:
-        return <CloudinaryIcon color={iconColor} />;
+      case nextJS:
+        return <NextJsIcon color={iconColor} />;
       case postgreSQL:
         return <PostgreSqlIcon color={iconColor} />;
-      case vSCode:
-        return <VSCodeIcon color={iconColor} />;
-      case sublimeText:
-        return <SublimeIcon color={iconColor} />;
-      case rSpec:
-        return <RSpecIcon color={iconColor} />;
+      case reactString:
+        return <ReactIcon color={iconColor} />;
       case reduxToolkit:
         return <ReduxToolkitIcon color={iconColor} />;
+      case rSpec:
+        return <RSpecIcon color={iconColor} />;
+      case ruby:
+        return <RubyIcon color={iconColor} />;
+      case rubyOnRails:
+        return <RailsIcon color={iconColor} />;
+      case s3:
+        return <S3Icon color={iconColor} />;
+      case sass:
+        return <SassIcon color={iconColor} />;
+      case sublimeText:
+        return <SublimeIcon color={iconColor} />;
+      case tailwindCSSString:
+        return <TailwindIcon color={iconColor} />;
+      case vercel:
+        return <VercelIcon color={iconColor} />;
+      case vSCode:
+        return <VSCodeIcon color={iconColor} />;
       default:
         throw new Error(`Unrecognised icon name '${props.iconName}' passed to ToolsIconsSection`);
     }
@@ -148,6 +152,7 @@ const ToolsIconContainer = props => {
   };
 
   return (
+    // TODO - Perhaps add an angelic background to each icon on hover
     <CSSTransition
       mountOnEnter
       in={props.in}

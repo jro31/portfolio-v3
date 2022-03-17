@@ -25,7 +25,7 @@ export const sectionOrder = [
   projectsSection,
   contactSection,
 ];
-export const darkSections = [introductionSection, toolsSection];
+export const darkSections = [introductionSection, toolsSection, projectsSection];
 
 export const introductionTitle = 'introduction-title';
 export let introductionTitleRef;
