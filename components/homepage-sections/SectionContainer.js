@@ -5,7 +5,7 @@ const SectionContainer = props => {
 
   return (
     <div
-      className={`min-h-screen lg:h-screen box-border lg:snap-start pb-12 lg:pb-6 ${
+      className={`min-h-screen h-tall-screen-or-content box-border lg:snap-start pb-12 lg:pb-6 ${
         props.className || ''
       }`}
       ref={elementRef(props.section)}
