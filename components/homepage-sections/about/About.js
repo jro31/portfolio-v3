@@ -17,7 +17,7 @@ const About = () => {
 
   return (
     <SectionContainer section={aboutSection} className='bg-white'>
-      <div className='flex flex-col lg:flex-row gap-6 xs:gap-16 lg:gap-0 lg:h-full'>
+      <div className='flex flex-col lg:flex-row gap-6 xs:gap-16 lg:gap-0 min-h-inherit lg:h-full'>
         <div className='lg:order-last lg:basis-7/12 flex justify-center lg:items-center'>
           <div
             ref={elementRef(aboutTitle)}

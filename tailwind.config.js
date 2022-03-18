@@ -109,6 +109,9 @@ module.exports = {
       },
       minHeight: {
         '11/12': '91.666667%',
+        inherit: 'inherit',
+        'screen-minus-mobile-nav': `calc(100vh - ${mobileNavbarHeight})`,
+        'screen-minus-nav': `calc(100vh - ${navbarHeight})`,
       },
       minWidth: {
         '1/2': '50%',

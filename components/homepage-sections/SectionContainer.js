@@ -10,7 +10,7 @@ const SectionContainer = props => {
       }`}
       ref={elementRef(props.section)}
     >
-      <div className='pt-mobile-navbar-height lg:pt-navbar-height min-h-screen h-full w-full'>
+      <div className='pt-mobile-navbar-height lg:pt-navbar-height min-h-screen-minus-mobile-nav lg:min-h-screen-minus-nav h-full w-full'>
         {props.children}
       </div>
     </div>
