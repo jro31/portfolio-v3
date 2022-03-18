@@ -1,9 +1,7 @@
-import Button from '../../ui/navigation/Button';
-import SubtleLink from '../../ui/navigation/SubtleLink';
-import Description from '../../ui/text/Description';
-import Heading from '../../ui/text/Heading';
 import Subtitle from '../../ui/text/Subtitle';
-import Title from '../../ui/text/Title';
+import ProjectDescription from './ProjectDescription';
+import ProjectLinks from './ProjectLinks';
+import ProjectMockup from './ProjectMockup';
 import { blocksFalling, mealsOfChange, wheresJethro } from './Projects';
 
 const ProjectCard = props => {
@@ -43,36 +41,24 @@ const ProjectCard = props => {
   };
 
   return (
-    <div className='snap-start flex h-full bg-gradient-to-bl from-lime-300 to-violet-700 scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl min-h-[80vh] lg:min-h-0'>
-      <div className='flex flex-col justify-around basis-1/3 pl-16'>
-        <div className='flex flex-col gap-6'>
-          <Subtitle className=''>{projectInfo().title}</Subtitle>
-          <Description>
-            {projectInfo().description}
-            <br />
-            <a
-              href={projectInfo().anatomyUrl}
-              target='_blank'
-              rel='noreferrer'
-              className='underline underline-offset-4'
-            >
-              Anatomy of a project
-            </a>
-          </Description>
+    <div className='snap-start flex flex-col lg:flex-row h-full bg-gradient-to-bl from-lime-300 to-violet-700 scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl min-h-[80vh] lg:min-h-0'>
+      <div className='flex flex-col justify-around basis-1/3 px-6 xs:px-8 2xl:pl-16 2xl:pr-0 py-6 gap-6'>
+        <Subtitle>{projectInfo().title}</Subtitle>
+        <div className='flex lg:hidden p-6'>
+          <ProjectMockup
+            src={projectInfo().imageSrc}
+            alt={projectInfo().title}
+            className='w-full h-full object-contain'
+          />
         </div>
-        <div className='flex justify-center items-center gap-6'>
-          <a href={projectInfo().siteUrl} target='_blank' rel='noreferrer'>
-            <Button>Visit site</Button>
-          </a>
-          <a href={projectInfo().githubUrl} target='_blank' rel='noreferrer'>
-            <SubtleLink underline arrow background='dark'>
-              View on Github
-            </SubtleLink>
-          </a>
-        </div>
+        <ProjectDescription
+          description={projectInfo().description}
+          anatomyUrl={projectInfo().anatomyUrl}
+        />
+        <ProjectLinks siteUrl={projectInfo().siteUrl} githubUrl={projectInfo().githubUrl} />
       </div>
-      <div className='flex items-center basis-2/3 p-6'>
-        <img
+      <div className='hidden lg:flex items-center basis-2/3 p-6'>
+        <ProjectMockup
           src={projectInfo().imageSrc}
           alt={projectInfo().title}
           className='w-full h-full object-contain'
