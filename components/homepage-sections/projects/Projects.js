@@ -3,9 +3,9 @@ import { projectsSection } from '../../../pages';
 import Title from '../../ui/text/Title';
 import ProjectCard from './ProjectCard';
 
-const mealsOfChange = 'meals-of-change';
-const wheresJethro = 'wheres-jethro';
-const blocksFalling = 'blocks-falling';
+export const mealsOfChange = 'meals-of-change';
+export const wheresJethro = 'wheres-jethro';
+export const blocksFalling = 'blocks-falling';
 const projectsOrder = [mealsOfChange, wheresJethro, blocksFalling];
 
 const Projects = () => {

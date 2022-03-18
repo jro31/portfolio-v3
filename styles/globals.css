@@ -10,7 +10,6 @@ Would also need to remove the 'h-screen' on the section container to allow the s
 @media (min-width: 1024px) {
   body,
   html {
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
+    @apply snap-y snap-mandatory scroll-smooth;
   }
 }

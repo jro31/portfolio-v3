@@ -1,3 +1,5 @@
+// TODO - ADD getstaticprops ?
+
 import { Fragment, useRef } from 'react';
 import Head from 'next/head';
 
