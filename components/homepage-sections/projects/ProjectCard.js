@@ -41,7 +41,7 @@ const ProjectCard = props => {
   };
 
   return (
-    <div className='snap-start flex flex-col lg:flex-row h-full bg-gradient-to-bl from-lime-300 to-violet-700 scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl min-h-[80vh] lg:min-h-0'>
+    <div className='snap-start flex flex-col lg:flex-row bg-gradient-to-bl from-lime-300 to-violet-700 scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl lg:min-h-0'>
       <div className='flex flex-col justify-around basis-1/3 px-6 xs:px-8 2xl:pl-16 2xl:pr-0 py-6 gap-6'>
         <Subtitle>{projectInfo().title}</Subtitle>
         <div className='flex lg:hidden p-6'>
