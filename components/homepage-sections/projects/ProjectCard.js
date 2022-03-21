@@ -19,21 +19,23 @@ const ProjectCard = props => {
         };
       case wheresJethro:
         return {
-          title: "Where's Jethro",
-          description: 'This is the description',
-          siteUrl: '',
-          githubUrl: '',
+          title: "Where's Jethro?",
+          description:
+            'An app that allows me to "check-in" my current location using my phone\'s GPS, plotting that location onto a map. The front-end is build with React and hosted on Netlify, the backend is a Rails API hosted on Heroku, with image hosting on Cloudinary.',
+          siteUrl: 'https://wheresjethro.com/',
+          githubUrl: 'https://github.com/jro31/wheres-jethro-front-end',
           anatomyUrl: '', // TODO
-          imageSrc: '',
+          imageSrc: 'images/wheres-jethro-mockup.png',
         };
       case blocksFalling:
         return {
           title: 'Blocks Falling',
-          description: 'This is the description',
-          siteUrl: '',
-          githubUrl: '',
+          description:
+            'An indistinct game where players much neatly fit into lines blocks that fall at ever-increasing speeds, by moving and rotating them. Build with React and hosted on Firebase.',
+          siteUrl: 'https://blocksfalling.com/',
+          githubUrl: 'https://github.com/jro31/blocks-falling',
           anatomyUrl: '', // TODO
-          imageSrc: '',
+          imageSrc: 'images/blocks-falling-mockup.png',
         };
       default:
         throw new Error(`Unrecognised project '${props.project}' passed to ProjectCard`);
@@ -42,9 +44,9 @@ const ProjectCard = props => {
 
   return (
     <div className='snap-start flex flex-col lg:flex-row bg-gradient-to-bl from-lime-300 to-violet-700 scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl lg:min-h-0'>
-      <div className='flex flex-col justify-around basis-1/3 px-6 xs:px-8 2xl:pl-16 2xl:pr-0 py-6 gap-6'>
+      <div className='flex flex-col justify-around lg:basis-5/12 2xl:basis-1/3 px-6 xs:px-8 2xl:pl-16 lg:pr-0 py-6 gap-6'>
         <Subtitle>{projectInfo().title}</Subtitle>
-        <div className='flex lg:hidden p-6'>
+        <div className='flex lg:hidden'>
           <ProjectMockup
             src={projectInfo().imageSrc}
             alt={projectInfo().title}
@@ -57,7 +59,7 @@ const ProjectCard = props => {
         />
         <ProjectLinks siteUrl={projectInfo().siteUrl} githubUrl={projectInfo().githubUrl} />
       </div>
-      <div className='hidden lg:flex items-center basis-2/3 p-6'>
+      <div className='hidden lg:flex items-center basis-7/12 2xl:basis-2/3 pl-0 2xl:pl-6 pr-6 py-6'>
         <ProjectMockup
           src={projectInfo().imageSrc}
           alt={projectInfo().title}
