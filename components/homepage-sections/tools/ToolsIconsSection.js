@@ -42,6 +42,7 @@ export const sass = 'Sass';
 export const heroku = 'Heroku';
 export const vercel = 'Vercel';
 export const netlify = 'Netlify';
+export const firebase = 'Firebase';
 
 export const s3 = 'S3';
 export const cloudinary = 'Cloudinary';
@@ -73,7 +74,7 @@ const ToolsIconsSection = props => {
       case styling:
         return [tailwindCSSString, bootstrap, sass];
       case hosting:
-        return [heroku, vercel, netlify];
+        return [heroku, vercel, netlify, firebase];
       case fileStorage:
         return [s3, cloudinary];
       case dataString:

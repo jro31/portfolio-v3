@@ -38,7 +38,6 @@ const ToolsIcons = () => {
         {toolsSectionsOrder.map(section => (
           <ToolsIconsSection key={`${section} section`} name={section} />
         ))}
-
         {/* TODO - Optionally add - erb, Scss, React Transition Group */}
       </div>
     </div>

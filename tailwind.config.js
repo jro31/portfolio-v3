@@ -104,6 +104,15 @@ module.exports = {
           '100%': { transform: 'perspective(1000px) translateZ(0) translateY(0)', opacity: 1 },
         },
       },
+      margin: {
+        '1/12': '8.333333%',
+      },
+      minHeight: {
+        '11/12': '91.666667%',
+        inherit: 'inherit',
+        'screen-minus-mobile-nav': `calc(100vh - ${mobileNavbarHeight})`,
+        'screen-minus-nav': `calc(100vh - ${navbarHeight})`,
+      },
       minWidth: {
         '1/2': '50%',
         '1/3': '33.333333%',
@@ -112,6 +121,9 @@ module.exports = {
       },
       padding: {
         '1/12': '8.333333%',
+      },
+      scrollMargin: {
+        '1/12-screen': '8.333333vw',
       },
       spacing: {
         inherit: 'inherit',

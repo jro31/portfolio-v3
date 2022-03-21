@@ -1,12 +1,14 @@
 import {
-  aboutSectionRef,
   aboutSection,
-  introductionSectionRef,
+  aboutSectionRef,
+  contactSection,
+  contactSectionRef,
   introductionSection,
-  projectsSectionsRef,
+  introductionSectionRef,
   projectsSection,
-  toolsSectionRef,
+  projectsSectionsRef,
   toolsSection,
+  toolsSectionRef,
   introductionTitle,
   introductionTitleRef,
   introductionDescription,
@@ -38,6 +40,8 @@ const useElementRefs = () => {
       switch (elementName) {
         case aboutSection:
           return aboutSectionRef;
+        case contactSection:
+          return contactSectionRef;
         case introductionSection:
           return introductionSectionRef;
         case projectsSection:
