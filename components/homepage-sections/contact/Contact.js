@@ -9,11 +9,34 @@ const Contact = () => {
   const enteredName = useSelector(state => state.contactForm.enteredName);
   const enteredEmail = useSelector(state => state.contactForm.enteredEmail);
   const enteredMessage = useSelector(state => state.contactForm.enteredMessage);
+  // TODO - Add 'isSubmitting' state
 
-  const formSubmitHandler = event => {
+  const formSubmitHandler = async event => {
     event.preventDefault();
-    // TODO
     console.log('🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧');
+
+    // TODO - Validate inputs
+
+    const res = await fetch('/api/sendgrid', {
+      body: JSON.stringify({
+        email: enteredEmail,
+        fullname: enteredName,
+        message: enteredMessage,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    });
+
+    console.log(res);
+
+    const { error } = await res.json();
+    if (error) {
+      console.log(error);
+      return;
+    }
+    console.log(enteredEmail, enteredName, enteredMessage);
   };
 
   return (
@@ -38,6 +61,8 @@ const Contact = () => {
           onChange={event => dispatch(contactFormActions.setEnteredMessage(event.target.value))}
         />
         <button>Send email</button>
+        {/* TODO - Display 'isSubmitting' state when submitting somehow */}
+        {/* TODO - Show a success/failure message to the user */}
       </form>
     </SectionContainer>
   );
