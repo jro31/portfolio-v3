@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-import BitbucketIcon from '../../ui/svg/BitBucketIcon';
+import BitbucketIcon from '../../ui/svg/BitbucketIcon';
 import BootstrapIcon from '../../ui/svg/BootstrapIcon';
 import CloudinaryIcon from '../../ui/svg/CloudinaryIcon';
 import CssIcon from '../../ui/svg/CssIcon';

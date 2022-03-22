@@ -106,7 +106,7 @@ const ToolsIconsSection = props => {
         }, 100 * i);
       });
     }
-  }, [iconstHaveBeenInView]);
+  }, [iconstHaveBeenInView]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className='flex flex-col justify-between px-2 lg:px-5 first:pl-0 last:pr-10'>
