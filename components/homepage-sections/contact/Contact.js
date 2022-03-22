@@ -3,40 +3,53 @@ import { useDispatch, useSelector } from 'react-redux';
 import { contactFormActions } from '../../../store/contact-form';
 import { contactSection } from '../../../pages';
 import SectionContainer from '../SectionContainer';
+import { useState } from 'react';
+
+const successMessage = 'Email sent successfully!';
 
 const Contact = () => {
   const dispatch = useDispatch();
   const enteredName = useSelector(state => state.contactForm.enteredName);
   const enteredEmail = useSelector(state => state.contactForm.enteredEmail);
   const enteredMessage = useSelector(state => state.contactForm.enteredMessage);
-  // TODO - Add 'isSubmitting' state
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [sendStatus, setSendStatus] = useState('');
 
   const formSubmitHandler = async event => {
     event.preventDefault();
-    console.log('🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧🦧');
+    setIsSubmitting(true);
+    setSendStatus('');
 
     // TODO - Validate inputs
+    // TODO - Typing into any of the inputs should clear the 'sendStatus' state
 
-    const res = await fetch('/api/sendgrid', {
-      body: JSON.stringify({
-        email: enteredEmail,
-        fullname: enteredName,
-        message: enteredMessage,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    });
+    try {
+      const response = await fetch('/api/sendgrid', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          enteredName: enteredName.trim(),
+          enteredEmail: enteredEmail.trim(),
+          enteredMessage: enteredMessage.trim(),
+        }),
+      });
 
-    console.log(res);
+      const data = await response.json();
 
-    const { error } = await res.json();
-    if (error) {
-      console.log(error);
-      return;
+      if (response.ok && data.success) {
+        setSendStatus(successMessage);
+        setIsSubmitting(false);
+        dispatch(contactFormActions.resetForm());
+      } else {
+        throw new Error(data.error_message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setSendStatus(error.message);
+      setIsSubmitting(false);
     }
-    console.log(enteredEmail, enteredName, enteredMessage);
   };
 
   return (
@@ -60,9 +73,11 @@ const Contact = () => {
           value={enteredMessage}
           onChange={event => dispatch(contactFormActions.setEnteredMessage(event.target.value))}
         />
+        <div className={`${sendStatus === successMessage ? 'text-success' : 'text-error'}`}>
+          {sendStatus}
+        </div>
         <button>Send email</button>
-        {/* TODO - Display 'isSubmitting' state when submitting somehow */}
-        {/* TODO - Show a success/failure message to the user */}
+        {/* TODO - Display 'isSubmitting' state when submitting (and disable the button) */}
       </form>
     </SectionContainer>
   );

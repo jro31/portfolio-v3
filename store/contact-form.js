@@ -1,12 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState = {
+  enteredName: '',
+  enteredEmail: '',
+  enteredMessage: '',
+};
+
 const contactFormSlice = createSlice({
   name: 'contact-form',
-  initialState: {
-    enteredName: '',
-    enteredEmail: '',
-    enteredMessage: '',
-  },
+  initialState,
   reducers: {
     setEnteredName(state, action) {
       state.enteredName = action.payload;
@@ -17,6 +19,7 @@ const contactFormSlice = createSlice({
     setEnteredMessage(state, action) {
       state.enteredMessage = action.payload;
     },
+    resetForm: () => initialState,
   },
 });
 
