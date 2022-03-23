@@ -1,11 +1,11 @@
 // TODO - Transition in elements
 
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { contactFormActions } from '../../../store/contact-form';
 import { contactSection } from '../../../pages';
 import SectionContainer from '../SectionContainer';
-import { useState } from 'react';
 import Button from '../../ui/navigation/Button';
 import Title from '../../ui/text/Title';
 import FormField from '../../ui/form/FormField';
@@ -80,7 +80,7 @@ const Contact = () => {
   return (
     <SectionContainer
       section={contactSection}
-      className='bg-gradient-to-br from-slate-800 via-black to-slate-800 text-white'
+      className='bg-gradient-to-br from-slate-800 via-black to-black text-white'
     >
       <div className='flex flex-col items-end justify-around min-h-screen-minus-mobile-nav lg:min-h-screen-minus-nav h-full w-full'>
         <div className='w-11/12'>
@@ -124,18 +124,21 @@ const Contact = () => {
               {/* TODO - Display 'isSubmitting' state when submitting */}
             </form>
           </div>
-          <div className='basis-1/3 text-center'>
+          <div className='basis-1/3'>
+            <div className='text-center'>
+              ...or checkout my projects in more detail at jethro.codes...
+            </div>
             {/* TODO - Add link */}
-            ...or checkout my projects in more detail at jethro.codes...
           </div>
-          {/* TODO - Add email address, Instagram, Twitter */}
-          <div className='basis-1/3 text-right'>
-            ...or find me in any of these spaces!
-            <SocialMediaCard platform={gitHub} />
-            <SocialMediaCard platform={linkedIn} />
-            <SocialMediaCard platform={email} />
-            <SocialMediaCard platform={twitter} />
-            <SocialMediaCard platform={instagram} />
+          <div className='basis-1/3'>
+            <div className='text-right'>...or find me in any of these spaces!</div>
+            <div className='flex flex-col gap-3'>
+              <SocialMediaCard platform={gitHub} />
+              <SocialMediaCard platform={linkedIn} />
+              <SocialMediaCard platform={instagram} />
+              <SocialMediaCard platform={twitter} />
+              <SocialMediaCard platform={email} />
+            </div>
           </div>
         </div>
       </div>
