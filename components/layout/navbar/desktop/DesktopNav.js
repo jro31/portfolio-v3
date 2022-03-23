@@ -1,3 +1,5 @@
+// TODO - Style this properly
+
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';

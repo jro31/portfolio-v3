@@ -11,8 +11,12 @@ import Title from '../../ui/text/Title';
 import FormField from '../../ui/form/FormField';
 
 import { input, textarea } from '../../ui/form/FormField';
+import SocialMediaCard from './SocialMediaCard';
 
 const successMessage = 'Email sent successfully!';
+
+export const linkedIn = 'LinkedIn';
+export const gitHub = 'GitHub';
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -117,12 +121,16 @@ const Contact = () => {
               {/* TODO - Display 'isSubmitting' state when submitting */}
             </form>
           </div>
-          {/* TODO - Add link */}
           <div className='basis-1/3 text-center'>
+            {/* TODO - Add link */}
             ...or checkout my projects in more detail at jethro.codes...
           </div>
-          {/* TODO - Add Github, Linkedin, Instagram?, Twitter? */}
-          <div className='basis-1/3 text-right'>...or find me in any of these spaces!</div>
+          {/* TODO - Add email address, Instagram, Twitter */}
+          <div className='basis-1/3 text-right'>
+            ...or find me in any of these spaces!
+            <SocialMediaCard platform={gitHub} />
+            <SocialMediaCard platform={linkedIn} />
+          </div>
         </div>
       </div>
     </SectionContainer>
