@@ -63,6 +63,7 @@ const ToolsIconsSection = props => {
     state => state.elementIsInView.hasBeenInView[toolsIcons]
   );
 
+  // TODO - Add sendgrid in a new section of 'email'
   const iconNames = sectionName => {
     switch (sectionName) {
       case languages:
