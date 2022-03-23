@@ -24,7 +24,7 @@ const FormField = props => {
     <Tag
       required={props.required}
       placeholder={props.placeholder || ''}
-      value={props.value || null}
+      value={props.value || ''}
       onChange={props.onChange || null}
       className='p-3 rounded-lg'
     />
