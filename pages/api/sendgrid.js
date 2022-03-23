@@ -5,6 +5,7 @@ sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 const sendEmail = async (req, res) => {
   try {
     await sendgrid.send({
+      // TODO - Update these email addresses - The 'from' address should be the contact form email address, the 'to' address should be your personal gmail address. Will need to update settings on SendGrid.
       to: process.env.CONTACT_FORM_EMAIL_ADDRESS,
       from: process.env.OUTLOOK_EMAIL_ADDRESS,
       subject: '[jethrowilliams.com contact form]',

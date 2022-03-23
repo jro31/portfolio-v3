@@ -1,7 +1,8 @@
+import EmailIcon from '../../ui/svg/EmailIcon';
 import GitHubIcon from '../../ui/svg/GitHubIcon';
 import LinkedInIcon from '../../ui/svg/LinkedInIcon';
 
-import { gitHub, linkedIn } from './Contact';
+import { email, gitHub, linkedIn } from './Contact';
 
 const SocialMediaCard = props => {
   const defaultIconColor = 'rgb(71 85 105)';
@@ -19,6 +20,12 @@ const SocialMediaCard = props => {
           url: 'https://www.linkedin.com/in/jethrowilliams/',
           icon: <LinkedInIcon color={defaultIconColor} />,
           username: 'jethrowilliams',
+        };
+      case email:
+        return {
+          url: 'mai\u006Cto:contact\u0040jethrowilliams\u002Ec\u006Fm',
+          icon: <EmailIcon color={defaultIconColor} />,
+          username: 'contact\u0040jethrowilliams\u002Ec\u006Fm',
         };
       default:
         throw new Error(`Unrecognised platform '${props.platform}' passed to SocialMediaCard`);

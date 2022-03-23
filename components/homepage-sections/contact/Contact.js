@@ -17,6 +17,7 @@ const successMessage = 'Email sent successfully!';
 
 export const linkedIn = 'LinkedIn';
 export const gitHub = 'GitHub';
+export const email = 'Email';
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -130,6 +131,7 @@ const Contact = () => {
             ...or find me in any of these spaces!
             <SocialMediaCard platform={gitHub} />
             <SocialMediaCard platform={linkedIn} />
+            <SocialMediaCard platform={email} />
           </div>
         </div>
       </div>
