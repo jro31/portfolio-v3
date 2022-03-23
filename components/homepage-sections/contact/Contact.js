@@ -15,9 +15,11 @@ import SocialMediaCard from './SocialMediaCard';
 
 const successMessage = 'Email sent successfully!';
 
-export const linkedIn = 'LinkedIn';
-export const gitHub = 'GitHub';
 export const email = 'Email';
+export const gitHub = 'GitHub';
+export const instagram = 'Instagram';
+export const linkedIn = 'LinkedIn';
+export const twitter = 'Twitter';
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -132,6 +134,8 @@ const Contact = () => {
             <SocialMediaCard platform={gitHub} />
             <SocialMediaCard platform={linkedIn} />
             <SocialMediaCard platform={email} />
+            <SocialMediaCard platform={twitter} />
+            <SocialMediaCard platform={instagram} />
           </div>
         </div>
       </div>
