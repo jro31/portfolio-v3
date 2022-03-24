@@ -13,6 +13,7 @@ import FormField from '../../ui/form/FormField';
 import { input, textarea } from '../../ui/form/FormField';
 import SocialMediaCard from './SocialMediaCard';
 import LoadingSpinner from '../../ui/svg/LoadingSpinner';
+import JethroCodesSection from './JethroCodesSection';
 
 const successMessage = 'Email sent successfully!';
 
@@ -88,56 +89,59 @@ const Contact = () => {
           <Title>Get in touch</Title>
         </div>
         <div className='flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-0 w-11/12 pr-1/12'>
-          <div className='flex flex-col gap-3 basis-1/3'>
-            <div>Interested in working together, or just want to say hi, drop me an email...</div>
-            <form className='flex flex-col gap-3 text-black' onSubmit={formSubmitHandler}>
-              <FormField
-                type={input}
-                required
-                placeholder='Name'
-                value={enteredName}
-                onChange={event =>
-                  handleFormFieldChange(event.target.value, contactFormActions.setEnteredName)
-                }
-              />
-              <FormField
-                type={input}
-                required
-                placeholder='Email'
-                value={enteredEmail}
-                onChange={event =>
-                  handleFormFieldChange(event.target.value, contactFormActions.setEnteredEmail)
-                }
-              />
-              <FormField
-                type={textarea}
-                required
-                placeholder='Message'
-                value={enteredMessage}
-                onChange={event =>
-                  handleFormFieldChange(event.target.value, contactFormActions.setEnteredMessage)
-                }
-              />
-              <div className={`${sendStatus === successMessage ? 'text-success' : 'text-error'}`}>
-                {sendStatus}
-              </div>
-              <Button disabled={disableButton()}>
-                {isSubmitting ? (
-                  <div className='flex justify-center'>
-                    <LoadingSpinner />
-                  </div>
-                ) : (
-                  'Send email'
-                )}
-              </Button>
-            </form>
+          <div className='lg:basis-1/2 xl:basis-1/3'>
+            <div className='flex flex-col gap-3'>
+              <div>Interested in working together, or just want to say hi, drop me an email...</div>
+              <form className='flex flex-col gap-3 text-black' onSubmit={formSubmitHandler}>
+                <FormField
+                  type={input}
+                  required
+                  placeholder='Name'
+                  value={enteredName}
+                  onChange={event =>
+                    handleFormFieldChange(event.target.value, contactFormActions.setEnteredName)
+                  }
+                />
+                <FormField
+                  type={input}
+                  required
+                  placeholder='Email'
+                  value={enteredEmail}
+                  onChange={event =>
+                    handleFormFieldChange(event.target.value, contactFormActions.setEnteredEmail)
+                  }
+                />
+                <FormField
+                  type={textarea}
+                  required
+                  placeholder='Message'
+                  value={enteredMessage}
+                  onChange={event =>
+                    handleFormFieldChange(event.target.value, contactFormActions.setEnteredMessage)
+                  }
+                />
+                <div className={`${sendStatus === successMessage ? 'text-success' : 'text-error'}`}>
+                  {sendStatus}
+                </div>
+                <Button disabled={disableButton()}>
+                  {isSubmitting ? (
+                    <div className='flex justify-center'>
+                      <LoadingSpinner />
+                    </div>
+                  ) : (
+                    'Send email'
+                  )}
+                </Button>
+              </form>
+            </div>
+            <JethroCodesSection className='hidden lg:flex xl:hidden' />
           </div>
-          <div className='flex flex-col gap-3 basis-1/3 lg:order-last'>
+          <div className='flex flex-col gap-3 lg:basis-1/2 xl:basis-1/3 lg:order-last'>
             <div className='text-center lg:text-right'>
               <span className='lg:hidden'>...or find me in any of these spaces...</span>
               <span className='hidden lg:block'>...or find me in any of these spaces!</span>
             </div>
-            <div className='flex flex-col gap-3 items-center'>
+            <div className='flex flex-col gap-3 items-center lg:items-end'>
               <SocialMediaCard platform={gitHub} />
               <SocialMediaCard platform={linkedIn} />
               <SocialMediaCard platform={instagram} />
@@ -145,18 +149,7 @@ const Contact = () => {
               <SocialMediaCard platform={email} />
             </div>
           </div>
-          <div className='flex flex-col gap-3 basis-1/3'>
-            {/* TODO - Large screen, have this below the email form */}
-            <div className='text-center'>
-              <span className='lg:hidden'>
-                ...or checkout my projects in more detail at jethro.codes!
-              </span>
-              <span className='hidden lg:block'>
-                ...or checkout my projects in more detail at jethro.codes...
-              </span>
-            </div>
-            {/* TODO - Add link */}
-          </div>
+          <JethroCodesSection className='flex lg:hidden xl:flex' />
         </div>
       </div>
     </SectionContainer>
