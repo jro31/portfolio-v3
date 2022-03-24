@@ -12,6 +12,7 @@ import FormField from '../../ui/form/FormField';
 
 import { input, textarea } from '../../ui/form/FormField';
 import SocialMediaCard from './SocialMediaCard';
+import LoadingSpinner from '../../ui/svg/LoadingSpinner';
 
 const successMessage = 'Email sent successfully!';
 
@@ -120,8 +121,15 @@ const Contact = () => {
               <div className={`${sendStatus === successMessage ? 'text-success' : 'text-error'}`}>
                 {sendStatus}
               </div>
-              <Button disabled={disableButton()}>Send email</Button>
-              {/* TODO - Display 'isSubmitting' state when submitting */}
+              <Button disabled={disableButton()}>
+                {isSubmitting ? (
+                  <div className='flex justify-center'>
+                    <LoadingSpinner />
+                  </div>
+                ) : (
+                  'Send email'
+                )}
+              </Button>
             </form>
           </div>
           <div className='basis-1/3'>
