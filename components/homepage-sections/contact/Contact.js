@@ -87,8 +87,8 @@ const Contact = () => {
         <div className='w-11/12'>
           <Title>Get in touch</Title>
         </div>
-        <div className='flex justify-between w-11/12 pr-1/12'>
-          <div className='basis-1/3'>
+        <div className='flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-0 w-11/12 pr-1/12'>
+          <div className='flex flex-col gap-3 basis-1/3'>
             <div>Interested in working together, or just want to say hi, drop me an email...</div>
             <form className='flex flex-col gap-3 text-black' onSubmit={formSubmitHandler}>
               <FormField
@@ -132,21 +132,30 @@ const Contact = () => {
               </Button>
             </form>
           </div>
-          <div className='basis-1/3'>
-            <div className='text-center'>
-              ...or checkout my projects in more detail at jethro.codes...
+          <div className='flex flex-col gap-3 basis-1/3 lg:order-last'>
+            <div className='text-center lg:text-right'>
+              <span className='lg:hidden'>...or find me in any of these spaces...</span>
+              <span className='hidden lg:block'>...or find me in any of these spaces!</span>
             </div>
-            {/* TODO - Add link */}
-          </div>
-          <div className='basis-1/3'>
-            <div className='text-right'>...or find me in any of these spaces!</div>
-            <div className='flex flex-col gap-3'>
+            <div className='flex flex-col gap-3 items-center'>
               <SocialMediaCard platform={gitHub} />
               <SocialMediaCard platform={linkedIn} />
               <SocialMediaCard platform={instagram} />
               <SocialMediaCard platform={twitter} />
               <SocialMediaCard platform={email} />
             </div>
+          </div>
+          <div className='flex flex-col gap-3 basis-1/3'>
+            {/* TODO - Large screen, have this below the email form */}
+            <div className='text-center'>
+              <span className='lg:hidden'>
+                ...or checkout my projects in more detail at jethro.codes!
+              </span>
+              <span className='hidden lg:block'>
+                ...or checkout my projects in more detail at jethro.codes...
+              </span>
+            </div>
+            {/* TODO - Add link */}
           </div>
         </div>
       </div>

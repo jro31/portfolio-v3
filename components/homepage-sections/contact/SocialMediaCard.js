@@ -92,12 +92,20 @@ const SocialMediaCard = props => {
         onTouchEnd={touchEndHandler}
         onMouseOver={mouseOverHandler}
         onMouseOut={mouseOutHandler}
-        className='flex bg-gradient-to-br from-slate-500 to-slate-700 hover:from-black hover:to-black border border-transparent hover:border-slate-200 rounded-xl p-2 gap-6'
+        className='flex items-center min-w-[265px] 2xs:min-w-[375px] lg:min-w-[325px] xl:min-w-[375px] max-w-[500px] bg-gradient-to-br from-slate-500 to-slate-700 hover:from-black hover:to-black border border-transparent hover:border-slate-200 rounded-xl p-2 gap-2 2xs:gap-4 xs:gap-6 lg:gap-4 xl:gap-6'
       >
-        <div className='w-16 h-16 grow-0'>{platformDetails().icon}</div>
+        <div className='w-10 2xs:w-12 xs:w-16 lg:w-12 xl:w-16 h-10 2xs:h-12 xs:h-16 lg:h-12 xl:h-16 grow-0'>
+          {platformDetails().icon}
+        </div>
         <div className='grow'>
-          <div className={`text-2xl font-black ${platformColorClass}`}>{props.platform}</div>
-          <div className={`text-lg font-medium italic tracking-wide ${usernameColorClass}`}>
+          <div
+            className={`text-xl xs:text-2xl lg:text-xl xl:text-2xl font-black ${platformColorClass}`}
+          >
+            {props.platform}
+          </div>
+          <div
+            className={`text-sm 2xs:text-base xs:text-lg lg:text-base xl:text-lg font-medium italic tracking-wide ${usernameColorClass}`}
+          >
             {platformDetails().username}
           </div>
         </div>
