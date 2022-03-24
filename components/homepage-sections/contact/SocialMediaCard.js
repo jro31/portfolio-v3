@@ -9,12 +9,12 @@ import TwitterIcon from '../../ui/svg/TwitterIcon';
 import { email, gitHub, instagram, linkedIn, twitter } from './Contact';
 
 const SocialMediaCard = props => {
-  const defaultPlatformColorClass = 'text-slate-900/50';
-  const hoverPlatformColorClass = 'text-slate-700/50';
-  const defaultUsernameColorClass = 'text-slate-500';
-  const hoverUsernameColorClass = 'text-slate-400';
+  const defaultPlatformColorClass = 'text-black';
+  const hoverPlatformColorClass = 'text-slate-700';
+  const defaultUsernameColorClass = 'text-slate-300/90';
+  const hoverUsernameColorClass = 'text-slate-200';
   const defaultIconColor = 'black';
-  const hoverIconColor = 'rgb(30 41 59)';
+  const hoverIconColor = 'rgb(226 232 240)';
   const [platformColorClass, setPlatformColorClass] = useState(defaultPlatformColorClass);
   const [usernameColorClass, setUsernameColorClass] = useState(defaultUsernameColorClass);
   const [iconColor, setIconColor] = useState(defaultIconColor);
@@ -92,7 +92,7 @@ const SocialMediaCard = props => {
         onTouchEnd={touchEndHandler}
         onMouseOver={mouseOverHandler}
         onMouseOut={mouseOutHandler}
-        className='flex bg-slate-800 hover:bg-black border border-slate-800 rounded-xl p-2 gap-6'
+        className='flex bg-gradient-to-br from-slate-500 to-slate-700 hover:from-black hover:to-black border border-transparent hover:border-slate-200 rounded-xl p-2 gap-6'
       >
         <div className='w-16 h-16 grow-0'>{platformDetails().icon}</div>
         <div className='grow'>
