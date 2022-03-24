@@ -30,6 +30,8 @@ export const instagram = 'Instagram';
 export const linkedIn = 'LinkedIn';
 export const twitter = 'Twitter';
 
+export const socialMediaCardOrder = [gitHub, linkedIn, instagram, twitter, email];
+
 const Contact = () => {
   const dispatch = useDispatch();
   const titleHasBeenInView = useSelector(
@@ -183,7 +185,7 @@ const Contact = () => {
           </div>
           <div
             ref={elementRef(contactSocialMediaLinks)}
-            className='flex flex-col gap-3 lg:basis-1/2 xl:basis-1/3 lg:order-last'
+            className='flex flex-col gap-3 lg:basis-1/2 xl:basis-1/3 lg:order-last min-h-[402px] 2xs:min-h-[422px] xs:min-h-[482px] lg:min-h-[436px] xl:min-h-[482px]'
           >
             <CSSTransition
               mountOnEnter
@@ -200,12 +202,9 @@ const Contact = () => {
                   <span className='hidden lg:block'>...or find me in any of these spaces!</span>
                 </div>
                 <div className='flex flex-col gap-3 items-center lg:items-end'>
-                  {/* TODO - Fade these in sequentially? */}
-                  <SocialMediaCard platform={gitHub} />
-                  <SocialMediaCard platform={linkedIn} />
-                  <SocialMediaCard platform={instagram} />
-                  <SocialMediaCard platform={twitter} />
-                  <SocialMediaCard platform={email} />
+                  {socialMediaCardOrder.map(platform => (
+                    <SocialMediaCard key={`${platform}-social-media-card`} platform={platform} />
+                  ))}
                 </div>
               </div>
             </CSSTransition>

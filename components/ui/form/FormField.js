@@ -26,7 +26,7 @@ const FormField = props => {
       placeholder={props.placeholder || ''}
       value={props.value || ''}
       onChange={props.onChange || null}
-      className={`p-3 rounded-lg ${props.type === textarea ? 'h-32' : ''}`}
+      className={`p-3 rounded-lg ${props.type === textarea ? 'h-36' : ''}`}
     />
   );
 };
