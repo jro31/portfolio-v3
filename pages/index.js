@@ -27,7 +27,28 @@ export const sectionOrder = [
   projectsSection,
   contactSection,
 ];
-export const darkSections = [introductionSection, toolsSection, projectsSection];
+export const darkSections = [introductionSection, toolsSection, projectsSection, contactSection];
+
+export const aboutTitle = 'about-title';
+export let aboutTitleRef;
+export const aboutSkills = 'about-skills';
+export let aboutSkillsRef;
+const aboutElements = [aboutTitle, aboutSkills];
+
+export const contactTitle = 'contact-title';
+export let contactTitleRef;
+export const contactForm = 'contact-form';
+export let contactFormRef;
+export const contactJethroCodesLink = 'contact-jethro-codes-link';
+export let contactJethroCodesLinkRef;
+export const contactSocialMediaLinks = 'contact-social-media-links';
+export let contactSocialMediaLinksRef;
+const contactElements = [
+  contactTitle,
+  contactForm,
+  contactJethroCodesLink,
+  contactSocialMediaLinks,
+];
 
 export const introductionTitle = 'introduction-title';
 export let introductionTitleRef;
@@ -47,12 +68,6 @@ const introductionElements = [
   introductionPortrait,
 ];
 
-export const aboutTitle = 'about-title';
-export let aboutTitleRef;
-export const aboutSkills = 'about-skills';
-export let aboutSkillsRef;
-const aboutElements = [aboutTitle, aboutSkills];
-
 export const toolsTitle = 'tools-title';
 export let toolsTitleRef;
 export const toolsDescription = 'tools-description';
@@ -66,6 +81,7 @@ export const refElementNames = [
   ...introductionElements,
   ...aboutElements,
   ...toolsElements,
+  ...contactElements,
 ];
 
 const HomePage = () => {
@@ -87,6 +103,11 @@ const HomePage = () => {
   toolsTitleRef = useRef();
   toolsDescriptionRef = useRef();
   toolsIconsRef = useRef();
+
+  contactTitleRef = useRef();
+  contactFormRef = useRef();
+  contactJethroCodesLinkRef = useRef();
+  contactSocialMediaLinksRef = useRef();
 
   const component = componentName => {
     const key = `${componentName}-component`;

@@ -1,3 +1,5 @@
+// TODO - Transition in elements
+
 import SectionContainer from '../SectionContainer';
 import { projectsSection } from '../../../pages';
 import Title from '../../ui/text/Title';

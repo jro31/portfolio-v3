@@ -35,6 +35,10 @@ module.exports = {
       borderRadius: {
         '1/2': '50%',
       },
+      colors: {
+        success: 'rgb(74 222 128)',
+        error: 'rgb(225 29 72)',
+      },
       flexBasis: {
         '1/8': '12.5%',
         '7/8': '87.5%',

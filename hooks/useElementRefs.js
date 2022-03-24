@@ -1,14 +1,22 @@
 import {
   aboutSection,
   aboutSectionRef,
+  aboutTitle,
+  aboutTitleRef,
+  aboutSkills,
+  aboutSkillsRef,
   contactSection,
   contactSectionRef,
+  contactTitle,
+  contactTitleRef,
+  contactForm,
+  contactFormRef,
+  contactJethroCodesLink,
+  contactJethroCodesLinkRef,
+  contactSocialMediaLinks,
+  contactSocialMediaLinksRef,
   introductionSection,
   introductionSectionRef,
-  projectsSection,
-  projectsSectionsRef,
-  toolsSection,
-  toolsSectionRef,
   introductionTitle,
   introductionTitleRef,
   introductionDescription,
@@ -19,17 +27,17 @@ import {
   introductionFindOutMoreDesktopLinkRef,
   introductionPortrait,
   introductionPortraitRef,
-  aboutTitle,
-  aboutTitleRef,
-  aboutSkills,
-  aboutSkillsRef,
-  refElementNames,
+  projectsSection,
+  projectsSectionsRef,
+  toolsSection,
+  toolsSectionRef,
   toolsTitle,
   toolsTitleRef,
   toolsDescription,
   toolsDescriptionRef,
   toolsIcons,
   toolsIconsRef,
+  refElementNames,
 } from '../pages';
 
 const useElementRefs = () => {
@@ -40,14 +48,22 @@ const useElementRefs = () => {
       switch (elementName) {
         case aboutSection:
           return aboutSectionRef;
+        case aboutTitle:
+          return aboutTitleRef;
+        case aboutSkills:
+          return aboutSkillsRef;
         case contactSection:
           return contactSectionRef;
+        case contactTitle:
+          return contactTitleRef;
+        case contactForm:
+          return contactFormRef;
+        case contactJethroCodesLink:
+          return contactJethroCodesLinkRef;
+        case contactSocialMediaLinks:
+          return contactSocialMediaLinksRef;
         case introductionSection:
           return introductionSectionRef;
-        case projectsSection:
-          return projectsSectionsRef;
-        case toolsSection:
-          return toolsSectionRef;
         case introductionTitle:
           return introductionTitleRef;
         case introductionDescription:
@@ -58,10 +74,10 @@ const useElementRefs = () => {
           return introductionFindOutMoreDesktopLinkRef;
         case introductionPortrait:
           return introductionPortraitRef;
-        case aboutTitle:
-          return aboutTitleRef;
-        case aboutSkills:
-          return aboutSkillsRef;
+        case projectsSection:
+          return projectsSectionsRef;
+        case toolsSection:
+          return toolsSectionRef;
         case toolsTitle:
           return toolsTitleRef;
         case toolsDescription:

@@ -59,10 +59,9 @@ export const reduxToolkit = 'Redux Toolkit';
 const ToolsIconsSection = props => {
   const [sectionNameColorClass, setSectionNameColorClass] = useState(defaultTextColorClass);
   const [displayedIconsArray, setDisplayedIconsArray] = useState([]);
-  const iconstHaveBeenInView = useSelector(
-    state => state.elementIsInView.hasBeenInView[toolsIcons]
-  );
+  const iconsHaveBeenInView = useSelector(state => state.elementIsInView.hasBeenInView[toolsIcons]);
 
+  // TODO - Add sendgrid in a new section of 'email'
   const iconNames = sectionName => {
     switch (sectionName) {
       case languages:
@@ -99,14 +98,14 @@ const ToolsIconsSection = props => {
   };
 
   useEffect(() => {
-    if (iconstHaveBeenInView) {
+    if (iconsHaveBeenInView) {
       iconOrder().map((icon, i) => {
         setTimeout(() => {
           setDisplayedIconsArray(prevState => [...prevState, icon]);
         }, 100 * i);
       });
     }
-  }, [iconstHaveBeenInView]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [iconsHaveBeenInView]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className='flex flex-col justify-between px-2 lg:px-5 first:pl-0 last:pr-10'>
