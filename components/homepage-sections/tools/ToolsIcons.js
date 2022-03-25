@@ -3,16 +3,17 @@ import useElementRef from '../../../hooks/useElementRef';
 
 import { toolsIcons } from '../../../pages';
 
+export const coding = 'Coding';
+export const dataString = 'Data';
+export const email = 'Email';
+export const fileStorage = 'File storage';
+export const hosting = 'Hosting';
 export const languages = 'Languages';
 export const librariesAndFrameworks = 'Libraries/Frameworks';
-export const versionControl = 'Version control';
-export const styling = 'Styling';
-export const hosting = 'Hosting';
-export const fileStorage = 'File storage';
-export const dataString = 'Data';
-export const coding = 'Coding';
-export const testing = 'Testing';
 export const stateManagement = 'State management';
+export const styling = 'Styling';
+export const testing = 'Testing';
+export const versionControl = 'Version control';
 export const toolsSectionsOrder = [
   languages,
   librariesAndFrameworks,
@@ -21,6 +22,7 @@ export const toolsSectionsOrder = [
   hosting,
   fileStorage,
   dataString,
+  email,
   coding,
   testing,
   stateManagement,
@@ -38,7 +40,6 @@ const ToolsIcons = () => {
         {toolsSectionsOrder.map(section => (
           <ToolsIconsSection key={`${section} section`} name={section} />
         ))}
-        {/* TODO - Add sendgrid */}
         {/* TODO - Optionally add - erb, Scss, React Transition Group */}
       </div>
     </div>

@@ -4,6 +4,7 @@ import ToolsIconContainer from './ToolsIconContainer';
 import {
   coding,
   dataString,
+  email,
   fileStorage,
   hosting,
   languages,
@@ -20,41 +21,33 @@ import { useSelector } from 'react-redux';
 import { toolsIcons } from '../../../pages';
 import { CSSTransition } from 'react-transition-group';
 
-export const ruby = 'Ruby';
-export const javaScript = 'JavaScript';
-export const html = 'HTML';
+export const bitbucket = 'Bitbucket';
+export const bootstrap = 'Bootstrap';
+export const cloudinary = 'Cloudinary';
 export const css = 'CSS';
-export const haml = 'Haml';
-export const jQuery = 'jQuery';
-
-export const rubyOnRails = 'Ruby on Rails';
-export const reactString = 'React';
-export const nextJS = 'Next.js';
-
+export const firebase = 'Firebase';
 export const git = 'Git';
 export const gitHub = 'Github';
-export const bitbucket = 'Bitbucket';
-
-export const tailwindCSSString = 'Tailwind CSS';
-export const bootstrap = 'Bootstrap';
-export const sass = 'Sass';
-
+export const haml = 'Haml';
 export const heroku = 'Heroku';
-export const vercel = 'Vercel';
+export const html = 'HTML';
+export const javaScript = 'JavaScript';
+export const jQuery = 'jQuery';
 export const netlify = 'Netlify';
-export const firebase = 'Firebase';
-
-export const s3 = 'S3';
-export const cloudinary = 'Cloudinary';
-
+export const nextJS = 'Next.js';
 export const postgreSQL = 'PostgreSQL';
-
-export const vSCode = 'VS Code';
-export const sublimeText = 'Sublime Text';
-
-export const rSpec = 'RSpec';
-
+export const reactString = 'React';
 export const reduxToolkit = 'Redux Toolkit';
+export const rSpec = 'RSpec';
+export const ruby = 'Ruby';
+export const rubyOnRails = 'Ruby on Rails';
+export const s3 = 'S3';
+export const sass = 'Sass';
+export const sendGrid = 'SendGrid';
+export const sublimeText = 'Sublime Text';
+export const tailwindCSSString = 'Tailwind CSS';
+export const vercel = 'Vercel';
+export const vSCode = 'VS Code';
 
 const ToolsIconsSection = props => {
   const [sectionNameColorClass, setSectionNameColorClass] = useState(defaultTextColorClass);
@@ -64,26 +57,28 @@ const ToolsIconsSection = props => {
   // TODO - Add sendgrid in a new section of 'email'
   const iconNames = sectionName => {
     switch (sectionName) {
+      case coding:
+        return [vSCode, sublimeText];
+      case dataString:
+        return [postgreSQL];
+      case email:
+        return [sendGrid];
+      case fileStorage:
+        return [s3, cloudinary];
+      case hosting:
+        return [heroku, vercel, netlify, firebase];
       case languages:
         return [ruby, javaScript, html, css, haml, jQuery];
       case librariesAndFrameworks:
         return [rubyOnRails, reactString, nextJS];
-      case versionControl:
-        return [git, gitHub, bitbucket];
-      case styling:
-        return [tailwindCSSString, bootstrap, sass];
-      case hosting:
-        return [heroku, vercel, netlify, firebase];
-      case fileStorage:
-        return [s3, cloudinary];
-      case dataString:
-        return [postgreSQL];
-      case coding:
-        return [vSCode, sublimeText];
-      case testing:
-        return [rSpec];
       case stateManagement:
         return [reduxToolkit];
+      case styling:
+        return [tailwindCSSString, bootstrap, sass];
+      case testing:
+        return [rSpec];
+      case versionControl:
+        return [git, gitHub, bitbucket];
       default:
         throw new Error(`Unrecognised name '${props.name}' passed to ToolsIconsSection`);
     }

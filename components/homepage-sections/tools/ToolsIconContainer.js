@@ -23,6 +23,7 @@ import RSpecIcon from '../../ui/svg/RSpecIcon';
 import RubyIcon from '../../ui/svg/RubyIcon';
 import S3Icon from '../../ui/svg/S3Icon';
 import SassIcon from '../../ui/svg/SassIcon';
+import SendGridIcon from '../../ui/svg/SendgridIcon';
 import SublimeIcon from '../../ui/svg/SublimeIcon';
 import TailwindIcon from '../../ui/svg/TailwindIcon';
 import VercelIcon from '../../ui/svg/VercelIcon';
@@ -51,6 +52,7 @@ import {
   rubyOnRails,
   s3,
   sass,
+  sendGrid,
   sublimeText,
   tailwindCSSString,
   vercel,
@@ -112,6 +114,8 @@ const ToolsIconContainer = props => {
         return <S3Icon color={iconColor} />;
       case sass:
         return <SassIcon color={iconColor} />;
+      case sendGrid:
+        return <SendGridIcon color={iconColor} />;
       case sublimeText:
         return <SublimeIcon color={iconColor} />;
       case tailwindCSSString:

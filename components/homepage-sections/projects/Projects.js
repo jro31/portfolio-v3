@@ -1,3 +1,5 @@
+// TODO - Add arrows to click-scroll project cards
+
 import { useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
