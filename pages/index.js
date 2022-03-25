@@ -68,6 +68,12 @@ const introductionElements = [
   introductionPortrait,
 ];
 
+export const projectsTitle = 'projects-title';
+export let projectsTitleRef;
+export const projectsCards = 'projects-cards';
+export let projectsCardsRef;
+const projectsElements = [projectsTitle, projectsCards];
+
 export const toolsTitle = 'tools-title';
 export let toolsTitleRef;
 export const toolsDescription = 'tools-description';
@@ -78,10 +84,11 @@ const toolsElements = [toolsTitle, toolsDescription, toolsIcons];
 
 export const refElementNames = [
   ...sectionOrder,
-  ...introductionElements,
   ...aboutElements,
-  ...toolsElements,
   ...contactElements,
+  ...introductionElements,
+  ...projectsElements,
+  ...toolsElements,
 ];
 
 const HomePage = () => {
@@ -91,23 +98,26 @@ const HomePage = () => {
   projectsSectionsRef = useRef();
   toolsSectionRef = useRef();
 
+  aboutTitleRef = useRef();
+  aboutSkillsRef = useRef();
+
+  contactTitleRef = useRef();
+  contactFormRef = useRef();
+  contactJethroCodesLinkRef = useRef();
+  contactSocialMediaLinksRef = useRef();
+
   introductionTitleRef = useRef();
   introductionDescriptionRef = useRef();
   introductionFindOutMoreMobileLinkRef = useRef();
   introductionFindOutMoreDesktopLinkRef = useRef();
   introductionPortraitRef = useRef();
 
-  aboutTitleRef = useRef();
-  aboutSkillsRef = useRef();
+  projectsTitleRef = useRef();
+  projectsCardsRef = useRef();
 
   toolsTitleRef = useRef();
   toolsDescriptionRef = useRef();
   toolsIconsRef = useRef();
-
-  contactTitleRef = useRef();
-  contactFormRef = useRef();
-  contactJethroCodesLinkRef = useRef();
-  contactSocialMediaLinksRef = useRef();
 
   const component = componentName => {
     const key = `${componentName}-component`;

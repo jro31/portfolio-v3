@@ -29,6 +29,10 @@ import {
   introductionPortraitRef,
   projectsSection,
   projectsSectionsRef,
+  projectsTitle,
+  projectsTitleRef,
+  projectsCards,
+  projectsCardsRef,
   toolsSection,
   toolsSectionRef,
   toolsTitle,
@@ -76,6 +80,10 @@ const useElementRefs = () => {
           return introductionPortraitRef;
         case projectsSection:
           return projectsSectionsRef;
+        case projectsTitle:
+          return projectsTitleRef;
+        case projectsCards:
+          return projectsCardsRef;
         case toolsSection:
           return toolsSectionRef;
         case toolsTitle:
