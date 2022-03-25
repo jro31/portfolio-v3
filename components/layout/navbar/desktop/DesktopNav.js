@@ -39,6 +39,8 @@ const DesktopNav = () => {
       <div className='fixed top-0 left-3 bg-transparent z-50'>
         <div className='hidden lg:flex h-navbar-height w-screen justify-around items-center'>
           {sectionOrder.map((section, i) => (
+            // TODO - After updates to the SubtleLink component (moving 'pb-3' within the ternary, in order to display as wanted in the projects section), the nav item for the element in view is no longer in line
+            // Probably cease using the SubtleLink component; it's currently serving too many masters, and having the nav links be styled uniquely would make sense
             <SubtleLink
               key={`desktop-nav-${section}-link`}
               underline={elementIsInView[section] && !elementIsInView[sectionOrder[i - 1]]}
