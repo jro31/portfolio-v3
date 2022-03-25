@@ -1,3 +1,5 @@
+// TODO - Rename this section 'Home'
+
 import { useSelector } from 'react-redux';
 
 import Title from '../../ui/text/Title';
@@ -60,8 +62,7 @@ const Introduction = () => {
                   classNames={{ enterActive: 'animate-slide-fade-up-delayed' }}
                 >
                   <Description uppercase className='basis-2/3'>
-                    {/* TODO - Update this text */}
-                    This is some really inspirational text about some thing or whatever.
+                    Fixing the world, one line of code at a time.
                   </Description>
                 </CSSTransition>
               </div>

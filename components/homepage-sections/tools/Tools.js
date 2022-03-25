@@ -33,16 +33,16 @@ const Tools = () => {
               <Title>Tools</Title>
             </CSSTransition>
           </div>
-          <div ref={elementRef(toolsDescription)}>
+          <div ref={elementRef(toolsDescription)} className='pr-1/12'>
             <CSSTransition
               mountOnEnter
               in={descriptionHasBeenInView}
               timeout={2000}
               classNames={{ enterActive: 'animate-slide-fade-up-delayed' }}
             >
-              <Description>
-                {/* TODO - Update this text */}I work primarily with Ruby on Rails and React/Next
-                JS, blah, blah, blah
+              <Description className='md:w-2/3 lg:w-5/12'>
+                I work primarily on Ruby on Rails and React/Next.js projects, using the tools
+                necessary to bring them to life, including...
               </Description>
             </CSSTransition>
           </div>

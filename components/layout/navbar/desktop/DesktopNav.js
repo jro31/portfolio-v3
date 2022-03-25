@@ -1,4 +1,5 @@
 // TODO - Style this properly
+// FIXME - Clicking on Projects/Contacts doesn't work properly sections haven't already rendered
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

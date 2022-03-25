@@ -1,3 +1,6 @@
+// TODO - Rename this section 'Services'
+// TODO - Add a new 'About' section (between projects/contacts). This should be about me personally, somewhat resembling https://anniebombanie.com/#about
+
 import { useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
@@ -8,8 +11,9 @@ import SkillBrief from './SkillBrief';
 import useElementRef from '../../../hooks/useElementRef';
 
 export const coding = 'coding';
-export const templateSkill = 'template-skill'; // TODO - Update this to actual skills
-const skills = [coding, templateSkill, templateSkill];
+export const featureBuilding = 'feature-building';
+export const codebaseMaintenance = 'codebase-maintenance';
+const skills = [coding, featureBuilding, codebaseMaintenance];
 
 const About = () => {
   const titleHasBeenInView = useSelector(state => state.elementIsInView.hasBeenInView[aboutTitle]);

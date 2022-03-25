@@ -2,10 +2,11 @@ import { useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
 import CodingIcon from '../../ui/svg/CodingIcon';
-import PlaceholderIcon from '../../ui/svg/PlaceholderIcon';
 import Heading from '../../ui/text/Heading';
 import { aboutSkills } from '../../../pages';
-import { coding, templateSkill } from './About';
+import { codebaseMaintenance, coding, featureBuilding } from './About';
+import CleanCodeIcon from '../../ui/svg/CleanCodeIcon';
+import MultimediaIcon from '../../ui/svg/MultimediaIcon';
 
 const SkillBrief = props => {
   const skillsHasBeenInView = useSelector(
@@ -29,18 +30,26 @@ const SkillBrief = props => {
     switch (props.skill) {
       case coding:
         return {
-          backgroundColorClass: 'bg-teal-300/20',
-          icon: <CodingIcon color='rgb(20 184 166)' />,
-          headingText: 'Website development and maintenance',
-          description: 'Specialising in Ruby on Rails, React and Next JS',
-        };
-      case templateSkill: // TODO - Delete this
-        return {
-          backgroundColorClass: 'bg-rose-300/20',
-          icon: <PlaceholderIcon color='rgb(244 63 94)' />,
-          headingText: 'This is some random text to be updated later',
+          backgroundColorClass: 'bg-cyan-400/20',
+          icon: <CleanCodeIcon color='rgb(45 212 191)' />,
+          headingText: 'Website development',
           description:
-            'It is better to have loved and lost, than to have never loved at all. Apparently.',
+            'Responsive, maintainable applications, built with love. You dream it, I build it!',
+        };
+      case featureBuilding:
+        return {
+          backgroundColorClass: 'bg-indigo-600/20',
+          icon: <MultimediaIcon color='rgb(79 70 229)' />,
+          headingText: 'Feature building',
+          description:
+            'Add value to your existing application by adding new sections and features.',
+        };
+      case codebaseMaintenance:
+        return {
+          backgroundColorClass: 'bg-fuchsia-500/20',
+          icon: <CodingIcon color='rgb(217 70 239)' />,
+          headingText: 'Codebase maintenance',
+          description: 'Fixing issues and improving your current codebase.',
         };
       default:
         throw new Error(`Invalid skill '${props.skill}' passed to SkillBrief`);
