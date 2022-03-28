@@ -23,7 +23,7 @@ import RSpecIcon from '../../ui/svg/RSpecIcon';
 import RubyIcon from '../../ui/svg/RubyIcon';
 import S3Icon from '../../ui/svg/S3Icon';
 import SassIcon from '../../ui/svg/SassIcon';
-import SendGridIcon from '../../ui/svg/SendgridIcon';
+import SendGridIcon from '../../ui/svg/SendGridIcon';
 import SublimeIcon from '../../ui/svg/SublimeIcon';
 import TailwindIcon from '../../ui/svg/TailwindIcon';
 import VercelIcon from '../../ui/svg/VercelIcon';
