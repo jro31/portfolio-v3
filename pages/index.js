@@ -4,15 +4,15 @@ import { Fragment, useRef } from 'react';
 import Head from 'next/head';
 
 import Services from '../components/homepage-sections/services/Services';
-import Introduction from '../components/homepage-sections/introduction/Introduction';
+import Home from '../components/homepage-sections/home/Home';
 import Projects from '../components/homepage-sections/projects/Projects';
 import Tools from '../components/homepage-sections/tools/Tools';
 import Contact from '../components/homepage-sections/contact/Contact';
 
 export const contactSection = 'contact';
 export let contactSectionRef;
-export const introductionSection = 'introduction';
-export let introductionSectionRef;
+export const homeSection = 'home';
+export let homeSectionRef;
 export const projectsSection = 'projects';
 export let projectsSectionsRef;
 export const servicesSection = 'services';
@@ -21,13 +21,13 @@ export const toolsSection = 'tools';
 export let toolsSectionRef;
 
 export const sectionOrder = [
-  introductionSection,
+  homeSection,
   servicesSection,
   toolsSection,
   projectsSection,
   contactSection,
 ];
-export const darkSections = [introductionSection, toolsSection, projectsSection, contactSection];
+export const darkSections = [homeSection, toolsSection, projectsSection, contactSection];
 
 export const contactTitle = 'contact-title';
 export let contactTitleRef;
@@ -44,22 +44,22 @@ const contactElements = [
   contactSocialMediaLinks,
 ];
 
-export const introductionTitle = 'introduction-title';
-export let introductionTitleRef;
-export const introductionDescription = 'introduction-description';
-export let introductionDescriptionRef;
-export const introductionFindOutMoreMobileLink = 'introduction-find-out-more-mobile-link';
-export let introductionFindOutMoreMobileLinkRef;
-export const introductionFindOutMoreDesktopLink = 'introduction-find-out-more-desktop-link';
-export let introductionFindOutMoreDesktopLinkRef;
-export const introductionPortrait = 'introduction-portrait';
-export let introductionPortraitRef;
-const introductionElements = [
-  introductionTitle,
-  introductionDescription,
-  introductionFindOutMoreMobileLink,
-  introductionFindOutMoreDesktopLink,
-  introductionPortrait,
+export const homeTitle = 'home-title';
+export let homeTitleRef;
+export const homeDescription = 'home-description';
+export let homeDescriptionRef;
+export const homeFindOutMoreDesktopLink = 'home-find-out-more-desktop-link';
+export let homeFindOutMoreDesktopLinkRef;
+export const homeFindOutMoreMobileLink = 'home-find-out-more-mobile-link';
+export let homeFindOutMoreMobileLinkRef;
+export const homePortrait = 'home-portrait';
+export let homePortraitRef;
+const homeElements = [
+  homeTitle,
+  homeDescription,
+  homeFindOutMoreMobileLink,
+  homeFindOutMoreDesktopLink,
+  homePortrait,
 ];
 
 export const projectsTitle = 'projects-title';
@@ -85,7 +85,7 @@ const toolsElements = [toolsTitle, toolsDescription, toolsIcons];
 export const refElementNames = [
   ...sectionOrder,
   ...contactElements,
-  ...introductionElements,
+  ...homeElements,
   ...projectsElements,
   ...servicesElements,
   ...toolsElements,
@@ -93,7 +93,7 @@ export const refElementNames = [
 
 const HomePage = () => {
   contactSectionRef = useRef();
-  introductionSectionRef = useRef();
+  homeSectionRef = useRef();
   projectsSectionsRef = useRef();
   servicesSectionRef = useRef();
   toolsSectionRef = useRef();
@@ -103,11 +103,11 @@ const HomePage = () => {
   contactJethroCodesLinkRef = useRef();
   contactSocialMediaLinksRef = useRef();
 
-  introductionTitleRef = useRef();
-  introductionDescriptionRef = useRef();
-  introductionFindOutMoreMobileLinkRef = useRef();
-  introductionFindOutMoreDesktopLinkRef = useRef();
-  introductionPortraitRef = useRef();
+  homeTitleRef = useRef();
+  homeDescriptionRef = useRef();
+  homeFindOutMoreMobileLinkRef = useRef();
+  homeFindOutMoreDesktopLinkRef = useRef();
+  homePortraitRef = useRef();
 
   projectsTitleRef = useRef();
   projectsCardsRef = useRef();
@@ -125,8 +125,8 @@ const HomePage = () => {
     switch (componentName) {
       case contactSection:
         return <Contact key={key} />;
-      case introductionSection:
-        return <Introduction key={key} />;
+      case homeSection:
+        return <Home key={key} />;
       case projectsSection:
         return <Projects key={key} />;
       case servicesSection:

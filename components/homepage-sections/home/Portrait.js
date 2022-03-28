@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
-import { introductionPortrait } from '../../../pages';
+import { homePortrait } from '../../../pages';
 
 const Portrait = () => {
   const portraitHasBeenInView = useSelector(
-    state => state.elementIsInView.hasBeenInView[introductionPortrait]
+    state => state.elementIsInView.hasBeenInView[homePortrait]
   );
 
   return (

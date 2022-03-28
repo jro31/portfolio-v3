@@ -9,18 +9,18 @@ import {
   contactJethroCodesLinkRef,
   contactSocialMediaLinks,
   contactSocialMediaLinksRef,
-  introductionSection,
-  introductionSectionRef,
-  introductionTitle,
-  introductionTitleRef,
-  introductionDescription,
-  introductionDescriptionRef,
-  introductionFindOutMoreMobileLink,
-  introductionFindOutMoreMobileLinkRef,
-  introductionFindOutMoreDesktopLink,
-  introductionFindOutMoreDesktopLinkRef,
-  introductionPortrait,
-  introductionPortraitRef,
+  homeSection,
+  homeSectionRef,
+  homeTitle,
+  homeTitleRef,
+  homeDescription,
+  homeDescriptionRef,
+  homeFindOutMoreMobileLink,
+  homeFindOutMoreMobileLinkRef,
+  homeFindOutMoreDesktopLink,
+  homeFindOutMoreDesktopLinkRef,
+  homePortrait,
+  homePortraitRef,
   projectsSection,
   projectsSectionsRef,
   projectsTitle,
@@ -60,18 +60,18 @@ const useElementRefs = () => {
           return contactJethroCodesLinkRef;
         case contactSocialMediaLinks:
           return contactSocialMediaLinksRef;
-        case introductionSection:
-          return introductionSectionRef;
-        case introductionTitle:
-          return introductionTitleRef;
-        case introductionDescription:
-          return introductionDescriptionRef;
-        case introductionFindOutMoreMobileLink:
-          return introductionFindOutMoreMobileLinkRef;
-        case introductionFindOutMoreDesktopLink:
-          return introductionFindOutMoreDesktopLinkRef;
-        case introductionPortrait:
-          return introductionPortraitRef;
+        case homeSection:
+          return homeSectionRef;
+        case homeTitle:
+          return homeTitleRef;
+        case homeDescription:
+          return homeDescriptionRef;
+        case homeFindOutMoreMobileLink:
+          return homeFindOutMoreMobileLinkRef;
+        case homeFindOutMoreDesktopLink:
+          return homeFindOutMoreDesktopLinkRef;
+        case homePortrait:
+          return homePortraitRef;
         case projectsSection:
           return projectsSectionsRef;
         case projectsTitle:
