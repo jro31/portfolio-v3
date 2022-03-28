@@ -12,7 +12,6 @@ module.exports = {
     },
     extend: {
       animation: {
-        // TODO - Delete any of these you don't need
         'delayed-fade-in-1': 'delayedFadeIn1 1.5s linear',
         'delayed-fade-in-2': 'delayedFadeIn2 2s linear',
         'delayed-fade-in-3': 'delayedFadeIn3 2.5s linear',
@@ -24,9 +23,6 @@ module.exports = {
         'slide-out-left': 'slideOutLeft 1s ease-in',
         'slow-fade-in': 'fadeIn 2s linear',
         'very-slow-fade-in': 'fadeIn 4s linear',
-        'fade-in-right': 'fadeInRight 0.5s linear',
-        'fade-in-right-delayed': 'fadeInRightDelayed 1s linear',
-        'fade-in-right-long-delayed': 'fadeInRightLongDelayed 1.5s linear',
         'zoom-down-in': 'zoomDownIn 2s',
       },
       backgroundImage: {
@@ -44,7 +40,6 @@ module.exports = {
         '7/8': '87.5%',
       },
       keyframes: {
-        // TODO - Delete any of these you don't need
         fadeIn: {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
@@ -68,20 +63,6 @@ module.exports = {
           '0%': { opacity: 0 },
           '66%': { opacity: 0 },
           '100%': { opacity: 1 },
-        },
-        fadeInRight: {
-          '0%': { transform: 'translateX(-5vw)', opacity: 0 },
-          '100%': { transform: 'translateX(0)', opacity: 1 },
-        },
-        fadeInRightDelayed: {
-          '0%': { transform: 'translateX(-5vw)', opacity: 0 },
-          '50%': { transform: 'translateX(-5vw)', opacity: 0 },
-          '100%': { transform: 'translateX(0)', opacity: 1 },
-        },
-        fadeInRightLongDelayed: {
-          '0%': { transform: 'translateX(-5vw)', opacity: 0 },
-          '66%': { transform: 'translateX(-5vw)', opacity: 0 },
-          '100%': { transform: 'translateX(0)', opacity: 1 },
         },
         fadeOut: {
           '0%': { opacity: 1 },
