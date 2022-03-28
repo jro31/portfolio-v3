@@ -54,7 +54,6 @@ const ToolsIconsSection = props => {
   const [displayedIconsArray, setDisplayedIconsArray] = useState([]);
   const iconsHaveBeenInView = useSelector(state => state.elementIsInView.hasBeenInView[toolsIcons]);
 
-  // TODO - Add sendgrid in a new section of 'email'
   const iconNames = sectionName => {
     switch (sectionName) {
       case coding:

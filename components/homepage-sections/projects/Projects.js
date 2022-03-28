@@ -32,7 +32,6 @@ const Projects = () => {
         <div className='flex w-full justify-end basis-1/12 shrink-0'>
           <div ref={elementRef(projectsTitle)} className='basis-11/12'>
             <CSSTransition
-              mountOnEnter
               in={titleHasBeenInView}
               timeout={1000}
               classNames={{ enterActive: 'animate-fade-in' }}
@@ -43,7 +42,6 @@ const Projects = () => {
         </div>
         <div ref={elementRef(projectsCards)} className='flex basis-11/12 min-h-[80vh] lg:min-h-0'>
           <CSSTransition
-            mountOnEnter
             in={projectCardsHasBeenInView}
             timeout={1500}
             classNames={{ enterActive: 'animate-delayed-fade-in-1' }}

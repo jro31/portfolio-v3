@@ -1,5 +1,6 @@
 // TODO - Update readme
 // TODO - Fix the 'Warning: findDOMNode is deprecated in StrictMode.' error from CSSTransitions
+// TODO - Host at jethrowilliams.com
 
 import { Provider } from 'react-redux';
 import Layout from '../components/layout/Layout';
