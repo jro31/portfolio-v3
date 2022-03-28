@@ -1,10 +1,4 @@
 import {
-  aboutSection,
-  aboutSectionRef,
-  aboutTitle,
-  aboutTitleRef,
-  aboutSkills,
-  aboutSkillsRef,
   contactSection,
   contactSectionRef,
   contactTitle,
@@ -33,6 +27,12 @@ import {
   projectsTitleRef,
   projectsCards,
   projectsCardsRef,
+  servicesSection,
+  servicesSectionRef,
+  servicesTitle,
+  servicesTitleRef,
+  servicesPoints,
+  servicesPointsRef,
   toolsSection,
   toolsSectionRef,
   toolsTitle,
@@ -50,12 +50,6 @@ const useElementRefs = () => {
 
     const elementRef = elementName => {
       switch (elementName) {
-        case aboutSection:
-          return aboutSectionRef;
-        case aboutTitle:
-          return aboutTitleRef;
-        case aboutSkills:
-          return aboutSkillsRef;
         case contactSection:
           return contactSectionRef;
         case contactTitle:
@@ -84,6 +78,12 @@ const useElementRefs = () => {
           return projectsTitleRef;
         case projectsCards:
           return projectsCardsRef;
+        case servicesSection:
+          return servicesSectionRef;
+        case servicesTitle:
+          return servicesTitleRef;
+        case servicesPoints:
+          return servicesPointsRef;
         case toolsSection:
           return toolsSectionRef;
         case toolsTitle:
