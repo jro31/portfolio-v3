@@ -1,4 +1,4 @@
-// TODO - Style this properly
+// ESSENTIAL - Style this properly
 
 import { useDispatch, useSelector } from 'react-redux';
 

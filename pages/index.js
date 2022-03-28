@@ -1,5 +1,3 @@
-// TODO - Add a 'Principles' section, which lists my coding principles/philosophies, e.g: Responsive, mobile-first design built to work no matter the device or browser, clean code written to be easily understandable, maintainable, scalable and reusable etc?
-
 import { Fragment, useRef } from 'react';
 import Head from 'next/head';
 
