@@ -1,10 +1,7 @@
-// TODO - Rename this section 'Services'
-// TODO - Add a new 'About' section (between projects/contacts). This should be about me personally, somewhat resembling https://anniebombanie.com/#about
-
 import { useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
-import { aboutSection, aboutTitle, aboutSkills } from '../../../pages';
+import { servicesSection, servicesPoints, servicesTitle } from '../../../pages';
 import Title from '../../ui/text/Title';
 import SectionContainer from '../SectionContainer';
 import SkillBrief from './SkillBrief';
@@ -13,18 +10,20 @@ import useElementRef from '../../../hooks/useElementRef';
 export const coding = 'coding';
 export const featureBuilding = 'feature-building';
 export const codebaseMaintenance = 'codebase-maintenance';
-const skills = [coding, featureBuilding, codebaseMaintenance];
+const points = [coding, featureBuilding, codebaseMaintenance];
 
-const About = () => {
-  const titleHasBeenInView = useSelector(state => state.elementIsInView.hasBeenInView[aboutTitle]);
+const Services = () => {
+  const titleHasBeenInView = useSelector(
+    state => state.elementIsInView.hasBeenInView[servicesTitle]
+  );
   const elementRef = useElementRef();
 
   return (
-    <SectionContainer section={aboutSection} className='bg-white'>
+    <SectionContainer section={servicesSection} className='bg-white'>
       <div className='flex flex-col lg:flex-row gap-6 xs:gap-16 lg:gap-0 min-h-inherit lg:h-full'>
         <div className='lg:order-last lg:basis-7/12 flex justify-center lg:items-center'>
           <div
-            ref={elementRef(aboutTitle)}
+            ref={elementRef(servicesTitle)}
             className='basis-3/4 lg:basis-2/3 text-center lg:text-left'
           >
             <CSSTransition
@@ -45,10 +44,10 @@ const About = () => {
         </div>
         <div className='flex justify-center lg:justify-end lg:basis-5/12'>
           <div
-            ref={elementRef(aboutSkills)}
+            ref={elementRef(servicesPoints)}
             className='flex flex-col justify-center lg:justify-around basis-5/6 xs:basis-3/4 gap-20 lg:gap-0'
           >
-            {skills.map((skill, i) => (
+            {points.map((skill, i) => (
               <SkillBrief key={`${skill}${i}`} skill={skill} position={i + 1} />
             ))}
           </div>
@@ -58,4 +57,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Services;

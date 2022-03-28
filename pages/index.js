@@ -3,37 +3,31 @@
 import { Fragment, useRef } from 'react';
 import Head from 'next/head';
 
-import About from '../components/homepage-sections/about/About';
-import Introduction from '../components/homepage-sections/introduction/Introduction';
+import Services from '../components/homepage-sections/services/Services';
+import Home from '../components/homepage-sections/home/Home';
 import Projects from '../components/homepage-sections/projects/Projects';
 import Tools from '../components/homepage-sections/tools/Tools';
 import Contact from '../components/homepage-sections/contact/Contact';
 
-export const aboutSection = 'about';
-export let aboutSectionRef;
 export const contactSection = 'contact';
 export let contactSectionRef;
-export const introductionSection = 'introduction';
-export let introductionSectionRef;
+export const homeSection = 'home';
+export let homeSectionRef;
 export const projectsSection = 'projects';
 export let projectsSectionsRef;
+export const servicesSection = 'services';
+export let servicesSectionRef;
 export const toolsSection = 'tools';
 export let toolsSectionRef;
 
 export const sectionOrder = [
-  introductionSection,
-  aboutSection,
+  homeSection,
+  servicesSection,
   toolsSection,
   projectsSection,
   contactSection,
 ];
-export const darkSections = [introductionSection, toolsSection, projectsSection, contactSection];
-
-export const aboutTitle = 'about-title';
-export let aboutTitleRef;
-export const aboutSkills = 'about-skills';
-export let aboutSkillsRef;
-const aboutElements = [aboutTitle, aboutSkills];
+export const darkSections = [homeSection, toolsSection, projectsSection, contactSection];
 
 export const contactTitle = 'contact-title';
 export let contactTitleRef;
@@ -50,22 +44,22 @@ const contactElements = [
   contactSocialMediaLinks,
 ];
 
-export const introductionTitle = 'introduction-title';
-export let introductionTitleRef;
-export const introductionDescription = 'introduction-description';
-export let introductionDescriptionRef;
-export const introductionFindOutMoreMobileLink = 'introduction-find-out-more-mobile-link';
-export let introductionFindOutMoreMobileLinkRef;
-export const introductionFindOutMoreDesktopLink = 'introduction-find-out-more-desktop-link';
-export let introductionFindOutMoreDesktopLinkRef;
-export const introductionPortrait = 'introduction-portrait';
-export let introductionPortraitRef;
-const introductionElements = [
-  introductionTitle,
-  introductionDescription,
-  introductionFindOutMoreMobileLink,
-  introductionFindOutMoreDesktopLink,
-  introductionPortrait,
+export const homeTitle = 'home-title';
+export let homeTitleRef;
+export const homeDescription = 'home-description';
+export let homeDescriptionRef;
+export const homeFindOutMoreDesktopLink = 'home-find-out-more-desktop-link';
+export let homeFindOutMoreDesktopLinkRef;
+export const homeFindOutMoreMobileLink = 'home-find-out-more-mobile-link';
+export let homeFindOutMoreMobileLinkRef;
+export const homePortrait = 'home-portrait';
+export let homePortraitRef;
+const homeElements = [
+  homeTitle,
+  homeDescription,
+  homeFindOutMoreMobileLink,
+  homeFindOutMoreDesktopLink,
+  homePortrait,
 ];
 
 export const projectsTitle = 'projects-title';
@@ -73,6 +67,12 @@ export let projectsTitleRef;
 export const projectsCards = 'projects-cards';
 export let projectsCardsRef;
 const projectsElements = [projectsTitle, projectsCards];
+
+export const servicesTitle = 'services-title';
+export let servicesTitleRef;
+export const servicesPoints = 'services-points';
+export let servicesPointsRef;
+const servicesElements = [servicesTitle, servicesPoints];
 
 export const toolsTitle = 'tools-title';
 export let toolsTitleRef;
@@ -84,36 +84,36 @@ const toolsElements = [toolsTitle, toolsDescription, toolsIcons];
 
 export const refElementNames = [
   ...sectionOrder,
-  ...aboutElements,
   ...contactElements,
-  ...introductionElements,
+  ...homeElements,
   ...projectsElements,
+  ...servicesElements,
   ...toolsElements,
 ];
 
 const HomePage = () => {
-  aboutSectionRef = useRef();
   contactSectionRef = useRef();
-  introductionSectionRef = useRef();
+  homeSectionRef = useRef();
   projectsSectionsRef = useRef();
+  servicesSectionRef = useRef();
   toolsSectionRef = useRef();
-
-  aboutTitleRef = useRef();
-  aboutSkillsRef = useRef();
 
   contactTitleRef = useRef();
   contactFormRef = useRef();
   contactJethroCodesLinkRef = useRef();
   contactSocialMediaLinksRef = useRef();
 
-  introductionTitleRef = useRef();
-  introductionDescriptionRef = useRef();
-  introductionFindOutMoreMobileLinkRef = useRef();
-  introductionFindOutMoreDesktopLinkRef = useRef();
-  introductionPortraitRef = useRef();
+  homeTitleRef = useRef();
+  homeDescriptionRef = useRef();
+  homeFindOutMoreMobileLinkRef = useRef();
+  homeFindOutMoreDesktopLinkRef = useRef();
+  homePortraitRef = useRef();
 
   projectsTitleRef = useRef();
   projectsCardsRef = useRef();
+
+  servicesTitleRef = useRef();
+  servicesPointsRef = useRef();
 
   toolsTitleRef = useRef();
   toolsDescriptionRef = useRef();
@@ -123,14 +123,14 @@ const HomePage = () => {
     const key = `${componentName}-component`;
 
     switch (componentName) {
-      case aboutSection:
-        return <About key={key} />;
       case contactSection:
         return <Contact key={key} />;
-      case introductionSection:
-        return <Introduction key={key} />;
+      case homeSection:
+        return <Home key={key} />;
       case projectsSection:
         return <Projects key={key} />;
+      case servicesSection:
+        return <Services key={key} />;
       case toolsSection:
         return <Tools key={key} />;
       default:

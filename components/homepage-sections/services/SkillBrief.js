@@ -3,14 +3,14 @@ import { CSSTransition } from 'react-transition-group';
 
 import CodingIcon from '../../ui/svg/CodingIcon';
 import Heading from '../../ui/text/Heading';
-import { aboutSkills } from '../../../pages';
-import { codebaseMaintenance, coding, featureBuilding } from './About';
+import { servicesPoints } from '../../../pages';
+import { codebaseMaintenance, coding, featureBuilding } from './Services';
 import CleanCodeIcon from '../../ui/svg/CleanCodeIcon';
 import MultimediaIcon from '../../ui/svg/MultimediaIcon';
 
 const SkillBrief = props => {
   const skillsHasBeenInView = useSelector(
-    state => state.elementIsInView.hasBeenInView[aboutSkills]
+    state => state.elementIsInView.hasBeenInView[servicesPoints]
   );
 
   const enterActiveClassName = () => {

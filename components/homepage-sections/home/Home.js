@@ -1,16 +1,14 @@
-// TODO - Rename this section 'Home'
-
 import { useSelector } from 'react-redux';
 
 import Title from '../../ui/text/Title';
 import SectionContainer from '../SectionContainer';
 import {
-  introductionDescription,
-  introductionFindOutMoreDesktopLink,
-  introductionFindOutMoreMobileLink,
-  introductionPortrait,
-  introductionSection,
-  introductionTitle,
+  homeDescription,
+  homeFindOutMoreDesktopLink,
+  homeFindOutMoreMobileLink,
+  homePortrait,
+  homeSection,
+  homeTitle,
 } from '../../../pages';
 import Portrait from './Portrait';
 import FindOutMoreLink from './FindOutMoreLink';
@@ -18,28 +16,26 @@ import Description from '../../ui/text/Description';
 import useElementRef from '../../../hooks/useElementRef';
 import { CSSTransition } from 'react-transition-group';
 
-const Introduction = () => {
-  const titleHasBeenInView = useSelector(
-    state => state.elementIsInView.hasBeenInView[introductionTitle]
-  );
+const Home = () => {
+  const titleHasBeenInView = useSelector(state => state.elementIsInView.hasBeenInView[homeTitle]);
   const descriptionHasBeenInView = useSelector(
-    state => state.elementIsInView.hasBeenInView[introductionDescription]
+    state => state.elementIsInView.hasBeenInView[homeDescription]
   );
   const mobileFindOutMoreLinkHasBeenInView = useSelector(
-    state => state.elementIsInView.hasBeenInView[introductionFindOutMoreMobileLink]
+    state => state.elementIsInView.hasBeenInView[homeFindOutMoreMobileLink]
   );
   const desktopFindOutMoreLinkHasBeenInView = useSelector(
-    state => state.elementIsInView.hasBeenInView[introductionFindOutMoreDesktopLink]
+    state => state.elementIsInView.hasBeenInView[homeFindOutMoreDesktopLink]
   );
   const elementRef = useElementRef();
 
   return (
-    <SectionContainer section={introductionSection} className='bg-black'>
+    <SectionContainer section={homeSection} className='bg-black'>
       <div className='flex flex-col lg:flex-row w-full lg:h-full'>
         <div className='flex justify-center lg:justify-end lg:basis-1/2'>
           <div className='flex flex-col justify-around lg:basis-10/12'>
             <div className='flex flex-col gap-16'>
-              <div ref={elementRef(introductionTitle)} className='flex flex-col lg:gap-2'>
+              <div ref={elementRef(homeTitle)} className='flex flex-col lg:gap-2'>
                 <CSSTransition
                   mountOnEnter
                   in={titleHasBeenInView}
@@ -54,7 +50,7 @@ const Introduction = () => {
                   </div>
                 </CSSTransition>
               </div>
-              <div ref={elementRef(introductionDescription)} className='hidden lg:flex'>
+              <div ref={elementRef(homeDescription)} className='hidden lg:flex'>
                 <CSSTransition
                   mountOnEnter
                   in={descriptionHasBeenInView}
@@ -67,7 +63,7 @@ const Introduction = () => {
                 </CSSTransition>
               </div>
             </div>
-            <div ref={elementRef(introductionFindOutMoreDesktopLink)}>
+            <div ref={elementRef(homeFindOutMoreDesktopLink)}>
               <CSSTransition
                 mountOnEnter
                 in={desktopFindOutMoreLinkHasBeenInView}
@@ -79,13 +75,10 @@ const Introduction = () => {
             </div>
           </div>
         </div>
-        <div ref={elementRef(introductionPortrait)} className='lg:basis-1/2 lg:h-inherit'>
+        <div ref={elementRef(homePortrait)} className='lg:basis-1/2 lg:h-inherit'>
           <Portrait />
         </div>
-        <div
-          ref={elementRef(introductionFindOutMoreMobileLink)}
-          className='flex justify-center my-5'
-        >
+        <div ref={elementRef(homeFindOutMoreMobileLink)} className='flex justify-center my-5'>
           <CSSTransition
             mountOnEnter
             in={mobileFindOutMoreLinkHasBeenInView}
@@ -100,4 +93,4 @@ const Introduction = () => {
   );
 };
 
-export default Introduction;
+export default Home;
