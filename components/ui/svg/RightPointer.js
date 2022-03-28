@@ -7,7 +7,6 @@ const RightPointer = props => {
         stroke={props.color || 'black'}
         strokeWidth='2'
         strokeLinecap='round'
-        // transform='translate(1 1)'
       />
     </svg>
   );

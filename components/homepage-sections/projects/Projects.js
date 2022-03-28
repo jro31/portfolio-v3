@@ -1,5 +1,3 @@
-// TODO - Add arrows to click-scroll project cards
-
 import { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
@@ -82,7 +80,7 @@ const Projects = () => {
           >
             <div
               ref={projectsContainerRef}
-              className='flex overflow-x-scroll snap-x snap-mandatory scroll-smooth px-1/12 pb-6'
+              className='flex overflow-x-scroll snap-x snap-mandatory scroll-smooth px-1/12 mb-6'
             >
               {projectsOrder.map(project => (
                 <ProjectCard key={`${project}-project`} project={project} />

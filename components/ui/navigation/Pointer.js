@@ -27,16 +27,14 @@ const Pointer = props => {
       classNames={{ enterActive: 'animate-fade-in', exitActive: 'animate-fade-out' }}
     >
       <div
-        className={`h-full w-20 absolute flex items-center ${
-          props.direction === left ? 'left-0' : 'right-0'
+        onClick={props.onClick || null}
+        className={`w-10 absolute top-0 bottom-6 flex justify-center items-center bg-black/40 ${
+          props.direction === left
+            ? 'left-0 rounded-tr-3xl rounded-br-3xl'
+            : 'right-0 rounded-tl-3xl rounded-bl-3xl'
         }`}
       >
-        <div
-          onClick={props.onClick || null}
-          className='h-20 w-full flex justify-center items-center bg-gradient-to-b from-transparent via-black/50 to-transparent rounded-full'
-        >
-          <div className='w-5 h-5'>{pointerSvgComponent()}</div>
-        </div>
+        <div className='w-7 h-7'>{pointerSvgComponent()}</div>
       </div>
     </CSSTransition>
   );
