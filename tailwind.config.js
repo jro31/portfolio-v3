@@ -18,6 +18,8 @@ module.exports = {
         'delayed-fade-in-4': 'delayedFadeIn4 3s linear',
         'fade-in': 'fadeIn 1s linear',
         'fade-out': 'fadeOut 1s linear',
+        'fast-fade-in': 'fadeIn 0.25s linear',
+        'fast-fade-out': 'fadeOut 0.25s linear',
         'slide-fade-up-delayed': 'slideFadeUpDelayed 2s',
         'slide-in-right': 'slideInRight 1s ease-out',
         'slide-out-left': 'slideOutLeft 1s ease-in',
@@ -40,10 +42,6 @@ module.exports = {
         '7/8': '87.5%',
       },
       keyframes: {
-        fadeIn: {
-          '0%': { opacity: 0 },
-          '100%': { opacity: 1 },
-        },
         delayedFadeIn1: {
           '0%': { opacity: 0 },
           '33%': { opacity: 0 },
@@ -62,6 +60,10 @@ module.exports = {
         delayedFadeIn4: {
           '0%': { opacity: 0 },
           '66%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+        fadeIn: {
+          '0%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
         fadeOut: {
