@@ -106,7 +106,6 @@ const Contact = () => {
       <div className='flex flex-col items-end justify-around min-h-screen-minus-mobile-nav lg:min-h-screen-minus-nav h-full w-full'>
         <div ref={elementRef(contactTitle)} className='w-11/12'>
           <CSSTransition
-            mountOnEnter
             in={titleHasBeenInView}
             timeout={1000}
             classNames={{ enterActive: 'animate-fade-in' }}
@@ -117,7 +116,6 @@ const Contact = () => {
         <div className='flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-0 w-11/12 pr-1/12'>
           <div ref={elementRef(contactForm)} className='lg:basis-1/2 xl:basis-1/3'>
             <CSSTransition
-              mountOnEnter
               in={formHasBeenInView}
               timeout={1500}
               classNames={{ enterActive: 'animate-fade-in lg:animate-delayed-fade-in-1' }}
@@ -186,7 +184,6 @@ const Contact = () => {
             className='flex flex-col gap-3 lg:basis-1/2 xl:basis-1/3 lg:order-last min-h-[402px] 2xs:min-h-[422px] xs:min-h-[482px] lg:min-h-[436px] xl:min-h-[482px]'
           >
             <CSSTransition
-              mountOnEnter
               in={socialMediaLinksHaveBeenInView}
               timeout={2500}
               classNames={{

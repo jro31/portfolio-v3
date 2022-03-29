@@ -1,7 +1,6 @@
 // ESSENTIAL - Update readme
 // TODO - Fix the 'Warning: findDOMNode is deprecated in StrictMode.' error from CSSTransitions
 // ESSENTIAL - Host at jethrowilliams.com
-// ESSENTIAL - Remove 'mountOnEnter' from CSS transitions wherever possible (removing it breaks some features, but having it will make any elements invisible to search engines - Can get around this with 'hidden' class; see desktop nav)
 // TODO - Add a new 'About' section (between projects/contacts). This should be about me personally, somewhat resembling https://anniebombanie.com/#about
 // TODO - Add a 'Principles' section, which lists my coding principles/philosophies, e.g: Responsive, mobile-first design built to work no matter the device or browser, clean code written to be easily understandable, maintainable, scalable and reusable etc?
 

@@ -1,4 +1,4 @@
-// FIXME - Using the mobile nav to scroll to the tools/projects/contact sections when first loading the page, it doesn't scroll all the way there (might be fixed by removing the 'mountOnEnter' on these components)
+// TODO - This should fade-in (like other page components)
 
 import { useDispatch, useSelector } from 'react-redux';
 

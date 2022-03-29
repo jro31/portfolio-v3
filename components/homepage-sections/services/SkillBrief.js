@@ -58,7 +58,6 @@ const SkillBrief = props => {
 
   return (
     <CSSTransition
-      mountOnEnter
       in={skillsHasBeenInView}
       timeout={1000 + (props.position * 500)} // prettier-ignore
       classNames={{ enterActive: enterActiveClassName() }}

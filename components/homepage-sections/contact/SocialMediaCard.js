@@ -106,7 +106,6 @@ const SocialMediaCard = props => {
     <a href={platformDetails().url} target='_blank' rel='noreferrer'>
       <div>
         <CSSTransition
-          mountOnEnter
           in={displayedPlatformsArray.includes(props.platform)}
           timeout={2500}
           classNames={{
