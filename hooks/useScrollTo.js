@@ -1,14 +1,14 @@
 import { refElementNames } from '../pages';
-import useElementRef from './useElementRef';
+import useElementDistanceFromTopOfPage from './useElementDistanceFromTopOfPage';
 
 const useScrollTo = () => {
-  const elementRef = useElementRef();
+  const elementDistanceFromTopOfPage = useElementDistanceFromTopOfPage();
 
   const scrollTo = element => {
     if (!refElementNames.includes(element))
       throw new Error(`Unknown section '${section}' passed to useScrollTo`);
 
-    elementRef(element).current.scrollIntoView({ behavior: 'smooth' });
+    window.scrollTo({ top: elementDistanceFromTopOfPage(element), behavior: 'smooth' });
   };
 
   return scrollTo;

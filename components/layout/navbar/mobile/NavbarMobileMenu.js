@@ -34,16 +34,18 @@ const NavbarMobileMenu = () => {
         timeout={1000}
         classNames={transitionClassNames}
       >
-        <div className='fixed top-0 lg:hidden pt-mobile-navbar-height h-screen min-w-2/3 xs:min-w-1/2 md:min-w-1/3 bg-slate-200 z-40'>
-          {sectionOrder.map(section => (
-            <SubtleLink
-              key={`mobile-nav-${section}-link`}
-              background='light'
-              onClick={() => handleSectionClick(section)}
-            >
-              {section}
-            </SubtleLink>
-          ))}
+        <div className='flex pl-mobile-navbar-height fixed top-0 lg:hidden pt-mobile-navbar-height h-screen min-w-2/3 xs:min-w-1/2 md:min-w-1/3 bg-slate-200 z-40'>
+          <div className='flex flex-col gap-6'>
+            {sectionOrder.map(section => (
+              <SubtleLink
+                key={`mobile-nav-${section}-link`}
+                background='light'
+                onClick={() => handleSectionClick(section)}
+              >
+                {section}
+              </SubtleLink>
+            ))}
+          </div>
         </div>
       </CSSTransition>
       <Overlay

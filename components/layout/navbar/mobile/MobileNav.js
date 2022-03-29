@@ -17,6 +17,14 @@ const MobileNav = () => {
     dispatch(navbarActions.toggleMobileNav());
   };
 
+  const hamburgerBackground = () => {
+    if (mobileNavIsOpen) {
+      return 'light';
+    }
+
+    return navBackgroundIsDark() ? 'dark' : 'light';
+  };
+
   return (
     <Fragment>
       <div className='fixed top-0 left-3 bg-transparent z-50'>
@@ -24,7 +32,7 @@ const MobileNav = () => {
           <Hamburger
             onClick={toggleMobileNav}
             isOpen={mobileNavIsOpen}
-            background={navBackgroundIsDark() ? 'dark' : 'light'}
+            background={hamburgerBackground()}
           />
         </div>
       </div>
