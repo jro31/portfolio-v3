@@ -31,7 +31,7 @@ const Services = () => {
               timeout={1000}
               classNames={{ enterActive: 'animate-fade-in' }}
             >
-              <Title className='2xl:leading-tight'>
+              <Title className={`2xl:leading-tight ${titleHasBeenInView ? 'block' : 'hidden'}`}>
                 Turning
                 <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500'>
                   &#160;your vision&#160;

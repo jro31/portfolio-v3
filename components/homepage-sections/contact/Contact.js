@@ -110,7 +110,7 @@ const Contact = () => {
             timeout={1000}
             classNames={{ enterActive: 'animate-fade-in' }}
           >
-            <Title>Get in touch</Title>
+            <Title className={titleHasBeenInView ? 'block' : 'hidden'}>Get in touch</Title>
           </CSSTransition>
         </div>
         <div className='flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-0 w-11/12 pr-1/12'>
@@ -120,7 +120,7 @@ const Contact = () => {
               timeout={1500}
               classNames={{ enterActive: 'animate-fade-in lg:animate-delayed-fade-in-1' }}
             >
-              <div>
+              <div className={formHasBeenInView ? 'block' : 'hidden'}>
                 <div className='flex flex-col gap-3'>
                   <div>
                     Interested in working together, or just want to say hi, drop me an email...
@@ -191,7 +191,7 @@ const Contact = () => {
                   'animate-fade-in lg:animate-delayed-fade-in-2 xl:animate-delayed-fade-in-3',
               }}
             >
-              <div>
+              <div className={socialMediaLinksHaveBeenInView ? 'block' : 'hidden'}>
                 <div className='text-center lg:text-right'>
                   <span className='lg:hidden'>...or find me in any of these spaces...</span>
                   <span className='hidden lg:block'>...or find me in any of these spaces!</span>

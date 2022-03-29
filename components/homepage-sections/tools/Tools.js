@@ -29,7 +29,7 @@ const Tools = () => {
               timeout={2000}
               classNames={{ enterActive: 'animate-slow-fade-in' }}
             >
-              <Title>Tools</Title>
+              <Title className={titleHasBeenInView ? 'block' : 'hidden'}>Tools</Title>
             </CSSTransition>
           </div>
           <div ref={elementRef(toolsDescription)} className='pr-1/12'>
@@ -38,7 +38,9 @@ const Tools = () => {
               timeout={2000}
               classNames={{ enterActive: 'animate-slide-fade-up-delayed' }}
             >
-              <Description className='md:w-2/3 lg:w-5/12'>
+              <Description
+                className={`md:w-2/3 lg:w-5/12 ${descriptionHasBeenInView ? 'block' : 'hidden'}`}
+              >
                 I work primarily on Ruby on Rails and React/Next.js projects, using the tools
                 necessary to bring them to life, including...
               </Description>

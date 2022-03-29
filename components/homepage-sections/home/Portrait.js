@@ -17,7 +17,11 @@ const Portrait = () => {
           timeout={4000}
           classNames={{ enterActive: 'animate-very-slow-fade-in' }}
         >
-          <div className='absolute h-full w-full bg-gradient-radial from-blue-500 via-blue-900 to-black' />
+          <div
+            className={`absolute h-full w-full bg-gradient-radial from-blue-500 via-blue-900 to-black ${
+              portraitHasBeenInView ? 'block' : 'hidden'
+            }`}
+          />
         </CSSTransition>
         <div className='absolute h-full w-full flex flex-col'>
           <div className='basis-1/3 grow-0 shrink-0 flex'>
@@ -45,7 +49,9 @@ const Portrait = () => {
           <img
             src='/images/self-portrait.png'
             alt='Portrait'
-            className='h-full w-full object-contain relative z-10'
+            className={`h-full w-full object-contain relative z-10 ${
+              portraitHasBeenInView ? 'block' : 'hidden'
+            }`}
           />
         </CSSTransition>
       </div>

@@ -61,7 +61,7 @@ const Projects = () => {
               timeout={1000}
               classNames={{ enterActive: 'animate-fade-in' }}
             >
-              <Title>Projects</Title>
+              <Title className={titleHasBeenInView ? 'block' : 'hidden'}>Projects</Title>
             </CSSTransition>
           </div>
         </div>
@@ -80,7 +80,9 @@ const Projects = () => {
           >
             <div
               ref={projectsContainerRef}
-              className='flex overflow-x-scroll snap-x snap-mandatory scroll-smooth px-1/12 mb-6'
+              className={`overflow-x-scroll snap-x snap-mandatory scroll-smooth px-1/12 mb-6 ${
+                projectCardsHasBeenInView ? 'flex' : 'hidden'
+              }`}
             >
               {projectsOrder.map(project => (
                 <ProjectCard key={`${project}-project`} project={project} />

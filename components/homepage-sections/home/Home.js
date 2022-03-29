@@ -41,7 +41,7 @@ const Home = () => {
                   timeout={2000}
                   classNames={{ enterActive: 'animate-zoom-down-in' }}
                 >
-                  <div>
+                  <div className={titleHasBeenInView ? 'block' : 'hidden'}>
                     <Title className='text-white'>Jethro Williams</Title>
                     <Title className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500'>
                       Software Engineer
@@ -55,7 +55,10 @@ const Home = () => {
                   timeout={2000}
                   classNames={{ enterActive: 'animate-slide-fade-up-delayed' }}
                 >
-                  <Description uppercase className='basis-2/3'>
+                  <Description
+                    uppercase
+                    className={`basis-2/3 ${descriptionHasBeenInView ? 'block' : 'hidden'}`}
+                  >
                     Fixing the world, one line of code at a time.
                   </Description>
                 </CSSTransition>
@@ -67,7 +70,9 @@ const Home = () => {
                 timeout={2000}
                 classNames={{ enterActive: 'animate-slow-fade-in' }}
               >
-                <FindOutMoreLink className='hidden lg:block' />
+                <FindOutMoreLink
+                  className={desktopFindOutMoreLinkHasBeenInView ? 'hidden lg:block' : 'hidden'}
+                />
               </CSSTransition>
             </div>
           </div>
@@ -81,7 +86,9 @@ const Home = () => {
             timeout={2000}
             classNames={{ enterActive: 'animate-slow-fade-in' }}
           >
-            <FindOutMoreLink className='lg:hidden' />
+            <FindOutMoreLink
+              className={mobileFindOutMoreLinkHasBeenInView ? 'lg:hidden' : 'hidden'}
+            />
           </CSSTransition>
         </div>
       </div>

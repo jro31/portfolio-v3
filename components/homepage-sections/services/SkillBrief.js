@@ -62,7 +62,7 @@ const SkillBrief = props => {
       timeout={1000 + (props.position * 500)} // prettier-ignore
       classNames={{ enterActive: enterActiveClassName() }}
     >
-      <div className='flex gap-4 lg:gap-0'>
+      <div className={`gap-4 lg:gap-0 ${skillsHasBeenInView ? 'flex' : 'hidden'}`}>
         <div className='basis-1/6 xs:basis-1/8 lg:basis-1/6'>
           <div
             className={`w-full lg:w-1/2 box-border p-3 rounded-1/2 ${
