@@ -91,6 +91,8 @@ const ToolsIconsSection = props => {
     return returnArray.flat();
   };
 
+  const displayIcons = () => displayedIconsArray.includes(iconNames(props.name)[0]);
+
   useEffect(() => {
     if (iconsHaveBeenInView) {
       iconOrder().map((icon, i) => {
@@ -104,12 +106,13 @@ const ToolsIconsSection = props => {
   return (
     <div className='flex flex-col justify-between px-2 lg:px-5 first:pl-0 last:pr-10'>
       <CSSTransition
-        mountOnEnter
-        in={displayedIconsArray.includes(iconNames(props.name)[0])}
+        in={displayIcons()}
         timeout={1000}
         classNames={{ enterActive: 'animate-fade-in' }}
       >
-        <div className={sectionNameColorClass}>{props.name}</div>
+        <div className={`${sectionNameColorClass} ${displayIcons() ? 'block' : 'hidden'}`}>
+          {props.name}
+        </div>
       </CSSTransition>
       <div className='flex'>
         {iconNames(props.name).map(iconName => (

@@ -7,12 +7,11 @@ const JethroCodesSection = props => {
       className={`flex-col xl:basis-1/3 ${props.className || ''}`}
     >
       <CSSTransition
-        mountOnEnter
         in={props.in}
         timeout={2000}
         classNames={{ enterActive: 'animate-fade-in lg:animate-none xl:animate-delayed-fade-in-2' }}
       >
-        <div className='text-center'>
+        <div className={`text-center ${props.in ? 'block' : 'hidden'}`}>
           <span className='lg:hidden'>
             ...or checkout my projects in more detail at jethro.codes!
           </span>

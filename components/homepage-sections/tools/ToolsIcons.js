@@ -32,11 +32,12 @@ const ToolsIcons = () => {
   const elementRef = useElementRef();
 
   return (
-    // TODO - Probably update this on mobile. Looks a bit shit.
+    // ESSENTIAL - Probably update this on mobile. Looks a bit shit.
     <div className='overflow-x-scroll w-full pl-1/12'>
       <div ref={elementRef(toolsIcons)} className='flex gap-5 w-full min-h-[208px]'>
         {/* TODO - Can you make each SVG a different color, and transition them periodically to other colors? */}
         {/* Probably give the container a class and add a wildcard transition to all child elements in the global css */}
+        {/* ESSENTIAL - Add pointers so this can be scrolled by clicking */}
         {toolsSectionsOrder.map(section => (
           <ToolsIconsSection key={`${section} section`} name={section} />
         ))}

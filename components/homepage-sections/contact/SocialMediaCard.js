@@ -106,7 +106,6 @@ const SocialMediaCard = props => {
     <a href={platformDetails().url} target='_blank' rel='noreferrer'>
       <div>
         <CSSTransition
-          mountOnEnter
           in={displayedPlatformsArray.includes(props.platform)}
           timeout={2500}
           classNames={{
@@ -120,7 +119,7 @@ const SocialMediaCard = props => {
             onTouchEnd={touchEndHandler}
             onMouseOver={mouseOverHandler}
             onMouseOut={mouseOutHandler}
-            className='flex items-center min-w-[265px] 2xs:min-w-[375px] lg:min-w-[325px] xl:min-w-[375px] max-w-[500px] bg-gradient-to-br from-slate-500 to-slate-700 hover:from-black hover:to-black border border-transparent hover:border-slate-200 rounded-xl p-2 gap-2 2xs:gap-4 xs:gap-6 lg:gap-4 xl:gap-6'
+            className='flex items-center min-w-[265px] 2xs:min-w-[375px] lg:min-w-[325px] xl:min-w-[375px] max-w-[500px] bg-gradient-to-bl from-slate-700 via-slate-400 to-slate-700 hover:from-black hover:to-black border border-transparent hover:border-slate-200 rounded-xl p-2 gap-2 2xs:gap-4 xs:gap-6 lg:gap-4 xl:gap-6'
           >
             <div className='w-10 2xs:w-12 xs:w-16 lg:w-12 xl:w-16 h-10 2xs:h-12 xs:h-16 lg:h-12 xl:h-16 grow-0'>
               {platformDetails().icon}

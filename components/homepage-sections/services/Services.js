@@ -27,7 +27,6 @@ const Services = () => {
             className='basis-3/4 lg:basis-2/3 text-center lg:text-left'
           >
             <CSSTransition
-              mountOnEnter
               in={titleHasBeenInView}
               timeout={1000}
               classNames={{ enterActive: 'animate-fade-in' }}

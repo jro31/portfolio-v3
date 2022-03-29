@@ -25,7 +25,6 @@ const Tools = () => {
         <div className='flex flex-col w-11/12'>
           <div ref={elementRef(toolsTitle)}>
             <CSSTransition
-              mountOnEnter
               in={titleHasBeenInView}
               timeout={2000}
               classNames={{ enterActive: 'animate-slow-fade-in' }}
@@ -35,7 +34,6 @@ const Tools = () => {
           </div>
           <div ref={elementRef(toolsDescription)} className='pr-1/12'>
             <CSSTransition
-              mountOnEnter
               in={descriptionHasBeenInView}
               timeout={2000}
               classNames={{ enterActive: 'animate-slide-fade-up-delayed' }}

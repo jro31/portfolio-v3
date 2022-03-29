@@ -41,6 +41,9 @@ module.exports = {
         '1/8': '12.5%',
         '7/8': '87.5%',
       },
+      fontFamily: {
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      },
       keyframes: {
         delayedFadeIn1: {
           '0%': { opacity: 0 },

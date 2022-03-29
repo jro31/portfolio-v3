@@ -37,7 +37,6 @@ const Home = () => {
             <div className='flex flex-col gap-16'>
               <div ref={elementRef(homeTitle)} className='flex flex-col lg:gap-2'>
                 <CSSTransition
-                  mountOnEnter
                   in={titleHasBeenInView}
                   timeout={2000}
                   classNames={{ enterActive: 'animate-zoom-down-in' }}
@@ -52,7 +51,6 @@ const Home = () => {
               </div>
               <div ref={elementRef(homeDescription)} className='hidden lg:flex'>
                 <CSSTransition
-                  mountOnEnter
                   in={descriptionHasBeenInView}
                   timeout={2000}
                   classNames={{ enterActive: 'animate-slide-fade-up-delayed' }}
@@ -65,7 +63,6 @@ const Home = () => {
             </div>
             <div ref={elementRef(homeFindOutMoreDesktopLink)}>
               <CSSTransition
-                mountOnEnter
                 in={desktopFindOutMoreLinkHasBeenInView}
                 timeout={2000}
                 classNames={{ enterActive: 'animate-slow-fade-in' }}
@@ -80,7 +77,6 @@ const Home = () => {
         </div>
         <div ref={elementRef(homeFindOutMoreMobileLink)} className='flex justify-center my-5'>
           <CSSTransition
-            mountOnEnter
             in={mobileFindOutMoreLinkHasBeenInView}
             timeout={2000}
             classNames={{ enterActive: 'animate-slow-fade-in' }}
