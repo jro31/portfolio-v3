@@ -1,5 +1,3 @@
-// TODO - This should fade-in (like other page components)
-
 import { useDispatch, useSelector } from 'react-redux';
 
 import { navbarActions } from '../../../../store/navbar';
@@ -19,7 +17,7 @@ const MobileNav = () => {
 
   return (
     <Fragment>
-      <div className='fixed top-0 left-3 bg-transparent z-50'>
+      <div className='fixed top-0 left-3 bg-transparent z-50 animate-delayed-fade-in-4'>
         <div className='flex items-center lg:hidden h-mobile-navbar-height'>
           <Hamburger
             onClick={toggleMobileNav}
