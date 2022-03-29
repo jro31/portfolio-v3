@@ -156,7 +156,7 @@ const ToolsIconContainer = props => {
   };
 
   return (
-    // TODO - Perhaps add an angelic background to each icon on hover
+    // NICETOHAVE - Perhaps add an angelic background to each icon on hover
     <CSSTransition in={props.in} timeout={1000} classNames={{ enterActive: 'animate-fade-in' }}>
       <div
         onTouchStart={touchStartHandler}

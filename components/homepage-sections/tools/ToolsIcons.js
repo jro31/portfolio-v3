@@ -45,14 +45,15 @@ const ToolsIcons = () => {
   };
 
   return (
-    // ESSENTIAL - Probably update this on mobile. Looks a bit shit.
+    // NICETOHAVE - Update this on mobile. Looks a bit shit.
     <div className='w-full relative'>
       <div className='absolute top-1 right-5'>
+        {/* ESSENTIAL - These need to be transitioned in; currently they're the only thing in this section as you get here */}
         <TrianglePointers onClickLeft={scrollLeftHandler} onClickRight={scrollRightHandler} />
       </div>
       <div ref={iconsContainerRef} className='overflow-x-scroll w-full pl-1/12 scroll-smooth'>
         <div ref={elementRef(toolsIcons)} className='flex gap-5 w-full min-h-[208px]'>
-          {/* TODO - Can you make each SVG a different color, and transition them periodically to other colors? */}
+          {/* NICETOHAVE - Can you make each SVG a different color, and transition them periodically to other colors? */}
           {/* Probably give the container a class and add a wildcard transition to all child elements in the global css */}
           {toolsSectionsOrder.map(section => (
             <ToolsIconsSection key={`${section} section`} name={section} />

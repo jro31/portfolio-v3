@@ -120,7 +120,7 @@ const Contact = () => {
               timeout={1500}
               classNames={{ enterActive: 'animate-fade-in lg:animate-delayed-fade-in-1' }}
             >
-              <div className={formHasBeenInView ? 'block' : 'hidden'}>
+              <div className={`flex-col gap-10 ${formHasBeenInView ? 'flex' : 'hidden'}`}>
                 <div className='flex flex-col gap-3'>
                   <div>
                     Interested in working together, or just want to say hi, drop me an email...
@@ -192,11 +192,11 @@ const Contact = () => {
               }}
             >
               <div className={socialMediaLinksHaveBeenInView ? 'block' : 'hidden'}>
-                <div className='text-center lg:text-right'>
+                <div className='text-center'>
                   <span className='lg:hidden'>...or find me in any of these spaces...</span>
                   <span className='hidden lg:block'>...or find me in any of these spaces!</span>
                 </div>
-                <div className='flex flex-col gap-3 items-center lg:items-end'>
+                <div className='flex flex-col gap-3 items-center'>
                   {socialMediaCardOrder.map(platform => (
                     <SocialMediaCard key={`${platform}-social-media-card`} platform={platform} />
                   ))}
@@ -204,7 +204,6 @@ const Contact = () => {
               </div>
             </CSSTransition>
           </div>
-          {/* ESSENTIAL - Remove this until the link exists (or at least have it as 'Coming soon') */}
           <JethroCodesSection
             in={jethroCodesHasBeenInView}
             jethroCodesRef={elementRef(contactJethroCodesLink)}

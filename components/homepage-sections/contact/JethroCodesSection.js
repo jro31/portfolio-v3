@@ -1,4 +1,6 @@
 import { CSSTransition } from 'react-transition-group';
+import InDevelopmentIcon from '../../ui/svg/InDevelopmentIcon';
+import Heading from '../../ui/text/Heading';
 
 const JethroCodesSection = props => {
   return (
@@ -19,7 +21,25 @@ const JethroCodesSection = props => {
             ...or checkout my projects in more detail at jethro.codes...
           </span>
         </div>
-        {/* TODO - Add link */}
+      </CSSTransition>
+      {/* TODO - Update this to link to jethro.codes */}
+      <CSSTransition
+        in={props.in}
+        timeout={2500}
+        classNames={{
+          enterActive: 'animate-delayed-fade-in-1 lg:animate-none xl:animate-delayed-fade-in-3',
+        }}
+      >
+        <div
+          className={`flex-col h-full items-center justify-center gap-5 mt-10 xl:mt-0 ${
+            props.in ? 'flex' : 'hidden'
+          }`}
+        >
+          <Heading className='text-slate-600'>Coming soon!</Heading>
+          <div className='h-40 w-40'>
+            <InDevelopmentIcon color='rgb(71 85 105)' />
+          </div>
+        </div>
       </CSSTransition>
     </div>
   );
