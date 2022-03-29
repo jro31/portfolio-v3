@@ -10,7 +10,7 @@ const Portrait = () => {
 
   return (
     <div className='flex lg:block justify-center lg:h-inherit'>
-      <div className='relative lg:h-inherit max-w-[450px] lg:max-w-none'>
+      <div className='relative lg:h-inherit max-w-[450px] lg:max-w-[770px]'>
         {/* TODO - Is it possible to gradually change these colors? */}
         <CSSTransition
           mountOnEnter

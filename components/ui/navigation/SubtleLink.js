@@ -14,7 +14,7 @@ const SubtleLink = props => {
     <div className={props.className || ''}>
       <div className='flex'>
         <div
-          className={`flex gap-3 cursor-pointer transition-colors text-slate-600 hover:text-white border-b ${
+          className={`flex gap-3 cursor-pointer transition-colors text-slate-600 hover:text-white border-b font-semibold tracking-wider ${
             props.underline ? 'border-slate-600 hover:border-white pb-3' : 'border-transparent'
           }`}
           onClick={props.onClick || null}

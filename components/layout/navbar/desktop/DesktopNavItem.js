@@ -2,9 +2,9 @@ const DesktopNavItem = props => {
   const textColorClass = () => {
     switch (props.background) {
       case 'dark':
-        return 'text-white';
+        return 'text-slate-200 hover:text-white';
       case 'light':
-        return 'text-black';
+        return 'text-slate-800 hover:text-black';
       default:
         return '';
     }
@@ -13,9 +13,9 @@ const DesktopNavItem = props => {
   const underlineColorClass = () => {
     switch (props.background) {
       case 'dark':
-        return 'border-white';
+        return 'border-slate-200 hover:border-white';
       case 'light':
-        return 'border-black';
+        return 'border-slate-800 hover:border-black';
       default:
         return '';
     }
@@ -23,7 +23,7 @@ const DesktopNavItem = props => {
 
   return (
     <div
-      className={`flex cursor-pointer transition-colors border-b pb-3 uppercase ${textColorClass()} ${
+      className={`flex cursor-pointer transition-colors border-b pb-3 uppercase font-semibold tracking-wider ${textColorClass()} ${
         props.underline ? underlineColorClass() : 'border-transparent'
       }`}
       onClick={props.onClick || null}

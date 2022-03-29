@@ -166,6 +166,7 @@ const HomePage = () => {
         />
         <meta name='twitter:image' content='/images/self-portrait.png' />
         <meta name='twitter:card' content='summary_large_image' />
+        <link rel='stylesheet' href='https://rsms.me/inter/inter.css' />
       </Head>
 
       {sectionOrder.map(section => component(section))}

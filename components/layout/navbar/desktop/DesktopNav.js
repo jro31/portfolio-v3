@@ -6,7 +6,6 @@ import { CSSTransition } from 'react-transition-group';
 
 import useScrollTo from '../../../../hooks/useScrollTo';
 import { sectionOrder } from '../../../../pages';
-// import SubtleLink from '../../../ui/navigation/SubtleLink';
 import useNavBackgroundIsDark from '../../../../hooks/useNavBackgroundIsDark';
 import { navbarActions } from '../../../../store/navbar';
 import DesktopNavItem from './DesktopNavItem';
@@ -32,12 +31,11 @@ const DesktopNav = () => {
 
   return (
     <CSSTransition
-      mountOnEnter
       in={navbarIsVisible}
       timeout={3000}
       classNames={{ enterActive: 'animate-delayed-fade-in-4' }}
     >
-      <div className='fixed top-0 left-3 bg-transparent z-50'>
+      <div className={`fixed top-0 bg-transparent z-50 ${navbarIsVisible ? 'block' : 'hidden'}`}>
         <div className='hidden lg:flex h-navbar-height w-screen justify-around items-center'>
           {sectionOrder.map((section, i) => (
             <DesktopNavItem
