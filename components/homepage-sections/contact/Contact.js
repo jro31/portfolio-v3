@@ -204,6 +204,7 @@ const Contact = () => {
               </div>
             </CSSTransition>
           </div>
+          {/* ESSENTIAL - Remove this until the link exists (or at least have it as 'Coming soon') */}
           <JethroCodesSection
             in={jethroCodesHasBeenInView}
             jethroCodesRef={elementRef(contactJethroCodesLink)}
