@@ -33,6 +33,9 @@ module.exports = {
       borderRadius: {
         '1/2': '50%',
       },
+      borderWidth: {
+        10: '10px',
+      },
       colors: {
         success: 'rgb(74 222 128)',
         error: 'rgb(225 29 72)',
