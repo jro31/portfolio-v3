@@ -1,4 +1,4 @@
-// ESSENTIAL - Style this properly
+// FIXME - Using the mobile nav to scroll to the tools/projects/contact sections when first loading the page, it doesn't scroll all the way there (might be fixed by removing the 'mountOnEnter' on these components)
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -17,14 +17,6 @@ const MobileNav = () => {
     dispatch(navbarActions.toggleMobileNav());
   };
 
-  const hamburgerBackground = () => {
-    if (mobileNavIsOpen) {
-      return 'light';
-    }
-
-    return navBackgroundIsDark() ? 'dark' : 'light';
-  };
-
   return (
     <Fragment>
       <div className='fixed top-0 left-3 bg-transparent z-50'>
@@ -32,7 +24,7 @@ const MobileNav = () => {
           <Hamburger
             onClick={toggleMobileNav}
             isOpen={mobileNavIsOpen}
-            background={hamburgerBackground()}
+            background={navBackgroundIsDark() ? 'dark' : 'light'}
           />
         </div>
       </div>

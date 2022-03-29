@@ -20,8 +20,6 @@ const useElementIsInView = () => {
   isInViewObjectRef.current = isInViewObject;
 
   const elementsAreInView = () => {
-    console.log(isInViewObject);
-
     refElementNames.map(elementName => {
       if (isInViewObjectRef.current[elementName] === undefined)
         throw new Error(`Unrecognised element name '${elementName}' used in useElementIsInView`);
@@ -31,16 +29,6 @@ const useElementIsInView = () => {
       const height = elementHeight(elementName);
       const elementBottom = elementTop + height;
       const bottomOfPage = scrollYPositionRef.current + window.innerHeight;
-
-      if (elementName === 'home') {
-        console.log('🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥');
-        console.log(elementBottom);
-        console.log(scrollYPositionRef.current);
-        console.log(elementBottom > scrollYPositionRef.current);
-        // console.log(elementTop);
-        // console.log(bottomOfPage);
-        // console.log(elementTop < bottomOfPage);
-      }
 
       if (elementBottom > scrollYPositionRef.current && elementTop < bottomOfPage) {
         if (currentStatus === false)
