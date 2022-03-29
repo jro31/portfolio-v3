@@ -33,7 +33,7 @@ const Services = () => {
             >
               <Title className={`2xl:leading-tight ${titleHasBeenInView ? 'block' : 'hidden'}`}>
                 Turning
-                <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500'>
+                <span className='text-transparent bg-clip-text safari-bg-clip-text-fix bg-gradient-to-r from-cyan-400 to-fuchsia-500'>
                   &#160;your vision&#160;
                 </span>
                 into reality

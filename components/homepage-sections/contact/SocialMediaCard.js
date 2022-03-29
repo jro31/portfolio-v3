@@ -113,6 +113,7 @@ const SocialMediaCard = props => {
               'animate-fade-in lg:animate-delayed-fade-in-2 xl:animate-delayed-fade-in-3',
           }}
         >
+          {/* TODO - Update the hover styling; looks a bit shit at the moment */}
           <div
             onTouchStart={touchStartHandler}
             onTouchCancel={touchCancelHandler}

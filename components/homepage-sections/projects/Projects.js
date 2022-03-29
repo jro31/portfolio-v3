@@ -71,6 +71,7 @@ const Projects = () => {
           onMouseLeave={onLeaveHover}
           className='flex basis-11/12 min-h-[80vh] lg:min-h-0 relative'
         >
+          {/* FIXME - The left pointer seems very temperamental on Safari; doesn't always work */}
           <Pointer direction={left} in={isHovering} onClick={scrollLeftHandler} />
           <Pointer direction={right} in={isHovering} onClick={scrollRightHandler} />
           <CSSTransition
@@ -78,6 +79,7 @@ const Projects = () => {
             timeout={1500}
             classNames={{ enterActive: 'animate-delayed-fade-in-1' }}
           >
+            {/* NICETOHAVE - The padding-right (below) doesn't work on Safari, so the last card doesn't scroll as far as wanted */}
             <div
               ref={projectsContainerRef}
               className={`overflow-x-scroll snap-x snap-mandatory scroll-smooth px-1/12 mb-6 ${

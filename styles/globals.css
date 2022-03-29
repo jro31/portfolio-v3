@@ -2,13 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (min-width: 1024px) and (min-height: 768px) {
-  body,
-  html {
-    @apply snap-y snap-mandatory scroll-smooth;
+@layer base {
+  @media (min-width: 1024px) and (min-height: 768px) {
+    body,
+    html {
+      @apply snap-y snap-mandatory scroll-smooth;
+    }
+
+    .h-tall-screen-or-content {
+      @apply h-screen;
+    }
   }
 
-  .h-tall-screen-or-content {
-    @apply h-screen;
+  .safari-bg-clip-text-fix {
+    -webkit-box-decoration-break: clone;
   }
 }
