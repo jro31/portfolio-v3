@@ -1,43 +1,25 @@
 const Hamburger = props => {
-  const navIsOpenClasses = line => {
-    if (!props.isOpen) return '';
-
-    switch (line) {
-      case 1: {
-        return 'rotate-45';
-      }
-      case 2: {
-        return 'hidden';
-      }
-      case 3: {
-        return '-rotate-45 -translate-y-0.5';
-      }
-    }
-  };
-
-  const borderColorClass = () => {
+  const backgroundColorClass = () => {
     switch (props.background) {
       case 'dark':
-        return 'border-white';
+        return 'bg-white';
       case 'light':
-        return 'border-black';
+        return 'bg-black';
       default:
         return '';
     }
   };
 
   return (
-    // FIXME - This doesn't work properly on mobile; doesn't form to a perfect cross when opened, and is a very flat hamburger after closing
-    <div
-      className={`flex flex-col justify-center transition-all duration-700 ${
-        props.isOpen ? 'gap-0' : 'gap-2'
-      } ${props.className || ''}`}
-      onClick={props.onClick || null}
-    >
+    <div className='' onClick={props.onClick || null}>
       {[...Array(3)].map((_, i) => (
         <div
           key={`hamburger-line-${i + 1}`}
-          className={`border ${borderColorClass()} w-8 transition-all ${navIsOpenClasses(i + 1)}`}
+          className={`hamburger-transitions w-[33px] h-[4px] mb-[5px] relative rounded-[3px] origin-[6px_0px] last:origin-[0%_100%] ${backgroundColorClass()} ${
+            props.isOpen
+              ? 'opacity-100 rotate-45 -translate-x-[2px] -translate-y-px even:opacity-0 even:rotate-0 even:scale-[0.2] last:-rotate-45 last:translate-x-0'
+              : ''
+          }`}
         />
       ))}
     </div>

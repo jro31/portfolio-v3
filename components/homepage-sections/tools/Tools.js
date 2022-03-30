@@ -16,7 +16,7 @@ const Tools = () => {
   const elementRef = useElementRef();
 
   return (
-    // FIXME - There's not need to have this section as big as it is on mobile; just leads to a lot of empty space before the projects section. Doesn't need to take up the entire screen height.
+    // FIXME - There's no need to have this section as big as it is on mobile; just leads to a lot of empty space before the projects section. Doesn't need to take up the entire screen height.
     // NICETOHAVE - Can you make this background gradually change (something subtle; not too attention seeking)?
     <SectionContainer
       section={toolsSection}
