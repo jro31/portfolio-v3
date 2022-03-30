@@ -17,15 +17,7 @@ const SocialMediaCard = props => {
   );
   const [displayedPlatformsArray, setDisplayedPlatformsArray] = useState([]);
 
-  const defaultPlatformColorClass = 'text-black';
-  const hoverPlatformColorClass = 'text-slate-700';
-  const defaultUsernameColorClass = 'text-slate-300/90';
-  const hoverUsernameColorClass = 'text-slate-200';
-  const defaultIconColor = 'black';
-  const hoverIconColor = 'rgb(226 232 240)';
-  const [platformColorClass, setPlatformColorClass] = useState(defaultPlatformColorClass);
-  const [usernameColorClass, setUsernameColorClass] = useState(defaultUsernameColorClass);
-  const [iconColor, setIconColor] = useState(defaultIconColor);
+  const iconColor = 'black';
 
   const platformDetails = () => {
     switch (props.platform) {
@@ -64,34 +56,6 @@ const SocialMediaCard = props => {
     }
   };
 
-  const touchStartHandler = () => {
-    mouseOverHandler();
-  };
-
-  const mouseOverHandler = () => {
-    if (platformColorClass !== hoverPlatformColorClass)
-      setPlatformColorClass(hoverPlatformColorClass);
-    if (usernameColorClass !== hoverUsernameColorClass)
-      setUsernameColorClass(hoverUsernameColorClass);
-    if (iconColor !== hoverIconColor) setIconColor(hoverIconColor);
-  };
-
-  const touchCancelHandler = () => {
-    touchEndHandler();
-  };
-
-  const touchEndHandler = () => {
-    mouseOutHandler();
-  };
-
-  const mouseOutHandler = () => {
-    if (platformColorClass !== defaultPlatformColorClass)
-      setPlatformColorClass(defaultPlatformColorClass);
-    if (usernameColorClass !== defaultUsernameColorClass)
-      setUsernameColorClass(defaultUsernameColorClass);
-    if (iconColor !== defaultIconColor) setIconColor(defaultIconColor);
-  };
-
   useEffect(() => {
     if (socialMediaLinksHaveBeenInView) {
       socialMediaCardOrder.map((platform, i) => {
@@ -113,14 +77,8 @@ const SocialMediaCard = props => {
               'animate-fade-in lg:animate-delayed-fade-in-2 xl:animate-delayed-fade-in-3',
           }}
         >
-          {/* TODO - Update the hover styling; looks a bit shit at the moment */}
           <div
-            onTouchStart={touchStartHandler}
-            onTouchCancel={touchCancelHandler}
-            onTouchEnd={touchEndHandler}
-            onMouseOver={mouseOverHandler}
-            onMouseOut={mouseOutHandler}
-            className={`items-center min-w-[265px] 2xs:min-w-[375px] lg:min-w-[325px] xl:min-w-[375px] max-w-[500px] bg-gradient-to-bl from-slate-700 via-slate-400 to-slate-700 hover:from-black hover:to-black border border-transparent hover:border-slate-200 rounded-xl p-2 gap-2 2xs:gap-4 xs:gap-6 lg:gap-4 xl:gap-6 ${
+            className={`items-center min-w-[265px] 2xs:min-w-[375px] lg:min-w-[325px] xl:min-w-[375px] max-w-[500px] bg-gradient-to-bl from-slate-700 via-slate-400 to-slate-700 hover:from-slate-600 hover:via-slate-300 hover:to-slate-600 border border-transparent rounded-xl p-2 gap-2 2xs:gap-4 xs:gap-6 lg:gap-4 xl:gap-6 ${
               displayedPlatformsArray.includes(props.platform) ? 'flex' : 'hidden'
             }`}
           >
@@ -128,14 +86,10 @@ const SocialMediaCard = props => {
               {platformDetails().icon}
             </div>
             <div className='grow'>
-              <div
-                className={`text-xl xs:text-2xl lg:text-xl xl:text-2xl font-black ${platformColorClass}`}
-              >
+              <div className='text-xl xs:text-2xl lg:text-xl xl:text-2xl font-black text-black'>
                 {props.platform}
               </div>
-              <div
-                className={`text-sm 2xs:text-base xs:text-lg lg:text-base xl:text-lg font-medium italic tracking-wide ${usernameColorClass}`}
-              >
+              <div className='text-sm 2xs:text-base xs:text-lg lg:text-base xl:text-lg font-medium italic tracking-wide text-slate-200'>
                 {platformDetails().username}
               </div>
             </div>

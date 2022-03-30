@@ -48,7 +48,7 @@ const ToolsIcons = () => {
   };
 
   return (
-    <div className='w-full relative'>
+    <div className='w-full relative mb-6 lg:mb-0'>
       <CSSTransition
         in={iconsHaveBeenInView}
         timeout={2500}

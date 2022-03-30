@@ -71,7 +71,6 @@ const Projects = () => {
           onMouseLeave={onLeaveHover}
           className='flex basis-11/12 min-h-[80vh] lg:min-h-0 relative'
         >
-          {/* FIXME - The left pointer seems very temperamental on Safari; doesn't always work */}
           <Pointer direction={left} in={isHovering} onClick={scrollLeftHandler} />
           <Pointer direction={right} in={isHovering} onClick={scrollRightHandler} />
           <CSSTransition

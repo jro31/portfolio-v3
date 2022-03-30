@@ -16,13 +16,12 @@ const Tools = () => {
   const elementRef = useElementRef();
 
   return (
-    // FIXME - There's no need to have this section as big as it is on mobile; just leads to a lot of empty space before the projects section. Doesn't need to take up the entire screen height.
     // NICETOHAVE - Can you make this background gradually change (something subtle; not too attention seeking)?
     <SectionContainer
       section={toolsSection}
       className='bg-gradient-to-br from-slate-800 via-black to-slate-800 text-white'
     >
-      <div className='flex flex-col items-end justify-around min-h-screen-minus-mobile-nav lg:min-h-screen-minus-nav h-full w-full'>
+      <div className='flex flex-col items-end justify-between lg:justify-around min-h-screen-minus-mobile-nav lg:min-h-screen-minus-nav h-full w-full'>
         <div className='flex flex-col w-11/12'>
           <div ref={elementRef(toolsTitle)}>
             <CSSTransition
