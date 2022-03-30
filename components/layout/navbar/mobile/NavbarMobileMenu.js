@@ -18,10 +18,8 @@ const NavbarMobileMenu = () => {
   const backgroundColor = () => (navBackgroundIsDark() ? 'bg-slate-800' : 'bg-slate-200');
 
   const transitionClassNames = {
-    enter: backgroundColor(),
+    enter: '-translate-x-[100vw]',
     enterActive: 'animate-slide-in-right',
-    enterDone: backgroundColor(),
-    exit: '',
     exitActive: 'animate-slide-out-left',
   };
 
@@ -32,6 +30,7 @@ const NavbarMobileMenu = () => {
 
   return (
     <Fragment>
+      {/* FIXME - On Chrome on mobile, there's a slight 'flicker' when transitioning-in the menu - Not present on other browsers - Possibly fixed but can't test without pushing */}
       <CSSTransition
         mountOnEnter
         unmountOnExit
@@ -39,7 +38,9 @@ const NavbarMobileMenu = () => {
         timeout={1000}
         classNames={transitionClassNames}
       >
-        <div className='flex pl-mobile-navbar-height fixed top-0 lg:hidden pt-mobile-navbar-height h-screen min-w-2/3 xs:min-w-1/2 md:min-w-1/3 z-40'>
+        <div
+          className={`flex pl-mobile-navbar-height fixed top-0 lg:hidden pt-mobile-navbar-height h-screen min-w-2/3 xs:min-w-1/2 md:min-w-1/3 z-40 ${backgroundColor()}`}
+        >
           <div className='flex flex-col gap-6'>
             {sectionOrder.map(section => (
               <SubtleLink
