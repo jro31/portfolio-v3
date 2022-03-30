@@ -27,6 +27,7 @@ const Hamburger = props => {
   };
 
   return (
+    // FIXME - This doesn't work properly on mobile; doesn't form to a perfect cross when opened, and is a very flat hamburger after closing
     <div
       className={`flex flex-col justify-center transition-all duration-700 ${
         props.isOpen ? 'gap-0' : 'gap-2'

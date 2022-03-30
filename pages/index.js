@@ -89,6 +89,11 @@ export const refElementNames = [
   ...toolsElements,
 ];
 
+const appTitle = 'Jethro Williams - Software Engineer';
+const appDescription =
+  'Need a software engineer to build your web application? Contact me to find out about working together.';
+const socialMediaImagePath = '/images/self-portrait.png';
+
 const HomePage = () => {
   contactSectionRef = useRef();
   homeSectionRef = useRef();
@@ -139,32 +144,25 @@ const HomePage = () => {
   return (
     <Fragment>
       <Head>
-        <title>Jethro Williams - Software Engineer</title>
-        <meta
-          name='description'
-          content='Need a software engineer to build your web application? Contact me to find out about working together.'
-        />
+        <title>{appTitle}</title>
+        <meta name='description' content={appDescription} />
         <meta
           name='keywords'
           content='software engineer, web dev, developer, ruby on rails, react js, next js, ruby on rails developer, react developer, freelance'
         />
 
         {/* Facebook */}
-        {/* TODO - Test these once on Vercel - https://developers.facebook.com/tools/debug/ */}
-        <meta property='og:title' content='Jethro Williams - Software Engineer' />
+        <meta property='og:title' content={appTitle} />
+        <meta property='og:description' content={appDescription} />
         <meta property='og:type' content='website' />
         <meta property='og:url' content='https://jethrowilliams.com' />
-        <meta property='og:image' content='/images/self-portrait.png' />
+        <meta property='og:image' content={socialMediaImagePath} />
 
         {/* Twitter */}
-        {/* TODO - Test these */}
-        <meta name='twitter:title' content='Jethro Williams - Software Engineer' />
+        <meta name='twitter:title' content={appTitle} />
         <meta name='twitter:site' content='@jethro_williams' />
-        <meta
-          name='twitter:description'
-          content='Need a software engineer to build your web application? Contact me to find out about working together.'
-        />
-        <meta name='twitter:image' content='/images/self-portrait.png' />
+        <meta name='twitter:description' content={appDescription} />
+        <meta name='twitter:image' content={socialMediaImagePath} />
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
 

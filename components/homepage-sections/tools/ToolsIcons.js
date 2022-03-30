@@ -48,7 +48,6 @@ const ToolsIcons = () => {
   };
 
   return (
-    // NICETOHAVE - Update this on mobile. Looks a bit shit.
     <div className='w-full relative'>
       <CSSTransition
         in={iconsHaveBeenInView}
