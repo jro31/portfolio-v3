@@ -6,6 +6,7 @@
 // ESSENTIAL - Test on other browsers (definitely some tweaks needed for Safari), and on iOS simulator
 // NICETOHAVE - Currently any programatic scrolling (between sections, the tools icons, and the projects) is not smooth on Safari. Find a fix.
 // BUG - Scroll Snap (both of sections, and of projects) doesn't work in Firefox. Scrolling programatically or using keyboard works fine, but scrolling by mouse doesn't - Note this seems to be a bug with MacOS Monterrey https://bugzilla.mozilla.org/show_bug.cgi?id=1737820, https://bugzilla.mozilla.org/show_bug.cgi?id=1744289 so might not be fixable
+// TODO - Request Google crawl site
 
 import { Provider } from 'react-redux';
 import Layout from '../components/layout/Layout';

@@ -1,9 +1,11 @@
+import { useRef } from 'react';
+import { useSelector } from 'react-redux';
+
 import ToolsIconsSection from './ToolsIconsSection';
 import useElementRef from '../../../hooks/useElementRef';
-
 import { toolsIcons } from '../../../pages';
 import TrianglePointers from '../../ui/navigation/TrianglePointers';
-import { useRef } from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 export const coding = 'Coding';
 export const dataString = 'Data';
@@ -33,6 +35,7 @@ export const toolsSectionsOrder = [
 const ToolsIcons = () => {
   const iconsContainerRef = useRef();
   const elementRef = useElementRef();
+  const iconsHaveBeenInView = useSelector(state => state.elementIsInView.hasBeenInView[toolsIcons]);
 
   const scrollLeftHandler = () => {
     iconsContainerRef.current.scrollLeft =
@@ -47,10 +50,15 @@ const ToolsIcons = () => {
   return (
     // NICETOHAVE - Update this on mobile. Looks a bit shit.
     <div className='w-full relative'>
-      <div className='absolute top-1 right-5'>
-        {/* ESSENTIAL - These need to be transitioned in; currently they're the only thing in this section as you get here */}
-        <TrianglePointers onClickLeft={scrollLeftHandler} onClickRight={scrollRightHandler} />
-      </div>
+      <CSSTransition
+        in={iconsHaveBeenInView}
+        timeout={2500}
+        classNames={{ enterActive: 'animate-delayed-fade-in-3' }}
+      >
+        <div className='absolute top-1 right-5'>
+          <TrianglePointers onClickLeft={scrollLeftHandler} onClickRight={scrollRightHandler} />
+        </div>
+      </CSSTransition>
       <div ref={iconsContainerRef} className='overflow-x-scroll w-full pl-1/12 scroll-smooth'>
         <div ref={elementRef(toolsIcons)} className='flex gap-5 w-full min-h-[208px]'>
           {/* NICETOHAVE - Can you make each SVG a different color, and transition them periodically to other colors? */}
