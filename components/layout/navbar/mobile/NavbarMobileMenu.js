@@ -31,9 +31,7 @@ const NavbarMobileMenu = () => {
         in={mobileNavIsOpen}
         timeout={1000}
         classNames={{
-          enter: '',
-          enterActive: 'animate-slide-in-right',
-          exit: '',
+          enter: 'animate-slide-in-right',
           exitActive: 'animate-slide-out-left',
         }}
       >
