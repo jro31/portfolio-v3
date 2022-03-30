@@ -11,6 +11,10 @@ const MobileNav = () => {
   const mobileNavIsOpen = useSelector(state => state.navbar.mobileNavIsOpen);
   const navBackgroundIsDark = useNavBackgroundIsDark();
 
+  const touchHandler = event => {
+    event.preventDefault();
+  };
+
   const toggleMobileNav = () => {
     dispatch(navbarActions.toggleMobileNav());
   };
@@ -20,6 +24,7 @@ const MobileNav = () => {
       <div className='fixed top-0 left-3 bg-transparent z-50 animate-delayed-fade-in-4'>
         <div className='flex items-center lg:hidden h-mobile-navbar-height'>
           <Hamburger
+            onTouchEnd={touchHandler}
             onClick={toggleMobileNav}
             isOpen={mobileNavIsOpen}
             background={navBackgroundIsDark() ? 'dark' : 'light'}
