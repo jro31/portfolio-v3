@@ -55,7 +55,7 @@ const ToolsIcons = () => {
         timeout={2500}
         classNames={{ enterActive: 'animate-delayed-fade-in-3' }}
       >
-        <div className='absolute top-1 right-5'>
+        <div className={`absolute top-1 right-5 ${iconsHaveBeenInView ? 'block' : 'hidden'}`}>
           <TrianglePointers onClickLeft={scrollLeftHandler} onClickRight={scrollRightHandler} />
         </div>
       </CSSTransition>
