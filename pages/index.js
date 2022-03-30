@@ -92,7 +92,8 @@ export const refElementNames = [
 const appTitle = 'Jethro Williams - Software Engineer';
 const appDescription =
   'Need a software engineer to build your web application? Contact me to find out about working together.';
-const socialMediaImagePath = '/images/self-portrait.png';
+const baseUrl = 'https://jethrowilliams.com';
+const socialMediaImagePath = `${baseUrl}/images/self-portrait.png`;
 
 const HomePage = () => {
   contactSectionRef = useRef();
