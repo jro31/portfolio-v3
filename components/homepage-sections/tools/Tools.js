@@ -16,7 +16,7 @@ const Tools = () => {
   const elementRef = useElementRef();
 
   return (
-    // TODO - Can you make this background gradually change (something subtle; not too attention seeking)?
+    // NICETOHAVE - Can you make this background gradually change (something subtle; not too attention seeking)?
     <SectionContainer
       section={toolsSection}
       className='bg-gradient-to-br from-slate-800 via-black to-slate-800 text-white'
@@ -25,22 +25,22 @@ const Tools = () => {
         <div className='flex flex-col w-11/12'>
           <div ref={elementRef(toolsTitle)}>
             <CSSTransition
-              mountOnEnter
               in={titleHasBeenInView}
               timeout={2000}
               classNames={{ enterActive: 'animate-slow-fade-in' }}
             >
-              <Title>Tools</Title>
+              <Title className={titleHasBeenInView ? 'block' : 'hidden'}>Tools</Title>
             </CSSTransition>
           </div>
           <div ref={elementRef(toolsDescription)} className='pr-1/12'>
             <CSSTransition
-              mountOnEnter
               in={descriptionHasBeenInView}
               timeout={2000}
               classNames={{ enterActive: 'animate-slide-fade-up-delayed' }}
             >
-              <Description className='md:w-2/3 lg:w-5/12'>
+              <Description
+                className={`md:w-2/3 lg:w-5/12 ${descriptionHasBeenInView ? 'block' : 'hidden'}`}
+              >
                 I work primarily on Ruby on Rails and React/Next.js projects, using the tools
                 necessary to bring them to life, including...
               </Description>

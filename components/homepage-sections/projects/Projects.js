@@ -1,13 +1,14 @@
-// TODO - Add arrows to click-scroll project cards
-
+import { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
+import { isMobile } from 'react-device-detect';
 
 import SectionContainer from '../SectionContainer';
 import { projectsCards, projectsSection, projectsTitle } from '../../../pages';
 import Title from '../../ui/text/Title';
 import ProjectCard from './ProjectCard';
 import useElementRef from '../../../hooks/useElementRef';
+import Pointer, { left, right } from '../../ui/navigation/Pointer';
 
 export const mealsOfChange = 'meals-of-change';
 export const wheresJethro = 'wheres-jethro';
@@ -21,7 +22,31 @@ const Projects = () => {
   const projectCardsHasBeenInView = useSelector(
     state => state.elementIsInView.hasBeenInView[projectsCards]
   );
+  const [isHovering, setIsHovering] = useState(false);
+  const projectsContainerRef = useRef();
   const elementRef = useElementRef();
+
+  const scrollLeftHandler = () => {
+    projectsContainerRef.current.scrollLeft =
+      projectsContainerRef.current.scrollLeft - window.innerWidth * 0.7;
+  };
+
+  const scrollRightHandler = () => {
+    projectsContainerRef.current.scrollLeft =
+      projectsContainerRef.current.scrollLeft + window.innerWidth * 0.7;
+  };
+
+  const onHover = () => {
+    if (!isMobile) {
+      setIsHovering(true);
+    }
+  };
+
+  const onLeaveHover = () => {
+    if (!isMobile) {
+      setIsHovering(false);
+    }
+  };
 
   return (
     <SectionContainer
@@ -36,17 +61,31 @@ const Projects = () => {
               timeout={1000}
               classNames={{ enterActive: 'animate-fade-in' }}
             >
-              <Title>Projects</Title>
+              <Title className={titleHasBeenInView ? 'block' : 'hidden'}>Projects</Title>
             </CSSTransition>
           </div>
         </div>
-        <div ref={elementRef(projectsCards)} className='flex basis-11/12 min-h-[80vh] lg:min-h-0'>
+        <div
+          ref={elementRef(projectsCards)}
+          onMouseEnter={onHover}
+          onMouseLeave={onLeaveHover}
+          className='flex basis-11/12 min-h-[80vh] lg:min-h-0 relative'
+        >
+          {/* FIXME - The left pointer seems very temperamental on Safari; doesn't always work */}
+          <Pointer direction={left} in={isHovering} onClick={scrollLeftHandler} />
+          <Pointer direction={right} in={isHovering} onClick={scrollRightHandler} />
           <CSSTransition
             in={projectCardsHasBeenInView}
             timeout={1500}
             classNames={{ enterActive: 'animate-delayed-fade-in-1' }}
           >
-            <div className='flex overflow-x-scroll snap-x snap-mandatory scroll-smooth px-1/12 pb-6'>
+            {/* NICETOHAVE - The padding-right (below) doesn't work on Safari, so the last card doesn't scroll as far as wanted */}
+            <div
+              ref={projectsContainerRef}
+              className={`overflow-x-scroll snap-x snap-mandatory scroll-smooth px-1/12 mb-6 ${
+                projectCardsHasBeenInView ? 'flex' : 'hidden'
+              }`}
+            >
               {projectsOrder.map(project => (
                 <ProjectCard key={`${project}-project`} project={project} />
               ))}

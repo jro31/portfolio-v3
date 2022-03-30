@@ -35,7 +35,7 @@ const Hamburger = props => {
     >
       {[...Array(3)].map((_, i) => (
         <div
-          key={`hamburgerLine${i + 1}`}
+          key={`hamburger-line-${i + 1}`}
           className={`border ${borderColorClass()} w-8 transition-all ${navIsOpenClasses(i + 1)}`}
         />
       ))}

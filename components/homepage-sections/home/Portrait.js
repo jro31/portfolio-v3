@@ -1,24 +1,27 @@
 import { useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
-import { introductionPortrait } from '../../../pages';
+import { homePortrait } from '../../../pages';
 
 const Portrait = () => {
   const portraitHasBeenInView = useSelector(
-    state => state.elementIsInView.hasBeenInView[introductionPortrait]
+    state => state.elementIsInView.hasBeenInView[homePortrait]
   );
 
   return (
     <div className='flex lg:block justify-center lg:h-inherit'>
-      <div className='relative lg:h-inherit max-w-[450px] lg:max-w-none'>
-        {/* TODO - Is it possible to gradually change these colors? */}
+      <div className='relative lg:h-inherit max-w-[450px] lg:max-w-[770px]'>
+        {/* NICETOHAVE - Is it possible to gradually change these colors? */}
         <CSSTransition
-          mountOnEnter
           in={portraitHasBeenInView}
           timeout={4000}
           classNames={{ enterActive: 'animate-very-slow-fade-in' }}
         >
-          <div className='absolute h-full w-full bg-gradient-radial from-blue-500 via-blue-900 to-black' />
+          <div
+            className={`absolute h-full w-full bg-gradient-radial from-blue-500 via-blue-900 to-black ${
+              portraitHasBeenInView ? 'block' : 'hidden'
+            }`}
+          />
         </CSSTransition>
         <div className='absolute h-full w-full flex flex-col'>
           <div className='basis-1/3 grow-0 shrink-0 flex'>
@@ -37,8 +40,8 @@ const Portrait = () => {
             <div className='basis-1/3 grow-0 shrink-0 z-20 bg-gradient-to-br from-transparent via-black to-black' />
           </div>
         </div>
+        {/* FIXME - Not urgent, but there's a slight 'jolt' on the image when loading the page at about 2 seconds */}
         <CSSTransition
-          mountOnEnter
           in={portraitHasBeenInView}
           timeout={2000}
           classNames={{ enterActive: 'animate-slow-fade-in' }}
@@ -46,7 +49,9 @@ const Portrait = () => {
           <img
             src='/images/self-portrait.png'
             alt='Portrait'
-            className='h-full w-full object-contain relative z-10'
+            className={`h-full w-full object-contain relative z-10 ${
+              portraitHasBeenInView ? 'block' : 'hidden'
+            }`}
           />
         </CSSTransition>
       </div>

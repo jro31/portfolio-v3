@@ -106,23 +106,21 @@ const Contact = () => {
       <div className='flex flex-col items-end justify-around min-h-screen-minus-mobile-nav lg:min-h-screen-minus-nav h-full w-full'>
         <div ref={elementRef(contactTitle)} className='w-11/12'>
           <CSSTransition
-            mountOnEnter
             in={titleHasBeenInView}
             timeout={1000}
             classNames={{ enterActive: 'animate-fade-in' }}
           >
-            <Title>Get in touch</Title>
+            <Title className={titleHasBeenInView ? 'block' : 'hidden'}>Get in touch</Title>
           </CSSTransition>
         </div>
         <div className='flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-0 w-11/12 pr-1/12'>
           <div ref={elementRef(contactForm)} className='lg:basis-1/2 xl:basis-1/3'>
             <CSSTransition
-              mountOnEnter
               in={formHasBeenInView}
               timeout={1500}
               classNames={{ enterActive: 'animate-fade-in lg:animate-delayed-fade-in-1' }}
             >
-              <div>
+              <div className={`flex-col gap-10 ${formHasBeenInView ? 'flex' : 'hidden'}`}>
                 <div className='flex flex-col gap-3'>
                   <div>
                     Interested in working together, or just want to say hi, drop me an email...
@@ -186,7 +184,6 @@ const Contact = () => {
             className='flex flex-col gap-3 lg:basis-1/2 xl:basis-1/3 lg:order-last min-h-[402px] 2xs:min-h-[422px] xs:min-h-[482px] lg:min-h-[436px] xl:min-h-[482px]'
           >
             <CSSTransition
-              mountOnEnter
               in={socialMediaLinksHaveBeenInView}
               timeout={2500}
               classNames={{
@@ -194,12 +191,12 @@ const Contact = () => {
                   'animate-fade-in lg:animate-delayed-fade-in-2 xl:animate-delayed-fade-in-3',
               }}
             >
-              <div>
-                <div className='text-center lg:text-right'>
+              <div className={socialMediaLinksHaveBeenInView ? 'block' : 'hidden'}>
+                <div className='text-center'>
                   <span className='lg:hidden'>...or find me in any of these spaces...</span>
                   <span className='hidden lg:block'>...or find me in any of these spaces!</span>
                 </div>
-                <div className='flex flex-col gap-3 items-center lg:items-end'>
+                <div className='flex flex-col gap-3 items-center'>
                   {socialMediaCardOrder.map(platform => (
                     <SocialMediaCard key={`${platform}-social-media-card`} platform={platform} />
                   ))}

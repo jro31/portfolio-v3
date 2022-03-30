@@ -9,7 +9,7 @@ const Layout = props => {
   useElementIsInView();
 
   return (
-    <div className='bg-black'>
+    <div className='bg-black font-sans'>
       <Navbar />
       <main>{props.children}</main>
     </div>

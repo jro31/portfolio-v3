@@ -1,10 +1,4 @@
 import {
-  aboutSection,
-  aboutSectionRef,
-  aboutTitle,
-  aboutTitleRef,
-  aboutSkills,
-  aboutSkillsRef,
   contactSection,
   contactSectionRef,
   contactTitle,
@@ -15,24 +9,30 @@ import {
   contactJethroCodesLinkRef,
   contactSocialMediaLinks,
   contactSocialMediaLinksRef,
-  introductionSection,
-  introductionSectionRef,
-  introductionTitle,
-  introductionTitleRef,
-  introductionDescription,
-  introductionDescriptionRef,
-  introductionFindOutMoreMobileLink,
-  introductionFindOutMoreMobileLinkRef,
-  introductionFindOutMoreDesktopLink,
-  introductionFindOutMoreDesktopLinkRef,
-  introductionPortrait,
-  introductionPortraitRef,
+  homeSection,
+  homeSectionRef,
+  homeTitle,
+  homeTitleRef,
+  homeDescription,
+  homeDescriptionRef,
+  homeFindOutMoreMobileLink,
+  homeFindOutMoreMobileLinkRef,
+  homeFindOutMoreDesktopLink,
+  homeFindOutMoreDesktopLinkRef,
+  homePortrait,
+  homePortraitRef,
   projectsSection,
   projectsSectionsRef,
   projectsTitle,
   projectsTitleRef,
   projectsCards,
   projectsCardsRef,
+  servicesSection,
+  servicesSectionRef,
+  servicesTitle,
+  servicesTitleRef,
+  servicesPoints,
+  servicesPointsRef,
   toolsSection,
   toolsSectionRef,
   toolsTitle,
@@ -50,12 +50,6 @@ const useElementRefs = () => {
 
     const elementRef = elementName => {
       switch (elementName) {
-        case aboutSection:
-          return aboutSectionRef;
-        case aboutTitle:
-          return aboutTitleRef;
-        case aboutSkills:
-          return aboutSkillsRef;
         case contactSection:
           return contactSectionRef;
         case contactTitle:
@@ -66,24 +60,30 @@ const useElementRefs = () => {
           return contactJethroCodesLinkRef;
         case contactSocialMediaLinks:
           return contactSocialMediaLinksRef;
-        case introductionSection:
-          return introductionSectionRef;
-        case introductionTitle:
-          return introductionTitleRef;
-        case introductionDescription:
-          return introductionDescriptionRef;
-        case introductionFindOutMoreMobileLink:
-          return introductionFindOutMoreMobileLinkRef;
-        case introductionFindOutMoreDesktopLink:
-          return introductionFindOutMoreDesktopLinkRef;
-        case introductionPortrait:
-          return introductionPortraitRef;
+        case homeSection:
+          return homeSectionRef;
+        case homeTitle:
+          return homeTitleRef;
+        case homeDescription:
+          return homeDescriptionRef;
+        case homeFindOutMoreMobileLink:
+          return homeFindOutMoreMobileLinkRef;
+        case homeFindOutMoreDesktopLink:
+          return homeFindOutMoreDesktopLinkRef;
+        case homePortrait:
+          return homePortraitRef;
         case projectsSection:
           return projectsSectionsRef;
         case projectsTitle:
           return projectsTitleRef;
         case projectsCards:
           return projectsCardsRef;
+        case servicesSection:
+          return servicesSectionRef;
+        case servicesTitle:
+          return servicesTitleRef;
+        case servicesPoints:
+          return servicesPointsRef;
         case toolsSection:
           return toolsSectionRef;
         case toolsTitle:

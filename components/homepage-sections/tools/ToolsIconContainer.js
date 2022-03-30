@@ -23,7 +23,7 @@ import RSpecIcon from '../../ui/svg/RSpecIcon';
 import RubyIcon from '../../ui/svg/RubyIcon';
 import S3Icon from '../../ui/svg/S3Icon';
 import SassIcon from '../../ui/svg/SassIcon';
-import SendGridIcon from '../../ui/svg/SendgridIcon';
+import SendGridIcon from '../../ui/svg/SendGridIcon';
 import SublimeIcon from '../../ui/svg/SublimeIcon';
 import TailwindIcon from '../../ui/svg/TailwindIcon';
 import VercelIcon from '../../ui/svg/VercelIcon';
@@ -156,20 +156,17 @@ const ToolsIconContainer = props => {
   };
 
   return (
-    // TODO - Perhaps add an angelic background to each icon on hover
-    <CSSTransition
-      mountOnEnter
-      in={props.in}
-      timeout={1000}
-      classNames={{ enterActive: 'animate-fade-in' }}
-    >
+    // NICETOHAVE - Perhaps add an angelic background to each icon on hover
+    <CSSTransition in={props.in} timeout={1000} classNames={{ enterActive: 'animate-fade-in' }}>
       <div
         onTouchStart={touchStartHandler}
         onTouchCancel={touchCancelHandler}
         onTouchEnd={touchEndHandler}
         onMouseOver={mouseOverHandler}
         onMouseOut={mouseOutHandler}
-        className='flex flex-col gap-3 h-40 px-2 lg:px-5 first:pl-0 last:pr-0'
+        className={`flex-col gap-3 h-40 px-2 lg:px-5 first:pl-0 last:pr-0 ${
+          props.in ? 'flex' : 'hidden'
+        }`}
       >
         <div className='h-16 lg:h-20 w-16 lg:w-20'>{iconComponent()}</div>
         <div className={`text-center ${textColorClass}`}>{props.iconName}</div>

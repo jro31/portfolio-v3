@@ -3,14 +3,14 @@ import { CSSTransition } from 'react-transition-group';
 
 import CodingIcon from '../../ui/svg/CodingIcon';
 import Heading from '../../ui/text/Heading';
-import { aboutSkills } from '../../../pages';
-import { codebaseMaintenance, coding, featureBuilding } from './About';
+import { servicesPoints } from '../../../pages';
+import { codebaseMaintenance, coding, featureBuilding } from './Services';
 import CleanCodeIcon from '../../ui/svg/CleanCodeIcon';
 import MultimediaIcon from '../../ui/svg/MultimediaIcon';
 
 const SkillBrief = props => {
   const skillsHasBeenInView = useSelector(
-    state => state.elementIsInView.hasBeenInView[aboutSkills]
+    state => state.elementIsInView.hasBeenInView[servicesPoints]
   );
 
   const enterActiveClassName = () => {
@@ -58,12 +58,11 @@ const SkillBrief = props => {
 
   return (
     <CSSTransition
-      mountOnEnter
       in={skillsHasBeenInView}
       timeout={1000 + (props.position * 500)} // prettier-ignore
       classNames={{ enterActive: enterActiveClassName() }}
     >
-      <div className='flex gap-4 lg:gap-0'>
+      <div className={`gap-4 lg:gap-0 ${skillsHasBeenInView ? 'flex' : 'hidden'}`}>
         <div className='basis-1/6 xs:basis-1/8 lg:basis-1/6'>
           <div
             className={`w-full lg:w-1/2 box-border p-3 rounded-1/2 ${
