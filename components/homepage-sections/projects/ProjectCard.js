@@ -44,7 +44,7 @@ const ProjectCard = props => {
 
   return (
     <div className='snap-start flex flex-col lg:flex-row bg-gradient-to-bl from-slate-700 via-slate-400 to-slate-700 scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl lg:min-h-0 border-2 border-slate-400'>
-      <div className='flex flex-col justify-around lg:basis-5/12 2xl:basis-1/3 px-6 xs:px-8 2xl:pl-16 lg:pr-0 py-6 gap-6'>
+      <div className='flex flex-col h-full justify-between lg:justify-around lg:basis-1/2 xl:basis-5/12 2xl:basis-1/3 px-6 xs:px-8 2xl:pl-16 lg:pr-0 py-6 gap-6'>
         <Subtitle>{projectInfo().title}</Subtitle>
         <div className='flex lg:hidden'>
           <ProjectMockup
@@ -57,10 +57,9 @@ const ProjectCard = props => {
           description={projectInfo().description}
           anatomyUrl={projectInfo().anatomyUrl}
         />
-        {/* FIXME - The links aren't aligned on mobile; adjacent cards have the buttons in a different position. Probably just push them to the bottom of all cards. */}
         <ProjectLinks siteUrl={projectInfo().siteUrl} githubUrl={projectInfo().githubUrl} />
       </div>
-      <div className='hidden lg:flex items-center basis-7/12 2xl:basis-2/3 pl-0 2xl:pl-6 pr-6 py-6'>
+      <div className='hidden lg:flex items-center basis-1/2 xl:basis-7/12 2xl:basis-2/3 pl-0 2xl:pl-6 pr-6 py-6'>
         <ProjectMockup
           src={projectInfo().imageSrc}
           alt={projectInfo().title}
