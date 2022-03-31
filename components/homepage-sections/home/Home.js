@@ -57,10 +57,10 @@ const Home = () => {
                 >
                   <Description
                     uppercase
-                    className={`basis-2/3 ${descriptionHasBeenInView ? 'block' : 'hidden'}`}
+                    className={`basis-2/3 italic ${descriptionHasBeenInView ? 'block' : 'hidden'}`}
                   >
-                    {/* ESSENTIAL - Update this text to something better */}
-                    Fixing the world, one line of code at a time.
+                    Anyone can write code that computers understand. Good programmers write code
+                    that humans can understand.
                   </Description>
                 </CSSTransition>
               </div>
