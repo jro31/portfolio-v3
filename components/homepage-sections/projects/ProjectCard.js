@@ -57,6 +57,7 @@ const ProjectCard = props => {
           description={projectInfo().description}
           anatomyUrl={projectInfo().anatomyUrl}
         />
+        {/* FIXME - The links aren't aligned on mobile; adjacent cards have the buttons in a different position. Probably just push them to the bottom of all cards. */}
         <ProjectLinks siteUrl={projectInfo().siteUrl} githubUrl={projectInfo().githubUrl} />
       </div>
       <div className='hidden lg:flex items-center basis-7/12 2xl:basis-2/3 pl-0 2xl:pl-6 pr-6 py-6'>

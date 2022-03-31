@@ -59,6 +59,7 @@ const Home = () => {
                     uppercase
                     className={`basis-2/3 ${descriptionHasBeenInView ? 'block' : 'hidden'}`}
                   >
+                    {/* ESSENTIAL - Update this text to something better */}
                     Fixing the world, one line of code at a time.
                   </Description>
                 </CSSTransition>
