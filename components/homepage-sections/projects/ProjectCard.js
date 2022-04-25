@@ -2,11 +2,32 @@ import Subtitle from '../../ui/text/Subtitle';
 import ProjectDescription from './ProjectDescription';
 import ProjectLinks from './ProjectLinks';
 import ProjectMockup from './ProjectMockup';
-import { blocksFalling, mealsOfChange, wheresJethro } from './Projects';
+import { blocksFalling, jethroCodes, mealsOfChange, wheresJethro } from './Projects';
 
 const ProjectCard = props => {
   const projectInfo = () => {
     switch (props.project) {
+      case blocksFalling:
+        return {
+          title: 'Blocks Falling',
+          description:
+            'An indistinct game where players much neatly fit into lines blocks that fall at ever-increasing speeds, by moving and rotating them. Built with React and hosted on Firebase.',
+          siteUrl: 'https://blocksfalling.com/',
+          githubUrl: 'https://github.com/jro31/blocks-falling',
+          anatomyUrl: '', // TODO
+          imageSrc: 'images/blocks-falling-mockup.png',
+        };
+      case jethroCodes: {
+        return {
+          title: 'jethro.codes',
+          description:
+            'My home for everything code. A Next.js app hosted on Vercel that includes a deep-dive into some of my projects, some of my public templates, and my story, which details how I got into coding and my motivation behind it.',
+          siteUrl: 'https://jethro.codes/',
+          githubUrl: 'https://github.com/jro31/jethro-codes',
+          anatomyUrl: '', // TODO
+          imageSrc: 'images/jethro-codes-mockup.png',
+        };
+      }
       case mealsOfChange:
         return {
           title: 'Meals of Change',
@@ -14,7 +35,7 @@ const ProjectCard = props => {
             'An app that allows users to share their own plant-based recipes. The front-end is built with Next JS and hosted on Vercel, the backend is a Rails API hosted on Heroku, with image hosting on S3.',
           siteUrl: 'https://mealsofchange.com/',
           githubUrl: 'https://github.com/jro31/meals-of-change-front-end',
-          anatomyUrl: '', // TODO
+          anatomyUrl: 'https://jethro.codes/projects/meals-of-change',
           imageSrc: 'images/meals-of-change-mockup.png',
         };
       case wheresJethro:
@@ -26,16 +47,6 @@ const ProjectCard = props => {
           githubUrl: 'https://github.com/jro31/wheres-jethro-front-end',
           anatomyUrl: '', // TODO
           imageSrc: 'images/wheres-jethro-mockup.png',
-        };
-      case blocksFalling:
-        return {
-          title: 'Blocks Falling',
-          description:
-            'An indistinct game where players much neatly fit into lines blocks that fall at ever-increasing speeds, by moving and rotating them. Built with React and hosted on Firebase.',
-          siteUrl: 'https://blocksfalling.com/',
-          githubUrl: 'https://github.com/jro31/blocks-falling',
-          anatomyUrl: '', // TODO
-          imageSrc: 'images/blocks-falling-mockup.png',
         };
       default:
         throw new Error(`Unrecognised project '${props.project}' passed to ProjectCard`);

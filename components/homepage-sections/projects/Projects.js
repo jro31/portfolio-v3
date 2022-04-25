@@ -10,10 +10,11 @@ import ProjectCard from './ProjectCard';
 import useElementRef from '../../../hooks/useElementRef';
 import Pointer, { left, right } from '../../ui/navigation/Pointer';
 
+export const blocksFalling = 'blocks-falling';
+export const jethroCodes = 'jethro-codes';
 export const mealsOfChange = 'meals-of-change';
 export const wheresJethro = 'wheres-jethro';
-export const blocksFalling = 'blocks-falling';
-const projectsOrder = [mealsOfChange, wheresJethro, blocksFalling];
+const projectsOrder = [mealsOfChange, jethroCodes, wheresJethro, blocksFalling];
 
 const Projects = () => {
   const titleHasBeenInView = useSelector(
