@@ -9,7 +9,9 @@ const JethroCodesSection = props => {
       <CSSTransition
         in={props.in}
         timeout={2000}
-        classNames={{ enterActive: 'animate-fade-in lg:animate-none xl:animate-delayed-fade-in-2' }}
+        classNames={{
+          enterActive: 'animate-fade-in lg:animate-delayed-fade-in-1 xl:animate-delayed-fade-in-2',
+        }}
       >
         <div className={`text-center ${props.in ? 'block' : 'hidden'}`}>
           ...or checkout my projects in more detail at jethro.codes...
@@ -19,7 +21,8 @@ const JethroCodesSection = props => {
         in={props.in}
         timeout={2500}
         classNames={{
-          enterActive: 'animate-delayed-fade-in-1 lg:animate-none xl:animate-delayed-fade-in-3',
+          enterActive:
+            'animate-delayed-fade-in-1 lg:animate-delayed-fade-in-2 xl:animate-delayed-fade-in-3',
         }}
       >
         <div
