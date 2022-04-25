@@ -156,7 +156,7 @@ const HomePage = () => {
         <meta property='og:title' content={appTitle} />
         <meta property='og:description' content={appDescription} />
         <meta property='og:type' content='website' />
-        <meta property='og:url' content='https://jethrowilliams.com' />
+        <meta property='og:url' content={baseUrl} />
         <meta property='og:image' content={socialMediaImagePath} />
 
         {/* Twitter */}

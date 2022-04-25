@@ -113,8 +113,11 @@ const Contact = () => {
             <Title className={titleHasBeenInView ? 'block' : 'hidden'}>Get in touch</Title>
           </CSSTransition>
         </div>
-        <div className='flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-0 w-11/12 pr-1/12'>
-          <div ref={elementRef(contactForm)} className='lg:basis-1/2 xl:basis-1/3'>
+        <div className='flex flex-col lg:flex-row lg:flex-wrap xl:flex-nowrap lg:justify-between gap-10 lg:gap-0 w-11/12 pr-1/12'>
+          <div
+            ref={elementRef(contactForm)}
+            className='lg:basis-full lg:shrink-0 xl:basis-1/3 xl:shrink lg:mb-10 xl:mb-0'
+          >
             <CSSTransition
               in={formHasBeenInView}
               timeout={1500}
@@ -175,13 +178,17 @@ const Contact = () => {
                     </Button>
                   </form>
                 </div>
-                <JethroCodesSection in={true} className='hidden lg:flex xl:hidden' />
               </div>
             </CSSTransition>
           </div>
+          <JethroCodesSection
+            in={jethroCodesHasBeenInView}
+            jethroCodesRef={elementRef(contactJethroCodesLink)}
+            className='flex'
+          />
           <div
             ref={elementRef(contactSocialMediaLinks)}
-            className='flex flex-col gap-3 lg:basis-1/2 xl:basis-1/3 lg:order-last min-h-[402px] 2xs:min-h-[422px] xs:min-h-[482px] lg:min-h-[436px] xl:min-h-[482px]'
+            className='flex flex-col gap-3 lg:basis-1/2 xl:basis-1/3 min-h-[402px] 2xs:min-h-[422px] xs:min-h-[482px] lg:min-h-[436px] xl:min-h-[482px]'
           >
             <CSSTransition
               in={socialMediaLinksHaveBeenInView}
@@ -192,10 +199,7 @@ const Contact = () => {
               }}
             >
               <div className={socialMediaLinksHaveBeenInView ? 'block' : 'hidden'}>
-                <div className='text-center'>
-                  <span className='lg:hidden'>...or find me in any of these spaces...</span>
-                  <span className='hidden lg:block'>...or find me in any of these spaces!</span>
-                </div>
+                <div className='text-center'>...or find me in any of these spaces!</div>
                 <div className='flex flex-col gap-3 items-center'>
                   {socialMediaCardOrder.map(platform => (
                     <SocialMediaCard key={`${platform}-social-media-card`} platform={platform} />
@@ -204,11 +208,6 @@ const Contact = () => {
               </div>
             </CSSTransition>
           </div>
-          <JethroCodesSection
-            in={jethroCodesHasBeenInView}
-            jethroCodesRef={elementRef(contactJethroCodesLink)}
-            className='flex lg:hidden xl:flex'
-          />
         </div>
       </div>
     </SectionContainer>
