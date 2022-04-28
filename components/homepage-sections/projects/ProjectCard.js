@@ -24,7 +24,7 @@ const ProjectCard = props => {
             'My home for everything code. A Next.js app hosted on Vercel that includes a deep-dive into some of my projects, some of my public templates, and my story, which details how I got into coding and my motivation behind it.',
           siteUrl: 'https://jethro.codes/',
           githubUrl: 'https://github.com/jro31/jethro-codes',
-          anatomyUrl: '', // TODO
+          anatomyUrl: 'https://jethro.codes/projects/jethro-codes',
           imageSrc: 'images/jethro-codes-mockup.png',
         };
       }
