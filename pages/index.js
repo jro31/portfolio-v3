@@ -93,7 +93,7 @@ const appTitle = 'Jethro Williams - Software Engineer';
 const appDescription =
   'Need a software engineer to build your web application? Contact me to find out about working together.';
 const baseUrl = 'https://jethrowilliams.com';
-const socialMediaImagePath = `${baseUrl}/images/self-portrait.png`;
+const socialMediaImagePath = `${baseUrl}/images/home-screenshot.png`;
 
 const HomePage = () => {
   contactSectionRef = useRef();
