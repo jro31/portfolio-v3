@@ -14,7 +14,7 @@ const ProjectCard = props => {
             'An indistinct game where players much neatly fit into lines blocks that fall at ever-increasing speeds, by moving and rotating them. Built with React and hosted on Firebase.',
           siteUrl: 'https://blocksfalling.com/',
           githubUrl: 'https://github.com/jro31/blocks-falling',
-          anatomyUrl: '', // TODO
+          anatomyUrl: 'https://jethro.codes/projects/blocks-falling',
           imageSrc: 'images/blocks-falling-mockup.png',
         };
       case jethroCodes: {
