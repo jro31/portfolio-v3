@@ -2,7 +2,7 @@ import Subtitle from '../../ui/text/Subtitle';
 import ProjectDescription from './ProjectDescription';
 import ProjectLinks from './ProjectLinks';
 import ProjectMockup from './ProjectMockup';
-import { blocksFalling, jethroCodes, mealsOfChange, wheresJethro } from './Projects';
+import { blocksFalling, jethrosBistro, jethroCodes, mealsOfChange, wheresJethro } from './Projects';
 
 const ProjectCard = props => {
   const projectInfo = () => {
@@ -16,6 +16,16 @@ const ProjectCard = props => {
           githubUrl: 'https://github.com/jro31/blocks-falling',
           anatomyUrl: 'https://jethro.codes/projects/blocks-falling',
           imageSrc: 'images/blocks-falling-mockup.png',
+        };
+      case jethrosBistro:
+        return {
+          title: "Jethro's Bistro",
+          description:
+            'A template restaurant application built with Next.js for search engine optimisation and hosted on Vercel. Includes menus, references, an about page and a contact form. Theme, content and pages can be easily customised for other restaurants and business types.',
+          siteUrl: 'https://jethrosbistro.com/',
+          githubUrl: '',
+          anatomyUrl: '',
+          imageSrc: 'images/jethros-bistro-mockup.png',
         };
       case jethroCodes: {
         return {

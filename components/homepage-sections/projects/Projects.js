@@ -12,9 +12,10 @@ import Pointer, { left, right } from '../../ui/navigation/Pointer';
 
 export const blocksFalling = 'blocks-falling';
 export const jethroCodes = 'jethro-codes';
+export const jethrosBistro = 'jethros-bistro';
 export const mealsOfChange = 'meals-of-change';
 export const wheresJethro = 'wheres-jethro';
-const projectsOrder = [mealsOfChange, jethroCodes, wheresJethro, blocksFalling];
+const projectsOrder = [jethrosBistro, mealsOfChange, jethroCodes, wheresJethro, blocksFalling];
 
 const Projects = () => {
   const titleHasBeenInView = useSelector(
