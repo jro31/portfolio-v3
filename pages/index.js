@@ -66,7 +66,9 @@ const homeElements = [
 
 export const pricingTitle = 'pricing-title';
 export let pricingTitleRef;
-const pricingElements = [pricingTitle];
+export const pricingCards = 'pricing-cards';
+export let pricingCardsRef;
+const pricingElements = [pricingTitle, pricingCards];
 
 export const projectsTitle = 'projects-title';
 export let projectsTitleRef;
@@ -124,6 +126,7 @@ const HomePage = () => {
   homePortraitRef = useRef();
 
   pricingTitleRef = useRef();
+  pricingCardsRef = useRef();
 
   projectsTitleRef = useRef();
   projectsCardsRef = useRef();

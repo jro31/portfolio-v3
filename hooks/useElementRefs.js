@@ -25,6 +25,8 @@ import {
   pricingSectionRef,
   pricingTitle,
   pricingTitleRef,
+  pricingCards,
+  pricingCardsRef,
   projectsSection,
   projectsSectionsRef,
   projectsTitle,
@@ -80,6 +82,8 @@ const useElementRefs = () => {
           return pricingSectionRef;
         case pricingTitle:
           return pricingTitleRef;
+        case pricingCards:
+          return pricingCardsRef;
         case projectsSection:
           return projectsSectionsRef;
         case projectsTitle:
