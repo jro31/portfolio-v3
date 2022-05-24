@@ -31,25 +31,25 @@ const SkillBrief = props => {
       case coding:
         return {
           backgroundColorClass: 'bg-cyan-400/20',
-          icon: <CleanCodeIcon color='rgb(45 212 191)' />,
-          headingText: 'Website development',
+          icon: <MultimediaIcon color='rgb(45 212 191)' />,
+          headingText: 'Website building',
           description:
             'Responsive, maintainable applications, built with love. You dream it, I build it!',
         };
       case featureBuilding:
         return {
           backgroundColorClass: 'bg-indigo-600/20',
-          icon: <MultimediaIcon color='rgb(79 70 229)' />,
-          headingText: 'Feature building',
-          description:
-            'Add value to your existing application by adding new sections and features.',
+          icon: <CleanCodeIcon color='rgb(79 70 229)' />,
+          headingText: 'API development',
+          description: "A customised backend allows you to get the most of your website's data.",
         };
       case codebaseMaintenance:
         return {
           backgroundColorClass: 'bg-fuchsia-500/20',
           icon: <CodingIcon color='rgb(217 70 239)' />,
-          headingText: 'Codebase maintenance',
-          description: 'Fixing issues and improving your current codebase.',
+          headingText: 'Feature building',
+          description:
+            'Add value to your existing application by adding new sections and features and fixing issues.',
         };
       default:
         throw new Error(`Invalid skill '${props.skill}' passed to SkillBrief`);
