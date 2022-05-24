@@ -7,10 +7,12 @@ import SectionContainer from '../SectionContainer';
 import useElementRef from '../../../hooks/useElementRef';
 import PricingCard from './PricingCard';
 
-export const website = 'website';
+export const consultation = 'consultation';
+export const featureBuilding = 'feature-building';
 export const fullStackApplication = 'full-stack-application';
 export const hosting = 'hosting';
-const pricingCardsOrder = [website, fullStackApplication, hosting];
+export const website = 'website';
+const pricingCardsOrder = [consultation, website, fullStackApplication, hosting, featureBuilding];
 
 const Pricing = () => {
   const titleHasBeenInView = useSelector(
