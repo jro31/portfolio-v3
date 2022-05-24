@@ -6,11 +6,14 @@ import Home from '../components/homepage-sections/home/Home';
 import Projects from '../components/homepage-sections/projects/Projects';
 import Tools from '../components/homepage-sections/tools/Tools';
 import Contact from '../components/homepage-sections/contact/Contact';
+import Pricing from '../components/homepage-sections/pricing/Pricing';
 
 export const contactSection = 'contact';
 export let contactSectionRef;
 export const homeSection = 'home';
 export let homeSectionRef;
+export const pricingSection = 'pricing';
+export let pricingSectionRef;
 export const projectsSection = 'projects';
 export let projectsSectionsRef;
 export const servicesSection = 'services';
@@ -23,6 +26,7 @@ export const sectionOrder = [
   servicesSection,
   toolsSection,
   projectsSection,
+  pricingSection,
   contactSection,
 ];
 export const darkSections = [homeSection, toolsSection, projectsSection, contactSection];
@@ -60,6 +64,12 @@ const homeElements = [
   homePortrait,
 ];
 
+export const pricingTitle = 'pricing-title';
+export let pricingTitleRef;
+export const pricingCards = 'pricing-cards';
+export let pricingCardsRef;
+const pricingElements = [pricingTitle, pricingCards];
+
 export const projectsTitle = 'projects-title';
 export let projectsTitleRef;
 export const projectsCards = 'projects-cards';
@@ -84,6 +94,7 @@ export const refElementNames = [
   ...sectionOrder,
   ...contactElements,
   ...homeElements,
+  ...pricingElements,
   ...projectsElements,
   ...servicesElements,
   ...toolsElements,
@@ -98,6 +109,7 @@ const socialMediaImagePath = `${baseUrl}/images/home-screenshot.png`;
 const HomePage = () => {
   contactSectionRef = useRef();
   homeSectionRef = useRef();
+  pricingSectionRef = useRef();
   projectsSectionsRef = useRef();
   servicesSectionRef = useRef();
   toolsSectionRef = useRef();
@@ -112,6 +124,9 @@ const HomePage = () => {
   homeFindOutMoreMobileLinkRef = useRef();
   homeFindOutMoreDesktopLinkRef = useRef();
   homePortraitRef = useRef();
+
+  pricingTitleRef = useRef();
+  pricingCardsRef = useRef();
 
   projectsTitleRef = useRef();
   projectsCardsRef = useRef();
@@ -131,6 +146,8 @@ const HomePage = () => {
         return <Contact key={key} />;
       case homeSection:
         return <Home key={key} />;
+      case pricingSection:
+        return <Pricing key={key} />;
       case projectsSection:
         return <Projects key={key} />;
       case servicesSection:
@@ -138,7 +155,9 @@ const HomePage = () => {
       case toolsSection:
         return <Tools key={key} />;
       default:
-        throw new Error('Unknown componentName in component function of HomePage');
+        throw new Error(
+          `Unknown componentName ${componentName} in component() function of HomePage`
+        );
     }
   };
 
@@ -173,3 +192,5 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+// TODO - Add getStaticProps?

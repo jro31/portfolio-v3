@@ -1,3 +1,6 @@
+// TODO - Simplify this section - The key focus is the form, the social media links can be in the form of a footer, the jethro.codes link can be much smaller (or also part of the footer)
+// TODO - Also update the form - It should include a phone number input, and some more specific questions than just 'Message' (such as 'What are some times that you are available', and some questions asking about their project)
+
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
