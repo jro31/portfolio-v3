@@ -21,6 +21,10 @@ import {
   homeFindOutMoreDesktopLinkRef,
   homePortrait,
   homePortraitRef,
+  pricingSection,
+  pricingSectionRef,
+  pricingTitle,
+  pricingTitleRef,
   projectsSection,
   projectsSectionsRef,
   projectsTitle,
@@ -72,6 +76,10 @@ const useElementRefs = () => {
           return homeFindOutMoreDesktopLinkRef;
         case homePortrait:
           return homePortraitRef;
+        case pricingSection:
+          return pricingSectionRef;
+        case pricingTitle:
+          return pricingTitleRef;
         case projectsSection:
           return projectsSectionsRef;
         case projectsTitle:
