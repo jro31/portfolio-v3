@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
     "@reduxjs/toolkit": "^1.8.0",
     "@sendgrid/mail": "^7.6.2",
     "next": "12.1.0",
