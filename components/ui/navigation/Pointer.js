@@ -1,4 +1,5 @@
 import { CSSTransition } from 'react-transition-group';
+import { darkSections } from '../../../pages';
 import LeftPointer from '../svg/LeftPointer';
 import RightPointer from '../svg/RightPointer';
 
@@ -18,6 +19,12 @@ const Pointer = props => {
     }
   };
 
+  const pointerColorClass = () => {
+    if (props.section && darkSections.includes(props.section)) return 'bg-black/40';
+
+    return 'bg-black/10';
+  };
+
   return (
     <CSSTransition
       mountOnEnter
@@ -28,7 +35,7 @@ const Pointer = props => {
     >
       <div
         onClick={props.onClick || null}
-        className={`w-10 absolute top-0 bottom-6 flex justify-center items-center bg-black/40 ${
+        className={`w-10 z-10 absolute top-0 bottom-6 flex justify-center items-center ${pointerColorClass()} ${
           props.direction === left
             ? 'left-0 rounded-tr-3xl rounded-br-3xl'
             : 'right-0 rounded-tl-3xl rounded-bl-3xl'

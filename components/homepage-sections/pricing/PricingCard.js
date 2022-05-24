@@ -1,3 +1,5 @@
+// TODO - On mobile, the next card should overlap into the screen to indicate that there's another card to scroll to
+
 // NICETOHAVE - The cards should appear one by one, from left to right (like the tools icons do)
 
 import { Fragment } from 'react';

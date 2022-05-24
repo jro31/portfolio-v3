@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
@@ -6,6 +7,8 @@ import Title from '../../ui/text/Title';
 import SectionContainer from '../SectionContainer';
 import useElementRef from '../../../hooks/useElementRef';
 import PricingCard from './PricingCard';
+import { isMobile } from 'react-device-detect';
+import Pointer, { left, right } from '../../ui/navigation/Pointer';
 
 export const consultation = 'consultation';
 export const featureBuilding = 'feature-building';
@@ -21,8 +24,31 @@ const Pricing = () => {
   const pricingCardsHasBeenInView = useSelector(
     state => state.elementIsInView.hasBeenInView[pricingCards]
   );
-
+  const [isHovering, setIsHovering] = useState(false);
+  const pricingCardsContainerRef = useRef();
   const elementRef = useElementRef();
+
+  const scrollLeftHandler = () => {
+    pricingCardsContainerRef.current.scrollLeft =
+      pricingCardsContainerRef.current.scrollLeft - window.innerWidth * 0.7;
+  };
+
+  const scrollRightHandler = () => {
+    pricingCardsContainerRef.current.scrollLeft =
+      pricingCardsContainerRef.current.scrollLeft + window.innerWidth * 0.7;
+  };
+
+  const onHover = () => {
+    if (!isMobile) {
+      setIsHovering(true);
+    }
+  };
+
+  const onLeaveHover = () => {
+    if (!isMobile) {
+      setIsHovering(false);
+    }
+  };
 
   return (
     <SectionContainer section={pricingSection} className='bg-white'>
@@ -40,14 +66,29 @@ const Pricing = () => {
         </div>
         <div
           ref={elementRef(pricingCards)}
+          onMouseEnter={onHover}
+          onMouseLeave={onLeaveHover}
           className='flex basis-11/12 min-h-[80vh] lg:min-h-0 relative'
         >
+          <Pointer
+            direction={left}
+            in={isHovering}
+            onClick={scrollLeftHandler}
+            section={pricingSection}
+          />
+          <Pointer
+            direction={right}
+            in={isHovering}
+            onClick={scrollRightHandler}
+            section={pricingSection}
+          />
           <CSSTransition
             in={pricingCardsHasBeenInView}
             timeout={1500}
             classNames={{ enterActive: 'animate-delayed-fade-in-1' }}
           >
             <div
+              ref={pricingCardsContainerRef}
               className={`overflow-x-scroll snap-x snap-mandatory scroll-smooth px-1/12 mb-6 gap-6 ${
                 pricingCardsHasBeenInView ? 'flex' : 'hidden'
               }`}

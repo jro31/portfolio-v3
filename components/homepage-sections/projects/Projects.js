@@ -73,8 +73,18 @@ const Projects = () => {
           onMouseLeave={onLeaveHover}
           className='flex basis-11/12 min-h-[80vh] lg:min-h-0 relative'
         >
-          <Pointer direction={left} in={isHovering} onClick={scrollLeftHandler} />
-          <Pointer direction={right} in={isHovering} onClick={scrollRightHandler} />
+          <Pointer
+            direction={left}
+            in={isHovering}
+            onClick={scrollLeftHandler}
+            section={projectsSection}
+          />
+          <Pointer
+            direction={right}
+            in={isHovering}
+            onClick={scrollRightHandler}
+            section={projectsSection}
+          />
           <CSSTransition
             in={projectCardsHasBeenInView}
             timeout={1500}
