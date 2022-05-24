@@ -1,5 +1,3 @@
-// TODO - On mobile, the next card should overlap into the screen to indicate that there's another card to scroll to
-
 // NICETOHAVE - The cards should appear one by one, from left to right (like the tools icons do)
 
 import { Fragment } from 'react';
@@ -99,7 +97,7 @@ const PricingCard = props => {
   };
 
   return (
-    <div className='snap-start scroll-ml-1/12-screen relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col min-w-full sm:min-w-[393px]'>
+    <div className='snap-start scroll-ml-1/12-screen relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col min-w-full sm:min-w-[393px] mr-4 xs:mr-6 md:mr-8'>
       <div className='flex-1'>
         <h3 className='text-xl font-semibold text-gray-900'>{pricingCardInfo().title}</h3>
         <div className={`flex flex-col ${pricingCardInfo().price === 0 ? 'mt-10' : 'mt-4'}`}>
