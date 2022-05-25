@@ -4,6 +4,7 @@ sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 const sendEmail = async (req, res) => {
   try {
+    // TODO - Remember to update this
     await sendgrid.send({
       to: process.env.GMAIL_EMAIL_ADDRESS,
       from: process.env.CONTACT_FORM_EMAIL_ADDRESS,
