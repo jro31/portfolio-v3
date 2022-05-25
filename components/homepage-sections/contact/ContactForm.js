@@ -21,6 +21,7 @@ const ContactForm = () => {
   const enteredPhone = useSelector(state => state.contactForm.enteredPhone);
   const enteredAvailableTimes = useSelector(state => state.contactForm.enteredAvailableTimes);
   const enteredMessage = useSelector(state => state.contactForm.enteredMessage);
+  const windowWidth = useSelector(state => state.windowDimensions.width);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [sendStatus, setSendStatus] = useState('');
@@ -75,6 +76,19 @@ const ContactForm = () => {
     } catch (error) {
       setSendStatus(error.message);
       setIsSubmitting(false);
+    }
+  };
+
+  const availableTimesPlaceholder = () => {
+    switch (true) {
+      case windowWidth < 640:
+        return 'What times are you available?';
+      case windowWidth < 1024:
+        return "What are some dates/times that you're available for a video call?";
+      case windowWidth < 1104:
+        return 'What times are you available?';
+      default:
+        return "What are some dates/times that you're available for a video call?";
     }
   };
 
@@ -170,7 +184,7 @@ const ContactForm = () => {
                 name='available-times'
                 id='available-times'
                 className={inputClasses}
-                placeholder="What are some dates/times that you're available for a video call?"
+                placeholder={availableTimesPlaceholder()}
                 value={enteredAvailableTimes}
                 onChange={event =>
                   handleFormFieldChange(
