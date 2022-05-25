@@ -22,7 +22,7 @@ const Tools = () => {
       className='bg-gradient-to-br from-slate-800 via-black to-slate-800 text-white'
     >
       <div className='flex flex-col items-end justify-between lg:justify-around min-h-screen-minus-mobile-nav lg:min-h-screen-minus-nav h-full w-full'>
-        <div className='flex flex-col w-11/12'>
+        <div className='flex flex-col w-11/12 gap-6'>
           <div ref={elementRef(toolsTitle)}>
             <CSSTransition
               in={titleHasBeenInView}
@@ -41,8 +41,8 @@ const Tools = () => {
               <Description
                 className={`md:w-2/3 lg:w-5/12 ${descriptionHasBeenInView ? 'block' : 'hidden'}`}
               >
-                I work primarily on Ruby on Rails and React/Next.js projects, using the tools
-                necessary to bring them to life, including...
+                I work primarily with Ruby on Rails and React/Next.js, using the tools necessary to
+                bring them to life, including...
               </Description>
             </CSSTransition>
           </div>

@@ -41,10 +41,14 @@ const Home = () => {
                   timeout={2000}
                   classNames={{ enterActive: 'animate-zoom-down-in' }}
                 >
-                  <div className={titleHasBeenInView ? 'block' : 'hidden'}>
+                  <div
+                    className={`text-center lg:text-left ${
+                      titleHasBeenInView ? 'block' : 'hidden'
+                    }`}
+                  >
                     <Title className='text-white'>Jethro Williams</Title>
-                    <Title className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500'>
-                      Software Engineer
+                    <Title className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 pb-1.5'>
+                      Web Development Services
                     </Title>
                   </div>
                 </CSSTransition>
