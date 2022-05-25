@@ -5,6 +5,7 @@ const initialState = {
   enteredLastName: '',
   enteredEmail: '',
   enteredPhone: '',
+  enteredAvailableTimes: '',
   enteredMessage: '',
 };
 
@@ -23,6 +24,9 @@ const contactFormSlice = createSlice({
     },
     setEnteredPhone(state, action) {
       state.enteredPhone = action.payload;
+    },
+    setEnteredAvailableTimes(state, action) {
+      state.enteredAvailableTimes = action.payload;
     },
     setEnteredMessage(state, action) {
       state.enteredMessage = action.payload;

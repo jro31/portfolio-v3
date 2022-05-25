@@ -4,14 +4,16 @@ sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 const sendEmail = async (req, res) => {
   try {
-    // TODO - Remember to update this
     await sendgrid.send({
       to: process.env.GMAIL_EMAIL_ADDRESS,
       from: process.env.CONTACT_FORM_EMAIL_ADDRESS,
       subject: '[jethrowilliams.com contact form]',
       html: `
-        <div>Name: <span style='font-weight: bold'>${req.body.enteredName}</span></div>
+        <div>First name: <span style='font-weight: bold'>${req.body.enteredFirstName}</span></div>
+        <div>Last name: <span style='font-weight: bold'>${req.body.enteredLastName}</span></div>
         <div>Email: <span style='font-weight: bold'>${req.body.enteredEmail}</span></div>
+        <div>Phone: <span style='font-weight: bold'>${req.body.enteredPhone}</span></div>
+        <div>Available times: <span style='font-weight: bold'>${req.body.enteredAvailableTimes}</span></div>
         <div>Message: <span style='font-weight: bold'>${req.body.enteredMessage}</span></div>
       `,
     });

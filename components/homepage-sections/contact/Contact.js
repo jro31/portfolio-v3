@@ -1,7 +1,7 @@
 // TODO - Simplify this section - The key focus is the form, the social media links can be in the form of a footer, the jethro.codes link can be much smaller (or also part of the footer)
 // TODO - Also update the form - It should include a phone number input, and some more specific questions than just 'Message' (such as 'What are some times that you are available', and some questions asking about their project)
 
-// TODO - Delete any components you're no longer user (FormField?)
+// TODO - Delete any components you're no longer using (FormField?, input?, textarea?)
 
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -31,6 +31,7 @@ const Contact = () => {
   const enteredLastName = useSelector(state => state.contactForm.enteredLastName);
   const enteredEmail = useSelector(state => state.contactForm.enteredEmail);
   const enteredPhone = useSelector(state => state.contactForm.enteredPhone);
+  const enteredAvailableTimes = useSelector(state => state.contactForm.enteredAvailableTimes);
   const enteredMessage = useSelector(state => state.contactForm.enteredMessage);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -39,8 +40,7 @@ const Contact = () => {
   const elementRef = useElementRef();
 
   const formIsValid = () =>
-    // TODO - Remember to update this
-    enteredName.trim().length > 0 &&
+    enteredFirstName.trim().length > 0 &&
     enteredEmail.trim().length > 0 &&
     enteredMessage.trim().length > 0;
 
@@ -53,10 +53,11 @@ const Contact = () => {
 
   const formSubmitHandler = async event => {
     event.preventDefault();
-    setIsSubmitting(true);
     setSendStatus('');
 
     if (!formIsValid()) return;
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch('/api/sendgrid', {
@@ -65,9 +66,11 @@ const Contact = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          // TODO - This will need updating
-          enteredName: enteredName.trim(),
+          enteredFirstName: enteredFirstName.trim(),
+          enteredLastName: enteredLastName.trim(),
           enteredEmail: enteredEmail.trim(),
+          enteredPhone: enteredPhone.trim(),
+          enteredAvailableTimes: enteredAvailableTimes.trim(),
           enteredMessage: enteredMessage.trim(),
         }),
       });
@@ -197,8 +200,7 @@ const Contact = () => {
           <div className='bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:px-8 xl:pl-12'>
             <div className='max-w-lg mx-auto lg:max-w-none'>
               <form
-                action='#'
-                method='POST'
+                onSubmit={formSubmitHandler}
                 className='grid grid-cols-1 sm:grid-cols-2 gap-y-6 sm:gap-x-8'
               >
                 <div>
@@ -277,6 +279,25 @@ const Contact = () => {
                   />
                 </div>
                 <div className='sm:col-span-2'>
+                  <label htmlFor='available-times' className='sr-only'>
+                    Available times
+                  </label>
+                  <input
+                    type='text'
+                    name='available-times'
+                    id='available-times'
+                    className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
+                    placeholder="What are some dates/times that you're available for a video call?"
+                    value={enteredAvailableTimes}
+                    onChange={event =>
+                      handleFormFieldChange(
+                        event.target.value,
+                        contactFormActions.setEnteredAvailableTimes
+                      )
+                    }
+                  />
+                </div>
+                <div className='sm:col-span-2'>
                   <label htmlFor='message' className='sr-only'>
                     Message
                   </label>
@@ -285,8 +306,7 @@ const Contact = () => {
                     name='message'
                     rows={4}
                     className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md'
-                    placeholder='Message'
-                    defaultValue={''}
+                    placeholder='Tell me about your project and what you need from me*'
                     value={enteredMessage}
                     onChange={event =>
                       handleFormFieldChange(
@@ -297,11 +317,25 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <button
-                    type='submit'
-                    className='inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                  <div
+                    className={`mb-1 ${
+                      sendStatus === successMessage ? 'text-success' : 'text-error'
+                    }`}
                   >
-                    Submit
+                    {sendStatus}
+                  </div>
+                  <button
+                    disabled={disableButton()}
+                    type='submit'
+                    className='inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-300'
+                  >
+                    {isSubmitting ? (
+                      <div className='flex justify-center px-5'>
+                        <LoadingSpinner />
+                      </div>
+                    ) : (
+                      'Submit'
+                    )}
                   </button>
                 </div>
               </form>
