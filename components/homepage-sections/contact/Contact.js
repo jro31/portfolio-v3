@@ -269,7 +269,7 @@ const Contact = () => {
                       name='message'
                       rows={4}
                       className={inputClasses}
-                      placeholder='Tell me about your project and what you need from me*'
+                      placeholder='Tell me about your project and the work you need from me*'
                       value={enteredMessage}
                       onChange={event =>
                         handleFormFieldChange(
