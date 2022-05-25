@@ -20,7 +20,6 @@ import FormField from '../../ui/form/FormField';
 import { input, textarea } from '../../ui/form/FormField';
 import SocialMediaCard from './SocialMediaCard';
 import LoadingSpinner from '../../ui/svg/LoadingSpinner';
-import JethroCodesSection from './JethroCodesSection';
 import useElementRef from '../../../hooks/useElementRef';
 
 const successMessage = 'Email sent successfully!';
@@ -39,9 +38,6 @@ const Contact = () => {
     state => state.elementIsInView.hasBeenInView[contactTitle]
   );
   const formHasBeenInView = useSelector(state => state.elementIsInView.hasBeenInView[contactForm]);
-  const jethroCodesHasBeenInView = useSelector(
-    state => state.elementIsInView.hasBeenInView[contactJethroCodesLink]
-  );
   const socialMediaLinksHaveBeenInView = useSelector(
     state => state.elementIsInView.hasBeenInView[contactSocialMediaLinks]
   );
@@ -184,11 +180,6 @@ const Contact = () => {
               </div>
             </CSSTransition>
           </div>
-          <JethroCodesSection
-            in={jethroCodesHasBeenInView}
-            jethroCodesRef={elementRef(contactJethroCodesLink)}
-            className='flex'
-          />
           <div
             ref={elementRef(contactSocialMediaLinks)}
             className='flex flex-col gap-3 lg:basis-1/2 xl:basis-1/3 min-h-[402px] 2xs:min-h-[422px] xs:min-h-[482px] lg:min-h-[436px] xl:min-h-[482px]'

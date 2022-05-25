@@ -35,16 +35,9 @@ export const contactTitle = 'contact-title';
 export let contactTitleRef;
 export const contactForm = 'contact-form';
 export let contactFormRef;
-export const contactJethroCodesLink = 'contact-jethro-codes-link';
-export let contactJethroCodesLinkRef;
 export const contactSocialMediaLinks = 'contact-social-media-links';
 export let contactSocialMediaLinksRef;
-const contactElements = [
-  contactTitle,
-  contactForm,
-  contactJethroCodesLink,
-  contactSocialMediaLinks,
-];
+const contactElements = [contactTitle, contactForm, contactSocialMediaLinks];
 
 export const homeTitle = 'home-title';
 export let homeTitleRef;
@@ -116,7 +109,6 @@ const HomePage = () => {
 
   contactTitleRef = useRef();
   contactFormRef = useRef();
-  contactJethroCodesLinkRef = useRef();
   contactSocialMediaLinksRef = useRef();
 
   homeTitleRef = useRef();
