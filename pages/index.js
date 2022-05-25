@@ -33,11 +33,13 @@ export const darkSections = [homeSection, toolsSection, projectsSection];
 
 export const contactTitle = 'contact-title';
 export let contactTitleRef;
+export const contactBlurb = 'contact-blurb';
+export let contactBlurbRef;
 export const contactForm = 'contact-form';
 export let contactFormRef;
 export const contactFooter = 'contact-footer';
 export let contactFooterRef;
-const contactElements = [contactTitle, contactForm, contactFooter];
+const contactElements = [contactTitle, contactBlurb, contactForm, contactFooter];
 
 export const homeTitle = 'home-title';
 export let homeTitleRef;
@@ -108,6 +110,7 @@ const HomePage = () => {
   toolsSectionRef = useRef();
 
   contactTitleRef = useRef();
+  contactBlurbRef = useRef();
   contactFormRef = useRef();
   contactFooterRef = useRef();
 

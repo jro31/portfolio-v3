@@ -3,6 +3,8 @@ import {
   contactSectionRef,
   contactTitle,
   contactTitleRef,
+  contactBlurb,
+  contactBlurbRef,
   contactForm,
   contactFormRef,
   contactFooter,
@@ -58,6 +60,8 @@ const useElementRefs = () => {
           return contactSectionRef;
         case contactTitle:
           return contactTitleRef;
+        case contactBlurb:
+          return contactBlurbRef;
         case contactForm:
           return contactFormRef;
         case contactFooter:

@@ -79,9 +79,9 @@ const Footer = () => {
     <footer ref={elementRef(contactFooter)} className='bg-white w-full'>
       <CSSTransition
         in={footerHasBeenInView}
-        timeout={2500}
+        timeout={3000}
         classNames={{
-          enterActive: 'animate-fade-in lg:animate-delayed-fade-in-2',
+          enterActive: 'animate-fade-in lg:animate-delayed-fade-in-4',
         }}
       >
         <div className='max-w-7xl mx-auto pt-12 pb-6 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8'>

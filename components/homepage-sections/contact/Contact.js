@@ -1,23 +1,21 @@
 // TODO - Simplify this section - The key focus is the form, the social media links can be in the form of a footer, the jethro.codes link can be much smaller (or also part of the footer)
 // TODO - Also update the form - It should include a phone number input, and some more specific questions than just 'Message' (such as 'What are some times that you are available', and some questions asking about their project)
 
-// TODO - Delete any components you're no longer using (FormField?, input?, textarea?)
-
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
-import { MailIcon, PhoneIcon } from '@heroicons/react/outline';
+import { MailIcon } from '@heroicons/react/outline';
 
 import { contactFormActions } from '../../../store/contact-form';
-import { contactForm, contactSection, contactTitle } from '../../../pages';
+import { contactBlurb, contactForm, contactSection, contactTitle } from '../../../pages';
 import SectionContainer from '../SectionContainer';
-import Button from '../../ui/navigation/Button';
 import Title from '../../ui/text/Title';
-import FormField from '../../ui/form/FormField';
-import { input, textarea } from '../../ui/form/FormField';
 import LoadingSpinner from '../../ui/svg/LoadingSpinner';
 import useElementRef from '../../../hooks/useElementRef';
 import Footer from './Footer';
+
+const inputClasses =
+  'block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md';
 
 const successMessage = 'Email sent successfully!';
 
@@ -25,6 +23,9 @@ const Contact = () => {
   const dispatch = useDispatch();
   const titleHasBeenInView = useSelector(
     state => state.elementIsInView.hasBeenInView[contactTitle]
+  );
+  const blurbHasBeenInView = useSelector(
+    state => state.elementIsInView.hasBeenInView[contactBlurb]
   );
   const formHasBeenInView = useSelector(state => state.elementIsInView.hasBeenInView[contactForm]);
   const enteredFirstName = useSelector(state => state.contactForm.enteredFirstName);
@@ -96,41 +97,113 @@ const Contact = () => {
         <div ref={elementRef(contactTitle)} className='w-11/12'>
           <CSSTransition
             in={titleHasBeenInView}
-            timeout={1000}
-            classNames={{ enterActive: 'animate-fade-in' }}
+            timeout={2000}
+            classNames={{ enterActive: 'animate-slow-fade-in' }}
           >
             <Title className={titleHasBeenInView ? 'block' : 'hidden'}>Get in touch</Title>
           </CSSTransition>
         </div>
-        {/* <div className='flex flex-col lg:flex-row lg:flex-wrap xl:flex-nowrap lg:justify-between gap-10 lg:gap-0 w-11/12 pr-1/12'>
+        <div className='relative lg:grid lg:grid-cols-5'>
+          <div
+            ref={elementRef(contactBlurb)}
+            className='bg-gray-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 xl:pr-12'
+          >
+            <CSSTransition
+              in={blurbHasBeenInView}
+              timeout={1500}
+              classNames={{
+                enterActive: 'animate-fade-in lg:animate-delayed-fade-in-1',
+              }}
+            >
+              <div className='max-w-lg mx-auto'>
+                <p className='mt-3 text-lg leading-6 text-gray-500'>
+                  To arrange a consultation, complete this form and I will get back to you. Please
+                  provide as much detail as possible.
+                </p>
+                <p className='mt-4 text-lg leading-6 text-gray-500'>
+                  Alternatively, I can be contacted by email or on social media.
+                </p>
+                <div className='flex mt-4 text-base text-gray-500'>
+                  <MailIcon className='flex-shrink-0 h-6 w-6 text-gray-400' aria-hidden='true' />
+                  <a
+                    href='mai&#108;to:contact&#64;jethrowilliams&#46;c&#111;m'
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    <span className='ml-3'>contact&#64;jethrowilliams&#46;c&#111;m</span>
+                  </a>
+                </div>
+              </div>
+            </CSSTransition>
+          </div>
           <div
             ref={elementRef(contactForm)}
-            className='lg:basis-full lg:shrink-0 xl:basis-1/3 xl:shrink lg:mb-10 xl:mb-0'
+            className='bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:px-8 xl:pl-12'
           >
             <CSSTransition
               in={formHasBeenInView}
-              timeout={1500}
-              classNames={{ enterActive: 'animate-fade-in lg:animate-delayed-fade-in-1' }}
+              timeout={2000}
+              classNames={{
+                enterActive: 'animate-fade-in lg:animate-delayed-fade-in-2',
+              }}
             >
-              <div className={`flex-col gap-10 ${formHasBeenInView ? 'flex' : 'hidden'}`}>
-                <div className='flex flex-col gap-3'>
+              <div className='max-w-lg mx-auto lg:max-w-none'>
+                <form
+                  onSubmit={formSubmitHandler}
+                  className='grid grid-cols-1 sm:grid-cols-2 gap-y-6 sm:gap-x-8'
+                >
                   <div>
-                    Interested in working together, or just want to say hi, drop me an email...
-                  </div>
-                  <form className='flex flex-col gap-3 text-black' onSubmit={formSubmitHandler}>
-                    <FormField
-                      type={input}
-                      required
-                      placeholder='Name'
-                      value={enteredName}
+                    <label htmlFor='first-name' className='sr-only'>
+                      First name
+                    </label>
+                    <input
+                      type='text'
+                      name='first-name'
+                      id='first-name'
+                      autoComplete='given-name'
+                      className={inputClasses}
+                      placeholder='First name*'
+                      value={enteredFirstName}
                       onChange={event =>
-                        handleFormFieldChange(event.target.value, contactFormActions.setEnteredName)
+                        handleFormFieldChange(
+                          event.target.value,
+                          contactFormActions.setEnteredFirstName
+                        )
                       }
                     />
-                    <FormField
-                      type={input}
+                  </div>
+                  <div>
+                    <label htmlFor='last-name' className='sr-only'>
+                      Last name
+                    </label>
+                    <input
+                      type='text'
+                      name='last-name'
+                      id='last-name'
+                      autoComplete='family-name'
+                      className={inputClasses}
+                      placeholder='Last name'
+                      value={enteredLastName}
+                      onChange={event =>
+                        handleFormFieldChange(
+                          event.target.value,
+                          contactFormActions.setEnteredLastName
+                        )
+                      }
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor='email' className='sr-only'>
+                      Email
+                    </label>
+                    <input
+                      id='email'
                       required
-                      placeholder='Email'
+                      name='email'
+                      type='email'
+                      autoComplete='email'
+                      className={inputClasses}
+                      placeholder='Email*'
                       value={enteredEmail}
                       onChange={event =>
                         handleFormFieldChange(
@@ -139,10 +212,56 @@ const Contact = () => {
                         )
                       }
                     />
-                    <FormField
-                      type={textarea}
-                      required
-                      placeholder='Message'
+                  </div>
+                  <div>
+                    <label htmlFor='phone' className='sr-only'>
+                      Phone
+                    </label>
+                    <input
+                      type='text'
+                      name='phone'
+                      id='phone'
+                      autoComplete='tel'
+                      className={inputClasses}
+                      placeholder='Phone'
+                      value={enteredPhone}
+                      onChange={event =>
+                        handleFormFieldChange(
+                          event.target.value,
+                          contactFormActions.setEnteredPhone
+                        )
+                      }
+                    />
+                  </div>
+                  <div className='sm:col-span-2'>
+                    <label htmlFor='available-times' className='sr-only'>
+                      Available times
+                    </label>
+                    <input
+                      type='text'
+                      name='available-times'
+                      id='available-times'
+                      className={inputClasses}
+                      placeholder="What are some dates/times that you're available for a video call?"
+                      value={enteredAvailableTimes}
+                      onChange={event =>
+                        handleFormFieldChange(
+                          event.target.value,
+                          contactFormActions.setEnteredAvailableTimes
+                        )
+                      }
+                    />
+                  </div>
+                  <div className='sm:col-span-2'>
+                    <label htmlFor='message' className='sr-only'>
+                      Message
+                    </label>
+                    <textarea
+                      id='message'
+                      name='message'
+                      rows={4}
+                      className={inputClasses}
+                      placeholder='Tell me about your project and what you need from me*'
                       value={enteredMessage}
                       onChange={event =>
                         handleFormFieldChange(
@@ -151,195 +270,32 @@ const Contact = () => {
                         )
                       }
                     />
+                  </div>
+                  <div>
                     <div
-                      className={`${sendStatus === successMessage ? 'text-success' : 'text-error'}`}
+                      className={`mb-1 ${
+                        sendStatus === successMessage ? 'text-success' : 'text-error'
+                      }`}
                     >
                       {sendStatus}
                     </div>
-                    <Button disabled={disableButton()}>
+                    <button
+                      disabled={disableButton()}
+                      type='submit'
+                      className='inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-300'
+                    >
                       {isSubmitting ? (
-                        <div className='flex justify-center'>
+                        <div className='flex justify-center px-5'>
                           <LoadingSpinner />
                         </div>
                       ) : (
-                        'Send email'
+                        'Submit'
                       )}
-                    </Button>
-                  </form>
-                </div>
+                    </button>
+                  </div>
+                </form>
               </div>
             </CSSTransition>
-          </div>
-        </div> */}
-
-        <div
-          className='relative lg:grid lg:grid-cols-5'
-          ref={elementRef(contactForm)} // TODO - Move this to whichever element you need it on; currently here to prevent error
-        >
-          <div className='bg-gray-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 xl:pr-12'>
-            <div className='max-w-lg mx-auto'>
-              <p className='mt-3 text-lg leading-6 text-gray-500'>
-                To arrange a consultation, complete this form and I will get back to you. Please
-                provide as much detail as possible.
-              </p>
-              <p className='mt-4 text-lg leading-6 text-gray-500'>
-                Alternatively, I can be contacted by email or on social media.
-              </p>
-              <div className='flex mt-4 text-base text-gray-500'>
-                <MailIcon className='flex-shrink-0 h-6 w-6 text-gray-400' aria-hidden='true' />
-                <a
-                  href='mai&#108;to:contact&#64;jethrowilliams&#46;c&#111;m'
-                  target='_blank'
-                  rel='noreferrer'
-                >
-                  <span className='ml-3'>contact&#64;jethrowilliams&#46;c&#111;m</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className='bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:px-8 xl:pl-12'>
-            <div className='max-w-lg mx-auto lg:max-w-none'>
-              <form
-                onSubmit={formSubmitHandler}
-                className='grid grid-cols-1 sm:grid-cols-2 gap-y-6 sm:gap-x-8'
-              >
-                <div>
-                  <label htmlFor='first-name' className='sr-only'>
-                    First name
-                  </label>
-                  <input
-                    type='text'
-                    name='first-name'
-                    id='first-name'
-                    autoComplete='given-name'
-                    className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
-                    placeholder='First name*'
-                    value={enteredFirstName}
-                    onChange={event =>
-                      handleFormFieldChange(
-                        event.target.value,
-                        contactFormActions.setEnteredFirstName
-                      )
-                    }
-                  />
-                </div>
-                <div>
-                  <label htmlFor='last-name' className='sr-only'>
-                    Last name
-                  </label>
-                  <input
-                    type='text'
-                    name='last-name'
-                    id='last-name'
-                    autoComplete='family-name'
-                    className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
-                    placeholder='Last name'
-                    value={enteredLastName}
-                    onChange={event =>
-                      handleFormFieldChange(
-                        event.target.value,
-                        contactFormActions.setEnteredLastName
-                      )
-                    }
-                  />
-                </div>
-                <div>
-                  <label htmlFor='email' className='sr-only'>
-                    Email
-                  </label>
-                  <input
-                    id='email'
-                    required
-                    name='email'
-                    type='email'
-                    autoComplete='email'
-                    className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
-                    placeholder='Email*'
-                    value={enteredEmail}
-                    onChange={event =>
-                      handleFormFieldChange(event.target.value, contactFormActions.setEnteredEmail)
-                    }
-                  />
-                </div>
-                <div>
-                  <label htmlFor='phone' className='sr-only'>
-                    Phone
-                  </label>
-                  <input
-                    type='text'
-                    name='phone'
-                    id='phone'
-                    autoComplete='tel'
-                    className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
-                    placeholder='Phone'
-                    value={enteredPhone}
-                    onChange={event =>
-                      handleFormFieldChange(event.target.value, contactFormActions.setEnteredPhone)
-                    }
-                  />
-                </div>
-                <div className='sm:col-span-2'>
-                  <label htmlFor='available-times' className='sr-only'>
-                    Available times
-                  </label>
-                  <input
-                    type='text'
-                    name='available-times'
-                    id='available-times'
-                    className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
-                    placeholder="What are some dates/times that you're available for a video call?"
-                    value={enteredAvailableTimes}
-                    onChange={event =>
-                      handleFormFieldChange(
-                        event.target.value,
-                        contactFormActions.setEnteredAvailableTimes
-                      )
-                    }
-                  />
-                </div>
-                <div className='sm:col-span-2'>
-                  <label htmlFor='message' className='sr-only'>
-                    Message
-                  </label>
-                  <textarea
-                    id='message'
-                    name='message'
-                    rows={4}
-                    className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md'
-                    placeholder='Tell me about your project and what you need from me*'
-                    value={enteredMessage}
-                    onChange={event =>
-                      handleFormFieldChange(
-                        event.target.value,
-                        contactFormActions.setEnteredMessage
-                      )
-                    }
-                  />
-                </div>
-                <div>
-                  <div
-                    className={`mb-1 ${
-                      sendStatus === successMessage ? 'text-success' : 'text-error'
-                    }`}
-                  >
-                    {sendStatus}
-                  </div>
-                  <button
-                    disabled={disableButton()}
-                    type='submit'
-                    className='inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-300'
-                  >
-                    {isSubmitting ? (
-                      <div className='flex justify-center px-5'>
-                        <LoadingSpinner />
-                      </div>
-                    ) : (
-                      'Submit'
-                    )}
-                  </button>
-                </div>
-              </form>
-            </div>
           </div>
         </div>
 
