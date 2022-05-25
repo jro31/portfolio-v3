@@ -29,15 +29,15 @@ export const sectionOrder = [
   pricingSection,
   contactSection,
 ];
-export const darkSections = [homeSection, toolsSection, projectsSection, contactSection];
+export const darkSections = [homeSection, toolsSection, projectsSection];
 
 export const contactTitle = 'contact-title';
 export let contactTitleRef;
 export const contactForm = 'contact-form';
 export let contactFormRef;
-export const contactSocialMediaLinks = 'contact-social-media-links';
-export let contactSocialMediaLinksRef;
-const contactElements = [contactTitle, contactForm, contactSocialMediaLinks];
+export const contactFooter = 'contact-footer';
+export let contactFooterRef;
+const contactElements = [contactTitle, contactForm, contactFooter];
 
 export const homeTitle = 'home-title';
 export let homeTitleRef;
@@ -109,7 +109,7 @@ const HomePage = () => {
 
   contactTitleRef = useRef();
   contactFormRef = useRef();
-  contactSocialMediaLinksRef = useRef();
+  contactFooterRef = useRef();
 
   homeTitleRef = useRef();
   homeDescriptionRef = useRef();

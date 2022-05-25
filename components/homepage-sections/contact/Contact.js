@@ -6,31 +6,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
 import { contactFormActions } from '../../../store/contact-form';
-import {
-  contactForm,
-  contactJethroCodesLink,
-  contactSection,
-  contactSocialMediaLinks,
-  contactTitle,
-} from '../../../pages';
+import { contactForm, contactSection, contactTitle } from '../../../pages';
 import SectionContainer from '../SectionContainer';
 import Button from '../../ui/navigation/Button';
 import Title from '../../ui/text/Title';
 import FormField from '../../ui/form/FormField';
 import { input, textarea } from '../../ui/form/FormField';
-import SocialMediaCard from './SocialMediaCard';
 import LoadingSpinner from '../../ui/svg/LoadingSpinner';
 import useElementRef from '../../../hooks/useElementRef';
+import Footer from './Footer';
 
 const successMessage = 'Email sent successfully!';
-
-export const email = 'Email';
-export const gitHub = 'GitHub';
-export const instagram = 'Instagram';
-export const linkedIn = 'LinkedIn';
-export const twitter = 'Twitter';
-
-export const socialMediaCardOrder = [gitHub, linkedIn, instagram, twitter, email];
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -38,9 +24,6 @@ const Contact = () => {
     state => state.elementIsInView.hasBeenInView[contactTitle]
   );
   const formHasBeenInView = useSelector(state => state.elementIsInView.hasBeenInView[contactForm]);
-  const socialMediaLinksHaveBeenInView = useSelector(
-    state => state.elementIsInView.hasBeenInView[contactSocialMediaLinks]
-  );
   const enteredName = useSelector(state => state.contactForm.enteredName);
   const enteredEmail = useSelector(state => state.contactForm.enteredEmail);
   const enteredMessage = useSelector(state => state.contactForm.enteredMessage);
@@ -98,10 +81,7 @@ const Contact = () => {
   };
 
   return (
-    <SectionContainer
-      section={contactSection}
-      className='bg-gradient-to-br from-slate-800 via-black to-black text-white'
-    >
+    <SectionContainer section={contactSection} className='bg-white'>
       <div className='flex flex-col items-end justify-around min-h-screen-minus-mobile-nav lg:min-h-screen-minus-nav h-full w-full'>
         <div ref={elementRef(contactTitle)} className='w-11/12'>
           <CSSTransition
@@ -180,29 +160,8 @@ const Contact = () => {
               </div>
             </CSSTransition>
           </div>
-          <div
-            ref={elementRef(contactSocialMediaLinks)}
-            className='flex flex-col gap-3 lg:basis-1/2 xl:basis-1/3 min-h-[402px] 2xs:min-h-[422px] xs:min-h-[482px] lg:min-h-[436px] xl:min-h-[482px]'
-          >
-            <CSSTransition
-              in={socialMediaLinksHaveBeenInView}
-              timeout={2500}
-              classNames={{
-                enterActive:
-                  'animate-fade-in lg:animate-delayed-fade-in-2 xl:animate-delayed-fade-in-3',
-              }}
-            >
-              <div className={socialMediaLinksHaveBeenInView ? 'block' : 'hidden'}>
-                <div className='text-center'>...or find me in any of these spaces!</div>
-                <div className='flex flex-col gap-3 items-center'>
-                  {socialMediaCardOrder.map(platform => (
-                    <SocialMediaCard key={`${platform}-social-media-card`} platform={platform} />
-                  ))}
-                </div>
-              </div>
-            </CSSTransition>
-          </div>
         </div>
+        <Footer />
       </div>
     </SectionContainer>
   );

@@ -5,8 +5,8 @@ import {
   contactTitleRef,
   contactForm,
   contactFormRef,
-  contactSocialMediaLinks,
-  contactSocialMediaLinksRef,
+  contactFooter,
+  contactFooterRef,
   homeSection,
   homeSectionRef,
   homeTitle,
@@ -60,8 +60,8 @@ const useElementRefs = () => {
           return contactTitleRef;
         case contactForm:
           return contactFormRef;
-        case contactSocialMediaLinks:
-          return contactSocialMediaLinksRef;
+        case contactFooter:
+          return contactFooterRef;
         case homeSection:
           return homeSectionRef;
         case homeTitle:
