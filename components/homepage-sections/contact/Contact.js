@@ -1,18 +1,15 @@
-// TODO - Simplify this section - The key focus is the form, the social media links can be in the form of a footer, the jethro.codes link can be much smaller (or also part of the footer)
-// TODO - Also update the form - It should include a phone number input, and some more specific questions than just 'Message' (such as 'What are some times that you are available', and some questions asking about their project)
-
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
-import { MailIcon } from '@heroicons/react/outline';
 
 import { contactFormActions } from '../../../store/contact-form';
-import { contactBlurb, contactForm, contactSection, contactTitle } from '../../../pages';
+import { contactForm, contactSection, contactTitle } from '../../../pages';
 import SectionContainer from '../SectionContainer';
 import Title from '../../ui/text/Title';
 import LoadingSpinner from '../../ui/svg/LoadingSpinner';
 import useElementRef from '../../../hooks/useElementRef';
 import Footer from './Footer';
+import Blurb from './Blurb';
 
 const inputClasses =
   'block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md';
@@ -23,9 +20,6 @@ const Contact = () => {
   const dispatch = useDispatch();
   const titleHasBeenInView = useSelector(
     state => state.elementIsInView.hasBeenInView[contactTitle]
-  );
-  const blurbHasBeenInView = useSelector(
-    state => state.elementIsInView.hasBeenInView[contactBlurb]
   );
   const formHasBeenInView = useSelector(state => state.elementIsInView.hasBeenInView[contactForm]);
   const enteredFirstName = useSelector(state => state.contactForm.enteredFirstName);
@@ -104,49 +98,7 @@ const Contact = () => {
           </CSSTransition>
         </div>
         <div className='relative lg:grid lg:grid-cols-5 w-11/12 pr-1/12'>
-          <div ref={elementRef(contactBlurb)} className='py-6 lg:col-span-2 lg:pr-8 xl:pr-12'>
-            <CSSTransition
-              in={blurbHasBeenInView}
-              timeout={1500}
-              classNames={{
-                enterActive: 'animate-fade-in lg:animate-delayed-fade-in-1',
-              }}
-            >
-              <div>
-                <p className='text-lg leading-6 text-gray-500'>
-                  To arrange a consultation, complete this form and I will get back to you. Please
-                  provide as much detail as possible.
-                </p>
-                <p className='mt-4 text-lg leading-6 text-gray-500'>
-                  Alternatively, I can be contacted by
-                  <span className='lg:hidden'>
-                    &#160;
-                    <a
-                      href='mai&#108;to:contact&#64;jethrowilliams&#46;c&#111;m'
-                      target='_blank'
-                      rel='noreferrer'
-                      className='underline'
-                    >
-                      email
-                    </a>
-                    &#160;
-                  </span>
-                  <span className='hidden lg:inline'>&#160;email&#160;</span>
-                  or on social media.
-                </p>
-                <div className='hidden lg:flex mt-8 text-base text-gray-500'>
-                  <MailIcon className='flex-shrink-0 h-6 w-6 text-gray-400' aria-hidden='true' />
-                  <a
-                    href='mai&#108;to:contact&#64;jethrowilliams&#46;c&#111;m'
-                    target='_blank'
-                    rel='noreferrer'
-                  >
-                    <span className='ml-3'>contact&#64;jethrowilliams&#46;c&#111;m</span>
-                  </a>
-                </div>
-              </div>
-            </CSSTransition>
-          </div>
+          <Blurb />
           <div ref={elementRef(contactForm)} className='py-6 lg:col-span-3 lg:pl-8 xl:pl-12'>
             <CSSTransition
               in={formHasBeenInView}
@@ -306,7 +258,6 @@ const Contact = () => {
             </CSSTransition>
           </div>
         </div>
-
         <Footer />
       </div>
     </SectionContainer>
