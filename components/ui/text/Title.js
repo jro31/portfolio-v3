@@ -1,3 +1,5 @@
+// TODO - Update the title styling? (there's a branch with some stashed changes; not finished)
+
 const Title = props => {
   return (
     <h1

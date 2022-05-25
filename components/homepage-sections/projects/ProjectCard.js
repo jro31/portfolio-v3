@@ -1,3 +1,5 @@
+// TODO - Update the styling of these; they look a bit tacky
+
 import Subtitle from '../../ui/text/Subtitle';
 import ProjectDescription from './ProjectDescription';
 import ProjectLinks from './ProjectLinks';

@@ -29,22 +29,17 @@ export const sectionOrder = [
   pricingSection,
   contactSection,
 ];
-export const darkSections = [homeSection, toolsSection, projectsSection, contactSection];
+export const darkSections = [homeSection, toolsSection, projectsSection];
 
 export const contactTitle = 'contact-title';
 export let contactTitleRef;
+export const contactBlurb = 'contact-blurb';
+export let contactBlurbRef;
 export const contactForm = 'contact-form';
 export let contactFormRef;
-export const contactJethroCodesLink = 'contact-jethro-codes-link';
-export let contactJethroCodesLinkRef;
-export const contactSocialMediaLinks = 'contact-social-media-links';
-export let contactSocialMediaLinksRef;
-const contactElements = [
-  contactTitle,
-  contactForm,
-  contactJethroCodesLink,
-  contactSocialMediaLinks,
-];
+export const contactFooter = 'contact-footer';
+export let contactFooterRef;
+const contactElements = [contactTitle, contactBlurb, contactForm, contactFooter];
 
 export const homeTitle = 'home-title';
 export let homeTitleRef;
@@ -115,9 +110,9 @@ const HomePage = () => {
   toolsSectionRef = useRef();
 
   contactTitleRef = useRef();
+  contactBlurbRef = useRef();
   contactFormRef = useRef();
-  contactJethroCodesLinkRef = useRef();
-  contactSocialMediaLinksRef = useRef();
+  contactFooterRef = useRef();
 
   homeTitleRef = useRef();
   homeDescriptionRef = useRef();

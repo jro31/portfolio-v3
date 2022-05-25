@@ -3,12 +3,12 @@ import {
   contactSectionRef,
   contactTitle,
   contactTitleRef,
+  contactBlurb,
+  contactBlurbRef,
   contactForm,
   contactFormRef,
-  contactJethroCodesLink,
-  contactJethroCodesLinkRef,
-  contactSocialMediaLinks,
-  contactSocialMediaLinksRef,
+  contactFooter,
+  contactFooterRef,
   homeSection,
   homeSectionRef,
   homeTitle,
@@ -60,12 +60,12 @@ const useElementRefs = () => {
           return contactSectionRef;
         case contactTitle:
           return contactTitleRef;
+        case contactBlurb:
+          return contactBlurbRef;
         case contactForm:
           return contactFormRef;
-        case contactJethroCodesLink:
-          return contactJethroCodesLinkRef;
-        case contactSocialMediaLinks:
-          return contactSocialMediaLinksRef;
+        case contactFooter:
+          return contactFooterRef;
         case homeSection:
           return homeSectionRef;
         case homeTitle:

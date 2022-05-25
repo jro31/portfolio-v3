@@ -60,8 +60,8 @@ const Projects = () => {
           <div ref={elementRef(projectsTitle)} className='basis-11/12'>
             <CSSTransition
               in={titleHasBeenInView}
-              timeout={1000}
-              classNames={{ enterActive: 'animate-fade-in' }}
+              timeout={2000}
+              classNames={{ enterActive: 'animate-slow-fade-in' }}
             >
               <Title className={titleHasBeenInView ? 'block' : 'hidden'}>Projects</Title>
             </CSSTransition>
