@@ -76,7 +76,7 @@ const Footer = () => {
   const elementRef = useElementRef();
 
   return (
-    <footer ref={elementRef(contactFooter)} className='bg-white w-full'>
+    <footer ref={elementRef(contactFooter)} className='w-full'>
       <CSSTransition
         in={footerHasBeenInView}
         timeout={3000}

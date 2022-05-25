@@ -92,7 +92,7 @@ const Contact = () => {
   };
 
   return (
-    <SectionContainer section={contactSection} className='bg-white'>
+    <SectionContainer section={contactSection} className='bg-gray-50'>
       <div className='flex flex-col items-end justify-around min-h-screen-minus-mobile-nav lg:min-h-screen-minus-nav h-full w-full'>
         <div ref={elementRef(contactTitle)} className='w-11/12'>
           <CSSTransition
@@ -103,11 +103,8 @@ const Contact = () => {
             <Title className={titleHasBeenInView ? 'block' : 'hidden'}>Get in touch</Title>
           </CSSTransition>
         </div>
-        <div className='relative lg:grid lg:grid-cols-5'>
-          <div
-            ref={elementRef(contactBlurb)}
-            className='bg-gray-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 xl:pr-12'
-          >
+        <div className='relative lg:grid lg:grid-cols-5 w-11/12 pr-1/12'>
+          <div ref={elementRef(contactBlurb)} className='py-6 lg:col-span-2 lg:pr-8 xl:pr-12'>
             <CSSTransition
               in={blurbHasBeenInView}
               timeout={1500}
@@ -115,15 +112,29 @@ const Contact = () => {
                 enterActive: 'animate-fade-in lg:animate-delayed-fade-in-1',
               }}
             >
-              <div className='max-w-lg mx-auto'>
-                <p className='mt-3 text-lg leading-6 text-gray-500'>
+              <div>
+                <p className='text-lg leading-6 text-gray-500'>
                   To arrange a consultation, complete this form and I will get back to you. Please
                   provide as much detail as possible.
                 </p>
                 <p className='mt-4 text-lg leading-6 text-gray-500'>
-                  Alternatively, I can be contacted by email or on social media.
+                  Alternatively, I can be contacted by
+                  <span className='lg:hidden'>
+                    &#160;
+                    <a
+                      href='mai&#108;to:contact&#64;jethrowilliams&#46;c&#111;m'
+                      target='_blank'
+                      rel='noreferrer'
+                      className='underline'
+                    >
+                      email
+                    </a>
+                    &#160;
+                  </span>
+                  <span className='hidden lg:inline'>&#160;email&#160;</span>
+                  or on social media.
                 </p>
-                <div className='flex mt-4 text-base text-gray-500'>
+                <div className='hidden lg:flex mt-8 text-base text-gray-500'>
                   <MailIcon className='flex-shrink-0 h-6 w-6 text-gray-400' aria-hidden='true' />
                   <a
                     href='mai&#108;to:contact&#64;jethrowilliams&#46;c&#111;m'
@@ -136,10 +147,7 @@ const Contact = () => {
               </div>
             </CSSTransition>
           </div>
-          <div
-            ref={elementRef(contactForm)}
-            className='bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:px-8 xl:pl-12'
-          >
+          <div ref={elementRef(contactForm)} className='py-6 lg:col-span-3 lg:pl-8 xl:pl-12'>
             <CSSTransition
               in={formHasBeenInView}
               timeout={2000}
@@ -147,7 +155,7 @@ const Contact = () => {
                 enterActive: 'animate-fade-in lg:animate-delayed-fade-in-2',
               }}
             >
-              <div className='max-w-lg mx-auto lg:max-w-none'>
+              <div className=''>
                 <form
                   onSubmit={formSubmitHandler}
                   className='grid grid-cols-1 sm:grid-cols-2 gap-y-6 sm:gap-x-8'
