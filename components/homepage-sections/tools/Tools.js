@@ -41,8 +41,8 @@ const Tools = () => {
               <Description
                 className={`md:w-2/3 lg:w-5/12 ${descriptionHasBeenInView ? 'block' : 'hidden'}`}
               >
-                I work primarily on Ruby on Rails and React/Next.js projects, using the tools
-                necessary to bring them to life, including...
+                I work primarily with Ruby on Rails and React/Next.js, using the tools necessary to
+                bring them to life, including...
               </Description>
             </CSSTransition>
           </div>
