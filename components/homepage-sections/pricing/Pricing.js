@@ -96,6 +96,7 @@ const Pricing = () => {
               {pricingCardsOrder.map(pricingCard => (
                 <PricingCard key={`${pricingCard}-pricing-card`} pricingCard={pricingCard} />
               ))}
+              <div>&#160;&#160;</div>
             </div>
           </CSSTransition>
         </div>
