@@ -22,8 +22,8 @@ const Blurb = () => {
       >
         <div>
           <p className='text-lg leading-6 text-gray-500'>
-            To arrange a consultation, complete this form and I will get back to you. Please provide
-            as much detail as possible.
+            To arrange a consultation, contact me here and I will get back to you. Please provide as
+            much detail as possible.
           </p>
           <p className='mt-4 text-lg leading-6 text-gray-500'>
             Alternatively, I can be contacted by

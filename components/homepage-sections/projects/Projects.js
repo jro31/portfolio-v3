@@ -63,7 +63,7 @@ const Projects = () => {
               timeout={2000}
               classNames={{ enterActive: 'animate-slow-fade-in' }}
             >
-              <Title className={titleHasBeenInView ? 'block' : 'hidden'}>Projects</Title>
+              <Title className={titleHasBeenInView ? 'block' : 'hidden'}>Example projects</Title>
             </CSSTransition>
           </div>
         </div>
@@ -90,16 +90,16 @@ const Projects = () => {
             timeout={1500}
             classNames={{ enterActive: 'animate-delayed-fade-in-1' }}
           >
-            {/* NICETOHAVE - The padding-right (below) doesn't work on Safari, so the last card doesn't scroll as far as wanted */}
             <div
               ref={projectsContainerRef}
-              className={`overflow-x-scroll snap-x snap-mandatory scroll-smooth px-1/12 mb-6 ${
+              className={`overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scroll-smooth px-1/12 ${
                 projectCardsHasBeenInView ? 'flex' : 'hidden'
               }`}
             >
               {projectsOrder.map(project => (
                 <ProjectCard key={`${project}-project`} project={project} />
               ))}
+              <div>&#160;&#160;</div>
             </div>
           </CSSTransition>
         </div>
