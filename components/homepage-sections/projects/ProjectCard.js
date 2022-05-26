@@ -1,9 +1,3 @@
-// TODO - Delete any components you're no longer using
-
-import Subtitle from '../../ui/text/Subtitle';
-import ProjectDescription from './ProjectDescription';
-import ProjectLinks from './ProjectLinks';
-import ProjectMockup from './ProjectMockup';
 import { blocksFalling, jethrosBistro, jethroCodes, mealsOfChange, wheresJethro } from './Projects';
 
 const ProjectCard = props => {

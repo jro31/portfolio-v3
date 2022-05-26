@@ -90,7 +90,6 @@ const Projects = () => {
             timeout={1500}
             classNames={{ enterActive: 'animate-delayed-fade-in-1' }}
           >
-            {/* NICETOHAVE - The padding-right (below) doesn't work on Safari, so the last card doesn't scroll as far as wanted */}
             <div
               ref={projectsContainerRef}
               className={`overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scroll-smooth px-1/12 ${
