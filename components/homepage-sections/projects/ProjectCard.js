@@ -222,9 +222,11 @@ const ProjectCard = props => {
 
   return (
     <div className='snap-start bg-white scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl'>
-      <section aria-labelledby='features-heading' className='relative h-full'>
-        <div className='aspect-w-3 aspect-h-2 overflow-hidden sm:aspect-w-5 lg:aspect-none lg:absolute lg:w-1/2 lg:pr-4 xl:pr-16 lg:h-full lg:rounded-l-2xl'>
-          {/* FIXME - Image is not 'rounded' on mobile */}
+      <section
+        aria-labelledby='features-heading'
+        className='relative h-full flex lg:block flex-col'
+      >
+        <div className='aspect-w-3 aspect-h-2 overflow-hidden sm:aspect-w-5 lg:aspect-none lg:absolute lg:w-1/2 lg:pr-4 xl:pr-16 lg:h-full rounded-t-2xl lg:rounded-tr-none lg:rounded-l-2xl'>
           <img
             src={projectInfo().imageSrc}
             alt={projectInfo().title}
@@ -234,8 +236,8 @@ const ProjectCard = props => {
           />
         </div>
 
-        <div className='max-w-2xl mx-auto pt-4 pb-24 px-4 sm:pb-32 lg:pb-8 sm:px-6 lg:max-w-7xl lg:pt-8 lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:h-full lg:overflow-y-auto'>
-          <div className='lg:col-start-2 flex flex-col justify-between'>
+        <div className='flex-1 max-w-2xl mx-auto pt-4 pb-6 px-4 sm:pb-8 sm:px-6 lg:max-w-7xl lg:pt-8 lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:h-full lg:overflow-y-auto'>
+          <div className='lg:col-start-2 flex flex-col justify-between h-full'>
             <div>
               <h2 className='mt-4 text-2xl 2xs:text-4xl font-extrabold text-gray-900 tracking-tight'>
                 {projectInfo().title}
