@@ -63,7 +63,7 @@ const Projects = () => {
               timeout={2000}
               classNames={{ enterActive: 'animate-slow-fade-in' }}
             >
-              <Title className={titleHasBeenInView ? 'block' : 'hidden'}>Projects</Title>
+              <Title className={titleHasBeenInView ? 'block' : 'hidden'}>Example projects</Title>
             </CSSTransition>
           </div>
         </div>

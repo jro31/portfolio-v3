@@ -95,9 +95,9 @@ export const refElementNames = [
   ...toolsElements,
 ];
 
-const appTitle = 'Jethro Williams - Software Engineer';
+const appTitle = 'Jethro Williams - Web Development Services';
 const appDescription =
-  'Need a software engineer to build your web application? Contact me to find out about working together.';
+  'We specialise in building personal and small business websites and APIs. Need a new web application or updates to your existing one? Contact us below to get started.';
 const baseUrl = 'https://jethrowilliams.com';
 const socialMediaImagePath = `${baseUrl}/images/home-screenshot.png`;
 
