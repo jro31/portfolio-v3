@@ -36,9 +36,11 @@ const ProjectCard = props => {
                 "To avoid the use of cookies, the app stores your score in your browser's local storage, meaning that when you come back to play again, your top score remains.",
             },
           ],
-          siteUrl: 'https://blocksfalling.com/',
-          githubUrl: 'https://github.com/jro31/blocks-falling',
-          anatomyUrl: 'https://jethro.codes/projects/blocks-falling',
+          links: {
+            siteUrl: 'https://blocksfalling.com/',
+            anatomyUrl: 'https://jethro.codes/projects/blocks-falling',
+            githubUrl: 'https://github.com/jro31/blocks-falling',
+          },
           imageSrc: 'images/blocks-falling-screenshot.png',
         };
       case jethrosBistro:
@@ -67,9 +69,9 @@ const ProjectCard = props => {
               description: 'All pages reformat to render beautifully on mobile devices.',
             },
           ],
-          siteUrl: 'https://jethrosbistro.com/',
-          githubUrl: '',
-          anatomyUrl: '',
+          links: {
+            siteUrl: 'https://jethrosbistro.com/',
+          },
           imageSrc: 'images/jethros-bistro-screenshot.png',
         };
       case jethroCodes: {
@@ -99,9 +101,11 @@ const ProjectCard = props => {
                 'The contact form uses the SendGrid API so that any user feedback is delivered straight to your inbox.',
             },
           ],
-          siteUrl: 'https://jethro.codes/',
-          githubUrl: 'https://github.com/jro31/jethro-codes',
-          anatomyUrl: 'https://jethro.codes/projects/jethro-codes',
+          links: {
+            siteUrl: 'https://jethro.codes/',
+            anatomyUrl: 'https://jethro.codes/projects/jethro-codes',
+            githubUrl: 'https://github.com/jro31/jethro-codes',
+          },
           imageSrc: 'images/jethro-codes-screenshot.png',
           imagePositionClass: 'object-left',
         };
@@ -128,9 +132,11 @@ const ProjectCard = props => {
                 "User-uploaded photos are hosted on Amazon's S3 service. Photos are uploaded to and fetched from S3 by the front-end (only the metadata is sent too/from the API) meaning faster uploads and photo rendering.",
             },
           ],
-          siteUrl: 'https://mealsofchange.com/',
-          githubUrl: 'https://github.com/jro31/meals-of-change-front-end',
-          anatomyUrl: 'https://jethro.codes/projects/meals-of-change',
+          links: {
+            siteUrl: 'https://mealsofchange.com/',
+            anatomyUrl: 'https://jethro.codes/projects/meals-of-change',
+            githubUrl: 'https://github.com/jro31/meals-of-change-front-end',
+          },
           imageSrc: 'images/meals-of-change-screenshot.png',
           imagePositionClass: 'object-left',
         };
@@ -160,9 +166,10 @@ const ProjectCard = props => {
               description: 'Uploaded images and hosted on Cloudinary.',
             },
           ],
-          siteUrl: 'https://wheresjethro.com/',
-          githubUrl: 'https://github.com/jro31/wheres-jethro-front-end',
-          anatomyUrl: '', // TODO
+          links: {
+            siteUrl: 'https://wheresjethro.com/',
+            githubUrl: 'https://github.com/jro31/wheres-jethro-front-end',
+          },
           imageSrc: 'images/wheres-jethro-screenshot.png',
           imagePositionClass: 'object-left',
         };
@@ -171,32 +178,37 @@ const ProjectCard = props => {
     }
   };
 
-  return (
-    // <div className='snap-start flex flex-col lg:flex-row bg-gradient-to-bl from-slate-700 via-slate-400 to-slate-700 scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl lg:min-h-0 border-2 border-slate-400'>
-    //   <div className='flex flex-col h-full justify-between lg:justify-around lg:basis-1/2 xl:basis-5/12 2xl:basis-1/3 px-6 xs:px-8 2xl:pl-16 lg:pr-0 py-6 gap-6'>
-    //     <Subtitle>{projectInfo().title}</Subtitle>
-    //     <div className='flex lg:hidden'>
-    //       <ProjectMockup
-    //         src={projectInfo().imageSrc}
-    //         alt={projectInfo().title}
-    //         className='w-full h-full object-contain'
-    //       />
-    //     </div>
-    //     <ProjectDescription
-    //       description={projectInfo().description}
-    //       anatomyUrl={projectInfo().anatomyUrl}
-    //     />
-    //     <ProjectLinks siteUrl={projectInfo().siteUrl} githubUrl={projectInfo().githubUrl} />
-    //   </div>
-    //   <div className='hidden lg:flex items-center basis-1/2 xl:basis-7/12 2xl:basis-2/3 pl-0 2xl:pl-6 pr-6 py-6'>
-    //     <ProjectMockup
-    //       src={projectInfo().imageSrc}
-    //       alt={projectInfo().title}
-    //       className='w-full h-full object-contain'
-    //     />
-    //   </div>
-    // </div>
+  const buttonText = linkKey => {
+    switch (linkKey) {
+      case 'siteUrl':
+        return 'Visit site';
+      case 'githubUrl':
+        return 'View on GitHub';
+      case 'anatomyUrl':
+        return 'Anatomy of a project';
+      default:
+        throw new Error(
+          `Unrecognised linkKey '${linkKey}' passed to project card buttonText() function`
+        );
+    }
+  };
 
+  const buttonColorClasses = linkKey => {
+    switch (linkKey) {
+      case 'siteUrl':
+        return 'text-white bg-indigo-600 hover:bg-indigo-700';
+      case 'githubUrl':
+        return 'text-gray-700 bg-white hover:bg-gray-50';
+      case 'anatomyUrl':
+        return 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100';
+      default:
+        throw new Error(
+          `Unrecognised linkKey '${linkKey}' passed to project card buttonColorClasses() function`
+        );
+    }
+  };
+
+  return (
     <div className='snap-start bg-white scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl'>
       <section aria-labelledby='features-heading' className='relative h-full'>
         <div className='aspect-w-3 aspect-h-2 overflow-hidden sm:aspect-w-5 lg:aspect-none lg:absolute lg:w-1/2 lg:pr-4 xl:pr-16 lg:h-full lg:rounded-l-2xl'>
@@ -209,7 +221,7 @@ const ProjectCard = props => {
           />
         </div>
 
-        <div className='max-w-2xl mx-auto pt-16 pb-24 px-4 sm:pb-32 sm:px-6 lg:max-w-7xl lg:pt-32 lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8'>
+        <div className='max-w-2xl mx-auto pt-16 pb-24 px-4 sm:pb-32 lg:pb-8 sm:px-6 lg:max-w-7xl lg:pt-8 lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:h-full lg:overflow-y-auto'>
           <div className='lg:col-start-2'>
             <h2 className='mt-4 text-4xl font-extrabold text-gray-900 tracking-tight'>
               {projectInfo().title}
@@ -225,6 +237,31 @@ const ProjectCard = props => {
                   </div>
                 ))}
               </dl>
+            )}
+            {projectInfo().links && Object.keys(projectInfo().links).length > 0 && (
+              <div className='relative z-0 inline-flex shadow-sm rounded-md mt-6'>
+                {Object.keys(projectInfo().links).map(linkKey => (
+                  <a
+                    key={`${projectInfo().title}-${linkKey}-link`}
+                    href={projectInfo().links[linkKey]}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    <button
+                      type='button'
+                      className={`relative inline-flex items-center px-4 lg:px-3 xl:px-6 py-2 border border-gray-300 text-sm font-medium focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 ${
+                        linkKey === Object.keys(projectInfo().links)[0] ? 'rounded-l-md' : '-ml-px'
+                      } ${
+                        linkKey === Object.keys(projectInfo().links).slice(-1)[0]
+                          ? 'rounded-r-md'
+                          : ''
+                      } ${buttonColorClasses(linkKey)}`}
+                    >
+                      {buttonText(linkKey)}
+                    </button>
+                  </a>
+                ))}
+              </div>
             )}
           </div>
         </div>
