@@ -100,6 +100,7 @@ const Projects = () => {
               {projectsOrder.map(project => (
                 <ProjectCard key={`${project}-project`} project={project} />
               ))}
+              <div>&#160;&#160;</div>
             </div>
           </CSSTransition>
         </div>

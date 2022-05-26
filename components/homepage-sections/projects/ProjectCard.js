@@ -42,6 +42,7 @@ const ProjectCard = props => {
             githubUrl: 'https://github.com/jro31/blocks-falling',
           },
           imageSrc: 'images/blocks-falling-screenshot.png',
+          imagePositionClass: 'object-bottom lg:object-center',
         };
       case jethrosBistro:
         return {
@@ -107,7 +108,7 @@ const ProjectCard = props => {
             githubUrl: 'https://github.com/jro31/jethro-codes',
           },
           imageSrc: 'images/jethro-codes-screenshot.png',
-          imagePositionClass: 'object-left',
+          imagePositionClass: 'object-left-top lg:object-left',
         };
       }
       case mealsOfChange:
@@ -171,7 +172,7 @@ const ProjectCard = props => {
             githubUrl: 'https://github.com/jro31/wheres-jethro-front-end',
           },
           imageSrc: 'images/wheres-jethro-screenshot.png',
-          imagePositionClass: 'object-left',
+          imagePositionClass: 'object-top lg:object-left',
         };
       default:
         throw new Error(`Unrecognised project '${props.project}' passed to ProjectCard`);
