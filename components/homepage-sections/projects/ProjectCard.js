@@ -1,4 +1,4 @@
-// TODO - Update the styling of these; they look a bit tacky
+// TODO - Delete any components you're no longer using
 
 import Subtitle from '../../ui/text/Subtitle';
 import ProjectDescription from './ProjectDescription';
@@ -17,7 +17,7 @@ const ProjectCard = props => {
           siteUrl: 'https://blocksfalling.com/',
           githubUrl: 'https://github.com/jro31/blocks-falling',
           anatomyUrl: 'https://jethro.codes/projects/blocks-falling',
-          imageSrc: 'images/blocks-falling-mockup.png',
+          imageSrc: 'images/blocks-falling-screenshot.png',
         };
       case jethrosBistro:
         return {
@@ -27,7 +27,7 @@ const ProjectCard = props => {
           siteUrl: 'https://jethrosbistro.com/',
           githubUrl: '',
           anatomyUrl: '',
-          imageSrc: 'images/jethros-bistro-mockup.png',
+          imageSrc: 'images/jethros-bistro-screenshot.png',
         };
       case jethroCodes: {
         return {
@@ -37,7 +37,8 @@ const ProjectCard = props => {
           siteUrl: 'https://jethro.codes/',
           githubUrl: 'https://github.com/jro31/jethro-codes',
           anatomyUrl: 'https://jethro.codes/projects/jethro-codes',
-          imageSrc: 'images/jethro-codes-mockup.png',
+          imageSrc: 'images/jethro-codes-screenshot.png',
+          imagePositionClass: 'object-left',
         };
       }
       case mealsOfChange:
@@ -48,7 +49,8 @@ const ProjectCard = props => {
           siteUrl: 'https://mealsofchange.com/',
           githubUrl: 'https://github.com/jro31/meals-of-change-front-end',
           anatomyUrl: 'https://jethro.codes/projects/meals-of-change',
-          imageSrc: 'images/meals-of-change-mockup.png',
+          imageSrc: 'images/meals-of-change-screenshot.png',
+          imagePositionClass: 'object-left',
         };
       case wheresJethro:
         return {
@@ -58,37 +60,99 @@ const ProjectCard = props => {
           siteUrl: 'https://wheresjethro.com/',
           githubUrl: 'https://github.com/jro31/wheres-jethro-front-end',
           anatomyUrl: '', // TODO
-          imageSrc: 'images/wheres-jethro-mockup.png',
+          imageSrc: 'images/wheres-jethro-screenshot.png',
+          imagePositionClass: 'object-left',
         };
       default:
         throw new Error(`Unrecognised project '${props.project}' passed to ProjectCard`);
     }
   };
 
+  // TODO - Delete this
+  const features = [
+    {
+      name: 'Durable',
+      description:
+        'The leather cover and machined steel disc binding stand up to daily use for years to come.',
+    },
+    {
+      name: 'Refillable',
+      description:
+        'Buy it once and refill as often as you need. Subscribe and save on routine refills.',
+    },
+    {
+      name: 'Thoughtfully designed',
+      description:
+        'The comfortable disc binding allows you to quickly rearrange pages or combine lined, graph, and blank refills.',
+    },
+    {
+      name: 'Locally made',
+      description: 'Responsibly and sustainably made real close to wherever you are, somehow.',
+    },
+  ];
+
   return (
-    <div className='snap-start flex flex-col lg:flex-row bg-gradient-to-bl from-slate-700 via-slate-400 to-slate-700 scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl lg:min-h-0 border-2 border-slate-400'>
-      <div className='flex flex-col h-full justify-between lg:justify-around lg:basis-1/2 xl:basis-5/12 2xl:basis-1/3 px-6 xs:px-8 2xl:pl-16 lg:pr-0 py-6 gap-6'>
-        <Subtitle>{projectInfo().title}</Subtitle>
-        <div className='flex lg:hidden'>
-          <ProjectMockup
+    // <div className='snap-start flex flex-col lg:flex-row bg-gradient-to-bl from-slate-700 via-slate-400 to-slate-700 scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl lg:min-h-0 border-2 border-slate-400'>
+    //   <div className='flex flex-col h-full justify-between lg:justify-around lg:basis-1/2 xl:basis-5/12 2xl:basis-1/3 px-6 xs:px-8 2xl:pl-16 lg:pr-0 py-6 gap-6'>
+    //     <Subtitle>{projectInfo().title}</Subtitle>
+    //     <div className='flex lg:hidden'>
+    //       <ProjectMockup
+    //         src={projectInfo().imageSrc}
+    //         alt={projectInfo().title}
+    //         className='w-full h-full object-contain'
+    //       />
+    //     </div>
+    //     <ProjectDescription
+    //       description={projectInfo().description}
+    //       anatomyUrl={projectInfo().anatomyUrl}
+    //     />
+    //     <ProjectLinks siteUrl={projectInfo().siteUrl} githubUrl={projectInfo().githubUrl} />
+    //   </div>
+    //   <div className='hidden lg:flex items-center basis-1/2 xl:basis-7/12 2xl:basis-2/3 pl-0 2xl:pl-6 pr-6 py-6'>
+    //     <ProjectMockup
+    //       src={projectInfo().imageSrc}
+    //       alt={projectInfo().title}
+    //       className='w-full h-full object-contain'
+    //     />
+    //   </div>
+    // </div>
+
+    <div className='snap-start bg-white scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl'>
+      <section aria-labelledby='features-heading' className='relative h-full'>
+        <div className='aspect-w-3 aspect-h-2 overflow-hidden sm:aspect-w-5 lg:aspect-none lg:absolute lg:w-1/2 lg:pr-4 xl:pr-16 lg:h-full lg:rounded-l-2xl'>
+          <img
             src={projectInfo().imageSrc}
             alt={projectInfo().title}
-            className='w-full h-full object-contain'
+            className={`h-full w-full object-cover lg:h-full lg:w-full ${
+              projectInfo().imagePositionClass || 'object-center'
+            }`}
           />
         </div>
-        <ProjectDescription
-          description={projectInfo().description}
-          anatomyUrl={projectInfo().anatomyUrl}
-        />
-        <ProjectLinks siteUrl={projectInfo().siteUrl} githubUrl={projectInfo().githubUrl} />
-      </div>
-      <div className='hidden lg:flex items-center basis-1/2 xl:basis-7/12 2xl:basis-2/3 pl-0 2xl:pl-6 pr-6 py-6'>
-        <ProjectMockup
-          src={projectInfo().imageSrc}
-          alt={projectInfo().title}
-          className='w-full h-full object-contain'
-        />
-      </div>
+
+        <div className='max-w-2xl mx-auto pt-16 pb-24 px-4 sm:pb-32 sm:px-6 lg:max-w-7xl lg:pt-32 lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8'>
+          <div className='lg:col-start-2'>
+            {/* <h2 id='features-heading' className='font-medium text-gray-500'>
+              Leatherbound Daily Journal
+            </h2> */}
+            <h2 className='mt-4 text-4xl font-extrabold text-gray-900 tracking-tight'>
+              {projectInfo().title}
+            </h2>
+            <p className='mt-4 text-gray-500'>
+              We've obsessed over every detail of this handcrafted journal to bring you the best
+              materials for daily use.
+            </p>
+
+            <dl className='mt-10 grid grid-cols-1 gap-y-10 gap-x-8 text-sm sm:grid-cols-2'>
+              {features.map(feature => (
+                <div key={feature.name}>
+                  <dt className='font-medium text-gray-900'>{feature.name}</dt>
+                  <dd className='mt-2 text-gray-500'>{feature.description}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
