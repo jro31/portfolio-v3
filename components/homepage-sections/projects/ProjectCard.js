@@ -12,17 +12,17 @@ const ProjectCard = props => {
             {
               title: 'React',
               description:
-                'Built with React and hosted on Firebase, the game can be played straight in your browser.',
+                'Built with React and hosted on Firebase, this game can be played straight in your browser.',
             },
             {
               title: 'Redux Toolkit',
               description:
-                'This app does not use images. Instead, the gameboard is stored as state in Redux Toolkit, and the CSS is updated based changes made to this state automatically or by the user.',
+                'This app does not use images. Instead, the gameboard is stored as state in Redux Toolkit, and the CSS is updated based on changes made to this state automatically or by the user.',
             },
             {
               title: 'Mobile friendly',
               description:
-                'This app was designed with mobile in mind, so no keyboard, no problem. You can play with just your phone, from wherever you please.',
+                'This app was designed with mobile in mind, so no keyboard, no problem. You can play with just your phone, from wherever you are.',
             },
             {
               title: 'Local storage',
@@ -57,7 +57,7 @@ const ProjectCard = props => {
             {
               title: 'Dynamic sitemap',
               description:
-                'The sitemap is generated dynamically, so Google always knows when you add a new page',
+                'The sitemap is generated dynamically, so Google always knows when you add a new page.',
             },
             {
               title: 'Mobile compatible',
@@ -73,7 +73,7 @@ const ProjectCard = props => {
         return {
           title: 'jethro.codes',
           description:
-            'My home for everything code. A Next.js app hosted on Vercel that includes a deep-dive into some of my projects, some of my public templates, and my story, which details how I got into coding and my motivation behind it.',
+            "My home for everything code. A Next.js app hosted on Vercel that includes a deep-dive into some of my public projects, templates and packages, and 'My story', which details how I got into coding and my motivation to code.",
           features: [
             {
               title: 'Ideal blogging platform',
@@ -114,12 +114,12 @@ const ProjectCard = props => {
             {
               title: 'Search engine friendly',
               description:
-                'Hosted on Vercel, the front-end utilises the standout features of Next.js including getStaticPaths and getStaticProps, which fetches data from the API and pre-renders it at build time, making it available to search engine crawlers.',
+                'Hosted on Vercel, the front-end utilises the standout features of Next.js including getStaticPaths and getStaticProps, which fetch data from the API and pre-render it at build time, making it available to search engine crawlers.',
             },
             {
               title: 'Ruby on Rails API',
               description:
-                "Hosted on Heroku, the separated backend handles all the application's data. This separation of concerns allows flexibility, as new front-ends (for example, an iOS app) could be added seemlessly, without needing to update the existing code.",
+                "Hosted on Heroku, the separated backend handles the application's data. This separation of concerns allows flexibility, as new front-ends (for example, an iOS app) could be added seemlessly, without the need to update the existing code.",
             },
             {
               title: 'S3 image hosting',
@@ -139,22 +139,22 @@ const ProjectCard = props => {
         return {
           title: "Where's Jethro?",
           description:
-            'A personal project to allow me to "check-in" from my current location, as a way of allowing people to find where in the world I am when I travel.',
+            'A personal project to allow me to "check-in" from my current location, as a way of allowing people to find where in the world I am.',
           features: [
             {
               title: 'React front-end',
               description:
-                'The front-end is built with pure React and hosted on Netlify. It includes a sign-in form and "check-in" form, where it utilises my phone\'s GPS to save my current location in a database.',
-            },
-            {
-              title: 'Mapbox API',
-              description:
-                'The locations are fetched from the database, and using the Mapbox API via the react-map-gl package, they are plotted to a map, allowing site visitors to see exactly where I am and have been.',
+                'The front-end is built with pure React and hosted on Netlify. It includes a sign-in form and a "check-in" form, which utilises my phone\'s GPS to send my current location to the API.',
             },
             {
               title: 'Ruby on Rails API',
               description:
-                'My login data and "check-ins" are stored in a separate Rails API that\'s hosted on Heroku.',
+                'My login data and "check-ins" are stored in the PostgreSQL database of this separated Rails API that\'s hosted on Heroku.',
+            },
+            {
+              title: 'Mapbox API',
+              description:
+                'The locations are fetched from the database, and using the Mapbox API via the react-map-gl package, are plotted to a map, allowing site visitors to see exactly where I am and have been.',
             },
             {
               title: 'Cloudinary image hosting',
