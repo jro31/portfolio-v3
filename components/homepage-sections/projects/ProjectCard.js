@@ -208,10 +208,23 @@ const ProjectCard = props => {
     }
   };
 
+  const conditionalButtonClasses = linkKey => {
+    if (Object.keys(projectInfo().links).length === 1) {
+      return 'rounded-md';
+    } else if (linkKey === Object.keys(projectInfo().links)[0]) {
+      return 'rounded-tl-md rounded-tr-md 2xs:rounded-tr-none 2xs:rounded-bl-md';
+    } else if (linkKey === Object.keys(projectInfo().links).slice(-1)[0]) {
+      return 'rounded-bl-md rounded-br-md 2xs:rounded-bl-none 2xs:rounded-tr-md 2xs:-ml-px';
+    } else {
+      return '2xs:-ml-px';
+    }
+  };
+
   return (
     <div className='snap-start bg-white scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl'>
       <section aria-labelledby='features-heading' className='relative h-full'>
         <div className='aspect-w-3 aspect-h-2 overflow-hidden sm:aspect-w-5 lg:aspect-none lg:absolute lg:w-1/2 lg:pr-4 xl:pr-16 lg:h-full lg:rounded-l-2xl'>
+          {/* FIXME - Image is not 'rounded' on mobile */}
           <img
             src={projectInfo().imageSrc}
             alt={projectInfo().title}
@@ -221,25 +234,27 @@ const ProjectCard = props => {
           />
         </div>
 
-        <div className='max-w-2xl mx-auto pt-16 pb-24 px-4 sm:pb-32 lg:pb-8 sm:px-6 lg:max-w-7xl lg:pt-8 lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:h-full lg:overflow-y-auto'>
-          <div className='lg:col-start-2'>
-            <h2 className='mt-4 text-4xl font-extrabold text-gray-900 tracking-tight'>
-              {projectInfo().title}
-            </h2>
-            <p className='mt-4 text-gray-500'>{projectInfo().description}</p>
+        <div className='max-w-2xl mx-auto pt-4 pb-24 px-4 sm:pb-32 lg:pb-8 sm:px-6 lg:max-w-7xl lg:pt-8 lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:h-full lg:overflow-y-auto'>
+          <div className='lg:col-start-2 flex flex-col justify-between'>
+            <div>
+              <h2 className='mt-4 text-2xl 2xs:text-4xl font-extrabold text-gray-900 tracking-tight'>
+                {projectInfo().title}
+              </h2>
+              <p className='mt-4 text-gray-500'>{projectInfo().description}</p>
 
-            {projectInfo().features && (
-              <dl className='mt-10 grid grid-cols-1 gap-y-10 gap-x-8 text-sm sm:grid-cols-2'>
-                {projectInfo().features.map(feature => (
-                  <div key={`${projectInfo().title}-${feature.title}-feature`}>
-                    <dt className='font-medium text-gray-900'>{feature.title}</dt>
-                    <dd className='mt-2 text-gray-500'>{feature.description}</dd>
-                  </div>
-                ))}
-              </dl>
-            )}
+              {projectInfo().features && (
+                <dl className='mt-10 grid grid-cols-1 gap-y-10 gap-x-8 text-sm sm:grid-cols-2'>
+                  {projectInfo().features.map(feature => (
+                    <div key={`${projectInfo().title}-${feature.title}-feature`}>
+                      <dt className='font-medium text-gray-900'>{feature.title}</dt>
+                      <dd className='mt-2 text-gray-500'>{feature.description}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+            </div>
             {projectInfo().links && Object.keys(projectInfo().links).length > 0 && (
-              <div className='relative z-0 inline-flex shadow-sm rounded-md mt-6'>
+              <div className='flex flex-col 2xs:flex-row 2xs:inline-flex relative z-0 rounded-md mt-6'>
                 {Object.keys(projectInfo().links).map(linkKey => (
                   <a
                     key={`${projectInfo().title}-${linkKey}-link`}
@@ -249,13 +264,9 @@ const ProjectCard = props => {
                   >
                     <button
                       type='button'
-                      className={`relative inline-flex items-center px-4 lg:px-3 xl:px-6 py-2 border border-gray-300 text-sm font-medium focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 ${
-                        linkKey === Object.keys(projectInfo().links)[0] ? 'rounded-l-md' : '-ml-px'
-                      } ${
-                        linkKey === Object.keys(projectInfo().links).slice(-1)[0]
-                          ? 'rounded-r-md'
-                          : ''
-                      } ${buttonColorClasses(linkKey)}`}
+                      className={`relative inline-flex justify-center 2xs:justify-start items-center shadow-sm px-4 lg:px-3 xl:px-6 py-2 border border-gray-300 text-sm font-medium focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-full 2xs:w-auto ${conditionalButtonClasses(
+                        linkKey
+                      )} ${buttonColorClasses(linkKey)}`}
                     >
                       {buttonText(linkKey)}
                     </button>
