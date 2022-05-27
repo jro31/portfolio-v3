@@ -1,5 +1,3 @@
-// FIXME - The project cards should be the same height as the 'scroll arrows' (like the pricing cards are). At the moment they're a bit too big.
-
 import { useSelector } from 'react-redux';
 import { blocksFalling, jethrosBistro, jethroCodes, mealsOfChange, wheresJethro } from './Projects';
 

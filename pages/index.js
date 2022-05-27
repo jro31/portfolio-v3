@@ -24,8 +24,8 @@ export let toolsSectionRef;
 export const sectionOrder = [
   homeSection,
   servicesSection,
-  toolsSection,
   projectsSection,
+  toolsSection,
   pricingSection,
   contactSection,
 ];
