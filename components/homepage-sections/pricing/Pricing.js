@@ -68,7 +68,7 @@ const Pricing = () => {
           ref={elementRef(pricingCards)}
           onMouseEnter={onHover}
           onMouseLeave={onLeaveHover}
-          className='flex basis-11/12 min-h-[80vh] relative'
+          className='flex basis-11/12 flex-1 relative'
         >
           <Pointer
             direction={left}
