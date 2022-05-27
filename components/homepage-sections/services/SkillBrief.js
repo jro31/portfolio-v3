@@ -63,7 +63,7 @@ const SkillBrief = props => {
       classNames={{ enterActive: enterActiveClassName() }}
     >
       <div className={`gap-4 lg:gap-0 ${skillsHasBeenInView ? 'flex' : 'hidden'}`}>
-        <div className='basis-1/6 xs:basis-1/8 lg:basis-1/6'>
+        <div className='basis-10 2xs:basis-12 lg:basis-24 flex-none'>
           <div
             className={`w-full lg:w-1/2 box-border p-3 rounded-1/2 ${
               skillDetails().backgroundColorClass
@@ -72,7 +72,7 @@ const SkillBrief = props => {
             {skillDetails().icon}
           </div>
         </div>
-        <div className='flex flex-col justify-center basis-5/6 xs:basis-7/8 lg:basis-5/6 gap-4'>
+        <div className='flex flex-col justify-center basis-5/6 xs:basis-7/8 lg:basis-5/6 flex-1 gap-4'>
           <Heading>{skillDetails().headingText}</Heading>
           <div className='text-slate-500'>{skillDetails().description}</div>
         </div>
