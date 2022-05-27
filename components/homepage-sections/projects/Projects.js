@@ -56,7 +56,7 @@ const Projects = () => {
       className='bg-gradient-to-bl from-slate-800 via-black to-slate-800 text-white'
     >
       <div className='flex flex-col justify-around min-h-screen lg:min-h-0 w-full h-full gap-5'>
-        <div className='flex w-full justify-end basis-1/12 shrink-0'>
+        <div className='flex w-full justify-end basis-1/12 shrink-0 lg:mt-4'>
           <div ref={elementRef(projectsTitle)} className='basis-11/12'>
             <CSSTransition
               in={titleHasBeenInView}

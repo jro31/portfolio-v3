@@ -53,7 +53,7 @@ const Pricing = () => {
   return (
     <SectionContainer section={pricingSection} className='bg-white'>
       <div className='flex flex-col justify-around min-h-screen lg:min-h-0 w-full h-full gap-5'>
-        <div className='flex w-full justify-end basis-1/12 shrink-0'>
+        <div className='flex w-full justify-end basis-1/12 shrink-0 lg:mt-4'>
           <div ref={elementRef(pricingTitle)} className='basis-11/12'>
             <CSSTransition
               in={titleHasBeenInView}
