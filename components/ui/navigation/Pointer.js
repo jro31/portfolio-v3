@@ -37,8 +37,8 @@ const Pointer = props => {
         onClick={props.onClick || null}
         className={`w-10 z-10 absolute top-0 bottom-6 flex justify-center items-center ${pointerColorClass()} ${
           props.direction === left
-            ? 'left-0 rounded-tr-3xl rounded-br-3xl'
-            : 'right-0 rounded-tl-3xl rounded-bl-3xl'
+            ? 'left-0 rounded-tr-2xl rounded-br-2xl'
+            : 'right-0 rounded-tl-2xl rounded-bl-2xl'
         }`}
       >
         <div className='w-7 h-7'>{pointerSvgComponent()}</div>
