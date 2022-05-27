@@ -5,12 +5,12 @@ const SectionContainer = props => {
 
   return (
     <div
-      className={`min-h-screen h-tall-screen-or-content box-border lg:snap-start pb-12 lg:pb-6 ${
+      className={`section-outer-container box-border lg:snap-start pb-12 lg:pb-6 ${
         props.className || ''
       }`}
       ref={elementRef(props.section)}
     >
-      <div className='pt-mobile-navbar-height lg:pt-navbar-height min-h-screen-minus-mobile-nav lg:min-h-screen-minus-nav h-full w-full'>
+      <div className='section-inner-container flex flex-col h-full pt-mobile-navbar-height lg:pt-navbar-height'>
         {props.children}
       </div>
     </div>

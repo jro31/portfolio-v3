@@ -31,7 +31,7 @@ const Home = () => {
 
   return (
     <SectionContainer section={homeSection} className='bg-black'>
-      <div className='flex flex-col lg:flex-row w-full lg:h-full'>
+      <div className='flex flex-1 flex-col justify-between lg:flex-row lg:justify-start w-full lg:h-full'>
         <div className='flex justify-center lg:justify-end lg:basis-1/2'>
           <div className='flex flex-col justify-around lg:basis-10/12'>
             <div className='flex flex-col gap-16'>
