@@ -1,6 +1,18 @@
+// FIXME - The project cards should be the same height as the 'scroll arrows' (like the pricing cards are). At the moment they're a bit too big.
+
+import { useSelector } from 'react-redux';
 import { blocksFalling, jethrosBistro, jethroCodes, mealsOfChange, wheresJethro } from './Projects';
 
+const siteUrl = 'siteUrl';
+const anatomyUrl = 'anatomyUrl';
+const gitHubUrl = 'githubUrl';
+
+const mobileButtonOrder = [gitHubUrl, anatomyUrl, siteUrl];
+const defaultButtonOrder = [siteUrl, anatomyUrl, gitHubUrl];
+
 const ProjectCard = props => {
+  const windowWidth = useSelector(state => state.windowDimensions.width);
+
   const projectInfo = () => {
     switch (props.project) {
       case blocksFalling:
@@ -31,9 +43,9 @@ const ProjectCard = props => {
             },
           ],
           links: {
-            siteUrl: 'https://blocksfalling.com/',
-            anatomyUrl: 'https://jethro.codes/projects/blocks-falling',
-            githubUrl: 'https://github.com/jro31/blocks-falling',
+            [siteUrl]: 'https://blocksfalling.com/',
+            [anatomyUrl]: 'https://jethro.codes/projects/blocks-falling',
+            [gitHubUrl]: 'https://github.com/jro31/blocks-falling',
           },
           imageSrc: 'images/blocks-falling-screenshot.png',
           imagePositionClass: 'object-bottom lg:object-center',
@@ -65,7 +77,7 @@ const ProjectCard = props => {
             },
           ],
           links: {
-            siteUrl: 'https://jethrosbistro.com/',
+            [siteUrl]: 'https://jethrosbistro.com/',
           },
           imageSrc: 'images/jethros-bistro-screenshot.png',
         };
@@ -97,9 +109,9 @@ const ProjectCard = props => {
             },
           ],
           links: {
-            siteUrl: 'https://jethro.codes/',
-            anatomyUrl: 'https://jethro.codes/projects/jethro-codes',
-            githubUrl: 'https://github.com/jro31/jethro-codes',
+            [siteUrl]: 'https://jethro.codes/',
+            [anatomyUrl]: 'https://jethro.codes/projects/jethro-codes',
+            [gitHubUrl]: 'https://github.com/jro31/jethro-codes',
           },
           imageSrc: 'images/jethro-codes-screenshot.png',
           imagePositionClass: 'object-left-top lg:object-left',
@@ -128,9 +140,9 @@ const ProjectCard = props => {
             },
           ],
           links: {
-            siteUrl: 'https://mealsofchange.com/',
-            anatomyUrl: 'https://jethro.codes/projects/meals-of-change',
-            githubUrl: 'https://github.com/jro31/meals-of-change-front-end',
+            [siteUrl]: 'https://mealsofchange.com/',
+            [anatomyUrl]: 'https://jethro.codes/projects/meals-of-change',
+            [gitHubUrl]: 'https://github.com/jro31/meals-of-change-front-end',
           },
           imageSrc: 'images/meals-of-change-screenshot.png',
           imagePositionClass: 'object-left',
@@ -162,8 +174,8 @@ const ProjectCard = props => {
             },
           ],
           links: {
-            siteUrl: 'https://wheresjethro.com/',
-            githubUrl: 'https://github.com/jro31/wheres-jethro-front-end',
+            [siteUrl]: 'https://wheresjethro.com/',
+            [gitHubUrl]: 'https://github.com/jro31/wheres-jethro-front-end',
           },
           imageSrc: 'images/wheres-jethro-screenshot.png',
           imagePositionClass: 'object-top lg:object-left',
@@ -173,13 +185,25 @@ const ProjectCard = props => {
     }
   };
 
+  const sortedLinkKeys = () => {
+    if (windowWidth < 384) {
+      return Object.keys(projectInfo().links).sort(
+        (a, b) => mobileButtonOrder.indexOf(a) - mobileButtonOrder.indexOf(b)
+      );
+    } else {
+      return Object.keys(projectInfo().links).sort(
+        (a, b) => defaultButtonOrder.indexOf(a) - defaultButtonOrder.indexOf(b)
+      );
+    }
+  };
+
   const buttonText = linkKey => {
     switch (linkKey) {
-      case 'siteUrl':
+      case siteUrl:
         return 'Visit site';
-      case 'githubUrl':
+      case gitHubUrl:
         return 'View on GitHub';
-      case 'anatomyUrl':
+      case anatomyUrl:
         return 'Anatomy of a project';
       default:
         throw new Error(
@@ -190,11 +214,11 @@ const ProjectCard = props => {
 
   const buttonColorClasses = linkKey => {
     switch (linkKey) {
-      case 'siteUrl':
+      case siteUrl:
         return 'text-white bg-indigo-600 hover:bg-indigo-700';
-      case 'githubUrl':
+      case gitHubUrl:
         return 'text-gray-700 bg-white hover:bg-gray-50';
-      case 'anatomyUrl':
+      case anatomyUrl:
         return 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100';
       default:
         throw new Error(
@@ -206,9 +230,9 @@ const ProjectCard = props => {
   const conditionalButtonClasses = linkKey => {
     if (Object.keys(projectInfo().links).length === 1) {
       return 'rounded-md';
-    } else if (linkKey === Object.keys(projectInfo().links)[0]) {
+    } else if (linkKey === sortedLinkKeys()[0]) {
       return 'rounded-tl-md rounded-tr-md 2xs:rounded-tr-none 2xs:rounded-bl-md';
-    } else if (linkKey === Object.keys(projectInfo().links).slice(-1)[0]) {
+    } else if (linkKey === sortedLinkKeys().slice(-1)[0]) {
       return 'rounded-bl-md rounded-br-md 2xs:rounded-bl-none 2xs:rounded-tr-md 2xs:-ml-px';
     } else {
       return '2xs:-ml-px';
@@ -252,7 +276,7 @@ const ProjectCard = props => {
             </div>
             {projectInfo().links && Object.keys(projectInfo().links).length > 0 && (
               <div className='flex flex-col 2xs:flex-row 2xs:inline-flex relative z-0 rounded-md mt-6'>
-                {Object.keys(projectInfo().links).map(linkKey => (
+                {sortedLinkKeys().map(linkKey => (
                   <a
                     key={`${projectInfo().title}-${linkKey}-link`}
                     href={projectInfo().links[linkKey]}
