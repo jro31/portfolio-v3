@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
@@ -7,18 +8,46 @@ const Portrait = () => {
   const portraitHasBeenInView = useSelector(
     state => state.elementIsInView.hasBeenInView[homePortrait]
   );
+  const [backgroundBeforeIsTransparent, setBackgroundBeforeIsTransparent] = useState(true);
+
+  const backgroundColorClasses = () => {
+    return 'from-blue-500 via-blue-900';
+  };
+
+  const backgroundBeforeColorClasses = () => {
+    return 'before:from-green-500 before:via-green-900';
+  };
+
+  const backgroundBeforeOpacityClass = () =>
+    backgroundBeforeIsTransparent ? 'before:opacity-0' : 'before:opacity-100';
+
+  useEffect(() => {
+    let timeout;
+
+    const toggleBackground = () => {
+      timeout = setTimeout(() => {
+        setBackgroundBeforeIsTransparent(prevState => !prevState);
+        toggleBackground();
+      }, 5000);
+    };
+
+    toggleBackground();
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
 
   return (
     <div className='flex lg:block justify-center lg:h-inherit'>
       <div className='relative lg:h-inherit max-w-[450px] lg:max-w-[770px]'>
-        {/* NICETOHAVE - Is it possible to gradually change these colors? */}
         <CSSTransition
           in={portraitHasBeenInView}
           timeout={4000}
           classNames={{ enterActive: 'animate-very-slow-fade-in' }}
         >
           <div
-            className={`absolute h-full w-full bg-gradient-radial from-blue-500 via-blue-900 to-black ${
+            className={`absolute h-full w-full bg-gradient-radial to-black before:transition-opacity before:duration-[5000ms] before:content-[''] before:absolute before:h-full before:w-full before:z-[5] before:bg-gradient-radial before:to-black ${backgroundColorClasses()} ${backgroundBeforeColorClasses()} ${backgroundBeforeOpacityClass()} ${
               portraitHasBeenInView ? 'block' : 'hidden'
             }`}
           />
