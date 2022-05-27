@@ -92,7 +92,7 @@ const Projects = () => {
           >
             <div
               ref={projectsContainerRef}
-              className={`overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scroll-smooth px-1/12 ${
+              className={`overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scroll-smooth px-1/12 mb-6 ${
                 projectCardsHasBeenInView ? 'flex' : 'hidden'
               }`}
             >
