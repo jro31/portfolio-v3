@@ -71,7 +71,7 @@ const Projects = () => {
           ref={elementRef(projectsCards)}
           onMouseEnter={onHover}
           onMouseLeave={onLeaveHover}
-          className='flex basis-11/12 min-h-[80vh] lg:min-h-0 relative'
+          className='flex basis-11/12 min-h-[80vh] relative'
         >
           <Pointer
             direction={left}

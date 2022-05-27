@@ -18,7 +18,7 @@ const Contact = () => {
 
   return (
     <SectionContainer section={contactSection} className='bg-gray-50'>
-      <div className='flex flex-col items-end justify-between min-h-screen-minus-mobile-nav lg:min-h-screen-minus-nav h-full w-full'>
+      <div className='flex flex-1 flex-col items-end justify-between'>
         <div ref={elementRef(contactTitle)} className='w-11/12 lg:mt-4'>
           <CSSTransition
             in={titleHasBeenInView}

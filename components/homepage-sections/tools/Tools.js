@@ -21,7 +21,7 @@ const Tools = () => {
       section={toolsSection}
       className='bg-gradient-to-br from-slate-800 via-black to-slate-800 text-white'
     >
-      <div className='flex flex-col items-end justify-between lg:justify-between min-h-screen-minus-mobile-nav lg:min-h-screen-minus-nav h-full w-full'>
+      <div className='flex flex-col flex-1 items-end justify-between h-full w-full'>
         <div className='flex flex-col w-11/12 gap-6 lg:mt-4'>
           <div ref={elementRef(toolsTitle)}>
             <CSSTransition

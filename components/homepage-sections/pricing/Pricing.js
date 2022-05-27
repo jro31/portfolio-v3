@@ -52,7 +52,7 @@ const Pricing = () => {
 
   return (
     <SectionContainer section={pricingSection} className='bg-white'>
-      <div className='flex flex-col justify-around min-h-screen lg:min-h-0 w-full h-full gap-5'>
+      <div className='flex flex-col flex-1 justify-around gap-5'>
         <div className='flex w-full justify-end basis-1/12 shrink-0 lg:mt-4'>
           <div ref={elementRef(pricingTitle)} className='basis-11/12'>
             <CSSTransition
@@ -68,7 +68,7 @@ const Pricing = () => {
           ref={elementRef(pricingCards)}
           onMouseEnter={onHover}
           onMouseLeave={onLeaveHover}
-          className='flex basis-11/12 min-h-[80vh] lg:min-h-0 relative'
+          className='flex basis-11/12 min-h-[80vh] relative'
         >
           <Pointer
             direction={left}
