@@ -22,7 +22,7 @@ const Portrait = () => {
     'from-blue-500 via-blue-900'
   );
   const [currentBackgroundBeforeColorClasses, setCurrentBackgroundBeforeColorClasses] = useState(
-    randomElement(backgroundBeforeColorClasses)
+    'before:from-fuchsia-500 before:via-fuchsia-900'
   );
   const [backgroundBeforeIsTransparent, setBackgroundBeforeIsTransparent] = useState(true);
   const backgroundBeforeIsTransparentRef = useRef(backgroundBeforeIsTransparent);
