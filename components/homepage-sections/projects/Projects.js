@@ -55,7 +55,7 @@ const Projects = () => {
       section={projectsSection}
       className='bg-gradient-to-bl from-slate-800 via-black to-slate-800 text-white'
     >
-      <div className='flex flex-col flex-1 justify-around gap-5'>
+      <div className='flex flex-col flex-1 justify-around lg:min-h-0 h-full gap-5'>
         <div className='flex w-full justify-end basis-1/12 shrink-0 lg:mt-4'>
           <div ref={elementRef(projectsTitle)} className='basis-11/12'>
             <CSSTransition
@@ -71,7 +71,7 @@ const Projects = () => {
           ref={elementRef(projectsCards)}
           onMouseEnter={onHover}
           onMouseLeave={onLeaveHover}
-          className='flex basis-11/12 flex-1 relative'
+          className='flex basis-11/12 min-h-[80vh] lg:min-h-0 relative'
         >
           <Pointer
             direction={left}
