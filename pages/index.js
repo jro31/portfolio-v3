@@ -97,7 +97,7 @@ export const refElementNames = [
 
 const appTitle = 'Jethro Williams - Web Development Services';
 const appDescription =
-  'We specialise in building personal and small business websites and APIs. Need a new web application or updates to your existing one? Contact us below to get started.';
+  'I specialise in building personal and small business websites and APIs. Need a new web application or updates to your existing one? Fill-in the contact form below to get started.';
 const baseUrl = 'https://jethrowilliams.com';
 const socialMediaImagePath = `${baseUrl}/images/home-screenshot.png`;
 
