@@ -67,8 +67,8 @@ const Portrait = () => {
 
   return (
     <div className='flex lg:block justify-center lg:h-inherit'>
-      <div className='relative lg:h-inherit max-w-[450px] lg:max-w-[770px]'>
-        <CSSTransition
+      <div className='relative lg:h-inherit max-w-[450px] lg:max-w-[770px] flex justify-center'>
+        {/* <CSSTransition
           in={portraitHasBeenInView}
           timeout={4000}
           classNames={{ enterActive: 'animate-very-slow-fade-in' }}
@@ -78,8 +78,8 @@ const Portrait = () => {
               portraitHasBeenInView ? 'block' : 'hidden'
             }`}
           />
-        </CSSTransition>
-        <div className='absolute h-full w-full flex flex-col'>
+        </CSSTransition> */}
+        {/* <div className='absolute h-full w-full flex flex-col'>
           <div className='basis-1/3 grow-0 shrink-0 flex'>
             <div className='basis-1/3 grow-0 shrink-0 z-20 bg-gradient-to-tl from-transparent via-black to-black' />
             <div className='basis-1/3 grow-0 shrink-0 z-20 bg-gradient-to-t from-transparent to-black' />
@@ -95,7 +95,7 @@ const Portrait = () => {
             <div className='basis-1/3 grow-0 shrink-0 z-20 bg-gradient-to-b from-transparent to-black' />
             <div className='basis-1/3 grow-0 shrink-0 z-20 bg-gradient-to-br from-transparent via-black to-black' />
           </div>
-        </div>
+        </div> */}
         {/* FIXME - Not urgent, but there's a slight 'jolt' on the image when loading the page at about 2 seconds */}
         <CSSTransition
           in={portraitHasBeenInView}
@@ -103,10 +103,10 @@ const Portrait = () => {
           classNames={{ enterActive: 'animate-slow-fade-in' }}
         >
           <img
-            src='/images/self-portrait.png'
+            src='/images/meals-of-change-2.gif'
             alt='Portrait'
-            className={`h-full w-full object-contain relative z-10 ${
-              portraitHasBeenInView ? 'block' : 'hidden'
+            className={`h-3/4 w-3/4 object-contain relative ${
+              portraitHasBeenInView ? 'hidden lg:block' : 'hidden'
             }`}
           />
         </CSSTransition>
