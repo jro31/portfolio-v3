@@ -89,8 +89,13 @@ const Home = () => {
             </div>
           </div>
 
-          {/* TODO - Add transition  */}
-          <ColorOrb displayClasses='hidden lg:block' in={descriptionHasBeenInView} />
+          <CSSTransition
+            in={descriptionHasBeenInView}
+            timeout={2500}
+            classNames={{ enterActive: 'animate-delated-slow-fade-in' }}
+          >
+            <ColorOrb displayClasses='hidden lg:block' in={descriptionHasBeenInView} />
+          </CSSTransition>
         </div>
         <div
           ref={elementRef(homeImage)}
@@ -102,7 +107,6 @@ const Home = () => {
             timeout={2000}
             classNames={{ enterActive: 'animate-slow-fade-in' }}
           >
-            {/* TODO - Resize this image */}
             <img
               src='/images/half-mac.jpg'
               alt='Portrait'
