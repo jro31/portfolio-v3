@@ -19,8 +19,8 @@ import {
   homeFindOutMoreMobileLinkRef,
   homeFindOutMoreDesktopLink,
   homeFindOutMoreDesktopLinkRef,
-  homePortrait,
-  homePortraitRef,
+  homeImage,
+  homeImageRef,
   pricingSection,
   pricingSectionRef,
   pricingTitle,
@@ -76,8 +76,8 @@ const useElementRefs = () => {
           return homeFindOutMoreMobileLinkRef;
         case homeFindOutMoreDesktopLink:
           return homeFindOutMoreDesktopLinkRef;
-        case homePortrait:
-          return homePortraitRef;
+        case homeImage:
+          return homeImageRef;
         case pricingSection:
           return pricingSectionRef;
         case pricingTitle:

@@ -49,14 +49,14 @@ export const homeFindOutMoreDesktopLink = 'home-find-out-more-desktop-link';
 export let homeFindOutMoreDesktopLinkRef;
 export const homeFindOutMoreMobileLink = 'home-find-out-more-mobile-link';
 export let homeFindOutMoreMobileLinkRef;
-export const homePortrait = 'home-portrait';
-export let homePortraitRef;
+export const homeImage = 'home-image';
+export let homeImageRef;
 const homeElements = [
   homeTitle,
   homeDescription,
   homeFindOutMoreMobileLink,
   homeFindOutMoreDesktopLink,
-  homePortrait,
+  homeImage,
 ];
 
 export const pricingTitle = 'pricing-title';
@@ -118,7 +118,7 @@ const HomePage = () => {
   homeDescriptionRef = useRef();
   homeFindOutMoreMobileLinkRef = useRef();
   homeFindOutMoreDesktopLinkRef = useRef();
-  homePortraitRef = useRef();
+  homeImageRef = useRef();
 
   pricingTitleRef = useRef();
   pricingCardsRef = useRef();

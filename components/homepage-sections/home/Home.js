@@ -1,3 +1,6 @@
+// TODO - Remember to update the social media image
+// TODO - Delete any components (portrait) you're no longer using
+
 import { useSelector } from 'react-redux';
 
 import Title from '../../ui/text/Title';
@@ -6,16 +9,16 @@ import {
   homeDescription,
   homeFindOutMoreDesktopLink,
   homeFindOutMoreMobileLink,
-  homePortrait,
+  homeImage,
   homeSection,
   homeTitle,
 } from '../../../pages';
-import Portrait from './Portrait';
 import FindOutMoreLink from './FindOutMoreLink';
 import Description from '../../ui/text/Description';
 import useElementRef from '../../../hooks/useElementRef';
 import { CSSTransition } from 'react-transition-group';
 import ColorOrb from './colorOrb';
+import FadeCircle from './FadeCircle';
 
 const Home = () => {
   const titleHasBeenInView = useSelector(state => state.elementIsInView.hasBeenInView[homeTitle]);
@@ -28,6 +31,7 @@ const Home = () => {
   const desktopFindOutMoreLinkHasBeenInView = useSelector(
     state => state.elementIsInView.hasBeenInView[homeFindOutMoreDesktopLink]
   );
+  const imageHasBeenInView = useSelector(state => state.elementIsInView.hasBeenInView[homeImage]);
   const elementRef = useElementRef();
 
   return (
@@ -85,10 +89,26 @@ const Home = () => {
             </div>
           </div>
 
-          <ColorOrb displayClasses='hidden lg:block' />
+          {/* TODO - Add transition  */}
+          <ColorOrb displayClasses='hidden lg:block' in={descriptionHasBeenInView} />
         </div>
-        <div ref={elementRef(homePortrait)} className='lg:basis-1/2 lg:h-inherit'>
-          <Portrait />
+        <div
+          ref={elementRef(homeImage)}
+          className='flex flex-col justify-center items-center lg:basis-1/2 z-10 relative'
+        >
+          <FadeCircle />
+          <CSSTransition
+            in={imageHasBeenInView}
+            timeout={2000}
+            classNames={{ enterActive: 'animate-slow-fade-in' }}
+          >
+            {/* TODO - Resize this image */}
+            <img
+              src='/images/half-mac.jpg'
+              alt='Portrait'
+              className={`h-full w-full object-cover ${imageHasBeenInView ? 'block' : 'hidden'}`}
+            />
+          </CSSTransition>
         </div>
         <div ref={elementRef(homeFindOutMoreMobileLink)} className='flex justify-center my-5 z-20'>
           <CSSTransition
@@ -101,7 +121,6 @@ const Home = () => {
             />
           </CSSTransition>
         </div>
-        <ColorOrb displayClasses='lg:hidden' />
       </div>
     </SectionContainer>
   );
