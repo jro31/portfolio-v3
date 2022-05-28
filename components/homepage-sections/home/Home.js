@@ -14,7 +14,7 @@ import FindOutMoreLink from './FindOutMoreLink';
 import Description from '../../ui/text/Description';
 import useElementRef from '../../../hooks/useElementRef';
 import { CSSTransition } from 'react-transition-group';
-import ColorOrb from './colorOrb';
+import ColorOrb from './ColorOrb';
 import FadeCircle from './FadeCircle';
 
 const Home = () => {

@@ -20,7 +20,6 @@ const backgroundBeforeColorClasses = [
   'before:from-emerald-500 before:via-emerald-900',
   'before:from-rose-500 before:via-rose-900',
   'before:from-pink-500 before:via-pink-900',
-  // 'before:from-fuchsia-500 before:via-fuchsia-900',
   'before:from-cyan-500 before:via-cyan-900',
   'before:from-teal-500 before:via-teal-900',
   'before:from-lime-500 before:via-lime-900',
