@@ -49,14 +49,14 @@ export const homeFindOutMoreDesktopLink = 'home-find-out-more-desktop-link';
 export let homeFindOutMoreDesktopLinkRef;
 export const homeFindOutMoreMobileLink = 'home-find-out-more-mobile-link';
 export let homeFindOutMoreMobileLinkRef;
-export const homePortrait = 'home-portrait';
-export let homePortraitRef;
+export const homeImage = 'home-image';
+export let homeImageRef;
 const homeElements = [
   homeTitle,
   homeDescription,
   homeFindOutMoreMobileLink,
   homeFindOutMoreDesktopLink,
-  homePortrait,
+  homeImage,
 ];
 
 export const pricingTitle = 'pricing-title';
@@ -99,7 +99,7 @@ const appTitle = 'Jethro Williams - Web Development Services';
 const appDescription =
   'I specialise in building personal and small business websites and APIs. Need a new web application or updates to your existing one? Fill-in the contact form below to get started.';
 const baseUrl = 'https://jethrowilliams.com';
-const socialMediaImagePath = `${baseUrl}/images/home-screenshot.png`;
+const socialMediaImagePath = `${baseUrl}/images/social-media-image.png`;
 
 const HomePage = () => {
   contactSectionRef = useRef();
@@ -118,7 +118,7 @@ const HomePage = () => {
   homeDescriptionRef = useRef();
   homeFindOutMoreMobileLinkRef = useRef();
   homeFindOutMoreDesktopLinkRef = useRef();
-  homePortraitRef = useRef();
+  homeImageRef = useRef();
 
   pricingTitleRef = useRef();
   pricingCardsRef = useRef();

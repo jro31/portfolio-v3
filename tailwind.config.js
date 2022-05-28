@@ -16,6 +16,7 @@ module.exports = {
         'delayed-fade-in-2': 'delayedFadeIn2 2s linear',
         'delayed-fade-in-3': 'delayedFadeIn3 2.5s linear',
         'delayed-fade-in-4': 'delayedFadeIn4 3s linear',
+        'delated-slow-fade-in': 'delayedSlowFadeIn 2.5s linear',
         'fade-in': 'fadeIn 1s linear',
         'fade-out': 'fadeOut 1s linear',
         'fast-fade-in': 'fadeIn 0.25s linear',
@@ -66,6 +67,11 @@ module.exports = {
         delayedFadeIn4: {
           '0%': { opacity: 0 },
           '66%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+        delayedSlowFadeIn: {
+          '0%': { opacity: 0 },
+          '20%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
         fadeIn: {

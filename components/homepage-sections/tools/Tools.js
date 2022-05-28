@@ -39,7 +39,9 @@ const Tools = () => {
               classNames={{ enterActive: 'animate-slide-fade-up-delayed' }}
             >
               <Description
-                className={`md:w-2/3 lg:w-5/12 ${descriptionHasBeenInView ? 'block' : 'hidden'}`}
+                className={`text-slate-600  md:w-2/3 lg:w-5/12 ${
+                  descriptionHasBeenInView ? 'block' : 'hidden'
+                }`}
               >
                 I work primarily with Ruby on Rails and React/Next.js, using the tools necessary to
                 bring them to life, including...
