@@ -1,6 +1,3 @@
-// TODO - Remember to update the social media image
-// TODO - Delete any components (portrait) you're no longer using
-
 import { useSelector } from 'react-redux';
 
 import Title from '../../ui/text/Title';
@@ -109,7 +106,7 @@ const Home = () => {
           >
             <img
               src='/images/half-mac.jpg'
-              alt='Portrait'
+              alt='Half mac'
               className={`h-full w-full object-cover ${imageHasBeenInView ? 'block' : 'hidden'}`}
             />
           </CSSTransition>

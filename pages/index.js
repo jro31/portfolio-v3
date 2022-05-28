@@ -99,7 +99,7 @@ const appTitle = 'Jethro Williams - Web Development Services';
 const appDescription =
   'I specialise in building personal and small business websites and APIs. Need a new web application or updates to your existing one? Fill-in the contact form below to get started.';
 const baseUrl = 'https://jethrowilliams.com';
-const socialMediaImagePath = `${baseUrl}/images/home-screenshot.png`;
+const socialMediaImagePath = `${baseUrl}/images/social-media-image.png`;
 
 const HomePage = () => {
   contactSectionRef = useRef();
