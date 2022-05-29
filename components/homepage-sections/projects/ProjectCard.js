@@ -2,6 +2,8 @@ import { useSelector } from 'react-redux';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline';
 
 import { blocksFalling, jethrosBistro, jethroCodes, mealsOfChange, wheresJethro } from './Projects';
+import useScrollTo from '../../../hooks/useScrollTo';
+import { projectsSection } from '../../../pages';
 
 const siteUrl = 'siteUrl';
 const anatomyUrl = 'anatomyUrl';
@@ -12,6 +14,7 @@ const defaultButtonOrder = [siteUrl, anatomyUrl, gitHubUrl];
 
 const ProjectCard = props => {
   const windowWidth = useSelector(state => state.windowDimensions.width);
+  const scrollTo = useScrollTo();
 
   const projectInfo = () => {
     switch (props.project) {
@@ -239,6 +242,11 @@ const ProjectCard = props => {
     }
   };
 
+  const handleFeaturesToggle = () => {
+    if (props.mobileFeaturesAreVisible) scrollTo(projectsSection);
+    props.setMobileFeaturesAreVisible(prevState => !prevState);
+  };
+
   return (
     // FIXME - The bottom border of the cards is hidden on safari on desktop
     <div className='snap-start bg-white scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl'>
@@ -286,7 +294,7 @@ const ProjectCard = props => {
               </div>
               <div className='flex sm:hidden justify-self-end flex-col items-center w-full mt-6'>
                 <button
-                  onClick={() => props.setMobileFeaturesAreVisible(prevState => !prevState)}
+                  onClick={handleFeaturesToggle}
                   type='button'
                   className={`inline-flex items-center p-2 border border-transparent rounded-full shadow-sm text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none ${
                     props.mobileFeaturesAreVisible ? '' : 'animate-bounce'
