@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { blocksFalling, jethrosBistro, jethroCodes, mealsOfChange, wheresJethro } from './Projects';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline';
+
+import { blocksFalling, jethrosBistro, jethroCodes, mealsOfChange, wheresJethro } from './Projects';
 
 const siteUrl = 'siteUrl';
 const anatomyUrl = 'anatomyUrl';
@@ -12,7 +12,6 @@ const defaultButtonOrder = [siteUrl, anatomyUrl, gitHubUrl];
 
 const ProjectCard = props => {
   const windowWidth = useSelector(state => state.windowDimensions.width);
-  const [mobileFeaturesAreVisible, setMobileFeaturesAreVisible] = useState(false);
 
   const projectInfo = () => {
     switch (props.project) {
@@ -259,36 +258,42 @@ const ProjectCard = props => {
 
         <div className='flex-1 max-w-2xl mx-auto pt-4 pb-6 px-4 sm:pb-8 sm:px-6 lg:max-w-7xl lg:pt-8 lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:h-full lg:overflow-y-auto'>
           <div className='lg:col-start-2 flex flex-col justify-between h-full'>
-            <div>
-              <h2 className='mt-4 text-2xl 2xs:text-4xl font-extrabold text-gray-900 tracking-tight'>
-                {projectInfo().title}
-              </h2>
-              <p className='mt-4 text-gray-500'>{projectInfo().description}</p>
+            <div
+              className={`flex flex-col grow ${
+                props.mobileFeaturesAreVisible ? 'justify-between' : 'justify-start'
+              }`}
+            >
+              <div>
+                <h2 className='mt-4 text-2xl 2xs:text-4xl font-extrabold text-gray-900 tracking-tight'>
+                  {projectInfo().title}
+                </h2>
+                <p className='mt-4 text-gray-500'>{projectInfo().description}</p>
 
-              {projectInfo().features && (
-                <dl
-                  className={`grid-cols-1 mt-10 gap-y-10 gap-x-8 text-sm sm:grid-cols-2 ${
-                    mobileFeaturesAreVisible ? 'grid' : 'hidden sm:grid'
-                  }`}
-                >
-                  {projectInfo().features.map(feature => (
-                    <div key={`${projectInfo().title}-${feature.title}-feature`}>
-                      <dt className='font-medium text-gray-900'>{feature.title}</dt>
-                      <dd className='mt-2 text-gray-500'>{feature.description}</dd>
-                    </div>
-                  ))}
-                </dl>
-              )}
-              <div className='flex sm:hidden justify-center w-full mt-6'>
+                {projectInfo().features && (
+                  <dl
+                    className={`grid-cols-1 mt-10 gap-y-10 gap-x-8 text-sm sm:grid-cols-2 ${
+                      props.mobileFeaturesAreVisible ? 'grid' : 'hidden sm:grid'
+                    }`}
+                  >
+                    {projectInfo().features.map(feature => (
+                      <div key={`${projectInfo().title}-${feature.title}-feature`}>
+                        <dt className='font-medium text-gray-900'>{feature.title}</dt>
+                        <dd className='mt-2 text-gray-500'>{feature.description}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+              </div>
+              <div className='flex sm:hidden justify-self-end flex-col items-center w-full mt-6'>
                 <button
-                  onClick={() => setMobileFeaturesAreVisible(prevState => !prevState)}
+                  onClick={() => props.setMobileFeaturesAreVisible(prevState => !prevState)}
                   type='button'
-                  className={`inline-flex items-center p-2 border border-transparent rounded-full shadow-sm text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
-                    mobileFeaturesAreVisible ? '' : 'animate-bounce'
+                  className={`inline-flex items-center p-2 border border-transparent rounded-full shadow-sm text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none ${
+                    props.mobileFeaturesAreVisible ? '' : 'animate-bounce'
                   }`}
                 >
-                  {!mobileFeaturesAreVisible && <ChevronDownIcon className='w-8 h-8' />}
-                  {mobileFeaturesAreVisible && <ChevronUpIcon className='w-8 h-8' />}
+                  {!props.mobileFeaturesAreVisible && <ChevronDownIcon className='w-8 h-8' />}
+                  {props.mobileFeaturesAreVisible && <ChevronUpIcon className='w-8 h-8' />}
                 </button>
               </div>
             </div>

@@ -25,6 +25,7 @@ const Projects = () => {
     state => state.elementIsInView.hasBeenInView[projectsCards]
   );
   const [isHovering, setIsHovering] = useState(false);
+  const [mobileFeaturesAreVisible, setMobileFeaturesAreVisible] = useState(false);
   const projectsContainerRef = useRef();
   const elementRef = useElementRef();
 
@@ -97,7 +98,12 @@ const Projects = () => {
               }`}
             >
               {projectsOrder.map(project => (
-                <ProjectCard key={`${project}-project`} project={project} />
+                <ProjectCard
+                  key={`${project}-project`}
+                  project={project}
+                  mobileFeaturesAreVisible={mobileFeaturesAreVisible}
+                  setMobileFeaturesAreVisible={setMobileFeaturesAreVisible}
+                />
               ))}
               <div>&#160;&#160;</div>
             </div>
