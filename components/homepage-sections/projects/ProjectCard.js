@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { blocksFalling, jethrosBistro, jethroCodes, mealsOfChange, wheresJethro } from './Projects';
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline';
 
 const siteUrl = 'siteUrl';
 const anatomyUrl = 'anatomyUrl';
@@ -10,6 +12,7 @@ const defaultButtonOrder = [siteUrl, anatomyUrl, gitHubUrl];
 
 const ProjectCard = props => {
   const windowWidth = useSelector(state => state.windowDimensions.width);
+  const [mobileFeaturesAreVisible, setMobileFeaturesAreVisible] = useState(false);
 
   const projectInfo = () => {
     switch (props.project) {
@@ -263,7 +266,11 @@ const ProjectCard = props => {
               <p className='mt-4 text-gray-500'>{projectInfo().description}</p>
 
               {projectInfo().features && (
-                <dl className='mt-10 grid grid-cols-1 gap-y-10 gap-x-8 text-sm sm:grid-cols-2'>
+                <dl
+                  className={`grid-cols-1 mt-10 gap-y-10 gap-x-8 text-sm sm:grid-cols-2 ${
+                    mobileFeaturesAreVisible ? 'grid' : 'hidden sm:grid'
+                  }`}
+                >
                   {projectInfo().features.map(feature => (
                     <div key={`${projectInfo().title}-${feature.title}-feature`}>
                       <dt className='font-medium text-gray-900'>{feature.title}</dt>
@@ -272,6 +279,18 @@ const ProjectCard = props => {
                   ))}
                 </dl>
               )}
+              <div className='flex sm:hidden justify-center w-full mt-6'>
+                <button
+                  onClick={() => setMobileFeaturesAreVisible(prevState => !prevState)}
+                  type='button'
+                  className={`inline-flex items-center p-2 border border-transparent rounded-full shadow-sm text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
+                    mobileFeaturesAreVisible ? '' : 'animate-bounce'
+                  }`}
+                >
+                  {!mobileFeaturesAreVisible && <ChevronDownIcon className='w-8 h-8' />}
+                  {mobileFeaturesAreVisible && <ChevronUpIcon className='w-8 h-8' />}
+                </button>
+              </div>
             </div>
             {projectInfo().links && Object.keys(projectInfo().links).length > 0 && (
               <div className='flex flex-col 2xs:flex-row 2xs:inline-flex relative z-0 rounded-md mt-6'>
