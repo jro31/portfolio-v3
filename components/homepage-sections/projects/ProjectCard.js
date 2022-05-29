@@ -238,6 +238,7 @@ const ProjectCard = props => {
   };
 
   return (
+    // FIXME - The bottom border of the cards is hidden on safari on desktop
     <div className='snap-start bg-white scroll-ml-1/12-screen mr-4 xs:mr-6 md:mr-8 lg:mr-10 min-w-full rounded-2xl'>
       <section
         aria-labelledby='features-heading'

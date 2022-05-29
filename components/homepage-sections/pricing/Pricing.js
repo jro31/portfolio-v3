@@ -89,7 +89,7 @@ const Pricing = () => {
           >
             <div
               ref={pricingCardsContainerRef}
-              className={`overflow-x-scroll snap-x snap-mandatory scroll-smooth px-1/12 mb-6 ${
+              className={`hide-scroll-bars overflow-x-scroll snap-x snap-mandatory scroll-smooth px-1/12 mb-6 ${
                 pricingCardsHasBeenInView ? 'flex' : 'hidden'
               }`}
             >

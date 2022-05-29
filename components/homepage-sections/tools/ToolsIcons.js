@@ -58,7 +58,10 @@ const ToolsIcons = () => {
           <TrianglePointers onClickLeft={scrollLeftHandler} onClickRight={scrollRightHandler} />
         </div>
       </CSSTransition>
-      <div ref={iconsContainerRef} className='overflow-x-scroll w-full pl-1/12 scroll-smooth'>
+      <div
+        ref={iconsContainerRef}
+        className='hide-scroll-bars overflow-x-scroll w-full pl-1/12 scroll-smooth'
+      >
         <div ref={elementRef(toolsIcons)} className='flex gap-5 w-full min-h-[208px]'>
           {/* NICETOHAVE - Can you make each SVG a different color, and transition them periodically to other colors? */}
           {/* Probably give the container a class and add a wildcard transition to all child elements in the global css */}
