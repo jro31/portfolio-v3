@@ -143,7 +143,6 @@ const ProjectCard = props => {
             },
           ],
           links: {
-            [siteUrl]: 'https://mealsofchange.com/',
             [anatomyUrl]: 'https://jethro.codes/projects/meals-of-change',
             [gitHubUrl]: 'https://github.com/jro31/meals-of-change-front-end',
           },
@@ -177,7 +176,6 @@ const ProjectCard = props => {
             },
           ],
           links: {
-            [siteUrl]: 'https://wheresjethro.com/',
             [gitHubUrl]: 'https://github.com/jro31/wheres-jethro-front-end',
           },
           imageSrc: 'images/wheres-jethro-screenshot.png',
