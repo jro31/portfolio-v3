@@ -79,7 +79,7 @@ const PricingCard = props => {
             },
             {
               name: 'jethro.codes',
-              href: 'https://jethro.codes/',
+              href: 'https://code.jethrowilliams.com/',
             },
           ],
         };

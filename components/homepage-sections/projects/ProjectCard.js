@@ -47,7 +47,7 @@ const ProjectCard = props => {
           ],
           links: {
             [siteUrl]: 'https://blocksfalling.com/',
-            [anatomyUrl]: 'https://jethro.codes/projects/blocks-falling',
+            [anatomyUrl]: 'https://code.jethrowilliams.com/projects/blocks-falling',
             [gitHubUrl]: 'https://github.com/jro31/blocks-falling',
           },
           imageSrc: 'images/blocks-falling-screenshot.png',
@@ -112,8 +112,8 @@ const ProjectCard = props => {
             },
           ],
           links: {
-            [siteUrl]: 'https://jethro.codes/',
-            [anatomyUrl]: 'https://jethro.codes/projects/jethro-codes',
+            [siteUrl]: 'https://code.jethrowilliams.com/',
+            [anatomyUrl]: 'https://code.jethrowilliams.com/projects/jethro-codes',
             [gitHubUrl]: 'https://github.com/jro31/jethro-codes',
           },
           imageSrc: 'images/jethro-codes-screenshot.png',
@@ -143,7 +143,7 @@ const ProjectCard = props => {
             },
           ],
           links: {
-            [anatomyUrl]: 'https://jethro.codes/projects/meals-of-change',
+            [anatomyUrl]: 'https://code.jethrowilliams.com/projects/meals-of-change',
             [gitHubUrl]: 'https://github.com/jro31/meals-of-change-front-end',
           },
           imageSrc: 'images/meals-of-change-screenshot.png',
