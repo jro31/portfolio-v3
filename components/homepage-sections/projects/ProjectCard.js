@@ -46,7 +46,7 @@ const ProjectCard = props => {
             },
           ],
           links: {
-            [siteUrl]: 'https://blocksfalling.com/',
+            [siteUrl]: 'https://blocks.jethrowilliams.com/',
             [anatomyUrl]: 'https://code.jethrowilliams.com/projects/blocks-falling',
             [gitHubUrl]: 'https://github.com/jro31/blocks-falling',
           },
