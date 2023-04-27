@@ -75,7 +75,7 @@ const PricingCard = props => {
           exampleProjects: [
             {
               name: "Jethro's Bistro",
-              href: 'https://jethrosbistro.com/',
+              href: 'https://bistro.jethrowilliams.com/',
             },
             {
               name: 'jethro.codes',

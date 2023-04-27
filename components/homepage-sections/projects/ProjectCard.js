@@ -80,7 +80,7 @@ const ProjectCard = props => {
             },
           ],
           links: {
-            [siteUrl]: 'https://jethrosbistro.com/',
+            [siteUrl]: 'https://bistro.jethrowilliams.com/',
           },
           imageSrc: 'images/jethros-bistro-screenshot.png',
         };
